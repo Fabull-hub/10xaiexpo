@@ -409,6 +409,24 @@ footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top:
   .feed-title { font-size: 13px; }
 }
 
+
+/* v4.3: Editor's Deep Dives (moved from homepage) */
+.deep-dives { max-width: var(--max-w); margin: 40px auto 0; padding: 0 28px; }
+.deep-dives .section-header { margin-bottom: 16px; }
+.deep-dives-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.deep-dive-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; transition: all 0.15s; display: flex; flex-direction: column; }
+.deep-dive-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+.dd-image { aspect-ratio: 16/10; overflow: hidden; background: var(--bg-elevated); }
+.dd-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dd-body { padding: 14px 16px 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.dd-meta { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-subtle); font-weight: 700; }
+.dd-cat { color: var(--lime); }
+.dd-cat.cyan { color: var(--cyan); }
+.dd-cat.pink { color: var(--pink); }
+.deep-dive-card h3 { font-family: var(--font-editorial); font-size: 17px; font-weight: 600; line-height: 1.25; letter-spacing: -0.02em; color: var(--text); }
+.deep-dive-card p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+.dd-footer { margin-top: auto; padding-top: 8px; display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-subtle); font-family: var(--font-mono); font-weight: 600; }
+@media (max-width: 900px) { .deep-dives-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -910,6 +928,46 @@ footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top:
     </div>
   </div>
 
+</div>
+
+<!-- EDITOR'S DEEP DIVES -->
+<div class="deep-dives">
+  <div class="section-header">
+    <div class="section-header-left">
+      <span class="section-kicker">Editor's Deep Dives</span>
+      <h2 class="section-title">The stories <em>worth your time</em>.</h2>
+    </div>
+    <div class="section-see-all">All essays</div>
+  </div>
+  <div class="deep-dives-grid">
+    <article class="deep-dive-card">
+      <div class="dd-image"><img src="images/story-1-ai-stack.jpg" alt="$99 AI stack" loading="lazy"></div>
+      <div class="dd-body">
+        <div class="dd-meta"><span class="dd-cat">Deep Dive</span> - <span>12 min</span></div>
+        <h3>The $99 AI stack that replaced $2,400/mo of software</h3>
+        <p>James tore up his tech stack in 2026. Here is the exact 7-tool setup running his 6-figure consulting business.</p>
+        <div class="dd-footer"><div class="avatar-tiny">JK</div><span>James Kim - yesterday</span></div>
+      </div>
+    </article>
+    <article class="deep-dive-card">
+      <div class="dd-image"><img src="images/story-2-claude-vs-gpt.jpg" alt="Claude vs GPT" loading="lazy"></div>
+      <div class="dd-body">
+        <div class="dd-meta"><span class="dd-cat cyan">Comparison</span> - <span>9 min</span></div>
+        <h3>Claude 5 vs GPT-5.5: 40 real tasks. The results.</h3>
+        <p>No cherry-picked benchmarks. 40 identical prompts across marketing, research, coding, and creative writing.</p>
+        <div class="dd-footer"><div class="avatar-tiny">MR</div><span>Maya Rodriguez - 3d ago</span></div>
+      </div>
+    </article>
+    <article class="deep-dive-card">
+      <div class="dd-image"><img src="images/story-3-ai-agents.jpg" alt="AI agents" loading="lazy"></div>
+      <div class="dd-body">
+        <div class="dd-meta"><span class="dd-cat pink">Future Watch</span> - <span>7 min</span></div>
+        <h3>AI agents that actually ship work. 8 we tested.</h3>
+        <p>2025 was hype. 2026 is reality: autonomous agents that complete real tasks. Our editors tested every major one.</p>
+        <div class="dd-footer"><div class="avatar-tiny">AC</div><span>Aisha Chen - 4d ago</span></div>
+      </div>
+    </article>
+  </div>
 </div>
 
 <!-- NEWSLETTER INLINE (reuse existing) -->
