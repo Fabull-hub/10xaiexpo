@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stacks: pre-built AI tool combinations — 10X AI Expo</title>
+<meta name="description" content="Curated AI tool stacks for specific use cases. The $99 solopreneur stack, the founder stack, the content creator stack. Coming soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0A0A0B; --bg-elevated: #111114; --bg-card: #16171B; --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.10); --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7; --text-muted: #9A9A95; --text-subtle: #5F5F5A; --text-inverse: #0A0A0B;
+  --lime: #B4FF3A; --lime-hover: #C4FF5A; --lime-subtle: rgba(180,255,58,0.08); --lime-tint: rgba(180,255,58,0.14); --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF; --cyan-subtle: rgba(58,189,255,0.10);
+  --pink: #FF6B9D; --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800; --amber-subtle: rgba(255,184,0,0.10);
+  --violet: #A88BFF; --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3); --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1400px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10); --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B; --text-muted: #4A4A45; --text-subtle: #8A8A85; --text-inverse: #FAFAF7;
+  --lime: #6BAA00; --lime-hover: #7CB800; --lime-subtle: rgba(107,170,0,0.08); --lime-tint: rgba(107,170,0,0.14); --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7; --pink: #D63A6E; --amber: #B8890C; --violet: #7458A0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 24px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 32px; }
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark { width: 32px; height: 32px; background: var(--lime); color: var(--bg); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 15px; box-shadow: 0 0 20px var(--lime-glow); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1; }
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link { padding: 6px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; color: var(--text-muted); transition: all 0.12s; cursor: pointer; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after { content: ''; position: absolute; top: 4px; right: 3px; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime-glow); }
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input { width: 100%; padding: 8px 14px 8px 36px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-primary { padding: 8px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; transition: all 0.15s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline { padding: 8px 16px; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; transition: all 0.12s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 12px 28px 0; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); display: flex; align-items: center; gap: 8px; }
+.breadcrumb a { cursor: pointer; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .sep { color: var(--text-subtle); }
+.breadcrumb .current { color: var(--text); font-weight: 600; }
+
+.stacks-hero { max-width: var(--max-w); margin: 0 auto; padding: 40px 28px 24px; }
+.stacks-hero-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; background: var(--violet-subtle); border: 1px solid rgba(168,139,255,0.20); border-radius: 100px; font-family: var(--font-mono); font-size: 11px; color: var(--violet); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 16px; }
+.stacks-hero h1 { font-family: var(--font-editorial); font-size: clamp(36px, 5vw, 56px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 16px; max-width: 900px; }
+.stacks-hero h1 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.stacks-hero .subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.55; max-width: 720px; }
+.stacks-hero .subtitle strong { color: var(--text); font-weight: 600; }
+
+.cs-banner { max-width: var(--max-w); margin: 20px auto 0; padding: 0 28px; }
+.cs-banner-inner { background: linear-gradient(135deg, var(--violet-subtle) 0%, var(--lime-subtle) 100%); border: 1px solid var(--lime-tint); border-left: 3px solid var(--lime); border-radius: var(--r-lg); padding: 20px 26px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.cs-icon { font-size: 22px; }
+.cs-body { flex: 1; min-width: 240px; }
+.cs-body h3 { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+.cs-body p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+.preview-section { max-width: var(--max-w); margin: 40px auto 0; padding: 0 28px; }
+.section-kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 8px; display: block; }
+.section-title { font-family: var(--font-editorial); font-size: clamp(24px, 3vw, 34px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 22px; }
+.section-title em { color: var(--lime); font-style: italic; font-weight: 500; }
+
+.stacks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.stack-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 22px 24px; display: flex; flex-direction: column; gap: 14px; position: relative; opacity: 0.75; cursor: not-allowed; overflow: hidden; }
+.stack-card::before { content: 'PREVIEW'; position: absolute; top: 12px; right: 12px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; font-weight: 700; color: var(--text-subtle); padding: 3px 7px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 3px; }
+.stack-cat { font-family: var(--font-mono); font-size: 10px; color: var(--violet); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+.stack-title { font-family: var(--font-editorial); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; }
+.stack-price-row { display: flex; align-items: baseline; gap: 10px; padding-top: 4px; }
+.stack-price { font-family: var(--font-editorial); font-size: 32px; font-weight: 600; color: var(--lime); letter-spacing: -0.02em; line-height: 1; }
+.stack-price-unit { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.05em; }
+.stack-tools-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); letter-spacing: 0.03em; font-weight: 600; margin-bottom: 4px; }
+.stack-tools { display: flex; flex-wrap: wrap; gap: 6px; }
+.stack-tool-chip { font-family: var(--font-mono); font-size: 10px; padding: 3px 8px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.02em; }
+.stack-cta { padding: 10px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-family: var(--font-mono); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; text-align: center; margin-top: auto; opacity: 0.5; }
+
+.notify-section { max-width: var(--max-w); margin: 40px auto 0; padding: 0 28px; }
+.notify-inner { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); border-radius: var(--r-xl); padding: 32px; text-align: center; }
+.notify-inner .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 8px; }
+.notify-inner h3 { font-family: var(--font-editorial); font-size: 26px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+.notify-inner h3 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.notify-inner p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; max-width: 500px; margin-left: auto; margin-right: auto; }
+.notify-form { display: inline-flex; gap: 6px; max-width: 480px; width: 100%; }
+.notify-form input { flex: 1; padding: 11px 14px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.notify-form input:focus { border-color: var(--lime); }
+
+footer { max-width: var(--max-w); margin: 60px auto 0; padding: 32px 28px 40px; border-top: 1px solid var(--border); text-align: center; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.05em; }
+footer .disclaimer { margin-top: 8px; max-width: 640px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--bg-card); border: 1px solid var(--lime-tint); color: var(--text); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; z-index: 1000; opacity: 0; transition: all 0.3s; box-shadow: var(--shadow-md); }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+@media (max-width: 900px) {
+  .stacks-grid { grid-template-columns: 1fr; }
+  .notify-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span>Live</span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>GPT-5.5 released 2h ago</span>
+  <span class="divider">·</span>
+  <span>3 deals ending today</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='deals.html'">Deals</div>
+      <div class="nav-link active" onclick="window.location='stacks.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search stacks..." onkeydown="if(event.key==='Enter') showToast('Search coming soon')">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline" onclick="showToast('Sign in coming soon')">Sign in</button>
+      <button class="btn-primary" onclick="showToast('Subscribe coming soon')">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <span class="current">Stacks</span>
+</div>
+
+<div class="stacks-hero">
+  <div class="stacks-hero-kicker">📦 Launching soon · Pre-built tool combinations</div>
+  <h1>Curated AI stacks for <em>real jobs</em>.</h1>
+  <p class="subtitle"><strong>Don't know where to start? Skip the paralysis.</strong> Stacks are pre-assembled combinations of AI tools that actually work together — for solopreneurs, content creators, founders, marketers, and more. Each stack shows total monthly cost, the specific tools included, and why they work together.</p>
+</div>
+
+<div class="cs-banner">
+  <div class="cs-banner-inner">
+    <div class="cs-icon">🚧</div>
+    <div class="cs-body">
+      <h3>The Stacks page is launching soon.</h3>
+      <p>We're finalizing the first 12 stacks — each one built around a specific real-world workflow. Below are examples of what to expect.</p>
+    </div>
+  </div>
+</div>
+
+<div class="preview-section">
+  <span class="section-kicker">Preview</span>
+  <h2 class="section-title">What stacks will look like <em>when we launch</em>.</h2>
+
+  <div class="stacks-grid">
+    <div class="stack-card">
+      <div class="stack-cat">For solopreneurs</div>
+      <div class="stack-title">The $99 Solopreneur Stack</div>
+      <div class="stack-price-row">
+        <span class="stack-price">$99</span>
+        <span class="stack-price-unit">/mo total</span>
+      </div>
+      <div class="stack-tools-count">7 tools · Content + writing + admin</div>
+      <div class="stack-tools">
+        <span class="stack-tool-chip">Claude Pro</span>
+        <span class="stack-tool-chip">Notion AI</span>
+        <span class="stack-tool-chip">Grammarly</span>
+        <span class="stack-tool-chip">Canva Pro</span>
+        <span class="stack-tool-chip">Loom</span>
+        <span class="stack-tool-chip">Beehiiv</span>
+        <span class="stack-tool-chip">Zapier</span>
+      </div>
+      <div class="stack-cta">See breakdown →</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">For content creators</div>
+      <div class="stack-title">The Content Creator Stack</div>
+      <div class="stack-price-row">
+        <span class="stack-price">$87</span>
+        <span class="stack-price-unit">/mo total</span>
+      </div>
+      <div class="stack-tools-count">5 tools · Writing + visuals + editing</div>
+      <div class="stack-tools">
+        <span class="stack-tool-chip">ChatGPT Plus</span>
+        <span class="stack-tool-chip">Midjourney</span>
+        <span class="stack-tool-chip">Descript</span>
+        <span class="stack-tool-chip">Buffer</span>
+        <span class="stack-tool-chip">Canva Pro</span>
+      </div>
+      <div class="stack-cta">See breakdown →</div>
+    </div>
+
+    <div class="stack-card">
+      <div class="stack-cat">For startup founders</div>
+      <div class="stack-title">The Startup Founder Stack</div>
+      <div class="stack-price-row">
+        <span class="stack-price">$150</span>
+        <span class="stack-price-unit">/mo total</span>
+      </div>
+      <div class="stack-tools-count">6 tools · Code + comms + ops</div>
+      <div class="stack-tools">
+        <span class="stack-tool-chip">Cursor</span>
+        <span class="stack-tool-chip">Claude Team</span>
+        <span class="stack-tool-chip">Notion</span>
+        <span class="stack-tool-chip">Framer</span>
+        <span class="stack-tool-chip">Linear</span>
+        <span class="stack-tool-chip">Loom</span>
+      </div>
+      <div class="stack-cta">See breakdown →</div>
+    </div>
+  </div>
+</div>
+
+<div class="notify-section">
+  <div class="notify-inner">
+    <div class="kicker">Get notified</div>
+    <h3>Be first to know when <em>Stacks launches</em>.</h3>
+    <p>We'll email you when the Stacks page goes live — with the first 12 pre-built AI tool combinations. No spam. Unsubscribe anytime.</p>
+    <div class="notify-form">
+      <input type="email" placeholder="your@email.com" id="notifyEmail">
+      <button class="btn-primary" onclick="showToast('Thanks! We will notify you.')">Notify me</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>© 2026 10X AI Expo · Independent · Editor-curated</div>
+  <div class="disclaimer">We may earn a commission when you click through to a tool and sign up — at no extra cost to you. This never affects our editorial picks. Full affiliate disclosure available on request.</div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function toggleTheme() {
+  const root = document.documentElement;
+  const current = root.getAttribute('data-theme');
+  root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+}
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2500);
+}
+</script>
+
+</body>
+</html>
