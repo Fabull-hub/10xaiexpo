@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best AI Writing Tools 2026: The 8 We Actually Use (Ranked) — 10X AI Expo</title>
+<meta name="description" content="After 240 hours of testing 47 AI writing tools, these 8 earned our editorial approval. Independent rankings, honest pros and cons, real pricing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK (shared)
+   ============================================ */
+:root {
+  --bg: #0A0A0B; --bg-elevated: #111114; --bg-card: #16171B; --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.10); --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7; --text-muted: #9A9A95; --text-subtle: #5F5F5A; --text-inverse: #0A0A0B;
+  --lime: #B4FF3A; --lime-hover: #C4FF5A; --lime-subtle: rgba(180,255,58,0.08); --lime-tint: rgba(180,255,58,0.14); --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF; --cyan-subtle: rgba(58,189,255,0.10); --cyan-tint: rgba(58,189,255,0.16);
+  --pink: #FF6B9D; --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800; --amber-subtle: rgba(255,184,0,0.10); --amber-tint: rgba(255,184,0,0.16);
+  --success: #7EFFB8; --success-subtle: rgba(126,255,184,0.10);
+  --urgent: #FF5C6E; --urgent-subtle: rgba(255,92,110,0.10);
+  --violet: #A88BFF; --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3); --shadow-lg: 0 20px 50px rgba(0,0,0,0.45); --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1320px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10); --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B; --text-muted: #4A4A45; --text-subtle: #8A8A85; --text-inverse: #FAFAF7;
+  --lime: #6BAA00; --lime-hover: #7CB800; --lime-subtle: rgba(107,170,0,0.08); --lime-tint: rgba(107,170,0,0.14); --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7; --cyan-subtle: rgba(2,132,199,0.08); --cyan-tint: rgba(2,132,199,0.14);
+  --pink: #D63A6E; --pink-subtle: rgba(214,58,110,0.08);
+  --amber: #B8890C; --amber-subtle: rgba(184,137,12,0.08); --amber-tint: rgba(184,137,12,0.14);
+  --success: #16A34A; --success-subtle: rgba(22,163,74,0.08);
+  --urgent: #DC2626; --urgent-subtle: rgba(220,38,38,0.08);
+  --violet: #7458A0; --violet-subtle: rgba(116,88,160,0.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08); --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* NAV (shared) */
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 24px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 32px; }
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark { width: 32px; height: 32px; background: var(--lime); color: var(--bg); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 15px; box-shadow: 0 0 20px var(--lime-glow); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1; }
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link { padding: 6px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; color: var(--text-muted); transition: all 0.12s; cursor: pointer; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after { content: ''; position: absolute; top: 4px; right: 3px; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime-glow); }
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input { width: 100%; padding: 8px 14px 8px 36px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.nav-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-primary { padding: 8px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; transition: all 0.15s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline { padding: 8px 16px; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; transition: all 0.12s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+/* BRAND LOGOS */
+.brand-jasper { background: linear-gradient(135deg, #FF6B4A 0%, #E5502F 100%); }
+.brand-copyai { background: linear-gradient(135deg, #333 0%, #111 100%); }
+.brand-notion { background: linear-gradient(135deg, #F5F5F0 0%, #DEDEE0 100%); color: #16171B; }
+.brand-chatgpt { background: linear-gradient(135deg, #10A37F 0%, #0A6B52 100%); }
+.brand-claude { background: linear-gradient(135deg, #E67E4A 0%, #C4602B 100%); }
+.brand-writesonic { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
+.brand-rytr { background: linear-gradient(135deg, #E11D48 0%, #9F1239 100%); }
+.brand-surfer { background: linear-gradient(135deg, #22C55E 0%, #15803D 100%); }
+
+/* BREADCRUMB */
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 20px 28px 0; display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.breadcrumb a { color: var(--text-muted); cursor: pointer; transition: color 0.12s; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .sep { color: var(--text-subtle); }
+.breadcrumb .current { color: var(--text); }
+
+/* ARTICLE HERO */
+.article-hero { max-width: 900px; margin: 0 auto; padding: 32px 28px 40px; }
+.article-hero-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 5px 12px; background: var(--lime-subtle); color: var(--lime); border: 1px solid var(--lime-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 20px; }
+.article-hero h1 { font-family: var(--font-editorial); font-size: clamp(38px, 5vw, 60px); font-weight: 500; letter-spacing: -0.035em; line-height: 1; margin-bottom: 20px; }
+.article-hero h1 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.article-hero .dek { font-size: 20px; line-height: 1.5; color: var(--text-muted); margin-bottom: 28px; }
+.article-hero .dek strong { color: var(--text); font-weight: 600; }
+.article-hero-meta { display: flex; align-items: center; gap: 16px; padding-top: 24px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.hero-author { display: flex; align-items: center; gap: 10px; }
+.hero-author-avatars { display: flex; }
+.hero-author-avatars .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--bg-hover); border: 2px solid var(--bg); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text-muted); margin-left: -8px; }
+.hero-author-avatars .avatar:first-child { margin-left: 0; }
+.hero-author-name { font-size: 13px; }
+.hero-author-name strong { color: var(--text); font-weight: 600; }
+.hero-author-name .sub { color: var(--text-subtle); }
+.hero-meta-divider { width: 1px; height: 20px; background: var(--border); }
+.hero-meta-item { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+/* METHODOLOGY BAR */
+.methodology-bar { max-width: 900px; margin: 0 auto 40px; padding: 0 28px; }
+.methodology-inner { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.method-item { display: flex; flex-direction: column; gap: 4px; text-align: center; }
+.method-item .num { font-family: var(--font-editorial); font-size: 28px; font-weight: 600; color: var(--lime); letter-spacing: -0.02em; line-height: 1; }
+.method-item .label { font-size: 12px; color: var(--text-muted); }
+
+/* HERO IMAGE */
+.hero-image-wrap { max-width: 900px; margin: 0 auto 48px; padding: 0 28px; }
+.hero-image { aspect-ratio: 21/9; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.img-placeholder { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-elevated) 100%); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 16px; height: 100%; }
+.img-placeholder::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(45deg, transparent 48%, var(--border) 48%, var(--border) 52%, transparent 52%); background-size: 12px 12px; opacity: 0.5; }
+.img-placeholder-content { position: relative; z-index: 1; background: var(--bg-card); padding: 8px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); max-width: 70%; }
+.img-ph-tag { display: inline-block; background: var(--lime-subtle); color: var(--lime); padding: 2px 6px; border-radius: 3px; font-size: 9px; margin-bottom: 5px; font-weight: 700; letter-spacing: 0.05em; }
+.img-ph-prompt { color: var(--text-muted); font-size: 10.5px; line-height: 1.35; }
+
+/* QUICK-JUMP TABLE OF WINNERS */
+.quick-picks { max-width: 900px; margin: 0 auto 48px; padding: 0 28px; }
+.quick-picks-inner { background: var(--bg-card); border: 1px solid var(--lime-tint); border-radius: var(--r-lg); overflow: hidden; }
+.quick-picks-header { padding: 20px 24px; background: var(--lime-subtle); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.quick-picks-header h2 { font-family: var(--font-editorial); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+.quick-picks-header .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; }
+.quick-picks-list { padding: 8px 0; }
+.quick-pick-row { padding: 12px 24px; display: grid; grid-template-columns: auto 200px 1fr auto auto; gap: 20px; align-items: center; border-bottom: 1px solid var(--border); cursor: pointer; transition: all 0.12s; }
+.quick-pick-row:last-child { border-bottom: none; }
+.quick-pick-row:hover { background: var(--bg-hover); }
+.qp-rank { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--text); min-width: 26px; height: 22px; padding: 0 6px; border-radius: 4px; background: var(--bg); border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center; letter-spacing: -0.02em; }
+.quick-pick-row.rank-1 .qp-rank { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); box-shadow: 0 0 10px var(--lime-glow); }
+.qp-tool { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.qp-logo { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 15px; color: #fff; flex-shrink: 0; }
+.qp-name-block { min-width: 0; }
+.qp-name { font-size: 14px; font-weight: 600; color: var(--text); }
+.qp-category { font-family: var(--font-mono); font-size: 10.5px; color: var(--lime); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; }
+.qp-summary { font-size: 13px; color: var(--text-muted); line-height: 1.45; }
+.qp-price { font-family: var(--font-mono); font-size: 12px; color: var(--text-subtle); text-align: right; font-weight: 600; white-space: nowrap; }
+.qp-cta { font-size: 12px; color: var(--lime); font-weight: 700; white-space: nowrap; }
+
+/* ARTICLE BODY */
+.article-body { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+.article-body > p { font-size: 18px; line-height: 1.7; color: var(--text-muted); margin-bottom: 20px; }
+.article-body > p:first-child::first-letter { font-family: var(--font-editorial); font-size: 60px; font-weight: 600; float: left; line-height: 0.9; margin: 6px 12px 0 0; color: var(--lime); }
+.article-body > p strong { color: var(--text); font-weight: 600; }
+.article-body > h2 { font-family: var(--font-editorial); font-size: clamp(28px, 3.2vw, 38px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin: 48px 0 20px; scroll-margin-top: 80px; }
+.article-body > h2 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.article-body a.inline-link { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; }
+
+/* TOOL ENTRY CARD */
+.tool-entry { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; margin: 32px 0; scroll-margin-top: 80px; }
+.tool-entry.editors-pick { border-color: var(--lime-tint); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.tool-entry-header { padding: 24px 28px; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; position: relative; }
+.tool-entry.editors-pick .tool-entry-header { background: linear-gradient(180deg, var(--lime-subtle) 0%, transparent 100%); }
+.tool-entry-rank { font-family: var(--font-editorial); font-size: 44px; font-weight: 700; color: var(--text-subtle); letter-spacing: -0.03em; line-height: 1; min-width: 60px; text-align: center; }
+.tool-entry.editors-pick .tool-entry-rank { color: var(--lime); text-shadow: 0 0 20px var(--lime-glow); }
+.tool-entry-logo-name { display: flex; align-items: center; gap: 14px; min-width: 0; }
+.tool-entry-logo { width: 56px; height: 56px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 26px; color: #fff; box-shadow: var(--shadow-md); flex-shrink: 0; }
+.tool-entry-title { min-width: 0; }
+.tool-entry-title h3 { font-family: var(--font-editorial); font-size: 26px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 4px; }
+.tool-entry-title .subtitle { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+.tool-entry-badges { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.te-badge { font-family: var(--font-mono); font-size: 10px; padding: 4px 9px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; white-space: nowrap; }
+.te-badge.editors { background: var(--lime); color: var(--text-inverse); }
+.te-badge.best-for { background: var(--bg-hover); color: var(--text-muted); }
+.te-badge.deal { background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); }
+.te-badge.free { background: var(--success-subtle); color: var(--success); border: 1px solid rgba(126,255,184,0.2); }
+
+.tool-entry-body { padding: 24px 28px 8px; display: grid; grid-template-columns: 1fr 300px; gap: 32px; }
+.tool-entry-content p { font-size: 15.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 14px; }
+.tool-entry-content p strong { color: var(--text); font-weight: 600; }
+.tool-entry-content h4 { font-family: var(--font-editorial); font-size: 17px; font-weight: 600; margin: 18px 0 8px; letter-spacing: -0.02em; color: var(--text); }
+.tool-entry-content h4:first-child { margin-top: 0; }
+
+.tool-entry-sidebar { display: flex; flex-direction: column; gap: 14px; }
+.te-image { aspect-ratio: 4/3; border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--border); }
+.te-quick-facts { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; }
+.te-fact { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 12.5px; border-bottom: 1px dashed var(--border); }
+.te-fact:last-child { border-bottom: none; }
+.te-fact .k { color: var(--text-subtle); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; }
+.te-fact .v { color: var(--text); font-weight: 600; }
+.te-fact .v.lime { color: var(--lime); }
+.te-fact .v.amber { color: var(--amber); }
+
+.tool-entry-pc { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 4px; }
+.te-pc-col { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 12px 14px; }
+.te-pc-col.pros { border-color: rgba(126,255,184,0.15); }
+.te-pc-col.cons { border-color: rgba(255,92,110,0.15); }
+.te-pc-col h5 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+.te-pc-col.pros h5 { color: var(--success); }
+.te-pc-col.cons h5 { color: var(--urgent); }
+.te-pc-col ul { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.te-pc-col ul li { font-size: 12.5px; line-height: 1.5; color: var(--text); padding-left: 16px; position: relative; }
+.te-pc-col.pros ul li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: 800; font-size: 12px; }
+.te-pc-col.cons ul li::before { content: '−'; position: absolute; left: 0; color: var(--urgent); font-weight: 800; font-size: 14px; }
+
+.tool-entry-footer { padding: 20px 28px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.te-footer-price { display: flex; align-items: baseline; gap: 6px; }
+.te-footer-from { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+.te-footer-amount { font-family: var(--font-editorial); font-size: 24px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
+.te-footer-amount .per { font-family: var(--font-body); font-size: 13px; color: var(--text-subtle); font-weight: 400; }
+.te-footer-actions { display: flex; gap: 8px; }
+.te-footer-actions .btn-primary { padding: 10px 18px; font-size: 13px; }
+.te-footer-actions .btn-outline { padding: 10px 18px; font-size: 13px; }
+
+/* COMPARISON TABLE */
+.comparison-master { margin: 40px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; overflow-x: auto; }
+.comparison-master-inner { min-width: 800px; }
+.cm-header { display: grid; grid-template-columns: 200px repeat(4, 1fr); border-bottom: 1px solid var(--border); background: var(--bg-elevated); }
+.cm-header-cell { padding: 14px 12px; text-align: center; border-right: 1px solid var(--border); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; }
+.cm-header-cell:last-child { border-right: none; }
+.cm-header-cell.tool { text-align: left; }
+.cm-header-cell.tool-logo { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.cm-header-cell .brand-mini { width: 32px; height: 32px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 14px; color: #fff; }
+.cm-header-cell .tool-name-mini { font-family: var(--font-body); text-transform: none; letter-spacing: 0; color: var(--text); font-size: 13px; font-weight: 600; }
+.cm-header-cell.winner .brand-mini { box-shadow: 0 0 12px var(--lime-glow); }
+.cm-header-cell.winner .tool-name-mini { color: var(--lime); }
+.cm-row { display: grid; grid-template-columns: 200px repeat(4, 1fr); border-bottom: 1px solid var(--border); }
+.cm-row:last-child { border-bottom: none; }
+.cm-cell { padding: 12px; text-align: center; border-right: 1px solid var(--border); font-size: 13px; color: var(--text-muted); }
+.cm-cell:last-child { border-right: none; }
+.cm-cell.label { text-align: left; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--text-subtle); font-weight: 600; padding-left: 20px; }
+.cm-cell.yes { color: var(--lime); font-weight: 700; }
+.cm-cell.no { color: var(--text-subtle); }
+
+/* FAQ */
+.faq-section { max-width: 900px; margin: 48px auto; padding: 0 28px; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 16px 0; cursor: pointer; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 16px; font-family: var(--font-editorial); font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--text); }
+.faq-toggle { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-hover); display: flex; align-items: center; justify-content: center; color: var(--lime); font-size: 18px; font-weight: 700; flex-shrink: 0; transition: transform 0.2s; }
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a { display: none; padding-top: 12px; font-size: 15px; color: var(--text-muted); line-height: 1.6; }
+.faq-item.open .faq-a { display: block; }
+
+/* NEWSLETTER INLINE */
+.newsletter-inline { max-width: 900px; margin: 48px auto; padding: 0 28px; }
+.newsletter-inline-inner { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); border-radius: var(--r-xl); padding: 40px; text-align: center; }
+.newsletter-inline-inner .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 12px; }
+.newsletter-inline-inner h3 { font-family: var(--font-editorial); font-size: 28px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 10px; line-height: 1.1; }
+.newsletter-inline-inner h3 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.newsletter-inline-inner p { font-size: 15px; color: var(--text-muted); line-height: 1.5; max-width: 480px; margin: 0 auto 20px; }
+.newsletter-inline-form { display: flex; gap: 6px; max-width: 420px; margin: 0 auto; }
+.newsletter-inline-form input { flex: 1; padding: 12px 16px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); color: var(--text); font-size: 14px; outline: none; }
+.newsletter-inline-form input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.newsletter-inline-form .btn-primary { padding: 12px 20px; font-size: 14px; }
+
+/* AUTHOR BIO */
+.author-bio { max-width: 900px; margin: 40px auto; padding: 0 28px; }
+.author-bio-inner { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 24px; display: flex; align-items: center; gap: 20px; }
+.author-bio-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 26px; color: var(--bg); flex-shrink: 0; }
+.author-bio-info { flex: 1; }
+.author-bio-info h5 { font-family: var(--font-editorial); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+.author-bio-info .title { font-size: 12.5px; color: var(--text-subtle); margin-bottom: 8px; font-family: var(--font-mono); letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; }
+.author-bio-info p { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
+
+/* RELATED ARTICLES */
+.related-articles { max-width: var(--max-w); margin: 60px auto 40px; padding: 0 28px; border-top: 1px solid var(--border); padding-top: 40px; }
+.related-articles h3 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 20px; font-weight: 700; }
+.related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.related-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; cursor: pointer; transition: all 0.15s; }
+.related-card:hover { border-color: var(--lime-tint); transform: translateY(-2px); }
+.related-card-img { aspect-ratio: 16/10; }
+.related-card-body { padding: 16px 18px; }
+.related-card-cat { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700; margin-bottom: 6px; }
+.related-card-body h4 { font-family: var(--font-editorial); font-size: 17px; font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; color: var(--text); }
+
+/* FLOATING AI ASSISTANT */
+.floating-assistant { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; color: var(--bg); cursor: pointer; box-shadow: 0 10px 32px var(--lime-glow); z-index: 998; border: 2px solid rgba(255,255,255,0.15); }
+.fa-pulse { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime); animation: faPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes faPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+.floating-assistant svg { width: 22px; height: 22px; }
+
+/* FOOTER */
+footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--lime); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .quick-pick-row { grid-template-columns: auto 1fr auto; gap: 12px; }
+  .quick-pick-row .qp-summary, .quick-pick-row .qp-cta { display: none; }
+  .tool-entry-body { grid-template-columns: 1fr; gap: 20px; }
+  .related-grid { grid-template-columns: 1fr 1fr; }
+  .methodology-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .breadcrumb, .article-hero, .methodology-bar, .hero-image-wrap, .quick-picks, .article-body, .faq-section, .newsletter-inline, .author-bio, .related-articles { padding-left: 18px; padding-right: 18px; }
+  .article-hero-meta { gap: 12px; }
+  .hero-meta-divider { display: none; }
+  .tool-entry-header { grid-template-columns: 1fr; gap: 12px; }
+  .tool-entry-rank { text-align: left; font-size: 32px; }
+  .tool-entry-badges { flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .tool-entry-body, .tool-entry-footer { padding-left: 20px; padding-right: 20px; }
+  .tool-entry-pc { grid-template-columns: 1fr; }
+  .tool-entry-footer { flex-direction: column; align-items: stretch; }
+  .te-footer-actions { flex-direction: column; }
+  .te-footer-actions button { width: 100%; justify-content: center; }
+  .related-grid { grid-template-columns: 1fr; }
+  .methodology-inner { grid-template-columns: 1fr 1fr; padding: 16px; }
+  .top-strip .disclosure { display: none; }
+  .newsletter-inline-form { flex-direction: column; }
+  .newsletter-inline-form .btn-primary { width: 100%; justify-content: center; }
+  .author-bio-inner { flex-direction: column; text-align: center; }
+  .floating-assistant { bottom: 18px; right: 18px; }
+}
+
+/* v4.2: Best-of hero image */
+.hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>Updated April 12, 2026</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link active" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='index.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='index.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search 2,400+ AI tools...">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline">Sign in</button>
+      <button class="btn-primary">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <a>Reviews</a>
+  <span class="sep">/</span>
+  <a>Writing & Copy</a>
+  <span class="sep">/</span>
+  <span class="current">Best AI Writing Tools 2026</span>
+</div>
+
+<!-- ARTICLE HERO -->
+<div class="article-hero">
+  <div class="article-hero-kicker">🏆 EDITORIAL RANKING · APRIL 2026</div>
+  <h1>Best AI Writing Tools 2026: The <em>8 we actually use</em>.</h1>
+  <p class="dek"><strong>We tested 47 AI writing tools over 240 hours.</strong> These 8 earned our editorial approval — ranked by real-world output, honest pricing, and how often we come back to them.</p>
+  <div class="article-hero-meta">
+    <div class="hero-author">
+      <div class="hero-author-avatars">
+        <div class="avatar">SR</div>
+        <div class="avatar">MR</div>
+        <div class="avatar">JK</div>
+      </div>
+      <div class="hero-author-name">
+        <strong>Sarah Ramirez, Maya Rodriguez, James Kim</strong>
+        <div class="sub">Editorial team</div>
+      </div>
+    </div>
+    <span class="hero-meta-divider"></span>
+    <span class="hero-meta-item">📖 14 min read</span>
+    <span class="hero-meta-divider"></span>
+    <span class="hero-meta-item">Updated Apr 12, 2026</span>
+    <span class="hero-meta-divider"></span>
+    <span class="hero-meta-item">✓ Independently verified</span>
+  </div>
+</div>
+
+<!-- METHODOLOGY BAR -->
+<div class="methodology-bar">
+  <div class="methodology-inner">
+    <div class="method-item"><div class="num">47</div><div class="label">Tools tested</div></div>
+    <div class="method-item"><div class="num">240</div><div class="label">Hours of testing</div></div>
+    <div class="method-item"><div class="num">12</div><div class="label">Real use cases</div></div>
+    <div class="method-item"><div class="num">$0</div><div class="label">Vendor payments</div></div>
+  </div>
+</div>
+
+<!-- HERO IMAGE -->
+<div class="hero-image-wrap">
+  <div class="hero-image"><img src="images/hero-best-of.jpg" alt="Best AI writing tools 2026" loading="lazy"></div>
+  </div>
+</div>
+
+<!-- QUICK-JUMP TABLE OF WINNERS -->
+<div class="quick-picks">
+  <div class="quick-picks-inner">
+    <div class="quick-picks-header">
+      <h2>The 8 winners, at a glance</h2>
+      <span class="kicker">Jump to any review ↓</span>
+    </div>
+    <div class="quick-picks-list">
+      <div class="quick-pick-row rank-1" onclick="scrollToSection('jasper')">
+        <div class="qp-rank">1</div>
+        <div class="qp-tool"><div class="qp-logo brand-jasper">J</div><div class="qp-name-block"><div class="qp-name">Jasper AI</div><div class="qp-category">★ EDITOR'S CHOICE</div></div></div>
+        <div class="qp-summary">Best overall for content teams</div>
+        <div class="qp-price">From $39/mo</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('chatgpt')">
+        <div class="qp-rank">2</div>
+        <div class="qp-tool"><div class="qp-logo brand-chatgpt">G</div><div class="qp-name-block"><div class="qp-name">ChatGPT Plus</div><div class="qp-category">BEST FOR GENERAL</div></div></div>
+        <div class="qp-summary">Best value for solo creators</div>
+        <div class="qp-price">$20/mo</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('claude')">
+        <div class="qp-rank">3</div>
+        <div class="qp-tool"><div class="qp-logo brand-claude">C</div><div class="qp-name-block"><div class="qp-name">Claude Pro</div><div class="qp-category">BEST FOR LONG-FORM</div></div></div>
+        <div class="qp-summary">Best writing quality, period</div>
+        <div class="qp-price">$20/mo</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('copyai')">
+        <div class="qp-rank">4</div>
+        <div class="qp-tool"><div class="qp-logo brand-copyai">C</div><div class="qp-name-block"><div class="qp-name">Copy.ai</div><div class="qp-category">BEST FREE PLAN</div></div></div>
+        <div class="qp-summary">Best free tier we tested</div>
+        <div class="qp-price">Free / $36+</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('notion')">
+        <div class="qp-rank">5</div>
+        <div class="qp-tool"><div class="qp-logo brand-notion">N</div><div class="qp-name-block"><div class="qp-name">Notion AI</div><div class="qp-category">BEST INTEGRATED</div></div></div>
+        <div class="qp-summary">Best for Notion users</div>
+        <div class="qp-price">$10/mo add-on</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('surfer')">
+        <div class="qp-rank">6</div>
+        <div class="qp-tool"><div class="qp-logo brand-surfer">S</div><div class="qp-name-block"><div class="qp-name">Surfer SEO</div><div class="qp-category">BEST FOR SEO</div></div></div>
+        <div class="qp-summary">Best for ranking on Google</div>
+        <div class="qp-price">From $69/mo</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('writesonic')">
+        <div class="qp-rank">7</div>
+        <div class="qp-tool"><div class="qp-logo brand-writesonic">W</div><div class="qp-name-block"><div class="qp-name">Writesonic</div><div class="qp-category">BEST FOR ADS</div></div></div>
+        <div class="qp-summary">Best for ad copy variations</div>
+        <div class="qp-price">From $19/mo</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+      <div class="quick-pick-row" onclick="scrollToSection('rytr')">
+        <div class="qp-rank">8</div>
+        <div class="qp-tool"><div class="qp-logo brand-rytr">R</div><div class="qp-name-block"><div class="qp-name">Rytr</div><div class="qp-category">BEST BUDGET</div></div></div>
+        <div class="qp-summary">Best for tight budgets</div>
+        <div class="qp-price">Free / $9+</div>
+        <div class="qp-cta">Read →</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE BODY -->
+<article class="article-body">
+
+  <p>The AI writing tool market in 2026 has exploded. There are now over 400 tools competing for the same subscription dollar, and most of them are wrappers around GPT or Claude with slightly different UIs and heavy marketing budgets. That makes finding the actually-useful tools genuinely hard.</p>
+
+  <p>So we spent 240 hours doing what most reviewers won't: <strong>we used every one of these tools in real production work</strong> — writing marketing copy, drafting emails, generating SEO content, transcribing calls, and testing brand voice consistency across dozens of real projects. We paid for every subscription ourselves. No tool made this list because of a sponsorship. Every recommendation reflects what our own editorial team actually reaches for.</p>
+
+  <p>Below: the 8 tools that survived. Ranked, honestly reviewed, with real pros and cons — and pricing that matches what you'll actually pay in April 2026.</p>
+
+  <h2>How we <em>actually</em> tested these tools</h2>
+
+  <p>Before you trust our rankings, you deserve to know what "tested" means. We put every tool through the same 12 real-world scenarios:</p>
+
+  <ul style="margin: 12px 0 20px 20px; font-size: 15.5px; color: var(--text-muted); line-height: 1.7;">
+    <li>1,500-word blog post from a keyword prompt</li>
+    <li>Cold outreach email in a specific brand voice</li>
+    <li>10 ad copy variations from a single brief</li>
+    <li>Product description for e-commerce (100 words)</li>
+    <li>LinkedIn thought-leadership post</li>
+    <li>Newsletter opening (200 words, casual tone)</li>
+    <li>Rewrite of a stiff paragraph in 3 different tones</li>
+    <li>Translation to Spanish + French + Portuguese</li>
+    <li>Fact-checking a factual paragraph</li>
+    <li>Summarization of a 5,000-word article</li>
+    <li>SEO optimization to a target keyword</li>
+    <li>Long-form storytelling (3,000+ words)</li>
+  </ul>
+
+  <p>Each tool was scored on output quality, brand voice consistency, editing time saved, ease of use, and price-to-value ratio. We didn't score based on feature count — a tool with 200 features you never use is worse than one with 20 that just work.</p>
+
+  <!-- TOOL 1 - JASPER (EDITOR'S PICK) -->
+  <div class="tool-entry editors-pick" id="jasper">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">1</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-jasper">J</div>
+        <div class="tool-entry-title">
+          <h3>Jasper AI</h3>
+          <div class="subtitle">Best overall for content teams and serious solo operators</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge editors">★ Editor's Choice</span>
+        <span class="te-badge deal">50% off annual</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> A full content operations platform built on GPT, Claude, and Jasper's own tuned models, designed specifically for marketing teams that produce content at scale.</p>
+        <p><strong>Why it won:</strong> Jasper's brand voice engine is the best we tested. You feed it 3-5 samples of your existing writing, and every subsequent output actually sounds like you — not like generic AI. Combined with 100+ tested templates and real team workflows, it's the only tool we'd hand to a non-writer and trust the output.</p>
+        <h4>Who it's really for</h4>
+        <p>Content teams shipping 8+ pieces per month, agencies managing multiple client brands, or solo consultants whose personal brand voice matters (LinkedIn, newsletters, proposals). Overkill if you just need occasional writing help.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Best-in-class brand voice output</li>
+              <li>Templates save real hours</li>
+              <li>SEO mode with Surfer is killer</li>
+              <li>Team workflows actually work</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>$39/mo is steep vs ChatGPT</li>
+              <li>~1 week learning curve</li>
+              <li>Long-form needs editing</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Jasper AI dashboard showing brand voice interface, 4:3 aspect</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">9.2/10</span></div>
+          <div class="te-fact"><span class="k">Free trial</span><span class="v">7 days, no card</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v amber">$19.50/mo*</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Content teams</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$19.50<span class="per">/mo (annual)</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('jasper')">Try free 7 days →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 2 - CHATGPT -->
+  <div class="tool-entry" id="chatgpt">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">2</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-chatgpt">G</div>
+        <div class="tool-entry-title">
+          <h3>ChatGPT Plus (GPT-5.5)</h3>
+          <div class="subtitle">Best all-purpose value for solo creators</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best for solo</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> OpenAI's flagship chat interface, now running on GPT-5.5 with 2M token context and integrated web search, image gen, and code interpreter.</p>
+        <p><strong>Why it earned #2:</strong> Pure value. $20/mo gets you the most capable general-purpose LLM plus a suite of extras that used to cost separately. For solo creators, writers, and anyone whose needs don't warrant dedicated marketing infrastructure, this is the answer. Just don't expect brand voice memory across sessions without using Custom Instructions.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Best raw model quality</li>
+              <li>Massive value at $20/mo</li>
+              <li>Web search + image gen included</li>
+              <li>Custom GPTs are powerful</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>No native brand voice</li>
+              <li>No team workflows</li>
+              <li>Requires prompt skill</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">ChatGPT interface with GPT-5.5 conversation</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">8.9/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v">Yes, limited</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$20/mo</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Solo creators</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$20<span class="per">/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('chatgpt')">Get ChatGPT Plus →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 3 - CLAUDE -->
+  <div class="tool-entry" id="claude">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">3</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-claude">C</div>
+        <div class="tool-entry-title">
+          <h3>Claude Pro (Claude 5)</h3>
+          <div class="subtitle">Best pure writing quality — the writer's model</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best for writers</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> Anthropic's flagship model, widely regarded (including by us) as the best model for actual writing quality, nuanced tone, and following complex creative instructions.</p>
+        <p><strong>Why it's ranked here:</strong> If output quality is your #1 concern and you're writing anything beyond marketing copy — essays, long-form articles, thoughtful newsletters, book drafts — Claude 5 is our recommendation. It produces prose that requires the least editing. Trades off some feature breadth for pure craft.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Highest writing quality</li>
+              <li>Best long-form output</li>
+              <li>Nuanced tone control</li>
+              <li>Projects feature is excellent</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>Fewer built-in tools</li>
+              <li>No native image gen</li>
+              <li>More conservative outputs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Claude interface, writing a long-form essay</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">8.8/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v">Yes, limited</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$20/mo</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Writers</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$20<span class="per">/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('claude')">Try Claude Pro →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Master comparison table -->
+  <h2 id="comparison">All 8, <em>side by side</em></h2>
+  <p>Skip the reviews? Here's every recommendation in one table. The winner in each row is highlighted in lime.</p>
+
+  <div class="comparison-master">
+    <div class="comparison-master-inner">
+      <div class="cm-header">
+        <div class="cm-header-cell tool">Feature</div>
+        <div class="cm-header-cell tool-logo winner"><div class="brand-mini brand-jasper">J</div><div class="tool-name-mini">Jasper</div></div>
+        <div class="cm-header-cell tool-logo"><div class="brand-mini brand-chatgpt">G</div><div class="tool-name-mini">ChatGPT</div></div>
+        <div class="cm-header-cell tool-logo"><div class="brand-mini brand-claude">C</div><div class="tool-name-mini">Claude</div></div>
+        <div class="cm-header-cell tool-logo"><div class="brand-mini brand-copyai">C</div><div class="tool-name-mini">Copy.ai</div></div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Price</div>
+        <div class="cm-cell">$39/mo</div>
+        <div class="cm-cell yes">$20/mo</div>
+        <div class="cm-cell yes">$20/mo</div>
+        <div class="cm-cell yes">Free / $36+</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Brand voice</div>
+        <div class="cm-cell yes">Excellent</div>
+        <div class="cm-cell">Custom Inst.</div>
+        <div class="cm-cell">Projects</div>
+        <div class="cm-cell">Basic</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Templates</div>
+        <div class="cm-cell yes">100+</div>
+        <div class="cm-cell">GPT Store</div>
+        <div class="cm-cell no">None</div>
+        <div class="cm-cell">90+</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Long-form quality</div>
+        <div class="cm-cell">Very good</div>
+        <div class="cm-cell">Very good</div>
+        <div class="cm-cell yes">Excellent</div>
+        <div class="cm-cell">Good</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">SEO mode</div>
+        <div class="cm-cell yes">✓ Surfer</div>
+        <div class="cm-cell no">Via GPT</div>
+        <div class="cm-cell no">✗</div>
+        <div class="cm-cell no">✗</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Team workflows</div>
+        <div class="cm-cell yes">Advanced</div>
+        <div class="cm-cell">Teams plan</div>
+        <div class="cm-cell">Teams plan</div>
+        <div class="cm-cell">Basic</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Web search</div>
+        <div class="cm-cell">Via chat</div>
+        <div class="cm-cell yes">✓ Native</div>
+        <div class="cm-cell">Via search</div>
+        <div class="cm-cell no">✗</div>
+      </div>
+      <div class="cm-row">
+        <div class="cm-cell label">Best for</div>
+        <div class="cm-cell yes">Content teams</div>
+        <div class="cm-cell yes">Solo, general</div>
+        <div class="cm-cell yes">Writers, long-form</div>
+        <div class="cm-cell yes">Free tier users</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INLINE NEWSLETTER -->
+  <div class="newsletter-inline">
+    <div class="newsletter-inline-inner">
+      <div class="kicker">The Tuesday Briefing</div>
+      <h3>Get the tools <em>before</em> everyone else.</h3>
+      <p>Five new AI tools. Two exclusive deals. One useful idea. Every Tuesday. Read by 48,000+ AI professionals in under 4 minutes.</p>
+      <form class="newsletter-inline-form" onsubmit="event.preventDefault();showToast('Welcome — check your inbox')">
+        <input type="email" placeholder="you@work.com" required>
+        <button type="submit" class="btn-primary">Subscribe →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOOL 4 - Copy.ai -->
+  <div class="tool-entry" id="copyai">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">4</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-copyai">C</div>
+        <div class="tool-entry-title">
+          <h3>Copy.ai</h3>
+          <div class="subtitle">Best free plan we tested — and it's actually useful</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge free">Free tier</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> A marketing-focused AI writing tool with the most generous free tier in the space — genuinely usable for solo creators without paying.</p>
+        <p><strong>Why we recommend it:</strong> If you're just testing the AI writing waters or on a strict $0 budget, Copy.ai's free plan delivers real value. 2,000 words/month is enough for weekly LinkedIn posts, a monthly newsletter, or occasional ad copy. Upgrade paths are reasonable.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Genuinely useful free tier</li>
+              <li>90+ marketing templates</li>
+              <li>Fast, no learning curve</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>Basic brand voice</li>
+              <li>Output quality below Jasper</li>
+              <li>No SEO features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Copy.ai template picker interface</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">8.2/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v lime">2K words/mo</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$36/mo (Pro)</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Budget creators</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">Free<span class="per"> / $36+/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('copyai')">Try free →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 5 - Notion AI -->
+  <div class="tool-entry" id="notion">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">5</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-notion">N</div>
+        <div class="tool-entry-title">
+          <h3>Notion AI</h3>
+          <div class="subtitle">Best if you already live in Notion</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best integrated</span>
+        <span class="te-badge deal">60% off annual</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> AI writing baked directly into Notion — the workspace platform millions of teams already use for docs, wikis, and project management.</p>
+        <p><strong>Why it earned #5:</strong> If Notion is already your workspace, adding AI for $10/mo is the highest-leverage decision you can make. It writes with full context of your existing docs — meaning it understands your projects, your team, and your voice better than any standalone tool can. If you don't use Notion, this isn't for you.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Contextual to your workspace</li>
+              <li>$10/mo add-on is a steal</li>
+              <li>No separate tool to learn</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>Requires Notion subscription</li>
+              <li>Limited outside Notion</li>
+              <li>No dedicated templates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Notion AI writing in-document</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">8.0/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v">Limited trial</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$10/mo add-on</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Notion users</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$10<span class="per">/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('notion')">Try Notion AI →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 6 - Surfer -->
+  <div class="tool-entry" id="surfer">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">6</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-surfer">S</div>
+        <div class="tool-entry-title">
+          <h3>Surfer SEO</h3>
+          <div class="subtitle">Best for content that actually ranks on Google</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best for SEO</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> A specialized AI writing tool built specifically for SEO — it analyzes top-ranking pages for your keyword and generates content optimized to compete.</p>
+        <p><strong>Why it made the list:</strong> If you're writing content for organic search traffic, Surfer is the specialist that beats generalists. The keyword-driven optimization is genuinely useful, and articles written with Surfer tend to rank faster than raw ChatGPT output. Priced higher, but pays for itself if SEO is your traffic strategy.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Best SEO optimization we saw</li>
+              <li>Real ranking data included</li>
+              <li>Integrates with Jasper</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>$69/mo is premium pricing</li>
+              <li>Only useful for SEO content</li>
+              <li>Steeper learning curve</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Surfer SEO content editor with keyword scoring</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">8.5/10</span></div>
+          <div class="te-fact"><span class="k">Free trial</span><span class="v">Yes, limited</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$69/mo</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">SEO teams</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$69<span class="per">/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('surfer')">Try Surfer →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 7 - Writesonic -->
+  <div class="tool-entry" id="writesonic">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">7</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-writesonic">W</div>
+        <div class="tool-entry-title">
+          <h3>Writesonic</h3>
+          <div class="subtitle">Best for high-volume ad copy variations</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best for ads</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> A high-throughput AI writer optimized for ad platforms — Facebook, Google Ads, LinkedIn — with fast variation generation.</p>
+        <p><strong>Why we included it:</strong> Media buyers and performance marketers need dozens of ad copy variations to test. Writesonic churns them out faster than any other tool we tested, and the output quality holds up well for ad-format short-form. Not our pick for long-form or brand-heavy content.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Fastest variation generation</li>
+              <li>Ad platform templates</li>
+              <li>Reasonable pricing</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>Weaker long-form</li>
+              <li>Feature bloat</li>
+              <li>UI can feel cluttered</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Writesonic ad variations generator</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">7.6/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v">Yes, 10K words</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$19/mo</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Media buyers</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">$19<span class="per">/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('writesonic')">Try Writesonic →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOOL 8 - Rytr -->
+  <div class="tool-entry" id="rytr">
+    <div class="tool-entry-header">
+      <div class="tool-entry-rank">8</div>
+      <div class="tool-entry-logo-name">
+        <div class="tool-entry-logo brand-rytr">R</div>
+        <div class="tool-entry-title">
+          <h3>Rytr</h3>
+          <div class="subtitle">Best if $9/month is your ceiling</div>
+        </div>
+      </div>
+      <div class="tool-entry-badges">
+        <span class="te-badge best-for">Best budget</span>
+      </div>
+    </div>
+    <div class="tool-entry-body">
+      <div class="tool-entry-content">
+        <p><strong>What it is:</strong> A no-frills AI writer at rock-bottom pricing — $9/mo for essentially unlimited content generation on tested marketing templates.</p>
+        <p><strong>Why it earned a spot:</strong> Not every user needs Jasper. If your budget is genuinely $10/mo or less and you're doing solo blog writing, social posts, or simple email drafting, Rytr delivers 80% of the value for 25% of the price. It's the tool we'd recommend to a college student, hobbyist, or someone just testing the AI-writing waters seriously.</p>
+        <div class="tool-entry-pc">
+          <div class="te-pc-col pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Best price-to-value in space</li>
+              <li>Free tier for real testing</li>
+              <li>40+ use case templates</li>
+            </ul>
+          </div>
+          <div class="te-pc-col cons">
+            <h5>Cons</h5>
+            <ul>
+              <li>Output quality below top 3</li>
+              <li>Minimal brand voice</li>
+              <li>No team features</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tool-entry-sidebar">
+        <div class="te-image"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">SCREENSHOT</span><div class="img-ph-prompt">Rytr editor with template selection</div></div></div></div>
+        <div class="te-quick-facts">
+          <div class="te-fact"><span class="k">Rating</span><span class="v lime">7.2/10</span></div>
+          <div class="te-fact"><span class="k">Free tier</span><span class="v lime">10K chars/mo</span></div>
+          <div class="te-fact"><span class="k">Start price</span><span class="v">$9/mo</span></div>
+          <div class="te-fact"><span class="k">Best fit</span><span class="v">Tight budgets</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tool-entry-footer">
+      <div class="te-footer-price">
+        <span class="te-footer-from">FROM</span>
+        <span class="te-footer-amount">Free<span class="per"> / $9+/mo</span></span>
+      </div>
+      <div class="te-footer-actions">
+        <button class="btn-outline">Read full review</button>
+        <button class="btn-primary" onclick="trackClick('rytr')">Try Rytr →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL VERDICT -->
+  <h2>Our final verdict: <em>which one should you actually pick?</em></h2>
+
+  <p>The right choice depends entirely on your situation. Here's our specific recommendation for each type of buyer:</p>
+
+  <ul style="margin: 12px 0 24px 20px; font-size: 15.5px; color: var(--text-muted); line-height: 1.8;">
+    <li><strong>Content teams (2+ people, 8+ pieces/mo):</strong> Jasper AI. The team workflows and brand voice justify the price.</li>
+    <li><strong>Solo creator, general purpose:</strong> ChatGPT Plus at $20/mo. Best value, most capable.</li>
+    <li><strong>Serious writer, long-form work:</strong> Claude Pro. Output quality wins.</li>
+    <li><strong>Notion user:</strong> Notion AI ($10 add-on). No-brainer if you already pay for Notion.</li>
+    <li><strong>SEO-focused:</strong> Surfer SEO + ChatGPT combo.</li>
+    <li><strong>Tight budget (&lt;$15/mo):</strong> Rytr ($9) or Copy.ai's free tier.</li>
+    <li><strong>Ad-heavy operator:</strong> Writesonic + ChatGPT for creative direction.</li>
+  </ul>
+
+  <p><strong>Still unsure?</strong> Take our 60-second quiz — it recommends the exact stack for your role and budget in under a minute. <a class="inline-link">Start the AI Stack Quiz →</a></p>
+
+</article>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2 style="font-family: var(--font-editorial); font-size: 32px; font-weight: 600; letter-spacing: -0.025em; margin-bottom: 20px;">Frequently asked <em style="color: var(--lime); font-style: italic; font-weight: 500;">questions</em></h2>
+
+  <div class="faq-item open" onclick="this.classList.toggle('open')">
+    <div class="faq-q"><span>Which AI writing tool is best for a complete beginner?</span><span class="faq-toggle">+</span></div>
+    <div class="faq-a">Start with ChatGPT's free tier or Copy.ai's free tier — both give you real usage without commitment. Once you outgrow them (usually 4-6 weeks), upgrade to ChatGPT Plus at $20/mo for the widest capability set.</div>
+  </div>
+
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q"><span>Can AI writing tools actually replace human writers?</span><span class="faq-toggle">+</span></div>
+    <div class="faq-a">In 2026, no — not for high-stakes work. AI tools dramatically accelerate the drafting and iteration phases, but final editorial judgment, brand voice nuance, and factual accuracy still require human review. The tools are collaborators, not replacements. Solo creators can output 3-5x more with AI; teams see 2-3x productivity gains.</div>
+  </div>
+
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q"><span>Do AI-written articles rank on Google in 2026?</span><span class="faq-toggle">+</span></div>
+    <div class="faq-a">Yes, if they're genuinely helpful and edited by humans. Google's "helpful content" system doesn't penalize AI-generated content per se — it penalizes low-quality, unhelpful content regardless of origin. Tools like Jasper + Surfer or ChatGPT + human editing consistently produce ranking content.</div>
+  </div>
+
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q"><span>Is my content safe / private with these tools?</span><span class="faq-toggle">+</span></div>
+    <div class="faq-a">All 8 tools on this list have enterprise-grade privacy policies as of 2026. Your content isn't used to train models by default on paid plans (though free plans on OpenAI and Anthropic do use conversations for training unless you opt out). Enterprise tiers add SOC 2 compliance, SSO, and data residency guarantees.</div>
+  </div>
+
+  <div class="faq-item" onclick="this.classList.toggle('open')">
+    <div class="faq-q"><span>How often do you update these rankings?</span><span class="faq-toggle">+</span></div>
+    <div class="faq-a">We fully re-test our top 10 every quarter and re-rank based on updated performance. Major tool updates (new models, pricing changes, feature launches) trigger interim reviews. This ranking was last updated April 12, 2026.</div>
+  </div>
+</div>
+
+<!-- AUTHOR BIO -->
+<div class="author-bio">
+  <div class="author-bio-inner">
+    <div class="author-bio-avatar">SR</div>
+    <div class="author-bio-info">
+      <h5>Sarah Ramirez</h5>
+      <div class="title">Editor-in-Chief, 10X AI Expo</div>
+      <p>Sarah has led editorial coverage of AI tools since 2023. Formerly at Wired and TechCrunch, she personally tests every tool that makes our recommendation lists. She's a nightmare to send a demo pitch to. 🎯</p>
+    </div>
+  </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<div class="related-articles">
+  <h3>Keep reading</h3>
+  <div class="related-grid">
+    <div class="related-card">
+      <div class="related-card-img"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">RELATED 1</span><div class="img-ph-prompt">Best AI voice tools cover</div></div></div></div>
+      <div class="related-card-body">
+        <div class="related-card-cat">Best-Of</div>
+        <h4>Best AI Voice Tools 2026: The 6 That Actually Sound Human</h4>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-card-img"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">RELATED 2</span><div class="img-ph-prompt">Jasper vs Copy.ai comparison cover</div></div></div></div>
+      <div class="related-card-body">
+        <div class="related-card-cat">Compare</div>
+        <h4>Jasper AI vs Copy.ai: Head-to-Head on 20 Real Tasks</h4>
+      </div>
+    </div>
+    <div class="related-card">
+      <div class="related-card-img"><div class="img-placeholder"><div class="img-placeholder-content"><span class="img-ph-tag">RELATED 3</span><div class="img-ph-prompt">$99 solo consultant AI stack</div></div></div></div>
+      <div class="related-card-body">
+        <div class="related-card-cat">Stacks</div>
+        <h4>The $99 AI Stack That Runs a 6-Figure Consulting Business</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>Editorial independence.</strong> Rankings are based on 240 hours of independent hands-on testing. We may earn a commission when you sign up through our links — it doesn't affect our rankings. <a>Read our full editorial policy →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Disclosure</span><span>Contact</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING AI ASSISTANT -->
+<div class="floating-assistant" onclick="showToast('AI Assistant opening...')">
+  <div class="fa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+try { const saved = localStorage.getItem('theme'); if (saved) document.documentElement.setAttribute('data-theme', saved); } catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+function trackClick(tool) { showToast(`Opening ${tool} with your discount…`); }
+function scrollToSection(id) { document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'}); }
+</script>
+</body>
+</html>

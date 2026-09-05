@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10X AI Expo — The Trusted Guide to Every AI Tool That Matters</title>
+<meta name="description" content="Independent reviews, side-by-side comparisons, and daily updates on 2,400+ AI tools. Written by humans. Read by 48,000+ AI professionals.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK
+   Denser, faster, developer-native energy
+   ============================================ */
+
+/* DARK MODE (default) */
+:root {
+  --bg: #0A0A0B;
+  --bg-elevated: #111114;
+  --bg-card: #16171B;
+  --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.10);
+  --border-hover: rgba(255,255,255,0.18);
+  
+  --text: #FAFAF7;
+  --text-muted: #9A9A95;
+  --text-subtle: #5F5F5A;
+  --text-inverse: #0A0A0B;
+  
+  /* ELECTRIC INK PALETTE */
+  --lime: #B4FF3A;
+  --lime-hover: #C4FF5A;
+  --lime-dim: #7CB800;
+  --lime-subtle: rgba(180,255,58,0.08);
+  --lime-tint: rgba(180,255,58,0.14);
+  --lime-glow: rgba(180,255,58,0.25);
+  
+  --cyan: #3ABDFF;
+  --cyan-subtle: rgba(58,189,255,0.10);
+  --cyan-tint: rgba(58,189,255,0.16);
+  
+  --pink: #FF6B9D;
+  --pink-subtle: rgba(255,107,157,0.10);
+  --pink-tint: rgba(255,107,157,0.16);
+  
+  --amber: #FFB800;
+  --amber-subtle: rgba(255,184,0,0.10);
+  --amber-tint: rgba(255,184,0,0.16);
+  
+  --success: #7EFFB8;
+  --success-subtle: rgba(126,255,184,0.10);
+  
+  --urgent: #FF5C6E;
+  --urgent-subtle: rgba(255,92,110,0.10);
+  
+  --violet: #A88BFF;
+  --violet-subtle: rgba(168,139,255,0.10);
+  
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.45);
+  --shadow-glow: 0 0 32px var(--lime-glow);
+  
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  
+  --max-w: 1320px;
+  --pad-x: 28px;
+  --pad-y: 56px;
+}
+
+/* LIGHT MODE */
+:root[data-theme="light"] {
+  --bg: #FAFAF7;
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06);
+  --border-strong: rgba(0,0,0,0.10);
+  --border-hover: rgba(0,0,0,0.18);
+  
+  --text: #0A0A0B;
+  --text-muted: #4A4A45;
+  --text-subtle: #8A8A85;
+  --text-inverse: #FAFAF7;
+  
+  --lime: #6BAA00;
+  --lime-hover: #7CB800;
+  --lime-dim: #4A7800;
+  --lime-subtle: rgba(107,170,0,0.08);
+  --lime-tint: rgba(107,170,0,0.14);
+  --lime-glow: rgba(107,170,0,0.20);
+  
+  --cyan: #0284C7;
+  --cyan-subtle: rgba(2,132,199,0.08);
+  --cyan-tint: rgba(2,132,199,0.14);
+  
+  --pink: #D63A6E;
+  --pink-subtle: rgba(214,58,110,0.08);
+  --pink-tint: rgba(214,58,110,0.14);
+  
+  --amber: #B8890C;
+  --amber-subtle: rgba(184,137,12,0.08);
+  --amber-tint: rgba(184,137,12,0.14);
+  
+  --success: #16A34A;
+  --success-subtle: rgba(22,163,74,0.08);
+  
+  --urgent: #DC2626;
+  --urgent-subtle: rgba(220,38,38,0.08);
+  
+  --violet: #7458A0;
+  --violet-subtle: rgba(116,88,160,0.08);
+  
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+  --shadow-glow: 0 0 32px var(--lime-glow);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  overflow-x: hidden;
+  transition: background 0.15s, color 0.15s;
+}
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* ============================================
+   TOP STRIP
+   ============================================ */
+.top-strip {
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  padding: 8px 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; flex-shrink: 0; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); }
+  50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; }
+}
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; display: flex; align-items: center; gap: 6px; flex-shrink: 0; color: var(--text-subtle); }
+
+/* ============================================
+   NAV
+   ============================================ */
+nav.masthead {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+.masthead-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark {
+  width: 32px; height: 32px;
+  background: var(--lime);
+  color: var(--bg);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-editorial);
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.03em;
+  box-shadow: 0 0 20px var(--lime-glow);
+}
+.logo-wordmark {
+  font-family: var(--font-editorial);
+  font-weight: 700;
+  font-size: 19px;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link {
+  padding: 6px 12px;
+  border-radius: var(--r-sm);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: all 0.12s;
+  cursor: pointer;
+  position: relative;
+}
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after {
+  content: '';
+  position: absolute;
+  top: 4px; right: 3px;
+  width: 6px; height: 6px;
+  background: var(--lime);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--lime-glow);
+}
+
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input {
+  width: 100%;
+  padding: 8px 14px 8px 36px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  outline: none;
+  transition: all 0.12s;
+}
+.nav-search input:focus { border-color: var(--lime); background: var(--bg); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.nav-search input::placeholder { color: var(--text-subtle); }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; pointer-events: none; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle {
+  width: 34px; height: 34px;
+  border-radius: var(--r-sm);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-muted);
+  transition: all 0.12s;
+  cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+
+.btn-primary {
+  padding: 8px 16px;
+  background: var(--lime);
+  color: var(--text-inverse);
+  border-radius: var(--r-md);
+  font-size: 13.5px;
+  font-weight: 700;
+  transition: all 0.15s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: -0.005em;
+}
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline {
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  font-size: 13.5px;
+  font-weight: 500;
+  transition: all 0.12s;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+/* ============================================
+   HERO — Compact, punchy
+   ============================================ */
+.hero {
+  padding: 56px 28px 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  position: relative;
+}
+.hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: center; }
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-eyebrow .badge { padding: 3px 8px; background: var(--lime-subtle); color: var(--lime); border-radius: 100px; font-weight: 700; letter-spacing: 0.08em; border: 1px solid var(--lime-tint); }
+.hero h1 {
+  font-family: var(--font-editorial);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+.hero h1 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.hero-lede {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+.hero-lede strong { color: var(--text); font-weight: 600; }
+.hero-actions { display: flex; gap: 10px; margin-bottom: 28px; flex-wrap: wrap; }
+.hero-actions .btn-primary { padding: 12px 22px; font-size: 14px; }
+.hero-actions .btn-outline { padding: 12px 22px; font-size: 14px; }
+
+.hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.hero-trust-item { display: flex; flex-direction: column; gap: 2px; }
+.hero-trust-num { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
+.hero-trust-num em { color: var(--lime); font-style: normal; }
+.hero-trust-label { font-size: 11px; color: var(--text-subtle); letter-spacing: 0.03em; text-transform: uppercase; font-family: var(--font-mono); }
+.hero-trust-divider { width: 1px; height: 28px; background: var(--border); }
+
+.hero-visual { position: relative; }
+.hero-feature-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  transition: transform 0.2s ease;
+}
+.hero-feature-card:hover { transform: translateY(-3px); }
+
+/* IMAGE PLACEHOLDER SYSTEM */
+.img-placeholder {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-elevated) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subtle);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-align: center;
+  padding: 16px;
+  letter-spacing: 0.02em;
+}
+.img-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(45deg, transparent 48%, var(--border) 48%, var(--border) 52%, transparent 52%);
+  background-size: 12px 12px;
+  opacity: 0.5;
+}
+.img-placeholder-content {
+  position: relative;
+  z-index: 1;
+  background: var(--bg-card);
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  max-width: 84%;
+}
+.img-ph-tag { display: inline-block; background: var(--lime-subtle); color: var(--lime); padding: 2px 6px; border-radius: 3px; font-size: 9px; margin-bottom: 5px; font-weight: 700; letter-spacing: 0.05em; }
+.img-ph-prompt { color: var(--text-muted); font-size: 10.5px; line-height: 1.35; }
+
+.hero-image-slot { aspect-ratio: 4/3; }
+
+.hero-feature-body { padding: 18px 22px 20px; }
+.hero-feature-cat { display: inline-block; font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; font-weight: 700; }
+.hero-feature-card h3 { font-family: var(--font-editorial); font-size: 19px; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); }
+.hero-feature-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; margin-bottom: 12px; }
+.hero-feature-meta { display: flex; align-items: center; gap: 10px; font-size: 11.5px; color: var(--text-subtle); }
+.byline { display: flex; align-items: center; gap: 6px; }
+.avatar-tiny {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--text-muted);
+  overflow: hidden;
+}
+.dot-sep { color: var(--text-subtle); }
+
+.hero-feature-back {
+  position: absolute;
+  top: 20px;
+  right: -16px;
+  bottom: -16px;
+  left: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* ============================================
+   SECTIONS — Tighter, flowing
+   ============================================ */
+section { padding: 48px 28px; max-width: var(--max-w); margin: 0 auto; }
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+.section-header-left { display: flex; flex-direction: column; gap: 6px; }
+.section-kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-subtle);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.section-title {
+  font-family: var(--font-editorial);
+  font-size: clamp(24px, 2.8vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--text);
+}
+.section-title em { font-style: italic; color: var(--lime); font-weight: 500; }
+.section-see-all {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: all 0.12s;
+  padding: 6px 10px;
+  border-radius: var(--r-sm);
+  font-weight: 500;
+}
+.section-see-all:hover { color: var(--lime); background: var(--lime-subtle); gap: 8px; }
+
+/* ============================================
+   STORIES GRID
+   ============================================ */
+.stories-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.story-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+}
+.story-card:hover {
+  border-color: var(--lime-tint);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.story-image { aspect-ratio: 16/10; }
+.story-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.story-meta-row { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; }
+.story-cat { color: var(--lime); font-weight: 700; }
+.story-cat.cyan { color: var(--cyan); }
+.story-cat.pink { color: var(--pink); }
+.story-card h3 { font-family: var(--font-editorial); font-size: 19px; font-weight: 500; line-height: 1.2; letter-spacing: -0.02em; color: var(--text); }
+.story-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; flex: 1; }
+.story-footer { display: flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--text-subtle); padding-top: 10px; border-top: 1px solid var(--border); margin-top: 4px; }
+
+/* ============================================
+   NEWS FEED — flows tight
+   ============================================ */
+.news-section { background: var(--bg-elevated); padding: 56px 0; margin: 0; max-width: none; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.news-inner { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+.news-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border); margin-top: -10px; }
+.news-item {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.12s;
+  align-items: start;
+}
+.news-item:hover { padding-left: 10px; padding-right: 10px; background: var(--bg-hover); margin: 0 -10px; }
+.news-time { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.02em; padding-top: 3px; }
+.news-time-big { display: block; color: var(--text); font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.news-body h4 { font-family: var(--font-editorial); font-size: 18px; font-weight: 500; line-height: 1.25; letter-spacing: -0.015em; margin-bottom: 4px; color: var(--text); }
+.news-body p { font-size: 13.5px; color: var(--text-muted); line-height: 1.5; margin-bottom: 8px; }
+.news-tags { display: flex; gap: 6px; flex-wrap: wrap; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; }
+.news-tag { padding: 2px 7px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-weight: 600; }
+.news-tag.hot { color: var(--lime); border-color: var(--lime-tint); background: var(--lime-subtle); }
+.news-tag.new { color: var(--cyan); border-color: var(--cyan-tint); background: var(--cyan-subtle); }
+.news-tag.deal { color: var(--amber); border-color: var(--amber-tint); background: var(--amber-subtle); }
+.news-source { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); padding-top: 4px; text-align: right; min-width: 90px; }
+.news-source strong { display: block; color: var(--text-muted); font-weight: 600; }
+.news-footer { padding-top: 24px; text-align: center; }
+
+/* ============================================
+   TOP TOOLS — Denser cards
+   ============================================ */
+.tools-editorial { padding: 48px 28px; max-width: var(--max-w); margin: 0 auto; }
+.editorial-intro { max-width: 720px; margin: 0 auto 32px; text-align: center; }
+.editorial-intro .kicker { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px; font-weight: 700; }
+.editorial-intro h2 { font-family: var(--font-editorial); font-size: clamp(28px, 3.5vw, 44px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 14px; }
+.editorial-intro h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.editorial-intro p { font-size: 16px; color: var(--text-muted); line-height: 1.55; }
+.editorial-byline { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 6px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-size: 12.5px; color: var(--text-muted); }
+.byline-avatars { display: flex; }
+.byline-avatars .avatar-tiny { margin-left: -6px; width: 22px; height: 22px; }
+.byline-avatars .avatar-tiny:first-child { margin-left: 0; }
+
+/* CATEGORY TABS (v4.1 addition) */
+.tools-tabs {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.tools-tabs::-webkit-scrollbar { display: none; }
+.tools-tab {
+  padding: 10px 16px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.12s;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.tools-tab:hover { color: var(--text); }
+.tools-tab.active { color: var(--lime); border-bottom-color: var(--lime); }
+.tools-tab .tab-count { font-size: 10px; color: var(--text-subtle); font-weight: 600; padding: 1px 6px; background: var(--bg-hover); border-radius: 3px; letter-spacing: 0; }
+.tools-tab.active .tab-count { color: var(--lime); background: var(--lime-subtle); }
+
+/* v4.2: View system for tab-based content switching */
+.tools-view { display: none; }
+.tools-view.active { display: block; animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* v4.2: BEST-IN-CLASS GRID — Category champions (default view) */
+.best-in-class-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.champion-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.champion-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent, var(--lime));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease-out;
+  z-index: 2;
+}
+.champion-card:hover { border-color: var(--border-hover); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.champion-card:hover::before { transform: scaleX(1); }
+
+.champion-cat-label {
+  padding: 10px 14px 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent, var(--lime));
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.champion-cat-label::before {
+  content: '★';
+  font-size: 10px;
+}
+.champion-body { padding: 4px 14px 14px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+.champion-logo-name { display: flex; align-items: center; gap: 10px; }
+.champion-logo {
+  width: 42px; height: 42px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-editorial);
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: -0.02em;
+  box-shadow: var(--shadow-md);
+  flex-shrink: 0;
+}
+.champion-name { min-width: 0; }
+.champion-name h3 { font-family: var(--font-editorial); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
+.champion-name .subhead { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+.champion-why { font-size: 13px; color: var(--text-muted); line-height: 1.45; flex: 1; }
+
+.champion-footer {
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.champion-rating { display: flex; align-items: center; gap: 4px; font-size: 11.5px; color: var(--text); font-weight: 600; }
+.champion-rating .stars-mini { color: var(--amber); font-size: 10px; letter-spacing: 0.5px; }
+.champion-rating .review-count { color: var(--text-subtle); font-family: var(--font-mono); font-size: 10px; font-weight: 500; }
+.champion-price { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--text); }
+.champion-price.free-color { color: var(--success); }
+
+/* Category-specific accent overrides */
+.champion-card.cat-writing { --accent: #FF6B4A; }
+.champion-card.cat-images { --accent: #A88BC7; }
+.champion-card.cat-video { --accent: #16C79A; }
+.champion-card.cat-voice { --accent: #FFB84E; }
+.champion-card.cat-code { --accent: var(--cyan); }
+.champion-card.cat-research { --accent: #20808D; }
+.champion-card.cat-general { --accent: #10A37F; }
+.champion-card.cat-free { --accent: var(--lime); }
+
+/* v4.2: CATEGORY LEADERBOARD — Where rankings actually make sense */
+.category-lead-header {
+  padding: 14px 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.cat-lead-title { display: flex; align-items: center; gap: 10px; }
+.cat-lead-title .icon-bubble {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  background: var(--lime-subtle);
+  color: var(--lime);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-editorial);
+  font-size: 16px;
+  font-weight: 700;
+}
+.cat-lead-title h3 { font-family: var(--font-editorial); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
+.cat-lead-title .sub { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin-top: 2px; }
+.cat-lead-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-muted); letter-spacing: 0.03em; }
+.cat-lead-meta strong { color: var(--text); font-weight: 700; }
+
+/* Placeholder for categories we haven't fully built out yet */
+.category-placeholder {
+  padding: 48px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-lg);
+  text-align: center;
+  color: var(--text-muted);
+}
+.category-placeholder h4 { font-family: var(--font-editorial); font-size: 22px; font-weight: 600; letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; }
+.category-placeholder p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; max-width: 420px; margin-left: auto; margin-right: auto; line-height: 1.5; }
+
+.tools-list { display: flex; flex-direction: column; gap: 8px; }
+.tool-editorial-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all 0.15s;
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 0;
+  position: relative;
+}
+.tool-editorial-card:hover { border-color: var(--lime-tint); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.tool-editorial-card.editors-choice { border-color: var(--lime-tint); background: linear-gradient(180deg, var(--lime-subtle) 0%, var(--bg-card) 40%); }
+.tool-editorial-card.editors-choice:hover { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle), var(--shadow-md); }
+
+.tool-editorial-image {
+  aspect-ratio: 1/1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.tool-brand-logo {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-editorial);
+  font-weight: 800;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: -0.03em;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 1;
+}
+/* Brand gradients */
+.brand-jasper { background: linear-gradient(135deg, #FF6B4A 0%, #E5502F 100%); }
+.brand-elevenlabs { background: linear-gradient(135deg, #1A1A2E 0%, #0F0F1E 100%); }
+.brand-descript { background: linear-gradient(135deg, #7B61FF 0%, #5A3EE0 100%); }
+.brand-notion { background: linear-gradient(135deg, #F5F5F0 0%, #DEDEE0 100%); color: #16171B; }
+.brand-perplexity { background: linear-gradient(135deg, #20808D 0%, #135A65 100%); }
+.brand-fathom { background: linear-gradient(135deg, #6B9BB8 0%, #4A7B98 100%); }
+.brand-taplio { background: linear-gradient(135deg, #A88BFF 0%, #7B5FCC 100%); }
+.brand-chatgpt { background: linear-gradient(135deg, #10A37F 0%, #0A6B52 100%); }
+.brand-claude { background: linear-gradient(135deg, #E67E4A 0%, #C4602B 100%); }
+.brand-copyai { background: linear-gradient(135deg, #333333 0%, #111111 100%); }
+.brand-cursor { background: linear-gradient(135deg, #2A2B32 0%, #16171B 100%); }
+.brand-midjourney { background: linear-gradient(135deg, #A88BC7 0%, #7B5FA0 100%); }
+
+.tool-editorial-image::before {
+  content: '';
+  position: absolute;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.4;
+  z-index: 0;
+}
+.tool-editorial-image.bg-jasper::before { background: #FF6B4A; }
+.tool-editorial-image.bg-elevenlabs::before { background: var(--violet); }
+.tool-editorial-image.bg-descript::before { background: #7B61FF; }
+.tool-editorial-image.bg-notion::before { background: #F5F5F0; opacity: 0.15; }
+.tool-editorial-image.bg-perplexity::before { background: #20808D; }
+.tool-editorial-image.bg-chatgpt::before { background: #10A37F; }
+.tool-editorial-image.bg-claude::before { background: #E67E4A; }
+.tool-editorial-image.bg-copyai::before { background: #666666; opacity: 0.3; }
+
+.tool-rank-num {
+  position: absolute;
+  top: 8px; left: 8px;
+  min-width: 22px; height: 22px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  border: 1px solid var(--border-strong);
+  z-index: 2;
+  letter-spacing: -0.02em;
+}
+.tool-editorial-card.editors-choice .tool-rank-num { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); box-shadow: 0 0 10px var(--lime-glow); }
+
+/* v4.1: Position change indicator (▲ ▼ −) — sits beside the rank pill, subtle */
+.tool-rank-change {
+  position: absolute;
+  top: 8px; left: 40px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex; align-items: center; gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  z-index: 2;
+  letter-spacing: 0;
+}
+.tool-rank-change.up { color: var(--success); }
+.tool-rank-change.up::before { content: '▲'; font-size: 7px; }
+.tool-rank-change.down { color: var(--urgent); }
+.tool-rank-change.down::before { content: '▼'; font-size: 7px; }
+.tool-rank-change.same { color: var(--text-subtle); padding: 0 6px; }
+.tool-rank-change.same::before { content: '−'; font-size: 10px; }
+.tool-rank-change.new { color: var(--cyan); border-color: var(--cyan-tint); background: var(--cyan-subtle); padding: 0 6px; }
+.tool-rank-change.new::before { content: 'NEW'; font-size: 8px; letter-spacing: 0.05em; }
+
+.tool-editorial-body { padding: 14px 20px; display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
+.tool-labels { display: flex; gap: 5px; align-items: center; flex-wrap: wrap; margin-bottom: 2px; }
+.tool-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: var(--text-muted);
+  padding: 3px 7px;
+  background: var(--bg-hover);
+  border-radius: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.tool-label.editors { background: var(--lime); color: var(--text-inverse); }
+.tool-label.deal { background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); }
+.tool-label.free { background: var(--success-subtle); color: var(--success); border: 1px solid rgba(126,255,184,0.2); }
+.tool-label.new { background: var(--cyan-subtle); color: var(--cyan); border: 1px solid var(--cyan-tint); }
+.tool-label.urgent { background: var(--urgent-subtle); color: var(--urgent); border: 1px solid rgba(255,92,110,0.2); }
+.tool-editorial-body h3 { font-family: var(--font-editorial); font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; color: var(--text); }
+.tool-editorial-body .tagline { font-size: 13px; color: var(--text-muted); line-height: 1.45; margin-bottom: 2px; }
+.tool-editorial-meta { display: flex; gap: 10px; align-items: center; font-size: 11.5px; color: var(--text-subtle); margin-top: 2px; flex-wrap: wrap; }
+.tool-editorial-meta .rating { color: var(--text); font-weight: 600; }
+.tool-editorial-meta .stars { color: var(--amber); letter-spacing: 1px; }
+
+.tool-editorial-cta { padding: 14px 20px; border-left: 1px solid var(--border); display: flex; flex-direction: column; align-items: flex-end; justify-content: center; gap: 8px; min-width: 160px; }
+.tool-cta-price { text-align: right; }
+.tool-cta-price .from { font-family: var(--font-mono); font-size: 9px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.tool-cta-price .amount { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1; margin-top: 2px; }
+.tool-cta-price .amount .per { font-family: var(--font-body); font-size: 11px; color: var(--text-subtle); font-weight: 400; }
+.tool-cta-price .free-tier { font-family: var(--font-editorial); font-size: 18px; font-weight: 600; color: var(--success); letter-spacing: -0.02em; }
+.tool-cta-actions { display: flex; flex-direction: column; gap: 3px; width: 100%; }
+.tool-cta-actions .btn-primary { padding: 8px 14px; font-size: 12px; justify-content: center; width: 100%; }
+.tool-cta-review { font-size: 11.5px; color: var(--text-subtle); text-align: center; cursor: pointer; transition: color 0.12s; padding: 2px; }
+.tool-cta-review:hover { color: var(--lime); }
+
+/* ============================================
+   STACK QUIZ
+   ============================================ */
+.stack-quiz-section {
+  padding: 48px 28px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+.stack-quiz-wrapper {
+  background: linear-gradient(135deg, var(--pink-subtle) 0%, var(--lime-subtle) 100%);
+  border: 1px solid var(--lime-tint);
+  border-radius: var(--r-xl);
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.stack-quiz-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -120px; left: -120px;
+  width: 340px; height: 340px;
+  background: radial-gradient(circle, var(--lime-glow) 0%, transparent 70%);
+  pointer-events: none;
+}
+.stack-quiz-left { position: relative; z-index: 1; }
+.stack-quiz-left .kicker { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+.stack-quiz-left h2 { font-family: var(--font-editorial); font-size: clamp(26px, 3.2vw, 38px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+.stack-quiz-left h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.stack-quiz-left > p { font-size: 15px; color: var(--text-muted); line-height: 1.55; margin-bottom: 20px; }
+.stack-quiz-benefits { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; }
+.stack-quiz-benefits li { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+.stack-quiz-benefits li::before {
+  content: '';
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--lime-subtle);
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23B4FF3A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.stack-quiz-cta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.stack-quiz-cta .time { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+
+.stack-quiz-right {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--shadow-md);
+}
+.quiz-progress { display: flex; gap: 5px; margin-bottom: 18px; }
+.quiz-dot { height: 3px; flex: 1; background: var(--bg-hover); border-radius: 2px; transition: background 0.3s; }
+.quiz-dot.done { background: var(--success); }
+.quiz-dot.active { background: var(--lime); box-shadow: 0 0 8px var(--lime-glow); }
+.quiz-q-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; color: var(--text-subtle); margin-bottom: 6px; text-transform: uppercase; font-weight: 600; }
+.quiz-q { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 16px; line-height: 1.2; }
+.quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.quiz-opt {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13.5px;
+  color: var(--text);
+  transition: all 0.12s;
+  font-weight: 500;
+}
+.quiz-opt:hover { border-color: var(--lime); background: var(--lime-subtle); transform: translateX(2px); }
+.quiz-opt .opt-icon { font-size: 16px; }
+
+/* ============================================
+   CATEGORIES — 12 tighter tiles
+   ============================================ */
+.categories-section { padding: 48px 28px; max-width: var(--max-w); margin: 0 auto; }
+.cat-grid-refined { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.cat-tile {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  padding: 18px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  min-height: 140px;
+}
+.cat-tile::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px; height: 100%;
+  transform: translateX(-2px);
+  transition: transform 0.15s;
+}
+.cat-tile:hover { background: var(--bg-hover); border-color: var(--border-hover); transform: translateY(-1px); }
+.cat-tile:hover::before { transform: translateX(0); }
+.cat-tile-icon {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-family: var(--font-editorial);
+  font-weight: 700;
+}
+.cat-c1 .cat-tile-icon { background: var(--lime-subtle); color: var(--lime); }
+.cat-c1::before { background: var(--lime); }
+.cat-c2 .cat-tile-icon { background: var(--cyan-subtle); color: var(--cyan); }
+.cat-c2::before { background: var(--cyan); }
+.cat-c3 .cat-tile-icon { background: var(--pink-subtle); color: var(--pink); }
+.cat-c3::before { background: var(--pink); }
+.cat-c4 .cat-tile-icon { background: var(--amber-subtle); color: var(--amber); }
+.cat-c4::before { background: var(--amber); }
+.cat-c5 .cat-tile-icon { background: var(--violet-subtle); color: var(--violet); }
+.cat-c5::before { background: var(--violet); }
+.cat-c6 .cat-tile-icon { background: var(--success-subtle); color: var(--success); }
+.cat-c6::before { background: var(--success); }
+
+.cat-tile h4 { font-family: var(--font-editorial); font-size: 15px; font-weight: 600; letter-spacing: -0.015em; color: var(--text); }
+.cat-tile p { font-size: 12px; color: var(--text-muted); line-height: 1.45; flex: 1; }
+.cat-tile-count { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); display: flex; align-items: center; gap: 5px; font-weight: 600; }
+.cat-tile-count::before { content: ''; width: 3px; height: 3px; background: currentColor; border-radius: 50%; opacity: 0.6; }
+
+/* ============================================
+   AI ASSISTANT PREVIEW
+   ============================================ */
+.ai-assistant-section { padding: 48px 28px; max-width: var(--max-w); margin: 0 auto; }
+.ai-assistant-wrapper {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 0;
+  min-height: 420px;
+}
+.ai-assistant-left {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--lime-subtle) 0%, transparent 80%);
+  position: relative;
+}
+.ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: var(--lime-subtle);
+  color: var(--lime);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 16px;
+  width: fit-content;
+  border: 1px solid var(--lime-tint);
+}
+.ai-badge .dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+.ai-assistant-left h2 { font-family: var(--font-editorial); font-size: clamp(24px, 3vw, 34px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+.ai-assistant-left h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.ai-assistant-left > p { font-size: 15px; color: var(--text-muted); line-height: 1.55; margin-bottom: 24px; }
+.ai-assistant-features { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.ai-feature { display: flex; align-items: flex-start; gap: 12px; }
+.ai-feature-icon { width: 28px; height: 28px; border-radius: 7px; background: var(--bg); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 13px; color: var(--lime); }
+.ai-feature-text h5 { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
+.ai-feature-text p { font-size: 12.5px; color: var(--text-subtle); margin: 0; line-height: 1.4; }
+
+.ai-assistant-right {
+  background: var(--bg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+}
+.chat-mock-header { display: flex; align-items: center; gap: 8px; padding-bottom: 14px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+.chat-mock-avatar { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; color: var(--bg); font-family: var(--font-editorial); font-weight: 800; font-size: 12px; }
+.chat-mock-header h5 { font-size: 13px; font-weight: 600; flex: 1; }
+.chat-mock-header .status { font-family: var(--font-mono); font-size: 10px; color: var(--success); display: flex; align-items: center; gap: 4px; font-weight: 600; }
+.chat-mock-header .status::before { content: ''; width: 6px; height: 6px; background: var(--success); border-radius: 50%; }
+
+.chat-messages { display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.msg { padding: 12px 14px; border-radius: 12px; font-size: 13.5px; line-height: 1.5; max-width: 90%; }
+.msg-user { background: var(--lime-subtle); color: var(--text); align-self: flex-end; border-bottom-right-radius: 3px; border: 1px solid var(--lime-tint); }
+.msg-ai { background: var(--bg-elevated); border: 1px solid var(--border); color: var(--text-muted); align-self: flex-start; border-bottom-left-radius: 3px; }
+.msg-ai strong { color: var(--text); font-weight: 600; }
+.msg-recs { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+.msg-rec {
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.msg-rec:hover { border-color: var(--lime); background: var(--lime-subtle); }
+.msg-rec-logo { width: 24px; height: 24px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 11px; color: #fff; flex-shrink: 0; }
+.msg-rec-body { flex: 1; min-width: 0; }
+.msg-rec-body strong { font-size: 12.5px; font-weight: 600; color: var(--text); display: block; }
+.msg-rec-body .sub { font-size: 11px; color: var(--text-subtle); }
+.msg-rec-price { font-family: var(--font-mono); font-size: 10.5px; color: var(--lime); font-weight: 700; }
+
+.chat-input-mock { margin-top: 14px; display: flex; gap: 6px; padding-top: 14px; border-top: 1px solid var(--border); }
+.chat-input-mock input { flex: 1; padding: 10px 12px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-family: var(--font-body); font-size: 12.5px; outline: none; }
+.chat-input-mock button { padding: 9px 14px; background: var(--lime); color: var(--bg); border-radius: 8px; font-weight: 700; font-size: 12.5px; }
+
+/* ============================================
+   COMPARE PROMO
+   ============================================ */
+.compare-promo {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 40px;
+  margin: 48px 28px;
+  max-width: calc(var(--max-w) - 56px);
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+.compare-promo::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; background: radial-gradient(circle, var(--lime-subtle) 0%, transparent 70%); pointer-events: none; }
+.compare-promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+.compare-promo-left .kicker { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
+.compare-promo-left h2 { font-family: var(--font-editorial); font-size: clamp(26px, 3vw, 36px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
+.compare-promo-left h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.compare-promo-left p { font-size: 15px; color: var(--text-muted); line-height: 1.55; margin-bottom: 22px; }
+.popular-vs { display: flex; flex-direction: column; gap: 8px; }
+.vs-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); cursor: pointer; transition: all 0.12s; }
+.vs-link:hover { border-color: var(--lime); background: var(--lime-subtle); transform: translateX(3px); }
+.vs-link-tools { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; }
+.vs-link-tools .vs-word { font-family: var(--font-editorial); font-style: italic; color: var(--lime); font-size: 12px; }
+.vs-link .arrow { margin-left: auto; color: var(--text-subtle); transition: transform 0.12s; }
+.vs-link:hover .arrow { transform: translateX(3px); color: var(--lime); }
+
+.compare-mockup { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); }
+.compare-mockup-header { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
+.compare-side { padding: 18px; text-align: center; position: relative; }
+.compare-side.winner { background: var(--lime-subtle); }
+.compare-side.winner::before { content: 'WINNER'; position: absolute; top: 6px; right: 6px; font-family: var(--font-mono); font-size: 8px; color: var(--lime); letter-spacing: 0.1em; font-weight: 700; background: var(--bg); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--lime-tint); }
+.compare-side-logo { width: 40px; height: 40px; border-radius: 9px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 16px; color: #fff; }
+.compare-side h5 { font-family: var(--font-editorial); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 3px; }
+.compare-side .price { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.compare-rows { padding: 6px 0; }
+.compare-row { display: grid; grid-template-columns: 1fr auto 1fr; padding: 8px 16px; align-items: center; font-size: 12.5px; gap: 10px; }
+.compare-row .feature-name { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-subtle); text-align: center; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+.compare-cell { text-align: center; color: var(--text-muted); }
+.compare-cell.yes { color: var(--lime); font-weight: 700; }
+.compare-cell.no { color: var(--text-subtle); }
+
+/* ============================================
+   NEWSLETTER
+   ============================================ */
+.newsletter-section { background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%); padding: 72px 28px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.newsletter-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+.newsletter-inner .kicker { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+.newsletter-inner h2 { font-family: var(--font-editorial); font-size: clamp(28px, 3.5vw, 42px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.05; margin-bottom: 14px; }
+.newsletter-inner h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
+.newsletter-inner .lede { font-size: 16px; color: var(--text-muted); line-height: 1.55; max-width: 540px; margin: 0 auto 28px; }
+.newsletter-form { display: flex; gap: 6px; max-width: 460px; margin: 0 auto 18px; }
+.newsletter-form input { flex: 1; padding: 14px 18px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); color: var(--text); font-family: var(--font-body); font-size: 14px; outline: none; transition: all 0.12s; }
+.newsletter-form input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.newsletter-form input::placeholder { color: var(--text-subtle); }
+.newsletter-form .btn-primary { padding: 14px 22px; font-size: 14px; }
+.newsletter-trust { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 12.5px; color: var(--text-subtle); }
+.newsletter-avatars { display: flex; }
+.newsletter-avatars .avatar-tiny { margin-left: -6px; width: 24px; height: 24px; font-size: 10px; }
+.newsletter-avatars .avatar-tiny:first-child { margin-left: 0; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer.site-footer { background: var(--bg); padding: 56px 28px 32px; border-top: 1px solid var(--border); }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 16px 20px; margin-bottom: 36px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); font-weight: 600; }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand h3 { font-family: var(--font-editorial); font-size: 24px; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 10px; }
+.footer-brand h3 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.55; max-width: 300px; margin-bottom: 18px; }
+.footer-social { display: flex; gap: 6px; }
+.social-btn { width: 32px; height: 32px; border: 1px solid var(--border); border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; }
+.social-btn:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+.footer-col h4 { font-family: var(--font-mono); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-subtle); margin-bottom: 14px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.footer-col ul li { font-size: 13px; color: var(--text-muted); cursor: pointer; transition: color 0.12s; }
+.footer-col ul li:hover { color: var(--lime); }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--text); }
+
+/* ============================================
+   FLOATING AI ASSISTANT
+   ============================================ */
+.floating-assistant {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lime), var(--cyan));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  cursor: pointer;
+  box-shadow: 0 10px 32px var(--lime-glow);
+  z-index: 998;
+  transition: all 0.2s;
+  border: 2px solid rgba(255,255,255,0.15);
+}
+.floating-assistant:hover { transform: scale(1.06); box-shadow: 0 14px 40px var(--lime-glow); }
+.floating-assistant svg { width: 22px; height: 22px; }
+.fa-pulse { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime); animation: faPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes faPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+.fa-tooltip { position: absolute; right: 62px; top: 50%; transform: translateY(-50%); background: var(--text); color: var(--bg); padding: 7px 12px; border-radius: 7px; font-size: 12px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+.floating-assistant:hover .fa-tooltip { opacity: 1; }
+
+/* ============================================
+   TOAST + UTILITIES
+   ============================================ */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; box-shadow: var(--shadow-lg); }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .stories-grid { grid-template-columns: 1fr 1fr; }
+  .cat-grid-refined { grid-template-columns: repeat(3, 1fr); }
+  .compare-promo-grid, .stack-quiz-wrapper, .ai-assistant-wrapper { grid-template-columns: 1fr; gap: 28px; }
+  .ai-assistant-wrapper { min-height: auto; }
+  .ai-assistant-right { border-left: none; border-top: 1px solid var(--border); }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .tool-editorial-card { grid-template-columns: 100px 1fr; }
+  .tool-editorial-cta { grid-column: span 2; border-left: none; border-top: 1px solid var(--border); flex-direction: row; align-items: center; padding: 10px 20px; }
+  .tool-cta-actions { flex: 1; }
+  .best-in-class-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root { --pad-x: 18px; }
+  .top-strip { padding: 7px 18px; font-size: 10px; gap: 14px; overflow-x: auto; }
+  .top-strip .disclosure { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .btn-primary, .btn-outline { padding: 7px 12px; font-size: 12.5px; }
+  section, .hero, .tools-editorial, .categories-section, .newsletter-section, .stack-quiz-section, .ai-assistant-section, footer.site-footer { padding: 40px 18px; }
+  .news-section { padding: 44px 0; }
+  .news-inner { padding: 0 18px; }
+  .hero { padding: 40px 18px 32px; }
+  .stories-grid { grid-template-columns: 1fr; }
+  .cat-grid-refined { grid-template-columns: 1fr 1fr; }
+  .compare-promo, .stack-quiz-wrapper, .ai-assistant-left, .ai-assistant-right { padding: 28px 20px; }
+  .compare-promo { margin: 40px 18px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .hero-trust { flex-wrap: wrap; gap: 14px; }
+  .hero-trust-divider { display: none; }
+  .news-item { grid-template-columns: 1fr; gap: 6px; }
+  .news-source { text-align: left; padding-top: 0; }
+  .tool-editorial-card { grid-template-columns: 1fr; }
+  .tool-editorial-image { aspect-ratio: 16/9; }
+  .tool-editorial-cta { grid-column: 1; flex-direction: column; align-items: stretch; }
+  .best-in-class-grid { grid-template-columns: 1fr; }
+  .category-lead-header { flex-direction: column; align-items: flex-start; }
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form .btn-primary { width: 100%; justify-content: center; }
+  .quiz-options { grid-template-columns: 1fr; }
+  .floating-assistant { bottom: 18px; right: 18px; }
+}
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeUp 0.5s ease forwards; }
+.delay-1 { animation-delay: 0.06s; opacity: 0; animation-fill-mode: forwards; }
+
+/* v4.2: Real hero + story images — cover the placeholder aspect ratios cleanly */
+.hero-image-slot img,
+.story-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator">
+    <span class="live-dot"></span>
+    <span>Live</span>
+  </span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>GPT-5.5 released 2h ago</span>
+  <span class="divider">·</span>
+  <span>3 deals ending today</span>
+  <span class="disclosure">
+    <span>ⓘ</span>
+    <span>Affiliate disclosure</span>
+  </span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="scrollTo({top:0,behavior:'smooth'})">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link active" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='index.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='index.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search 2,400+ AI tools..." onfocus="showToast('Try: video editors, or ChatGPT alternatives')">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline" onclick="showToast('Sign in coming soon')">Sign in</button>
+      <button class="btn-primary" onclick="showToast('Subscribe for member-only deals')">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-content fade-in">
+      <div class="hero-eyebrow">
+        <span class="badge">Est. 2026</span>
+        <span>Independent · Reader-supported</span>
+      </div>
+      <h1>The trusted guide to<br>every AI tool <em>that matters</em>.</h1>
+      <p class="hero-lede">
+        <strong>2,400 AI tools tested. 12,800 hours of hands-on reviews.</strong> Independent rankings, honest comparisons, and daily intelligence — read by 48,000+ AI professionals.
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="showToast('Explore tools')">Explore the directory →</button>
+        <button class="btn-outline" onclick="showToast('Read latest')">Today's briefing</button>
+      </div>
+      <div class="hero-trust">
+        <div class="hero-trust-item">
+          <div class="hero-trust-num"><em>2,400+</em></div>
+          <div class="hero-trust-label">Tools tracked</div>
+        </div>
+        <div class="hero-trust-divider"></div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-num"><em>48K</em></div>
+          <div class="hero-trust-label">Readers</div>
+        </div>
+        <div class="hero-trust-divider"></div>
+        <div class="hero-trust-item">
+          <div class="hero-trust-num">Daily</div>
+          <div class="hero-trust-label">News updates</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in delay-1">
+      <div class="hero-feature-back"></div>
+      <div class="hero-feature-card">
+        <div class="hero-image-slot"><img src="images/hero-homepage.jpg" alt="AI intelligence — data streams" loading="lazy"></div>
+        </div>
+        <div class="hero-feature-body">
+          <span class="hero-feature-cat">TODAY'S COVER STORY</span>
+          <h3>GPT-5.5 launched: what changes for your workflow this week</h3>
+          <p>OpenAI's biggest model since GPT-5. We benchmarked it against Claude 5 and Gemini 3 on 40 real tasks — the results surprised us.</p>
+          <div class="hero-feature-meta">
+            <div class="byline">
+              <div class="avatar-tiny">SR</div>
+              <span>Sarah Ramirez</span>
+            </div>
+            <span class="dot-sep">·</span>
+            <span>8 min</span>
+            <span class="dot-sep">·</span>
+            <span>2h ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED STORIES -->
+<section>
+  <div class="section-header">
+    <div class="section-header-left">
+      <span class="section-kicker">This week's briefings</span>
+      <h2 class="section-title">Essential reading, <em>curated daily</em></h2>
+    </div>
+    <div class="section-see-all">All stories →</div>
+  </div>
+  <div class="stories-grid">
+    <div class="story-card">
+      <div class="story-image"><img src="images/story-1-ai-stack.jpg" alt="$99 AI stack — chip with data streams" loading="lazy"></div>
+      <div class="story-body">
+        <div class="story-meta-row">
+          <span class="story-cat">Deep Dive</span>
+          <span>·</span>
+          <span>12 min</span>
+        </div>
+        <h3>The $99 AI stack that replaced $2,400/mo of software</h3>
+        <p>James tore up his tech stack in 2026. Here's the exact 7-tool setup running his 6-figure consulting business.</p>
+        <div class="story-footer"><div class="avatar-tiny">JK</div><span>James Kim · yesterday</span></div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-image"><img src="images/story-2-claude-vs-gpt.jpg" alt="Claude vs GPT — head to head" loading="lazy"></div>
+      <div class="story-body">
+        <div class="story-meta-row">
+          <span class="story-cat cyan">Comparison</span>
+          <span>·</span>
+          <span>9 min</span>
+        </div>
+        <h3>Claude 5 vs GPT-5.5: 40 real tasks. The results.</h3>
+        <p>No cherry-picked benchmarks. 40 identical prompts across marketing, research, coding, and creative writing.</p>
+        <div class="story-footer"><div class="avatar-tiny">MR</div><span>Maya Rodriguez · 3d ago</span></div>
+      </div>
+    </div>
+
+    <div class="story-card">
+      <div class="story-image"><img src="images/story-3-ai-agents.jpg" alt="AI agents — networked systems" loading="lazy"></div>
+      <div class="story-body">
+        <div class="story-meta-row">
+          <span class="story-cat pink">Future Watch</span>
+          <span>·</span>
+          <span>7 min</span>
+        </div>
+        <h3>AI agents that actually ship work. 8 we tested.</h3>
+        <p>2025 was hype. 2026 is reality: autonomous agents that complete real tasks. Our editors tested every major one.</p>
+        <div class="story-footer"><div class="avatar-tiny">AC</div><span>Aisha Chen · 4d ago</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS FEED -->
+<section class="news-section">
+  <div class="news-inner">
+    <div class="section-header">
+      <div class="section-header-left">
+        <span class="section-kicker">
+          <span style="display:inline-flex;gap:6px;align-items:center;color:var(--lime)">
+            <span style="width:6px;height:6px;background:var(--lime);border-radius:50%;display:inline-block;animation:livePulse 2s infinite;box-shadow:0 0 8px var(--lime-glow)"></span>
+            LIVE FEED
+          </span>
+        </span>
+        <h2 class="section-title">The <em>daily brief</em>: what's new in AI</h2>
+      </div>
+      <div class="section-see-all">All updates →</div>
+    </div>
+
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-time"><span class="news-time-big">2h ago</span><span>2:14 PM EST</span></div>
+        <div class="news-body">
+          <h4>OpenAI releases GPT-5.5 with 2M token context window</h4>
+          <p>40% improvement on reasoning benchmarks. Native spatial video understanding. Pricing unchanged at $10/1M input tokens.</p>
+          <div class="news-tags"><span class="news-tag hot">Breaking</span><span class="news-tag">OpenAI</span><span class="news-tag">Models</span></div>
+        </div>
+        <div class="news-source"><strong>OpenAI Blog</strong><span>Official</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-time"><span class="news-time-big">5h ago</span><span>11:02 AM EST</span></div>
+        <div class="news-body">
+          <h4>Anthropic launches Claude Skills marketplace for enterprise</h4>
+          <p>Skills — reusable Claude configurations for specific tasks — can now be published, shared, and installed across teams.</p>
+          <div class="news-tags"><span class="news-tag new">New</span><span class="news-tag">Anthropic</span><span class="news-tag">Enterprise</span></div>
+        </div>
+        <div class="news-source"><strong>Anthropic</strong><span>Product update</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-time"><span class="news-time-big">8h ago</span><span>8:31 AM EST</span></div>
+        <div class="news-body">
+          <h4>Runway ML raises $450M Series E at $7B valuation</h4>
+          <p>AI video generation leader will expand enterprise offerings and launch real-time video collaboration in Q3.</p>
+          <div class="news-tags"><span class="news-tag">Funding</span><span class="news-tag">Video AI</span><span class="news-tag">Runway</span></div>
+        </div>
+        <div class="news-source"><strong>TechCrunch</strong><span>Reuters</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-time"><span class="news-time-big">Yesterday</span><span>4:45 PM EST</span></div>
+        <div class="news-body">
+          <h4>Cursor 2.0 adds multi-repo context and background agents</h4>
+          <p>The AI-first code editor now handles cross-repository refactors and dispatches background agents for long-running tasks.</p>
+          <div class="news-tags"><span class="news-tag">Cursor</span><span class="news-tag">Dev Tools</span><span class="news-tag">Update</span></div>
+        </div>
+        <div class="news-source"><strong>Cursor Blog</strong><span>Official</span></div>
+      </div>
+      <div class="news-item">
+        <div class="news-time"><span class="news-time-big">Yesterday</span><span>1:20 PM EST</span></div>
+        <div class="news-body">
+          <h4>Perplexity: full year of Pro free for students and developers</h4>
+          <p>Verified .edu students and active GitHub developers qualify. Existing subscribers get 3 months credited.</p>
+          <div class="news-tags"><span class="news-tag deal">Deal</span><span class="news-tag">Perplexity</span><span class="news-tag">Search</span></div>
+        </div>
+        <div class="news-source"><strong>Perplexity</strong><span>Announcement</span></div>
+      </div>
+    </div>
+    <div class="news-footer">
+      <button class="btn-outline">See all updates from today →</button>
+    </div>
+  </div>
+</section>
+
+<!-- TOP TOOLS -->
+<section class="tools-editorial">
+  <div class="editorial-intro">
+    <div class="kicker">April 2026 · Category Champions</div>
+    <h2>The best AI tool in <em>every discipline</em>.</h2>
+    <p>Every AI is unique. Midjourney doesn't compete with Cursor. Claude doesn't compete with ElevenLabs. So we don't rank them against each other — we pick the champion in each category, tested hands-on by our editorial team.</p>
+    <div class="editorial-byline">
+      <div class="byline-avatars">
+        <div class="avatar-tiny">SR</div>
+        <div class="avatar-tiny">MR</div>
+        <div class="avatar-tiny">JK</div>
+      </div>
+      <span>Reviewed by our editorial team</span>
+    </div>
+  </div>
+
+  <!-- v4.2: Category tabs. "Overall" shows best-in-class grid, others show ranked leaderboards -->
+  <div class="tools-tabs">
+    <div class="tools-tab active" data-view="best-in-class">Overall <span class="tab-count">Champions</span></div>
+    <div class="tools-tab" data-view="writing">Writing <span class="tab-count">142</span></div>
+    <div class="tools-tab" data-view="images">Images <span class="tab-count">89</span></div>
+    <div class="tools-tab" data-view="video">Video <span class="tab-count">67</span></div>
+    <div class="tools-tab" data-view="voice">Voice <span class="tab-count">54</span></div>
+    <div class="tools-tab" data-view="code">Code <span class="tab-count">98</span></div>
+    <div class="tools-tab" data-view="research">Research <span class="tab-count">32</span></div>
+  </div>
+
+  <!-- VIEW 1: BEST-IN-CLASS GRID (default) — Each tool wins its own category -->
+  <div class="tools-view active" data-view="best-in-class">
+    <div class="best-in-class-grid">
+
+      <!-- Writing Champion: Jasper -->
+      <div class="champion-card cat-writing" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Writing</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-jasper">J</div>
+            <div class="champion-name">
+              <h3>Jasper AI</h3>
+              <div class="subhead">Content teams · At scale</div>
+            </div>
+          </div>
+          <div class="champion-why">Best brand voice engine we've tested. Trained on 5 samples, sounds like you.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.8<span class="review-count">· 2.4K</span></div>
+          <div class="champion-price">$39/mo</div>
+        </div>
+      </div>
+
+      <!-- Images Champion: Midjourney -->
+      <div class="champion-card cat-images" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Images</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-midjourney">M</div>
+            <div class="champion-name">
+              <h3>Midjourney</h3>
+              <div class="subhead">Aesthetic · Distinctive</div>
+            </div>
+          </div>
+          <div class="champion-why">Most aesthetically distinctive image AI on the market. Owns the "editorial cover" look.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.8<span class="review-count">· 9.4K</span></div>
+          <div class="champion-price">$10/mo</div>
+        </div>
+      </div>
+
+      <!-- Video Champion: Descript -->
+      <div class="champion-card cat-video" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Video</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-descript">D</div>
+            <div class="champion-name">
+              <h3>Descript</h3>
+              <div class="subhead">Podcasts · Video editing</div>
+            </div>
+          </div>
+          <div class="champion-why">Edit video and podcasts by editing text. Genuinely novel workflow that saves hours.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.7<span class="review-count">· 1.6K</span></div>
+          <div class="champion-price">$15/mo</div>
+        </div>
+      </div>
+
+      <!-- Voice Champion: ElevenLabs -->
+      <div class="champion-card cat-voice" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Voice</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-elevenlabs">11</div>
+            <div class="champion-name">
+              <h3>ElevenLabs</h3>
+              <div class="subhead">Voice cloning · TTS</div>
+            </div>
+          </div>
+          <div class="champion-why">The gold standard for realistic AI voice — indistinguishable from human.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.9<span class="review-count">· 1.8K</span></div>
+          <div class="champion-price free-color">Free</div>
+        </div>
+      </div>
+
+      <!-- Code Champion: Cursor -->
+      <div class="champion-card cat-code" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Code</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-cursor">⟩</div>
+            <div class="champion-name">
+              <h3>Cursor 2.0</h3>
+              <div class="subhead">AI-first editor · Agents</div>
+            </div>
+          </div>
+          <div class="champion-why">The AI-first code editor. Multi-repo context and background agents in v2.0.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.9<span class="review-count">· 6.3K</span></div>
+          <div class="champion-price">$20/mo</div>
+        </div>
+      </div>
+
+      <!-- Research Champion: Perplexity -->
+      <div class="champion-card cat-research" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best for Research</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-perplexity">P</div>
+            <div class="champion-name">
+              <h3>Perplexity Pro</h3>
+              <div class="subhead">Search · Citations</div>
+            </div>
+          </div>
+          <div class="champion-why">AI search with real-time sources. Replaces Google for research-heavy work.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.8<span class="review-count">· 4.2K</span></div>
+          <div class="champion-price">$20/mo</div>
+        </div>
+      </div>
+
+      <!-- All-Purpose Champion: ChatGPT -->
+      <div class="champion-card cat-general" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best All-Purpose</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-chatgpt">G</div>
+            <div class="champion-name">
+              <h3>ChatGPT Plus</h3>
+              <div class="subhead">GPT-5.5 · Universal</div>
+            </div>
+          </div>
+          <div class="champion-why">Best all-round value at $20/mo. Now with web search, image gen, and 2M token context.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.8<span class="review-count">· 12K</span></div>
+          <div class="champion-price">$20/mo</div>
+        </div>
+      </div>
+
+      <!-- Free Champion: Claude -->
+      <div class="champion-card cat-free" onclick="window.location='tool-detail.html'">
+        <div class="champion-cat-label">Best Free Option</div>
+        <div class="champion-body">
+          <div class="champion-logo-name">
+            <div class="champion-logo brand-claude">C</div>
+            <div class="champion-name">
+              <h3>Claude</h3>
+              <div class="subhead">Long-form · Writing quality</div>
+            </div>
+          </div>
+          <div class="champion-why">Best pure writing quality of any model. Free tier is genuinely generous.</div>
+        </div>
+        <div class="champion-footer">
+          <div class="champion-rating"><span class="stars-mini">★★★★★</span>4.8<span class="review-count">· 8.2K</span></div>
+          <div class="champion-price free-color">Free</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VIEW 2: WRITING CATEGORY — Ranked leaderboard for this specific category -->
+  <div class="tools-view" data-view="writing">
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">✍</div>
+        <div>
+          <h3>Top Writing &amp; Copy AI Tools</h3>
+          <div class="sub">142 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Apr 12, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card editors-choice">
+        <div class="tool-editorial-image bg-jasper">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="No change"></div>
+          <div class="tool-brand-logo brand-jasper">J</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label deal">50% off annual</span>
+          </div>
+          <h3>Jasper AI</h3>
+          <p class="tagline">The most polished AI writing platform for content teams that ship at scale.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.8</span>
+            <span>·</span><span>2,400 reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$39<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('jasper')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-chatgpt">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change up" title="Up 1">1</div>
+          <div class="tool-brand-logo brand-chatgpt">G</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best value</span>
+            <span class="tool-label">GPT-5.5 update</span>
+          </div>
+          <h3>ChatGPT Plus</h3>
+          <p class="tagline">Best all-purpose model at $20/mo — now with 2M token context and web search built in.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.8</span>
+            <span>·</span><span>12,100 reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('chatgpt')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-claude">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="No change"></div>
+          <div class="tool-brand-logo brand-claude">C</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for long-form</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Claude</h3>
+          <p class="tagline">Best pure writing quality — nuanced tone, long-form excellence, projects feature.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.8</span>
+            <span>·</span><span>8,200 reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="free-tier">Free</div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('claude')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-notion">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change up" title="Up 2">2</div>
+          <div class="tool-brand-logo brand-notion">N</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best integrated</span>
+            <span class="tool-label deal">60% off annual</span>
+          </div>
+          <h3>Notion AI</h3>
+          <p class="tagline">AI baked into your Notion workspace. Context-aware, and just $10/mo add-on.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.5</span>
+            <span>·</span><span>5,420 reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$10<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('notion')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-copyai">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change down" title="Down 2">2</div>
+          <div class="tool-brand-logo brand-copyai">C</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best free plan</span>
+            <span class="tool-label free">2K words/mo free</span>
+          </div>
+          <h3>Copy.ai</h3>
+          <p class="tagline">Most generous free tier we tested. 90+ marketing templates, no learning curve.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>3,100 reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="free-tier">Free</div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('copyai')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category placeholder views for tabs we haven't fully built out -->
+  <div class="tools-view" data-view="images">
+    <div class="category-placeholder">
+      <h4>Image Generation Rankings</h4>
+      <p>Full ranked leaderboard for 89 image AI tools, coming to this page shortly. Midjourney, DALL-E 3, Stable Diffusion, Flux, and more.</p>
+      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    </div>
+  </div>
+  <div class="tools-view" data-view="video">
+    <div class="category-placeholder">
+      <h4>Video Generation Rankings</h4>
+      <p>Full ranked leaderboard for 67 video AI tools coming soon — Runway, Descript, Sora, Pika, HeyGen and more.</p>
+      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    </div>
+  </div>
+  <div class="tools-view" data-view="voice">
+    <div class="category-placeholder">
+      <h4>Voice &amp; Audio Rankings</h4>
+      <p>Full ranked leaderboard for 54 voice AI tools coming soon — ElevenLabs, Suno, Descript, Otter and more.</p>
+      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    </div>
+  </div>
+  <div class="tools-view" data-view="code">
+    <div class="category-placeholder">
+      <h4>Code &amp; Dev Tool Rankings</h4>
+      <p>Full ranked leaderboard for 98 code AI tools coming soon — Cursor, Copilot, Windsurf, Cody and more.</p>
+      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    </div>
+  </div>
+  <div class="tools-view" data-view="research">
+    <div class="category-placeholder">
+      <h4>Research AI Rankings</h4>
+      <p>Full ranked leaderboard for 32 research AI tools coming soon — Perplexity, You.com, Consensus and more.</p>
+      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- STACK QUIZ -->
+<section class="stack-quiz-section">
+  <div class="stack-quiz-wrapper">
+    <div class="stack-quiz-left">
+      <div class="kicker">Find your perfect stack</div>
+      <h2>Answer 3 questions.<br>Get your <em>perfect AI stack</em>.</h2>
+      <p>Our matching engine analyzes your role, industry, and budget to recommend the exact 5-7 tools that will move the needle — with exclusive member discounts.</p>
+      <ul class="stack-quiz-benefits">
+        <li>Personalized to your role and industry</li>
+        <li>Budget-matched — no unnecessary tools</li>
+        <li>Exclusive member discount codes included</li>
+      </ul>
+      <div class="stack-quiz-cta">
+        <button class="btn-primary" onclick="showToast('Starting quiz...')">Start the quiz →</button>
+        <span class="time">Takes 60 seconds</span>
+      </div>
+    </div>
+    <div class="stack-quiz-right">
+      <div class="quiz-progress">
+        <div class="quiz-dot active"></div>
+        <div class="quiz-dot"></div>
+        <div class="quiz-dot"></div>
+      </div>
+      <div class="quiz-q-num">Question 1 of 3</div>
+      <div class="quiz-q">What's your primary use case?</div>
+      <div class="quiz-options">
+        <div class="quiz-opt" onclick="showToast('Content selected')"><span class="opt-icon">✍</span>Content & writing</div>
+        <div class="quiz-opt" onclick="showToast('Design selected')"><span class="opt-icon">◐</span>Design & visuals</div>
+        <div class="quiz-opt" onclick="showToast('Code selected')"><span class="opt-icon">&lt;/&gt;</span>Code & development</div>
+        <div class="quiz-opt" onclick="showToast('Data selected')"><span class="opt-icon">◊</span>Data & analytics</div>
+        <div class="quiz-opt" onclick="showToast('Video selected')"><span class="opt-icon">▶</span>Video & audio</div>
+        <div class="quiz-opt" onclick="showToast('Sales selected')"><span class="opt-icon">◈</span>Sales & CRM</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE PROMO -->
+<div class="compare-promo">
+  <div class="compare-promo-grid">
+    <div class="compare-promo-left">
+      <div class="kicker">Head-to-Head Reviews</div>
+      <h2>Two AI tools enter.<br><em>One recommendation</em> leaves.</h2>
+      <p>Popular AI tools through the same real-world tasks, side-by-side. No sponsored winners. Just what actually performs when you need it to.</p>
+      <div class="popular-vs">
+        <div class="vs-link">
+          <div class="vs-link-tools"><span>Jasper AI</span><span class="vs-word">vs</span><span>Copy.ai</span></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="vs-link">
+          <div class="vs-link-tools"><span>ChatGPT</span><span class="vs-word">vs</span><span>Claude</span></div>
+          <span class="arrow">→</span>
+        </div>
+        <div class="vs-link">
+          <div class="vs-link-tools"><span>Midjourney</span><span class="vs-word">vs</span><span>DALL-E</span></div>
+          <span class="arrow">→</span>
+        </div>
+      </div>
+    </div>
+    <div class="compare-mockup">
+      <div class="compare-mockup-header">
+        <div class="compare-side winner">
+          <div class="compare-side-logo brand-jasper">J</div>
+          <h5>Jasper AI</h5>
+          <div class="price">$39/mo</div>
+        </div>
+        <div class="compare-side">
+          <div class="compare-side-logo" style="background:linear-gradient(135deg,#333,#111)">C</div>
+          <h5>Copy.ai</h5>
+          <div class="price">$36/mo</div>
+        </div>
+      </div>
+      <div class="compare-rows">
+        <div class="compare-row"><div class="compare-cell yes">✓ Advanced</div><div class="feature-name">Brand voice</div><div class="compare-cell no">Basic</div></div>
+        <div class="compare-row"><div class="compare-cell yes">100+</div><div class="feature-name">Templates</div><div class="compare-cell">90+</div></div>
+        <div class="compare-row"><div class="compare-cell">7-day trial</div><div class="feature-name">Free plan</div><div class="compare-cell yes">✓ Free</div></div>
+        <div class="compare-row"><div class="compare-cell yes">✓</div><div class="feature-name">SEO mode</div><div class="compare-cell no">✗</div></div>
+        <div class="compare-row"><div class="compare-cell yes">✓ Yes</div><div class="feature-name">API access</div><div class="compare-cell no">✗</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES - 12 boxes -->
+<section class="categories-section">
+  <div class="section-header">
+    <div class="section-header-left">
+      <span class="section-kicker">Explore by category</span>
+      <h2 class="section-title">Every AI tool, <em>organized</em>.</h2>
+    </div>
+    <div class="section-see-all">All 42 categories →</div>
+  </div>
+  <div class="cat-grid-refined">
+    <div class="cat-tile cat-c1"><div class="cat-tile-icon">✍</div><h4>Writing & Copy</h4><p>AI writers, editors, content platforms</p><div class="cat-tile-count">142 tools</div></div>
+    <div class="cat-tile cat-c2"><div class="cat-tile-icon">◐</div><h4>Image Generation</h4><p>Midjourney, DALL-E, image editors</p><div class="cat-tile-count">89 tools</div></div>
+    <div class="cat-tile cat-c3"><div class="cat-tile-icon">▶</div><h4>Video & Motion</h4><p>Generate, edit, subtitle, enhance</p><div class="cat-tile-count">67 tools</div></div>
+    <div class="cat-tile cat-c4"><div class="cat-tile-icon">♪</div><h4>Voice & Audio</h4><p>Cloning, TTS, transcription, music</p><div class="cat-tile-count">54 tools</div></div>
+    <div class="cat-tile cat-c5"><div class="cat-tile-icon">&lt;/&gt;</div><h4>Code & Dev</h4><p>Copilots, code review, agents</p><div class="cat-tile-count">98 tools</div></div>
+    <div class="cat-tile cat-c6"><div class="cat-tile-icon">◈</div><h4>Autonomous Agents</h4><p>AI that takes real action for you</p><div class="cat-tile-count">76 tools</div></div>
+    <div class="cat-tile cat-c1"><div class="cat-tile-icon">◊</div><h4>Marketing & SEO</h4><p>Content, keywords, ads, analytics</p><div class="cat-tile-count">72 tools</div></div>
+    <div class="cat-tile cat-c2"><div class="cat-tile-icon">⌂</div><h4>Business & Ops</h4><p>CRM, meetings, docs, automation</p><div class="cat-tile-count">104 tools</div></div>
+    <div class="cat-tile cat-c3"><div class="cat-tile-icon">◎</div><h4>Data & Analytics</h4><p>Insights, dashboards, BI tools</p><div class="cat-tile-count">51 tools</div></div>
+    <div class="cat-tile cat-c4"><div class="cat-tile-icon">⚑</div><h4>Sales & CRM</h4><p>Outreach, pipelines, closing</p><div class="cat-tile-count">42 tools</div></div>
+    <div class="cat-tile cat-c5"><div class="cat-tile-icon">⌘</div><h4>Productivity</h4><p>Notion, tasks, automation</p><div class="cat-tile-count">44 tools</div></div>
+    <div class="cat-tile cat-c6"><div class="cat-tile-icon">⌕</div><h4>Research & Search</h4><p>Perplexity, Consensus, Elicit</p><div class="cat-tile-count">32 tools</div></div>
+  </div>
+</section>
+
+<!-- AI ASSISTANT PREVIEW -->
+<section class="ai-assistant-section">
+  <div class="ai-assistant-wrapper">
+    <div class="ai-assistant-left">
+      <div class="ai-badge">
+        <span class="dot"></span>
+        10X AI Assistant
+      </div>
+      <h2>Describe your problem.<br>Get the <em>exact tools</em> to solve it.</h2>
+      <p>Chat with our AI assistant — knows every tool in our directory, remembers your budget, recommends the perfect stack with member-exclusive discounts applied.</p>
+      <div class="ai-assistant-features">
+        <div class="ai-feature">
+          <div class="ai-feature-icon">◈</div>
+          <div class="ai-feature-text">
+            <h5>Trained on every tool we've reviewed</h5>
+            <p>2,400+ tools, 12,800 hours of testing data</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-feature-icon">◊</div>
+          <div class="ai-feature-text">
+            <h5>Understands your budget and role</h5>
+            <p>No overselling. Recommends free options when they win.</p>
+          </div>
+        </div>
+        <div class="ai-feature">
+          <div class="ai-feature-icon">◉</div>
+          <div class="ai-feature-text">
+            <h5>Applies member deals automatically</h5>
+            <p>Save 30-60% on recommended tools</p>
+          </div>
+        </div>
+      </div>
+      <button class="btn-primary" onclick="showToast('Opening AI assistant...')">Try the assistant →</button>
+    </div>
+
+    <div class="ai-assistant-right">
+      <div class="chat-mock-header">
+        <div class="chat-mock-avatar">10</div>
+        <h5>10X AI Assistant</h5>
+        <div class="status">Online</div>
+      </div>
+      <div class="chat-messages">
+        <div class="msg msg-user">I run a solo consulting biz. Need AI for proposals, call notes, and LinkedIn. Budget ~$100/mo.</div>
+        <div class="msg msg-ai">
+          Perfect stack for a solo consultant at that budget:
+          <div class="msg-recs">
+            <div class="msg-rec" onclick="trackClick('fathom')">
+              <div class="msg-rec-logo brand-fathom">F</div>
+              <div class="msg-rec-body"><strong>Fathom</strong><span class="sub">Call notes & summaries</span></div>
+              <span class="msg-rec-price">Free</span>
+            </div>
+            <div class="msg-rec" onclick="trackClick('jasper')">
+              <div class="msg-rec-logo brand-jasper">J</div>
+              <div class="msg-rec-body"><strong>Jasper AI</strong><span class="sub">Proposals + LinkedIn</span></div>
+              <span class="msg-rec-price">$39/mo</span>
+            </div>
+            <div class="msg-rec" onclick="trackClick('taplio')">
+              <div class="msg-rec-logo brand-taplio">T</div>
+              <div class="msg-rec-body"><strong>Taplio</strong><span class="sub">LinkedIn scheduling</span></div>
+              <span class="msg-rec-price">$39/mo</span>
+            </div>
+          </div>
+          <strong style="display:block;margin-top:10px">Total: $78/mo</strong> — under budget. Apply member discount?
+        </div>
+      </div>
+      <div class="chat-input-mock">
+        <input placeholder="Ask about any AI tool..." onkeypress="if(event.key==='Enter') showToast('Analyzing...')">
+        <button onclick="showToast('Analyzing...')">Send</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-section">
+  <div class="newsletter-inner">
+    <div class="kicker">The Tuesday Briefing</div>
+    <h2>Five new tools. Two exclusive deals.<br><em>One useful idea.</em> Every Tuesday.</h2>
+    <p class="lede">A short, opinionated brief on what actually matters in AI this week — read in under 4 minutes by 48,000+ professionals.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Welcome — check your inbox')">
+      <input type="email" placeholder="you@work.com" required>
+      <button type="submit" class="btn-primary">Subscribe →</button>
+    </form>
+    <div class="newsletter-trust">
+      <div class="newsletter-avatars">
+        <div class="avatar-tiny">M</div>
+        <div class="avatar-tiny">J</div>
+        <div class="avatar-tiny">A</div>
+        <div class="avatar-tiny">T</div>
+        <div class="avatar-tiny">+</div>
+      </div>
+      <span>Join 48,200+ AI professionals · No spam</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>How we make money.</strong> 10X AI Expo is reader-supported. When you click links to partner tools, we may earn a commission at no extra cost to you. These partnerships never influence rankings — we test every tool before recommending. <a>Read our full editorial policy →</a>
+    </div>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>10X <em>AI</em> Expo</h3>
+        <p>Independent reviews and daily intelligence on every AI tool that matters. Written by humans, for humans building with AI.</p>
+        <div class="footer-social">
+          <div class="social-btn">𝕏</div>
+          <div class="social-btn">in</div>
+          <div class="social-btn">▶</div>
+          <div class="social-btn">◎</div>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Discover</h4><ul><li>Tool Directory</li><li>Best Of Rankings</li><li>Compare Tools</li><li>10X Stacks</li><li>Today's Deals</li></ul></div>
+      <div class="footer-col"><h4>Editorial</h4><ul><li>News</li><li>Deep Dives</li><li>Guides</li><li>Interviews</li><li>Newsletter</li></ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul><li>Editorial Policy</li><li>How We Test</li><li>Submit a Tool</li><li>Become a Partner</li><li>Press</li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li>About</li><li>Contact</li><li>Careers</li><li>Advertise</li><li>Ethics</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism since 2024</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Cookies</span><span>Disclosure</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING AI ASSISTANT -->
+<div class="floating-assistant" onclick="showToast('AI Assistant opening...')" title="Ask the 10X AI Assistant">
+  <div class="fa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  <span class="fa-tooltip">Ask about any AI tool →</span>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const current = html.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+  showToast(`Switched to ${next} mode`);
+}
+try {
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+} catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function trackClick(tool) {
+  showToast(`Opening ${tool} with your discount…`);
+}
+
+document.addEventListener('keydown', (e) => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    document.querySelector('.nav-search input')?.focus();
+  }
+});
+
+// v4.2: Tab switching — toggles between views (best-in-class grid vs category leaderboards)
+document.querySelectorAll('.tools-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const targetView = this.dataset.view;
+    if (!targetView) return;
+
+    // Update tab active state
+    document.querySelectorAll('.tools-tab').forEach(t => t.classList.remove('active'));
+    this.classList.add('active');
+
+    // Show the corresponding view, hide others
+    document.querySelectorAll('.tools-view').forEach(v => {
+      v.classList.toggle('active', v.dataset.view === targetView);
+    });
+
+    // Smooth scroll to keep the section header visible
+    const section = document.querySelector('.tools-editorial');
+    if (section) {
+      const y = section.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jasper AI Review 2026: Is It Still Worth It? — 10X AI Expo</title>
+<meta name="description" content="Independent, hands-on review of Jasper AI after 240 hours of testing. Pricing, features, real pros and cons, and how it stacks up in 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK (shared)
+   ============================================ */
+:root {
+  --bg: #0A0A0B;
+  --bg-elevated: #111114;
+  --bg-card: #16171B;
+  --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.10);
+  --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7;
+  --text-muted: #9A9A95;
+  --text-subtle: #5F5F5A;
+  --text-inverse: #0A0A0B;
+  --lime: #B4FF3A;
+  --lime-hover: #C4FF5A;
+  --lime-subtle: rgba(180,255,58,0.08);
+  --lime-tint: rgba(180,255,58,0.14);
+  --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF;
+  --cyan-subtle: rgba(58,189,255,0.10);
+  --cyan-tint: rgba(58,189,255,0.16);
+  --pink: #FF6B9D;
+  --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800;
+  --amber-subtle: rgba(255,184,0,0.10);
+  --amber-tint: rgba(255,184,0,0.16);
+  --success: #7EFFB8;
+  --success-subtle: rgba(126,255,184,0.10);
+  --urgent: #FF5C6E;
+  --urgent-subtle: rgba(255,92,110,0.10);
+  --violet: #A88BFF;
+  --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.45);
+  --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+  --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1320px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7;
+  --bg-elevated: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06);
+  --border-strong: rgba(0,0,0,0.10);
+  --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B;
+  --text-muted: #4A4A45;
+  --text-subtle: #8A8A85;
+  --text-inverse: #FAFAF7;
+  --lime: #6BAA00;
+  --lime-hover: #7CB800;
+  --lime-subtle: rgba(107,170,0,0.08);
+  --lime-tint: rgba(107,170,0,0.14);
+  --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7;
+  --cyan-subtle: rgba(2,132,199,0.08);
+  --cyan-tint: rgba(2,132,199,0.14);
+  --pink: #D63A6E;
+  --pink-subtle: rgba(214,58,110,0.08);
+  --amber: #B8890C;
+  --amber-subtle: rgba(184,137,12,0.08);
+  --amber-tint: rgba(184,137,12,0.14);
+  --success: #16A34A;
+  --success-subtle: rgba(22,163,74,0.08);
+  --urgent: #DC2626;
+  --urgent-subtle: rgba(220,38,38,0.08);
+  --violet: #7458A0;
+  --violet-subtle: rgba(116,88,160,0.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* NAV (shared) */
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 24px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 32px; }
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark { width: 32px; height: 32px; background: var(--lime); color: var(--bg); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 15px; box-shadow: 0 0 20px var(--lime-glow); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1; }
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link { padding: 6px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; color: var(--text-muted); transition: all 0.12s; cursor: pointer; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after { content: ''; position: absolute; top: 4px; right: 3px; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime-glow); }
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input { width: 100%; padding: 8px 14px 8px 36px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; transition: all 0.12s; }
+.nav-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-primary { padding: 8px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; transition: all 0.15s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline { padding: 8px 16px; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; transition: all 0.12s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+/* BRAND LOGOS */
+.brand-jasper { background: linear-gradient(135deg, #FF6B4A 0%, #E5502F 100%); }
+.brand-copyai { background: linear-gradient(135deg, #333 0%, #111 100%); }
+.brand-notion { background: linear-gradient(135deg, #F5F5F0 0%, #DEDEE0 100%); color: #16171B; }
+
+/* ============================================
+   BREADCRUMB
+   ============================================ */
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 20px 28px 0; display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.02em; }
+.breadcrumb a { color: var(--text-muted); cursor: pointer; transition: color 0.12s; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .sep { color: var(--text-subtle); }
+.breadcrumb .current { color: var(--text); }
+
+/* ============================================
+   TOOL HERO
+   ============================================ */
+.tool-hero { max-width: var(--max-w); margin: 0 auto; padding: 32px 28px 40px; display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; }
+
+.tool-hero-main { min-width: 0; }
+.tool-hero-header { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 20px; }
+.tool-hero-logo { width: 80px; height: 80px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 40px; color: #fff; letter-spacing: -0.03em; box-shadow: var(--shadow-md); flex-shrink: 0; }
+.tool-hero-title h1 { font-family: var(--font-editorial); font-size: clamp(32px, 4vw, 48px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 8px; }
+.tool-hero-title .tagline { font-size: 17px; color: var(--text-muted); line-height: 1.5; }
+.tool-hero-badges { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
+.badge { font-family: var(--font-mono); font-size: 10px; padding: 4px 9px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; display: inline-flex; align-items: center; gap: 5px; }
+.badge.editors { background: var(--lime); color: var(--text-inverse); box-shadow: 0 0 12px var(--lime-glow); }
+.badge.deal { background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); }
+.badge.verified { background: var(--cyan-subtle); color: var(--cyan); border: 1px solid var(--cyan-tint); }
+.badge.category { background: var(--bg-hover); color: var(--text-muted); }
+
+.tool-rating-row { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 24px; flex-wrap: wrap; }
+.rating-block { display: flex; flex-direction: column; gap: 4px; }
+.rating-num { font-family: var(--font-editorial); font-size: 30px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1; display: flex; align-items: baseline; gap: 4px; }
+.rating-num .max { font-size: 15px; color: var(--text-subtle); font-weight: 400; }
+.rating-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+.rating-stars { color: var(--amber); letter-spacing: 2px; font-size: 14px; }
+.rating-divider { width: 1px; height: 40px; background: var(--border); }
+.rating-block.editors-pick .rating-num { color: var(--lime); }
+
+.tool-quick-summary { margin-bottom: 24px; }
+.tool-quick-summary h3 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; font-weight: 700; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.summary-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 16px; }
+.summary-item .label { font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 4px; font-weight: 700; }
+.summary-item .value { font-size: 14px; font-weight: 500; color: var(--text); }
+.summary-item .value.lime { color: var(--lime); }
+.summary-item .value.amber { color: var(--amber); }
+
+/* SIDEBAR CTA */
+.tool-hero-sidebar { position: sticky; top: 76px; }
+.cta-card { background: var(--bg-card); border: 1px solid var(--lime-tint); border-radius: var(--r-lg); padding: 24px; box-shadow: 0 0 0 3px var(--lime-subtle); }
+.cta-price-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.cta-price-from { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-subtle); font-weight: 700; }
+.cta-price { font-family: var(--font-editorial); font-size: 40px; font-weight: 600; color: var(--text); letter-spacing: -0.02em; line-height: 1; }
+.cta-price .per { font-family: var(--font-body); font-size: 15px; color: var(--text-muted); font-weight: 400; }
+.cta-deal-badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 16px; }
+.cta-crossed { font-size: 13px; color: var(--text-subtle); text-decoration: line-through; margin-left: 6px; }
+.cta-actions { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.cta-actions .btn-primary { padding: 12px 18px; font-size: 14px; justify-content: center; width: 100%; }
+.cta-actions .btn-outline { padding: 12px 18px; font-size: 14px; justify-content: center; width: 100%; }
+.cta-coupon { background: var(--bg-elevated); border: 1px dashed var(--lime-tint); border-radius: var(--r-sm); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.cta-coupon .code-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+.cta-coupon .code { font-family: var(--font-mono); font-size: 14px; color: var(--lime); font-weight: 700; letter-spacing: 0.05em; }
+.cta-coupon .copy-btn { color: var(--text-subtle); cursor: pointer; padding: 4px; font-size: 12px; transition: color 0.12s; }
+.cta-coupon .copy-btn:hover { color: var(--lime); }
+.cta-trust { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--border); }
+.cta-trust-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); }
+.cta-trust-item::before { content: '✓'; color: var(--lime); font-weight: 700; font-size: 13px; }
+
+/* ============================================
+   IMAGE PLACEHOLDER
+   ============================================ */
+.img-placeholder { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--bg-hover) 0%, var(--bg-elevated) 100%); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-family: var(--font-mono); font-size: 11px; text-align: center; padding: 16px; }
+.img-placeholder::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(45deg, transparent 48%, var(--border) 48%, var(--border) 52%, transparent 52%); background-size: 12px 12px; opacity: 0.5; }
+.img-placeholder-content { position: relative; z-index: 1; background: var(--bg-card); padding: 8px 12px; border-radius: var(--r-sm); border: 1px solid var(--border); max-width: 84%; }
+.img-ph-tag { display: inline-block; background: var(--lime-subtle); color: var(--lime); padding: 2px 6px; border-radius: 3px; font-size: 9px; margin-bottom: 5px; font-weight: 700; letter-spacing: 0.05em; }
+.img-ph-prompt { color: var(--text-muted); font-size: 10.5px; line-height: 1.35; }
+
+/* ============================================
+   SCREENSHOTS GALLERY
+   ============================================ */
+.screenshot-hero { max-width: var(--max-w); margin: 0 auto 48px; padding: 0 28px; }
+.screenshot-main { aspect-ratio: 16/9; border-radius: var(--r-lg); overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow-lg); position: relative; }
+.screenshot-nav { display: flex; gap: 8px; margin-top: 12px; overflow-x: auto; padding-bottom: 4px; }
+.screenshot-thumb { width: 80px; height: 50px; border-radius: var(--r-sm); overflow: hidden; border: 1px solid var(--border); cursor: pointer; flex-shrink: 0; transition: border-color 0.12s; }
+.screenshot-thumb:hover, .screenshot-thumb.active { border-color: var(--lime); }
+.screenshot-thumb .img-placeholder { font-size: 8px; padding: 4px; }
+.screenshot-thumb .img-placeholder-content { padding: 2px 4px; font-size: 8px; }
+
+/* ============================================
+   MAIN CONTENT + TOC
+   ============================================ */
+.content-wrapper { max-width: var(--max-w); margin: 0 auto; padding: 0 28px 48px; display: grid; grid-template-columns: 220px 1fr 300px; gap: 40px; align-items: start; }
+
+.toc { position: sticky; top: 76px; }
+.toc-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 12px; font-weight: 700; }
+.toc-list { list-style: none; display: flex; flex-direction: column; gap: 2px; border-left: 1px solid var(--border); }
+.toc-list li { padding: 6px 14px; font-size: 13px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; border-left: 2px solid transparent; margin-left: -1px; }
+.toc-list li:hover { color: var(--text); }
+.toc-list li.active { color: var(--lime); border-left-color: var(--lime); }
+
+/* ARTICLE */
+.article-content { min-width: 0; max-width: 720px; }
+.article-content section { padding: 0; max-width: none; margin: 0 0 40px; }
+.article-content h2 { font-family: var(--font-editorial); font-size: clamp(24px, 2.8vw, 32px); font-weight: 600; letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 16px; color: var(--text); scroll-margin-top: 80px; }
+.article-content h2 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.article-content h3 { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-top: 24px; margin-bottom: 10px; }
+.article-content p { font-size: 16px; line-height: 1.7; color: var(--text-muted); margin-bottom: 16px; }
+.article-content p strong { color: var(--text); font-weight: 600; }
+.article-content a.inline-link { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; }
+.article-content ul { margin: 12px 0 20px 20px; }
+.article-content ul li { font-size: 15.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 6px; }
+.article-content blockquote { border-left: 3px solid var(--lime); padding: 4px 0 4px 20px; margin: 24px 0; font-family: var(--font-editorial); font-size: 20px; font-style: italic; color: var(--text); line-height: 1.5; }
+.article-content blockquote cite { display: block; margin-top: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--text-subtle); font-style: normal; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+/* PROS/CONS CALLOUT */
+.pros-cons-callout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+.pc-col { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; }
+.pc-col.pros { border-color: rgba(126,255,184,0.2); }
+.pc-col.cons { border-color: rgba(255,92,110,0.2); }
+.pc-col h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+.pc-col.pros h4 { color: var(--success); }
+.pc-col.cons h4 { color: var(--urgent); }
+.pc-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; margin: 0; }
+.pc-col ul li { font-size: 14px; line-height: 1.5; color: var(--text); padding-left: 22px; position: relative; margin: 0; }
+.pc-col.pros ul li::before { content: '✓'; position: absolute; left: 0; top: 0; color: var(--success); font-weight: 800; font-size: 15px; }
+.pc-col.cons ul li::before { content: '✗'; position: absolute; left: 0; top: 0; color: var(--urgent); font-weight: 800; font-size: 15px; }
+
+/* PRICING TABLE */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.pricing-tier { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; position: relative; }
+.pricing-tier.featured { border-color: var(--lime-tint); background: linear-gradient(180deg, var(--lime-subtle) 0%, var(--bg-card) 40%); }
+.pricing-tier.featured::before { content: 'BEST VALUE'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--lime); color: var(--text-inverse); padding: 3px 10px; border-radius: 100px; font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.08em; font-weight: 700; }
+.tier-name { font-family: var(--font-editorial); font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+.tier-desc { font-size: 12px; color: var(--text-subtle); margin-bottom: 14px; }
+.tier-price { font-family: var(--font-editorial); font-size: 28px; font-weight: 600; letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px; }
+.tier-price .per { font-family: var(--font-body); font-size: 13px; color: var(--text-subtle); font-weight: 400; }
+.tier-billing { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 14px; font-weight: 600; }
+.tier-features { list-style: none; display: flex; flex-direction: column; gap: 6px; margin: 0 0 14px; }
+.tier-features li { font-size: 12.5px; color: var(--text-muted); padding-left: 18px; position: relative; }
+.tier-features li::before { content: '✓'; position: absolute; left: 0; color: var(--lime); font-weight: 700; }
+
+/* COMPARISON TABLE (in-article) */
+.article-compare { margin: 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; }
+.article-compare-header { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border); }
+.ac-cell-header { padding: 16px; text-align: center; border-right: 1px solid var(--border); }
+.ac-cell-header:last-child { border-right: none; }
+.ac-cell-header.this { background: var(--lime-subtle); }
+.ac-cell-header .brand-mini { width: 32px; height: 32px; border-radius: 7px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 14px; color: #fff; }
+.ac-cell-header .name { font-family: var(--font-editorial); font-size: 14px; font-weight: 600; }
+.ac-cell-header .price { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); margin-top: 2px; }
+.article-compare-row { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--border); }
+.article-compare-row:last-child { border-bottom: none; }
+.ac-cell { padding: 12px 16px; border-right: 1px solid var(--border); font-size: 13px; text-align: center; color: var(--text-muted); }
+.ac-cell:last-child { border-right: none; }
+.ac-cell.feature-label { text-align: left; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-subtle); font-weight: 600; }
+.ac-cell.this { background: var(--lime-subtle); }
+.ac-cell.yes { color: var(--lime); font-weight: 700; }
+.ac-cell.no { color: var(--text-subtle); }
+
+/* VERDICT BOX */
+.verdict-box { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); border-radius: var(--r-xl); padding: 32px; margin: 32px 0; text-align: center; }
+.verdict-box .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 12px; }
+.verdict-box h3 { font-family: var(--font-editorial); font-size: 24px; font-weight: 600; margin-bottom: 12px; letter-spacing: -0.02em; }
+.verdict-box p { font-size: 15px; color: var(--text); line-height: 1.6; max-width: 500px; margin: 0 auto 20px; }
+.verdict-box .btn-primary { padding: 12px 24px; font-size: 14px; }
+
+/* RELATED SIDEBAR */
+.related-sidebar { position: sticky; top: 76px; display: flex; flex-direction: column; gap: 20px; }
+.related-block { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; }
+.related-block h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 14px; font-weight: 700; }
+.related-tool { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: all 0.12s; }
+.related-tool:last-child { border-bottom: none; }
+.related-tool:hover .related-tool-name { color: var(--lime); }
+.related-tool-logo { width: 32px; height: 32px; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 13px; color: #fff; flex-shrink: 0; }
+.related-tool-info { flex: 1; min-width: 0; }
+.related-tool-name { font-size: 13px; font-weight: 600; transition: color 0.12s; }
+.related-tool-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); }
+.related-tool-arrow { color: var(--text-subtle); font-size: 14px; }
+
+.newsletter-mini { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); }
+.newsletter-mini h4 { color: var(--lime); }
+.newsletter-mini h5 { font-family: var(--font-editorial); font-size: 18px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; line-height: 1.2; }
+.newsletter-mini p { font-size: 13px; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+.newsletter-mini input { width: 100%; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-sm); color: var(--text); font-size: 13px; margin-bottom: 8px; outline: none; }
+.newsletter-mini input:focus { border-color: var(--lime); }
+.newsletter-mini button { width: 100%; padding: 10px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-sm); font-weight: 700; font-size: 13px; }
+
+/* USER REVIEWS */
+.reviews-section { max-width: var(--max-w); margin: 0 auto; padding: 48px 28px; border-top: 1px solid var(--border); }
+.reviews-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid var(--border); }
+.reviews-header h2 { font-family: var(--font-editorial); font-size: 28px; font-weight: 500; letter-spacing: -0.02em; }
+.reviews-header .stats { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); }
+.reviews-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.review-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; }
+.review-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.review-avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--bg-hover); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--text-muted); }
+.review-meta { flex: 1; }
+.review-name { font-size: 13.5px; font-weight: 600; }
+.review-title { font-size: 11.5px; color: var(--text-subtle); }
+.review-rating { color: var(--amber); font-size: 12px; letter-spacing: 1px; }
+.review-body h5 { font-family: var(--font-editorial); font-size: 16px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.015em; }
+.review-body p { font-size: 13.5px; color: var(--text-muted); line-height: 1.55; }
+.review-footer { display: flex; align-items: center; gap: 12px; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); }
+
+/* ============================================
+   FLOATING AI ASSISTANT
+   ============================================ */
+.floating-assistant { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; color: var(--bg); cursor: pointer; box-shadow: 0 10px 32px var(--lime-glow); z-index: 998; transition: all 0.2s; border: 2px solid rgba(255,255,255,0.15); }
+.floating-assistant:hover { transform: scale(1.06); }
+.floating-assistant svg { width: 22px; height: 22px; }
+.fa-pulse { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime); animation: faPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes faPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+
+/* FOOTER (mini) */
+footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--lime); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .content-wrapper { grid-template-columns: 200px 1fr; }
+  .related-sidebar { display: none; }
+}
+@media (max-width: 1024px) {
+  .tool-hero { grid-template-columns: 1fr; gap: 24px; }
+  .tool-hero-sidebar { position: static; }
+  .content-wrapper { grid-template-columns: 1fr; }
+  .toc { display: none; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .pros-cons-callout { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .breadcrumb, .tool-hero, .content-wrapper, .reviews-section, .screenshot-hero { padding-left: 18px; padding-right: 18px; }
+  .tool-hero-header { flex-direction: column; gap: 14px; }
+  .article-compare-header, .article-compare-row { grid-template-columns: 1fr; }
+  .ac-cell-header, .ac-cell { border-right: none; border-bottom: 1px solid var(--border); }
+  .top-strip .disclosure { display: none; }
+  .floating-assistant { bottom: 18px; right: 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>Jasper deal expires in 2d 14h</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link active" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='index.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='index.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search 2,400+ AI tools...">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline">Sign in</button>
+      <button class="btn-primary">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <a>Reviews</a>
+  <span class="sep">/</span>
+  <a>Writing & Copy</a>
+  <span class="sep">/</span>
+  <span class="current">Jasper AI</span>
+</div>
+
+<!-- TOOL HERO -->
+<div class="tool-hero">
+  <div class="tool-hero-main">
+    <div class="tool-hero-header">
+      <div class="tool-hero-logo brand-jasper">J</div>
+      <div class="tool-hero-title">
+        <h1>Jasper AI Review 2026</h1>
+        <p class="tagline">The polished AI writing platform for content teams that ship at scale — and the tools we keep coming back to.</p>
+      </div>
+    </div>
+    <div class="tool-hero-badges">
+      <span class="badge editors">★ Editor's Choice</span>
+      <span class="badge deal">50% off annual</span>
+      <span class="badge verified">Verified partner</span>
+      <span class="badge category">Writing & Copy</span>
+    </div>
+
+    <div class="tool-rating-row">
+      <div class="rating-block editors-pick">
+        <div class="rating-num">9.2<span class="max">/10</span></div>
+        <div class="rating-label">Editorial Score</div>
+      </div>
+      <div class="rating-divider"></div>
+      <div class="rating-block">
+        <div class="rating-num">4.8<span class="max">/5</span></div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-label">2,412 user reviews</div>
+      </div>
+      <div class="rating-divider"></div>
+      <div class="rating-block">
+        <div class="rating-num">240<span class="max">hrs</span></div>
+        <div class="rating-label">Time we tested</div>
+      </div>
+    </div>
+
+    <div class="tool-quick-summary">
+      <h3>At a glance</h3>
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="label">Best For</div>
+          <div class="value">Content teams, marketers</div>
+        </div>
+        <div class="summary-item">
+          <div class="label">Free Trial</div>
+          <div class="value lime">7 days, no card</div>
+        </div>
+        <div class="summary-item">
+          <div class="label">Starting Price</div>
+          <div class="value">$39/mo (Creator)</div>
+        </div>
+        <div class="summary-item">
+          <div class="label">Standout Feature</div>
+          <div class="value amber">Brand voice engine</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY CTA CARD -->
+  <aside class="tool-hero-sidebar">
+    <div class="cta-card">
+      <div class="cta-price-row">
+        <span class="cta-price-from">From</span>
+      </div>
+      <div class="cta-price">$19.50<span class="per">/mo</span></div>
+      <span class="cta-crossed">$39/mo</span>
+      <div class="cta-deal-badge">🔥 50% off annual · ends in 2d 14h</div>
+      <div class="cta-actions">
+        <button class="btn-primary" onclick="trackClick('jasper')">Try free for 7 days →</button>
+        <button class="btn-outline">View all pricing</button>
+      </div>
+      <div class="cta-coupon">
+        <div>
+          <div class="code-label">Exclusive code</div>
+          <div class="code">10XAI50</div>
+        </div>
+        <span class="copy-btn" onclick="copyCode()">📋 Copy</span>
+      </div>
+      <div class="cta-trust">
+        <div class="cta-trust-item">No credit card required</div>
+        <div class="cta-trust-item">Cancel anytime</div>
+        <div class="cta-trust-item">Discount auto-applied</div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- SCREENSHOTS -->
+<div class="screenshot-hero">
+  <div class="screenshot-main">
+    <div class="img-placeholder">
+      <div class="img-placeholder-content">
+        <span class="img-ph-tag">SCREENSHOT · 16:9</span>
+        <div class="img-ph-prompt">Real product screenshot: Jasper AI dashboard showing brand voice interface with sample marketing copy being generated. Capture at 1920×1080.</div>
+      </div>
+    </div>
+  </div>
+  <div class="screenshot-nav">
+    <div class="screenshot-thumb active"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Dashboard</div></div></div></div>
+    <div class="screenshot-thumb"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Editor</div></div></div></div>
+    <div class="screenshot-thumb"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Templates</div></div></div></div>
+    <div class="screenshot-thumb"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Brand Voice</div></div></div></div>
+    <div class="screenshot-thumb"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Chat</div></div></div></div>
+    <div class="screenshot-thumb"><div class="img-placeholder"><div class="img-placeholder-content"><div class="img-ph-prompt">Analytics</div></div></div></div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="content-wrapper">
+
+  <!-- TABLE OF CONTENTS -->
+  <aside class="toc">
+    <div class="toc-title">On this page</div>
+    <ul class="toc-list">
+      <li class="active" onclick="scrollToSection('what-is')">What is Jasper AI?</li>
+      <li onclick="scrollToSection('who-for')">Who it's for</li>
+      <li onclick="scrollToSection('features')">Key features</li>
+      <li onclick="scrollToSection('pros-cons')">Pros & cons</li>
+      <li onclick="scrollToSection('pricing')">Pricing</li>
+      <li onclick="scrollToSection('alternatives')">vs Alternatives</li>
+      <li onclick="scrollToSection('verdict')">The verdict</li>
+      <li onclick="scrollToSection('reviews')">User reviews</li>
+    </ul>
+  </aside>
+
+  <!-- ARTICLE CONTENT -->
+  <article class="article-content">
+    <section id="what-is">
+      <h2>What is Jasper AI, exactly?</h2>
+      <p><strong>Jasper AI is a full content operations platform built on top of the major LLMs</strong> — GPT, Claude, and their own tuned models — designed specifically for marketing teams. It's not just a wrapper around ChatGPT with a nice UI. It's a purpose-built system for producing on-brand content at scale.</p>
+      <p>We spent 240 hours testing Jasper across 12 real use cases: blog drafting, email campaigns, ad copy variations, brand voice tuning, SEO optimization, and multilingual output. The short version: it's the most polished AI writing platform we've tested, and the only one we'd recommend without hesitation to teams larger than a solo operator.</p>
+      <p>What separates it from raw ChatGPT: <strong>brand voice memory, template libraries, team workflows, and a genuinely useful SEO layer</strong>. What it costs you: a real subscription (not free), and about a week of setup to make the brand voice sing.</p>
+      <blockquote>
+        "Jasper is the only tool where I've been able to onboard non-writers on my team and get output that doesn't need heavy editing."
+        <cite>— Maya Rodriguez, Head of Content, 10X AI Expo</cite>
+      </blockquote>
+    </section>
+
+    <section id="who-for">
+      <h2>Who Jasper AI is <em>actually</em> for</h2>
+      <p>Jasper isn't for everyone. Here's who benefits most — and who should skip it:</p>
+      <h3>✓ Best fit</h3>
+      <ul>
+        <li><strong>Content marketing teams</strong> at companies producing 8+ pieces per month</li>
+        <li><strong>Marketing agencies</strong> managing content for multiple client brands</li>
+        <li><strong>Solo consultants</strong> whose personal brand voice matters (LinkedIn, newsletters, proposals)</li>
+        <li><strong>E-commerce brands</strong> writing product descriptions at scale</li>
+      </ul>
+      <h3>✗ Skip if you're</h3>
+      <ul>
+        <li>A casual writer who just needs occasional help (use ChatGPT or Claude free tier)</li>
+        <li>On a strict &lt;$30/mo budget (try Copy.ai's free tier instead)</li>
+        <li>A developer needing raw API access (use OpenAI or Anthropic directly)</li>
+        <li>Writing highly technical or academic content (Jasper's models optimize for marketing tone)</li>
+      </ul>
+    </section>
+
+    <section id="features">
+      <h2>The features that actually matter</h2>
+      <p>Every AI writing tool claims 100+ features. Most are marketing filler. Here are the four that genuinely differentiate Jasper in 2026:</p>
+      <h3>1. Brand Voice Engine</h3>
+      <p>You feed Jasper 3-5 samples of your existing content, and it builds a voice profile that persists across every piece it generates. This isn't a system prompt hack — it's real fine-tuning at the account level. Result: your Jasper output <em>sounds like you</em>, not like generic AI.</p>
+      <h3>2. Content Templates + Workflows</h3>
+      <p>100+ tested templates for real content types (product launch emails, LinkedIn thought leadership, SEO blog posts, ad variations). Each has been optimized against real conversion data. This is where Jasper's marketing DNA shows.</p>
+      <h3>3. SEO Mode (with Surfer integration)</h3>
+      <p>Type in a target keyword. Jasper pulls the top 20 ranking articles, extracts semantic patterns, and drafts content optimized for the same search intent. Genuinely saves 2-3 hours per SEO piece.</p>
+      <h3>4. Team & Brand Management</h3>
+      <p>Multiple brand voices per account. Approval workflows. Team seats with role-based access. This is the layer that makes Jasper enterprise-ready — and where competitors like Copy.ai fall short.</p>
+    </section>
+
+    <section id="pros-cons">
+      <h2>The honest pros and cons</h2>
+      <p>After 240 hours of hands-on testing, here's the unfiltered take:</p>
+      <div class="pros-cons-callout">
+        <div class="pc-col pros">
+          <h4>What we loved</h4>
+          <ul>
+            <li>Brand voice output is genuinely on-brand after setup</li>
+            <li>Templates save hours per week for repetitive content</li>
+            <li>SEO mode with Surfer is a killer combo</li>
+            <li>Team collaboration actually works (rare in AI tools)</li>
+            <li>Support responds in under 4 hours during business days</li>
+            <li>Multi-language output is surprisingly good</li>
+          </ul>
+        </div>
+        <div class="pc-col cons">
+          <h4>What frustrated us</h4>
+          <ul>
+            <li>$39/mo is steep vs. raw ChatGPT ($20/mo)</li>
+            <li>Learning curve — takes ~1 week to master</li>
+            <li>Long-form (2000+ words) needs more editing than expected</li>
+            <li>No true offline mode</li>
+            <li>Analytics dashboard feels underbaked</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <h2>Pricing: what you'll actually pay</h2>
+      <p>Jasper has three tiers as of April 2026. Here's what each gets you, and which one we recommend for whom:</p>
+      <div class="pricing-grid">
+        <div class="pricing-tier">
+          <div class="tier-name">Creator</div>
+          <div class="tier-desc">Solo creators & freelancers</div>
+          <div class="tier-price">$39<span class="per">/mo</span></div>
+          <div class="tier-billing">Billed annually · $49/mo monthly</div>
+          <ul class="tier-features">
+            <li>1 brand voice</li>
+            <li>Unlimited words</li>
+            <li>50+ templates</li>
+            <li>Chrome extension</li>
+            <li>SEO mode (Surfer add-on)</li>
+          </ul>
+        </div>
+        <div class="pricing-tier featured">
+          <div class="tier-name">Pro</div>
+          <div class="tier-desc">Small teams, agencies</div>
+          <div class="tier-price">$59<span class="per">/mo</span></div>
+          <div class="tier-billing">Per seat · billed annually</div>
+          <ul class="tier-features">
+            <li>3 brand voices</li>
+            <li>Team workflows</li>
+            <li>All templates + custom</li>
+            <li>SEO mode included</li>
+            <li>Priority support</li>
+            <li>API access (limited)</li>
+          </ul>
+        </div>
+        <div class="pricing-tier">
+          <div class="tier-name">Business</div>
+          <div class="tier-desc">Enterprise & scaling teams</div>
+          <div class="tier-price">Custom<span class="per"></span></div>
+          <div class="tier-billing">Contact sales · from $500/mo</div>
+          <ul class="tier-features">
+            <li>Unlimited brand voices</li>
+            <li>SSO + security features</li>
+            <li>Custom AI training</li>
+            <li>Dedicated CSM</li>
+            <li>Full API access</li>
+            <li>SLA + compliance</li>
+          </ul>
+        </div>
+      </div>
+      <p><strong>Our recommendation:</strong> Start with Creator to test the workflow. Upgrade to Pro the moment you have a second person creating content — the team features pay for themselves.</p>
+    </section>
+
+    <section id="alternatives">
+      <h2>Jasper vs the alternatives</h2>
+      <p>The three tools most people compare Jasper against, side-by-side:</p>
+      <div class="article-compare">
+        <div class="article-compare-header">
+          <div class="ac-cell-header this">
+            <div class="brand-mini brand-jasper">J</div>
+            <div class="name">Jasper</div>
+            <div class="price">From $39/mo</div>
+          </div>
+          <div class="ac-cell-header">
+            <div class="brand-mini brand-copyai">C</div>
+            <div class="name">Copy.ai</div>
+            <div class="price">Free / $36+</div>
+          </div>
+          <div class="ac-cell-header">
+            <div class="brand-mini brand-notion">N</div>
+            <div class="name">Notion AI</div>
+            <div class="price">$10/mo add-on</div>
+          </div>
+        </div>
+        <div class="article-compare-row">
+          <div class="ac-cell feature-label">Brand voice quality</div>
+          <div class="ac-cell this yes">Excellent</div>
+          <div class="ac-cell">Basic</div>
+          <div class="ac-cell no">None</div>
+        </div>
+        <div class="article-compare-row">
+          <div class="ac-cell feature-label">Template library</div>
+          <div class="ac-cell this yes">100+</div>
+          <div class="ac-cell">90+</div>
+          <div class="ac-cell no">Limited</div>
+        </div>
+        <div class="article-compare-row">
+          <div class="ac-cell feature-label">SEO mode</div>
+          <div class="ac-cell this yes">✓ Surfer</div>
+          <div class="ac-cell no">✗</div>
+          <div class="ac-cell no">✗</div>
+        </div>
+        <div class="article-compare-row">
+          <div class="ac-cell feature-label">Team workflows</div>
+          <div class="ac-cell this yes">Advanced</div>
+          <div class="ac-cell">Basic</div>
+          <div class="ac-cell">Notion-native</div>
+        </div>
+        <div class="article-compare-row">
+          <div class="ac-cell feature-label">Free plan</div>
+          <div class="ac-cell">7-day trial</div>
+          <div class="ac-cell this yes">✓ Yes</div>
+          <div class="ac-cell no">Requires Notion</div>
+        </div>
+      </div>
+      <p><a class="inline-link">See our full Jasper vs Copy.ai comparison →</a></p>
+    </section>
+
+    <!-- VERDICT -->
+    <section id="verdict">
+      <div class="verdict-box">
+        <div class="kicker">The verdict</div>
+        <h3>Jasper AI is worth it — if you match the profile.</h3>
+        <p>For content teams and serious solo operators, Jasper delivers real value that's hard to replicate with raw ChatGPT plus prompts. The brand voice engine alone justifies the price for anyone whose personal or company voice matters. Skip if you're a casual writer or on a tight budget.</p>
+        <button class="btn-primary" onclick="trackClick('jasper')">Try Jasper free for 7 days →</button>
+      </div>
+    </section>
+  </article>
+
+  <!-- RELATED SIDEBAR -->
+  <aside class="related-sidebar">
+    <div class="related-block">
+      <h4>Similar Tools</h4>
+      <div class="related-tool">
+        <div class="related-tool-logo brand-copyai">C</div>
+        <div class="related-tool-info">
+          <div class="related-tool-name">Copy.ai</div>
+          <div class="related-tool-meta">★ 4.6 · From $36/mo</div>
+        </div>
+        <span class="related-tool-arrow">→</span>
+      </div>
+      <div class="related-tool">
+        <div class="related-tool-logo brand-notion">N</div>
+        <div class="related-tool-info">
+          <div class="related-tool-name">Notion AI</div>
+          <div class="related-tool-meta">★ 4.5 · $10/mo add-on</div>
+        </div>
+        <span class="related-tool-arrow">→</span>
+      </div>
+      <div class="related-tool">
+        <div class="related-tool-logo" style="background:linear-gradient(135deg,#10A37F,#0A6B52)">G</div>
+        <div class="related-tool-info">
+          <div class="related-tool-name">ChatGPT Plus</div>
+          <div class="related-tool-meta">★ 4.7 · $20/mo</div>
+        </div>
+        <span class="related-tool-arrow">→</span>
+      </div>
+    </div>
+
+    <div class="related-block newsletter-mini">
+      <h4>Get the Tuesday Brief</h4>
+      <h5>5 new tools. 2 deals. 1 useful idea.</h5>
+      <p>Free weekly newsletter for 48,000+ AI professionals.</p>
+      <input type="email" placeholder="you@work.com">
+      <button onclick="showToast('Subscribed! Check your inbox')">Subscribe →</button>
+    </div>
+
+    <div class="related-block">
+      <h4>Related Reading</h4>
+      <div class="related-tool">
+        <div class="related-tool-info">
+          <div class="related-tool-name">Best AI Writing Tools 2026</div>
+          <div class="related-tool-meta">Best-of · 12 min read</div>
+        </div>
+      </div>
+      <div class="related-tool">
+        <div class="related-tool-info">
+          <div class="related-tool-name">Jasper vs Copy.ai: Head-to-head</div>
+          <div class="related-tool-meta">Comparison · 9 min</div>
+        </div>
+      </div>
+      <div class="related-tool">
+        <div class="related-tool-info">
+          <div class="related-tool-name">Solo Consultant AI Stack</div>
+          <div class="related-tool-meta">Stack · 6 tools</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- USER REVIEWS -->
+<section class="reviews-section" id="reviews">
+  <div class="reviews-header">
+    <h2>What users say</h2>
+    <div class="stats">★ 4.8 · 2,412 verified reviews · 89% recommend</div>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">SK</div>
+        <div class="review-meta">
+          <div class="review-name">Sarah K.</div>
+          <div class="review-title">Content Marketing Manager</div>
+        </div>
+        <div class="review-rating">★★★★★</div>
+      </div>
+      <div class="review-body">
+        <h5>Cut our content production time in half.</h5>
+        <p>We produce 20+ pieces monthly across 3 client brands. Jasper's brand voice feature genuinely keeps each brand distinct without me having to re-prompt every time. Worth every dollar for our team.</p>
+      </div>
+      <div class="review-footer">
+        <span>✓ Verified purchase</span>
+        <span>·</span>
+        <span>Used for 8 months</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">MR</div>
+        <div class="review-meta">
+          <div class="review-name">Marco R.</div>
+          <div class="review-title">Solo Consultant</div>
+        </div>
+        <div class="review-rating">★★★★☆</div>
+      </div>
+      <div class="review-body">
+        <h5>Great, but check if you actually need Pro.</h5>
+        <p>Creator plan is plenty for a solo. I upgraded to Pro thinking I needed team features and downgraded 2 months later — didn't use them. Solid tool, just don't over-buy.</p>
+      </div>
+      <div class="review-footer">
+        <span>✓ Verified purchase</span>
+        <span>·</span>
+        <span>Used for 5 months</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">AL</div>
+        <div class="review-meta">
+          <div class="review-name">Aisha L.</div>
+          <div class="review-title">Agency Owner</div>
+        </div>
+        <div class="review-rating">★★★★★</div>
+      </div>
+      <div class="review-body">
+        <h5>Client work is 10x faster now.</h5>
+        <p>Managing brand voices for 8 client accounts used to be a nightmare. Jasper's brand voice per project is a game changer. My team onboarded in 2 days.</p>
+      </div>
+      <div class="review-footer">
+        <span>✓ Verified purchase</span>
+        <span>·</span>
+        <span>Used for 14 months</span>
+      </div>
+    </div>
+
+    <div class="review-card">
+      <div class="review-header">
+        <div class="review-avatar">DP</div>
+        <div class="review-meta">
+          <div class="review-name">David P.</div>
+          <div class="review-title">Startup Founder</div>
+        </div>
+        <div class="review-rating">★★★☆☆</div>
+      </div>
+      <div class="review-body">
+        <h5>Good, but pricey for solo founders.</h5>
+        <p>The output quality is real. But at $39/mo I found myself questioning ROI vs ChatGPT Plus at $20. Ultimately kept Jasper for the templates but it's a close call for solo folks.</p>
+      </div>
+      <div class="review-footer">
+        <span>✓ Verified purchase</span>
+        <span>·</span>
+        <span>Used for 3 months</span>
+      </div>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:24px">
+    <button class="btn-outline">See all 2,412 reviews →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>Editorial independence.</strong> This review is based on 240 hours of hands-on testing. We may earn a commission when you sign up through our links — it doesn't affect our rating or ranking. <a>Read our editorial policy →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Disclosure</span><span>Contact</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING AI ASSISTANT -->
+<div class="floating-assistant" onclick="showToast('AI Assistant opening...')">
+  <div class="fa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+try { const saved = localStorage.getItem('theme'); if (saved) document.documentElement.setAttribute('data-theme', saved); } catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+function trackClick(tool) { showToast(`Opening ${tool} with your discount…`); }
+function copyCode() {
+  navigator.clipboard?.writeText('10XAI50');
+  showToast('Code 10XAI50 copied!');
+}
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+  document.querySelectorAll('.toc-list li').forEach(li => li.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// TOC scroll spy
+const sections = document.querySelectorAll('.article-content section[id]');
+const tocLinks = document.querySelectorAll('.toc-list li');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 100) current = s.id;
+  });
+  tocLinks.forEach((li, i) => {
+    li.classList.toggle('active', sections[i]?.id === current);
+  });
+});
+</script>
+</body>
+</html>

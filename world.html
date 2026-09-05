@@ -1,0 +1,2188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World AI: 35 Labs, 12 Countries — 10X AI Expo</title>
+<meta name="description" content="Independent coverage of every major AI lab worldwide. US, Europe, China, Middle East, India, Japan/Korea. 35 labs, 12 countries, updated weekly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK (shared)
+   ============================================ */
+:root {
+  --bg: #0A0A0B; --bg-elevated: #111114; --bg-card: #16171B; --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.10); --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7; --text-muted: #9A9A95; --text-subtle: #5F5F5A; --text-inverse: #0A0A0B;
+  --lime: #B4FF3A; --lime-hover: #C4FF5A; --lime-subtle: rgba(180,255,58,0.08); --lime-tint: rgba(180,255,58,0.14); --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF; --cyan-subtle: rgba(58,189,255,0.10); --cyan-tint: rgba(58,189,255,0.16);
+  --pink: #FF6B9D; --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800; --amber-subtle: rgba(255,184,0,0.10); --amber-tint: rgba(255,184,0,0.16);
+  --success: #7EFFB8; --success-subtle: rgba(126,255,184,0.10);
+  --urgent: #FF5C6E; --urgent-subtle: rgba(255,92,110,0.10);
+  --violet: #A88BFF; --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3); --shadow-lg: 0 20px 50px rgba(0,0,0,0.45); --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1400px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10); --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B; --text-muted: #4A4A45; --text-subtle: #8A8A85; --text-inverse: #FAFAF7;
+  --lime: #6BAA00; --lime-hover: #7CB800; --lime-subtle: rgba(107,170,0,0.08); --lime-tint: rgba(107,170,0,0.14); --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7; --cyan-subtle: rgba(2,132,199,0.08); --cyan-tint: rgba(2,132,199,0.14);
+  --pink: #D63A6E; --pink-subtle: rgba(214,58,110,0.08);
+  --amber: #B8890C; --amber-subtle: rgba(184,137,12,0.08); --amber-tint: rgba(184,137,12,0.14);
+  --success: #16A34A; --success-subtle: rgba(22,163,74,0.08);
+  --urgent: #DC2626; --urgent-subtle: rgba(220,38,38,0.08);
+  --violet: #7458A0; --violet-subtle: rgba(116,88,160,0.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08); --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* NAV (shared) */
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 24px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 32px; }
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark { width: 32px; height: 32px; background: var(--lime); color: var(--bg); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 15px; box-shadow: 0 0 20px var(--lime-glow); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1; }
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link { padding: 6px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; color: var(--text-muted); transition: all 0.12s; cursor: pointer; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after { content: ''; position: absolute; top: 4px; right: 3px; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime-glow); }
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input { width: 100%; padding: 8px 14px 8px 36px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.nav-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-primary { padding: 8px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; transition: all 0.15s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline { padding: 8px 16px; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; transition: all 0.12s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+/* BRAND LOGOS */
+.brand-jasper { background: linear-gradient(135deg, #FF6B4A 0%, #E5502F 100%); }
+.brand-elevenlabs { background: linear-gradient(135deg, #1A1A2E 0%, #0F0F1E 100%); }
+.brand-descript { background: linear-gradient(135deg, #7B61FF 0%, #5A3EE0 100%); }
+.brand-notion { background: linear-gradient(135deg, #F5F5F0 0%, #DEDEE0 100%); color: #16171B; }
+.brand-perplexity { background: linear-gradient(135deg, #20808D 0%, #135A65 100%); }
+.brand-chatgpt { background: linear-gradient(135deg, #10A37F 0%, #0A6B52 100%); }
+.brand-claude { background: linear-gradient(135deg, #E67E4A 0%, #C4602B 100%); }
+.brand-cursor { background: linear-gradient(135deg, #16171B 0%, #2A2B32 100%); }
+.brand-midjourney { background: linear-gradient(135deg, #A88BC7 0%, #7B5FA0 100%); }
+.brand-runway { background: linear-gradient(135deg, #16C79A 0%, #0F8E6E 100%); }
+.brand-suno { background: linear-gradient(135deg, #FFB84E 0%, #E89A2A 100%); }
+.brand-fathom { background: linear-gradient(135deg, #6B9BB8 0%, #4A7B98 100%); }
+.brand-copyai { background: linear-gradient(135deg, #333 0%, #111 100%); }
+.brand-taplio { background: linear-gradient(135deg, #A88BFF 0%, #7B5FCC 100%); }
+.brand-writesonic { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
+.brand-rytr { background: linear-gradient(135deg, #E11D48 0%, #9F1239 100%); }
+.brand-surfer { background: linear-gradient(135deg, #22C55E 0%, #15803D 100%); }
+.brand-otter { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); }
+.brand-canva { background: linear-gradient(135deg, #00C4CC 0%, #7D2AE8 100%); }
+.brand-loom { background: linear-gradient(135deg, #625DF5 0%, #4941E0 100%); }
+
+/* BREADCRUMB */
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 20px 28px 0; display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.breadcrumb a { color: var(--text-muted); cursor: pointer; transition: color 0.12s; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .sep { color: var(--text-subtle); }
+.breadcrumb .current { color: var(--text); }
+
+/* DIRECTORY HERO */
+.directory-hero { max-width: var(--max-w); margin: 0 auto; padding: 32px 28px 24px; }
+.directory-hero h1 { font-family: var(--font-editorial); font-size: clamp(32px, 4vw, 48px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 12px; }
+.directory-hero h1 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.directory-hero .subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.5; max-width: 700px; }
+.directory-hero .subtitle strong { color: var(--text); font-weight: 600; }
+
+/* BIG SEARCH */
+.dir-search { max-width: var(--max-w); margin: 0 auto; padding: 12px 28px 20px; }
+.dir-search-wrapper { position: relative; }
+.dir-search input { width: 100%; padding: 16px 20px 16px 52px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--r-lg); color: var(--text); font-family: var(--font-body); font-size: 16px; outline: none; transition: all 0.15s; }
+.dir-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.dir-search input::placeholder { color: var(--text-subtle); }
+.dir-search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 18px; pointer-events: none; }
+.dir-search-hint { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+
+/* QUICK CHIP FILTERS */
+.chip-filters { max-width: var(--max-w); margin: 0 auto; padding: 0 28px 24px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.chip-filters::-webkit-scrollbar { display: none; }
+.chip { padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; white-space: nowrap; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-hover); }
+.chip.active { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); box-shadow: 0 0 12px var(--lime-glow); }
+.chip .count { color: var(--text-subtle); font-weight: 500; }
+.chip.active .count { color: var(--text-inverse); opacity: 0.6; }
+
+/* MAIN LAYOUT */
+.dir-main { max-width: var(--max-w); margin: 0 auto; padding: 0 28px 48px; display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; }
+
+/* SIDEBAR FILTERS */
+.dir-sidebar { position: sticky; top: 76px; max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 4px; }
+.filter-group { padding: 20px 0; border-bottom: 1px solid var(--border); }
+.filter-group:first-child { padding-top: 0; }
+.filter-group h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+.filter-group h4 .count-total { color: var(--text-muted); font-weight: 500; }
+
+/* CHECKBOX LIST */
+.checkbox-list { display: flex; flex-direction: column; gap: 4px; }
+.checkbox-item { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--r-sm); cursor: pointer; transition: background 0.12s; font-size: 13.5px; color: var(--text-muted); }
+.checkbox-item:hover { background: var(--bg-hover); color: var(--text); }
+.checkbox-item input { width: 15px; height: 15px; accent-color: var(--lime); cursor: pointer; flex-shrink: 0; }
+.checkbox-item .cb-label { flex: 1; }
+.checkbox-item .cb-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.checkbox-item.checked { color: var(--text); font-weight: 500; }
+
+/* PRICE SLIDER (mock) */
+.price-inputs { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.price-inputs input { width: 100%; padding: 8px 10px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-sm); color: var(--text); font-family: var(--font-mono); font-size: 12px; outline: none; }
+.price-inputs input:focus { border-color: var(--lime); }
+.price-inputs .to { color: var(--text-subtle); font-family: var(--font-mono); font-size: 11px; }
+
+/* RATING FILTER */
+.rating-btn { padding: 6px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); font-size: 12.5px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; margin: 3px 3px 0 0; display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-body); font-weight: 500; }
+.rating-btn:hover { border-color: var(--lime); color: var(--text); }
+.rating-btn.active { background: var(--lime-subtle); border-color: var(--lime); color: var(--lime); font-weight: 600; }
+.rating-btn .star { color: var(--amber); }
+
+/* RESET BUTTON */
+.reset-filters { width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; margin-top: 16px; }
+.reset-filters:hover { border-color: var(--urgent); color: var(--urgent); }
+
+/* RESULTS AREA */
+.dir-results { min-width: 0; }
+.results-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.results-count { font-size: 14px; color: var(--text-muted); }
+.results-count strong { color: var(--text); font-weight: 700; }
+.results-count .lime { color: var(--lime); }
+.results-controls { display: flex; align-items: center; gap: 10px; }
+.sort-select { padding: 7px 12px 7px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); color: var(--text); font-family: var(--font-body); font-size: 13px; cursor: pointer; font-weight: 500; }
+.sort-select:focus { outline: none; border-color: var(--lime); }
+.view-toggle { display: flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; }
+.view-btn { padding: 7px 10px; background: transparent; color: var(--text-subtle); cursor: pointer; transition: all 0.12s; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.view-btn:hover { color: var(--text); background: var(--bg-hover); }
+.view-btn.active { background: var(--lime); color: var(--text-inverse); }
+.view-btn svg { width: 14px; height: 14px; }
+
+/* ACTIVE FILTER PILLS */
+.active-filters { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+.active-filters .label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-right: 4px; }
+.filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--lime-subtle); color: var(--lime); border: 1px solid var(--lime-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
+.filter-pill .x { cursor: pointer; padding: 0 2px; opacity: 0.7; transition: opacity 0.12s; }
+.filter-pill .x:hover { opacity: 1; }
+.clear-all { font-family: var(--font-mono); font-size: 10.5px; color: var(--urgent); cursor: pointer; padding: 4px 8px; letter-spacing: 0.03em; font-weight: 600; }
+.clear-all:hover { text-decoration: underline; }
+
+/* TOOL GRID */
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.tool-card:hover { border-color: var(--lime-tint); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.tool-card.editors-pick { border-color: var(--lime-tint); }
+.tool-card.editors-pick::before { content: '★'; position: absolute; top: 12px; right: 12px; width: 24px; height: 24px; background: var(--lime); color: var(--text-inverse); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; z-index: 2; box-shadow: 0 0 12px var(--lime-glow); }
+
+.tc-header { padding: 18px 18px 12px; display: flex; align-items: flex-start; gap: 12px; }
+.tc-logo { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 20px; color: #fff; flex-shrink: 0; box-shadow: var(--shadow-md); }
+.tc-title { flex: 1; min-width: 0; }
+.tc-title h3 { font-family: var(--font-editorial); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 3px; }
+.tc-title .cat { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+.tc-body { padding: 0 18px 12px; flex: 1; }
+.tc-body p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+.tc-badges { padding: 0 18px 12px; display: flex; gap: 5px; flex-wrap: wrap; }
+.tc-badge { font-family: var(--font-mono); font-size: 9.5px; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+.tc-badge.deal { background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); }
+.tc-badge.free { background: var(--success-subtle); color: var(--success); border: 1px solid rgba(126,255,184,0.2); }
+.tc-badge.new { background: var(--cyan-subtle); color: var(--cyan); border: 1px solid var(--cyan-tint); }
+.tc-badge.trending { background: var(--pink-subtle); color: var(--pink); border: 1px solid rgba(255,107,157,0.2); }
+.tc-badge.verified { background: var(--bg-hover); color: var(--text-muted); }
+
+.tc-footer { padding: 12px 18px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tc-rating { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--text); }
+.tc-rating .stars { color: var(--amber); letter-spacing: 0.5px; font-size: 11px; }
+.tc-rating .reviews { color: var(--text-subtle); font-weight: 400; font-family: var(--font-mono); font-size: 10.5px; }
+.tc-price { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--text); }
+.tc-price.free-color { color: var(--success); }
+
+/* PAGINATION */
+.pagination { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 32px 0 16px; }
+.page-btn { min-width: 36px; height: 36px; padding: 0 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; display: flex; align-items: center; justify-content: center; }
+.page-btn:hover { border-color: var(--lime); color: var(--lime); }
+.page-btn.active { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); }
+.page-btn.disabled { opacity: 0.4; cursor: not-allowed; }
+.page-dots { padding: 0 6px; color: var(--text-subtle); }
+
+/* NEWSLETTER INLINE */
+.newsletter-inline { max-width: var(--max-w); margin: 40px auto 0; padding: 0 28px; }
+.newsletter-inline-inner { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); border-radius: var(--r-xl); padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.newsletter-inline-text { flex: 1; min-width: 260px; }
+.newsletter-inline-text .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 8px; }
+.newsletter-inline-text h3 { font-family: var(--font-editorial); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.15; }
+.newsletter-inline-text h3 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.newsletter-inline-text p { font-size: 13.5px; color: var(--text-muted); }
+.newsletter-inline-form { display: flex; gap: 6px; min-width: 320px; }
+.newsletter-inline-form input { flex: 1; padding: 11px 14px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.newsletter-inline-form input:focus { border-color: var(--lime); }
+.newsletter-inline-form .btn-primary { padding: 11px 18px; font-size: 13.5px; }
+
+/* FLOATING AI ASSISTANT */
+.floating-assistant { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; color: var(--bg); cursor: pointer; box-shadow: 0 10px 32px var(--lime-glow); z-index: 998; border: 2px solid rgba(255,255,255,0.15); }
+.fa-pulse { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime); animation: faPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes faPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+.floating-assistant svg { width: 22px; height: 22px; }
+
+/* MOBILE FILTER BUTTON */
+.mobile-filter-btn { display: none; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer; align-items: center; gap: 6px; }
+.mobile-filter-btn .count-badge { background: var(--lime); color: var(--text-inverse); padding: 1px 6px; border-radius: 100px; font-size: 10px; font-family: var(--font-mono); font-weight: 700; }
+
+/* FOOTER */
+footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--lime); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .tools-grid { grid-template-columns: 1fr 1fr; }
+  .dir-main { grid-template-columns: 220px 1fr; gap: 24px; }
+}
+@media (max-width: 768px) {
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .breadcrumb, .directory-hero, .dir-search, .chip-filters, .dir-main, .newsletter-inline { padding-left: 18px; padding-right: 18px; }
+  .dir-main { grid-template-columns: 1fr; }
+  .dir-sidebar { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--bg); padding: 24px 20px; max-height: none; }
+  .dir-sidebar.open { display: block; overflow-y: auto; }
+  .mobile-filter-btn { display: inline-flex; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .top-strip .disclosure { display: none; }
+  .newsletter-inline-inner { flex-direction: column; align-items: stretch; text-align: center; gap: 20px; padding: 24px; }
+  .newsletter-inline-form { min-width: 0; }
+  .newsletter-inline-form { flex-direction: column; }
+  .newsletter-inline-form .btn-primary { width: 100%; justify-content: center; }
+  .results-header { flex-direction: column; align-items: stretch; }
+  .floating-assistant { bottom: 18px; right: 18px; }
+}
+
+/* ============================================
+   WORLD AI PAGE (v4.2 extension)
+   Extends /china/ page CSS with tabs + region views
+   ============================================ */
+.china-stat-bar {
+  max-width: var(--max-w); margin: 0 auto; padding: 8px 28px 24px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+}
+.cs-block {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-md); padding: 14px 16px;
+}
+.cs-num {
+  font-family: var(--font-editorial); font-size: 26px; font-weight: 600;
+  color: var(--lime); letter-spacing: -0.02em; line-height: 1; margin-bottom: 4px;
+}
+.cs-label {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle);
+  letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; line-height: 1.3;
+}
+
+/* Reuse china-context styling */
+.china-context {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 28px 24px;
+}
+.china-context-inner {
+  background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--r-lg);
+  padding: 22px 28px; display: flex; gap: 20px; align-items: flex-start;
+  border-left: 3px solid var(--lime);
+}
+.cc-icon { font-size: 24px; padding-top: 2px; }
+.cc-body h3 { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); }
+.cc-body p { font-size: 14.5px; line-height: 1.6; color: var(--text-muted); }
+
+/* Region tabs — extends tools-tabs styling */
+.region-tabs {
+  max-width: var(--max-w); margin: 8px auto 20px; padding: 0 28px;
+}
+.tools-view { display: none; }
+.tools-view.active { display: block; animation: fadeIn 0.2s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+.tools-tabs {
+  display: flex; gap: 2px; margin-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto; scrollbar-width: none;
+}
+.tools-tabs::-webkit-scrollbar { display: none; }
+.tools-tab {
+  padding: 10px 16px; font-family: var(--font-mono); font-size: 11px; font-weight: 700;
+  color: var(--text-muted); cursor: pointer; transition: all 0.12s;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+  white-space: nowrap; display: flex; align-items: center; gap: 7px;
+}
+.tools-tab:hover { color: var(--text); }
+.tools-tab.active { color: var(--lime); border-bottom-color: var(--lime); }
+.tools-tab .tab-count {
+  font-size: 10px; color: var(--text-subtle); font-weight: 600;
+  padding: 1px 6px; background: var(--bg-hover); border-radius: 3px; letter-spacing: 0;
+}
+.tools-tab.active .tab-count { color: var(--lime); background: var(--lime-subtle); }
+
+/* Region intro (top of each region tab) */
+.region-intro {
+  max-width: var(--max-w); margin: 0 auto 20px; padding: 0 28px;
+}
+.region-intro-header {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 12px;
+}
+.region-flag-big { font-size: 40px; line-height: 1; }
+.region-title {
+  font-family: var(--font-editorial); font-size: clamp(28px, 3.2vw, 38px);
+  font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--text);
+}
+.region-code-lbl {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle);
+  letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-top: 4px;
+}
+.region-desc {
+  font-size: 15.5px; line-height: 1.6; color: var(--text-muted); max-width: 900px;
+  margin-bottom: 20px;
+}
+.region-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: 14px 18px;
+}
+.rgn-stat { display: flex; flex-direction: column; gap: 3px; }
+.rs-num { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; color: var(--lime); letter-spacing: -0.02em; line-height: 1; }
+.rs-lbl { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-subtle); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+
+/* Labs grid */
+.labs-grid {
+  max-width: var(--max-w); margin: 0 auto; padding: 8px 28px 40px;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+}
+.lab-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: all 0.15s;
+}
+.lab-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.lab-card.lab-featured { border-color: var(--lime-tint); box-shadow: 0 0 0 1px var(--lime-subtle); }
+.lab-header {
+  padding: 16px 18px 14px; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center;
+  position: relative;
+}
+.lab-header::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
+  background: var(--lab-brand);
+}
+.lab-logo {
+  width: 44px; height: 44px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-editorial); font-weight: 800; font-size: 20px; color: #fff;
+  box-shadow: var(--shadow-md);
+}
+.lab-title h3 { font-family: var(--font-editorial); font-size: 19px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; color: var(--text); display: flex; align-items: center; gap: 8px; }
+.lab-star { color: var(--lime); font-size: 14px; }
+.lab-parent { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.03em; font-weight: 600; margin-top: 3px; }
+.lab-num { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; font-weight: 700; padding: 3px 7px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; }
+.lab-body { padding: 14px 18px; flex: 1; display: flex; flex-direction: column; gap: 12px; }
+.lab-quick-facts { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 10px 12px; }
+.lab-fact { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 12px; border-bottom: 1px dashed var(--border); gap: 12px; }
+.lab-fact:last-child { border-bottom: none; }
+.lab-fact .fk { color: var(--text-subtle); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.03em; text-transform: uppercase; font-weight: 600; flex-shrink: 0; }
+.lab-fact .fv { color: var(--text); font-weight: 600; text-align: right; font-size: 12px; }
+.lab-why { font-size: 13.5px; line-height: 1.55; color: var(--text-muted); }
+.lab-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+.lab-tag { font-family: var(--font-mono); font-size: 9.5px; padding: 2px 7px; border-radius: 3px; background: var(--bg); border: 1px solid var(--border); color: var(--text-muted); letter-spacing: 0.03em; font-weight: 600; }
+.lab-footer {
+  padding: 12px 18px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; gap: 8px;
+  background: var(--bg-elevated);
+}
+.lab-footer .btn-outline, .lab-footer .btn-primary { padding: 7px 12px; font-size: 12px; }
+
+/* OVERVIEW page components */
+.region-tiles {
+  max-width: var(--max-w); margin: 0 auto 32px; padding: 0 28px;
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
+}
+.region-tile {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-md);
+  padding: 14px 12px; cursor: pointer; transition: all 0.15s;
+  display: flex; align-items: center; gap: 10px;
+}
+.region-tile:hover { border-color: var(--lime-tint); background: var(--bg-hover); transform: translateY(-2px); }
+.rt-flag { font-size: 24px; line-height: 1; flex-shrink: 0; }
+.rt-body { flex: 1; min-width: 0; }
+.rt-body h4 { font-family: var(--font-editorial); font-size: 14px; font-weight: 600; letter-spacing: -0.015em; color: var(--text); line-height: 1.1; }
+.rt-count { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.05em; font-weight: 600; margin-top: 2px; }
+.rt-arrow { color: var(--text-subtle); font-family: var(--font-mono); font-size: 14px; transition: color 0.12s; }
+.region-tile:hover .rt-arrow { color: var(--lime); }
+
+.spotlight-header {
+  max-width: var(--max-w); margin: 8px auto 20px; padding: 24px 28px 0;
+  border-top: 1px solid var(--border);
+}
+.section-kicker-hdr { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+.spotlight-title { font-family: var(--font-editorial); font-size: clamp(24px, 3vw, 32px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 8px; }
+.spotlight-title em { color: var(--lime); font-style: italic; font-weight: 500; }
+.spotlight-header p { font-size: 14.5px; color: var(--text-muted); line-height: 1.55; max-width: 640px; }
+
+/* ALL LABS A-Z view */
+.all-labs-intro { max-width: var(--max-w); margin: 0 auto 20px; padding: 0 28px; }
+.all-labs-intro h2 { font-family: var(--font-editorial); font-size: clamp(24px, 3vw, 32px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 6px; }
+.all-labs-intro h2 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.all-labs-intro p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+
+.all-labs-table {
+  max-width: var(--max-w); margin: 8px auto 40px; padding: 0 28px;
+  display: flex; flex-direction: column;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-left: 28px; margin-right: 28px; max-width: calc(var(--max-w) - 56px);
+}
+.al-header {
+  display: grid; grid-template-columns: 44px 2fr 1.4fr 1.6fr 1fr 1.2fr; gap: 12px;
+  padding: 10px 16px; background: var(--bg-elevated); border-bottom: 1px solid var(--border-strong);
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle);
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  align-items: center;
+}
+.al-header div:first-child { padding-left: 0; }
+.al-row {
+  display: grid; grid-template-columns: 44px 2fr 1.4fr 1.6fr 1fr 1.2fr; gap: 12px;
+  padding: 10px 16px; border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: all 0.12s; align-items: center;
+}
+.al-row:last-child { border-bottom: none; }
+.al-row:hover { background: var(--bg-hover); }
+.al-logo {
+  width: 34px; height: 34px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-editorial); font-weight: 800; font-size: 15px; color: #fff;
+}
+.al-name { font-family: var(--font-editorial); font-size: 15px; font-weight: 600; color: var(--text); display: flex; flex-direction: column; gap: 2px; letter-spacing: -0.015em; }
+.al-star { color: var(--lime); font-size: 11px; margin-left: 4px; }
+.al-parent { font-family: var(--font-body); font-size: 11px; color: var(--text-subtle); font-weight: 400; }
+.al-region { display: flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--text-muted); }
+.al-region-flag { font-size: 15px; }
+.al-region-name { font-family: var(--font-body); font-weight: 500; }
+.al-flagship { font-family: var(--font-mono); font-size: 11.5px; color: var(--text); font-weight: 600; }
+.al-type-badge { font-family: var(--font-mono); font-size: 10px; padding: 2px 7px; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--text-muted); font-weight: 600; letter-spacing: 0.02em; }
+.al-access { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); font-weight: 500; }
+
+@media (max-width: 1024px) {
+  .china-stat-bar { grid-template-columns: repeat(3, 1fr); }
+  .labs-grid { grid-template-columns: 1fr; }
+  .region-tiles { grid-template-columns: repeat(3, 1fr); }
+  .region-stats { grid-template-columns: repeat(2, 1fr); }
+  .al-header, .al-row { grid-template-columns: 40px 1.6fr 1.2fr 1.4fr 0.9fr; }
+  .al-access { display: none; }
+}
+@media (max-width: 768px) {
+  .china-stat-bar { grid-template-columns: 1fr 1fr; padding: 8px 18px 20px; }
+  .china-context, .region-intro, .labs-grid, .region-tiles, .spotlight-header, .all-labs-intro, .all-labs-table { padding-left: 18px; padding-right: 18px; }
+  .china-context-inner { flex-direction: column; padding: 20px; gap: 12px; }
+  .all-labs-table { margin-left: 18px; margin-right: 18px; max-width: calc(100% - 36px); }
+  .region-tiles { grid-template-columns: 1fr 1fr; }
+  .region-stats { grid-template-columns: 1fr 1fr; }
+  .region-intro-header { gap: 12px; }
+  .region-flag-big { font-size: 32px; }
+  .lab-header { grid-template-columns: 40px 1fr; }
+  .lab-num { display: none; }
+  .lab-footer { flex-direction: column; }
+  .lab-footer .btn-outline, .lab-footer .btn-primary { width: 100%; justify-content: center; }
+  .region-tabs { padding: 0 18px; }
+  .tools-tab { padding: 8px 12px; font-size: 10.5px; }
+  .al-header, .al-row { grid-template-columns: 34px 1fr 60px; padding: 10px 12px; gap: 8px; }
+  .al-flagship, .al-type, .al-region-name { display: none; }
+  .al-region { justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>18 new tools this week</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link active" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link active" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='index.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='index.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search 2,400+ AI tools...">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline">Sign in</button>
+      <button class="btn-primary">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <span class="current">World AI</span>
+</div>
+
+<!-- HERO -->
+<div class="directory-hero">
+  <div style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;background:var(--lime-subtle);border:1px solid var(--lime-tint);border-radius:100px;font-family:var(--font-mono);font-size:11px;color:var(--lime);font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px">
+    🌐 35 labs · 12 countries · Updated weekly
+  </div>
+  <h1>The <em>world</em> of AI, mapped.</h1>
+  <p class="subtitle"><strong>AI isn't a two-horse race.</strong> 35 major labs across 12 countries are building the future. This is where we track them — organized by region, no editorial hierarchy, updated weekly.</p>
+</div>
+
+<!-- STAT BAR -->
+<div class="china-stat-bar">
+  <div class="cs-block"><div class="cs-num">35</div><div class="cs-label">Labs tracked</div></div>
+  <div class="cs-block"><div class="cs-num">12</div><div class="cs-label">Countries</div></div>
+  <div class="cs-block"><div class="cs-num">6</div><div class="cs-label">Regions covered</div></div>
+  <div class="cs-block"><div class="cs-num">14</div><div class="cs-label">Open-weight models</div></div>
+  <div class="cs-block"><div class="cs-num">14</div><div class="cs-label">Editorial spotlights</div></div>
+</div>
+
+<!-- TABS -->
+  <div class="tools-tabs region-tabs">
+    <div class="tools-tab active" data-view="overview">Overview <span class="tab-count">Global</span></div>
+    <div class="tools-tab" data-view="us">🇺🇸 US <span class="tab-count">10</span></div>
+    <div class="tools-tab" data-view="europe">🇪🇺 Europe <span class="tab-count">6</span></div>
+    <div class="tools-tab" data-view="china">🇨🇳 China <span class="tab-count">10</span></div>
+    <div class="tools-tab" data-view="middle-east">🇦🇪 Middle East <span class="tab-count">3</span></div>
+    <div class="tools-tab" data-view="india">🇮🇳 India <span class="tab-count">3</span></div>
+    <div class="tools-tab" data-view="japan-korea">🇯🇵 Japan/Korea <span class="tab-count">3</span></div>
+    <div class="tools-tab" data-view="all-labs">All Labs A–Z <span class="tab-count">35</span></div>
+  </div>
+
+<!-- TAB VIEWS -->
+  <div class="tools-view active" data-view="overview">
+    <!-- Editorial context -->
+    <div class="china-context">
+      <div class="china-context-inner">
+        <div class="cc-icon">🌐</div>
+        <div class="cc-body">
+          <h3>The global AI landscape, honestly.</h3>
+          <p>The AI industry isn't a two-horse race. We track 35 major labs across 12 countries — from Silicon Valley to Shanghai, Paris to Tel Aviv, Bangalore to Tokyo. This page organizes them by region so you can browse where you're curious. No region is "us" or "them" — they're all just labs doing interesting work at different scales.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Region tiles: quick jump to each -->
+    <div class="region-tiles">
+      <div class="region-tile" onclick="switchToView('us')">
+        <div class="rt-flag">🇺🇸</div>
+        <div class="rt-body">
+          <h4>United States</h4>
+          <div class="rt-count">10 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+      <div class="region-tile" onclick="switchToView('europe')">
+        <div class="rt-flag">🇪🇺</div>
+        <div class="rt-body">
+          <h4>Europe</h4>
+          <div class="rt-count">6 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+      <div class="region-tile" onclick="switchToView('china')">
+        <div class="rt-flag">🇨🇳</div>
+        <div class="rt-body">
+          <h4>China</h4>
+          <div class="rt-count">10 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+      <div class="region-tile" onclick="switchToView('middle-east')">
+        <div class="rt-flag">🇦🇪</div>
+        <div class="rt-body">
+          <h4>Middle East</h4>
+          <div class="rt-count">3 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+      <div class="region-tile" onclick="switchToView('india')">
+        <div class="rt-flag">🇮🇳</div>
+        <div class="rt-body">
+          <h4>India</h4>
+          <div class="rt-count">3 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+      <div class="region-tile" onclick="switchToView('japan-korea')">
+        <div class="rt-flag">🇯🇵</div>
+        <div class="rt-body">
+          <h4>Japan & Korea</h4>
+          <div class="rt-count">3 labs</div>
+        </div>
+        <div class="rt-arrow">→</div>
+      </div>
+    </div>
+    
+    <!-- Spotlight labs across regions -->
+    <div class="spotlight-header">
+      <div class="section-kicker-hdr">Editorial Spotlight</div>
+      <h2 class="spotlight-title">The <em>most consequential</em> lab in each region.</h2>
+      <p>One lab per region that our editorial team thinks matters most — either for capability, novel approach, or market impact.</p>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#10A37F">
+        <div class="lab-logo" style="background:#10A37F">O</div>
+        <div class="lab-title">
+          <h3>OpenAI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 OpenAI, Inc. · San Francisco · Founded 2015</div>
+        </div>
+        <div class="lab-num">US·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">GPT-5.5</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">chatgpt.com · API · Azure</span></div>
+        </div>
+        <p class="lab-why">The company that mainstreamed generative AI. GPT-5.5 remains the reference model for general-purpose tasks. Distribution advantage through ChatGPT (800M+ MAU) and deep Microsoft integration.</p>
+        <div class="lab-tags"><span class="lab-tag">Frontier models</span><span class="lab-tag">Distribution</span><span class="lab-tag">Multimodal</span><span class="lab-tag">Enterprise scale</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('openai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF6B00">
+        <div class="lab-logo" style="background:#FF6B00">M</div>
+        <div class="lab-title">
+          <h3>Mistral AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇪🇺 Mistral AI · Paris · Founded 2023</div>
+        </div>
+        <div class="lab-num">EU·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Mistral Large 3</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">175B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">mistral.ai · Le Chat · Azure</span></div>
+        </div>
+        <p class="lab-why">Europe's frontier AI champion. Founded by ex-Meta and DeepMind researchers. Aggressive open-source strategy (Mistral 7B, Mixtral) made them the European response to Llama. $6B valuation, backed by Nvidia and General Catalyst.</p>
+        <div class="lab-tags"><span class="lab-tag">Open weights</span><span class="lab-tag">European sovereignty</span><span class="lab-tag">Efficient models</span><span class="lab-tag">Enterprise deployment</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('mistral-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#4D6BFE">
+        <div class="lab-logo" style="background:#4D6BFE">D</div>
+        <div class="lab-title">
+          <h3>DeepSeek <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇨🇳 High-Flyer Capital · Hangzhou · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">DeepSeek V4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">671B (37B active)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">chat.deepseek.com · API</span></div>
+        </div>
+        <p class="lab-why">The lab that redefined efficient scaling. V4 matches GPT-5.5 on reasoning at ~1/10th training cost. Open weights make it a favorite for enterprise self-hosting.</p>
+        <div class="lab-tags"><span class="lab-tag">MoE architecture</span><span class="lab-tag">Cost efficiency</span><span class="lab-tag">Math + reasoning</span><span class="lab-tag">Open weights</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('deepseek')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#004E42">
+        <div class="lab-logo" style="background:#004E42">F</div>
+        <div class="lab-title">
+          <h3>Falcon (TII) <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇦🇪 Technology Innovation Institute · Abu Dhabi, UAE · Founded 2020 (TII)</div>
+        </div>
+        <div class="lab-num">ME·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Falcon 3-180B</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">180B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">falconllm.tii.ae · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">State-backed research institute that surprised the AI world with Falcon 40B in 2023 — the first credible open-weight model from outside the West or China. Falcon 3 continues the tradition. Fully open including commercial use.</p>
+        <div class="lab-tags"><span class="lab-tag">Sovereign AI</span><span class="lab-tag">Open weights</span><span class="lab-tag">Arabic-language leader</span><span class="lab-tag">Commercial license</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('falcon-(tii)')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF6B35">
+        <div class="lab-logo" style="background:#FF6B35">S</div>
+        <div class="lab-title">
+          <h3>Sarvam AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇮🇳 Sarvam AI · Bangalore · Founded 2023</div>
+        </div>
+        <div class="lab-num">IN·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Sarvam-2B</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">2B (efficient)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">sarvam.ai · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">India's most funded AI startup — $41M seed round from Lightspeed and Peak XV. Building models optimized for 10+ Indian languages. Explicit thesis: India needs domestic AI infrastructure, not fine-tunes of American models.</p>
+        <div class="lab-tags"><span class="lab-tag">Indian languages (10+)</span><span class="lab-tag">Sovereign AI</span><span class="lab-tag">Efficient models</span><span class="lab-tag">Government partnerships</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('sarvam-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF4081">
+        <div class="lab-logo" style="background:#FF4081">S</div>
+        <div class="lab-title">
+          <h3>Sakana AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇯🇵 Sakana AI · Tokyo · Founded 2023</div>
+        </div>
+        <div class="lab-num">JP·00</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Evolutionary AI models</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Various</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights + research</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">sakana.ai · Papers</span></div>
+        </div>
+        <p class="lab-why">Founded by David Ha and Llion Jones (Transformer paper co-author, ex-Google Brain). Novel research approach: using evolutionary algorithms to combine and improve existing models. Raised $200M Series A at $1.5B valuation.</p>
+        <div class="lab-tags"><span class="lab-tag">Novel research approach</span><span class="lab-tag">Evolutionary AI</span><span class="lab-tag">Transformer pedigree</span><span class="lab-tag">Model merging</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('sakana-ai')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="tools-view" data-view="us">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇺🇸</span>
+        <div>
+          <h2 class="region-title">United States</h2>
+          <div class="region-code-lbl">Region · US</div>
+        </div>
+      </div>
+      <p class="region-desc">Home to the frontier. Six of the ten most capable models in the world are built here. The concentration of talent, capital, and compute in the San Francisco Bay Area remains without parallel — but the moat is narrowing.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">10</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">6</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$180B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#10A37F">
+        <div class="lab-logo" style="background:#10A37F">O</div>
+        <div class="lab-title">
+          <h3>OpenAI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 OpenAI, Inc. · San Francisco · Founded 2015</div>
+        </div>
+        <div class="lab-num">US·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">GPT-5.5</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">chatgpt.com · API · Azure</span></div>
+        </div>
+        <p class="lab-why">The company that mainstreamed generative AI. GPT-5.5 remains the reference model for general-purpose tasks. Distribution advantage through ChatGPT (800M+ MAU) and deep Microsoft integration.</p>
+        <div class="lab-tags"><span class="lab-tag">Frontier models</span><span class="lab-tag">Distribution</span><span class="lab-tag">Multimodal</span><span class="lab-tag">Enterprise scale</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('openai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#E67E4A">
+        <div class="lab-logo" style="background:#E67E4A">A</div>
+        <div class="lab-title">
+          <h3>Anthropic <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 Anthropic PBC · San Francisco · Founded 2021</div>
+        </div>
+        <div class="lab-num">US·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Claude</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">claude.ai · API · AWS Bedrock</span></div>
+        </div>
+        <p class="lab-why">Founded by ex-OpenAI research leads. Claude has become the developer-favorite model for writing quality, coding, and long-context reasoning. Safety-focused positioning attracts enterprise buyers.</p>
+        <div class="lab-tags"><span class="lab-tag">Writing quality</span><span class="lab-tag">Long context</span><span class="lab-tag">Coding</span><span class="lab-tag">AI safety</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('anthropic')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#4285F4">
+        <div class="lab-logo" style="background:#4285F4">G</div>
+        <div class="lab-title">
+          <h3>Google DeepMind <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 Alphabet · Mountain View + London · Founded 2010 (DeepMind)</div>
+        </div>
+        <div class="lab-num">US·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Gemini 3</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed + open (Gemma)</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">gemini.google.com · Vertex AI</span></div>
+        </div>
+        <p class="lab-why">Merged Google Brain and DeepMind in 2023. Gemini 3 tops MMLU at 94.2%. Unique combination of research depth (AlphaFold, AlphaGo lineage) and Google's data + compute scale.</p>
+        <div class="lab-tags"><span class="lab-tag">Multimodal leader</span><span class="lab-tag">Scientific AI</span><span class="lab-tag">Search integration</span><span class="lab-tag">Research pedigree</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('google-deepmind')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#0866FF">
+        <div class="lab-logo" style="background:#0866FF">M</div>
+        <div class="lab-title">
+          <h3>Meta AI (FAIR) <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 Meta Platforms · Menlo Park · Founded 2013 (FAIR)</div>
+        </div>
+        <div class="lab-num">US·04</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Llama 4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">405B (max)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">llama.meta.com · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">The dominant force in open-weight AI. Llama has become the base model of choice for fine-tuning across enterprise and research. Recent Llama 4 Nano runs on consumer laptops.</p>
+        <div class="lab-tags"><span class="lab-tag">Open weights</span><span class="lab-tag">Fine-tunable</span><span class="lab-tag">Consumer scale</span><span class="lab-tag">Research output</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('meta-ai-(fair)')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#0A0A0B">
+        <div class="lab-logo" style="background:#0A0A0B">x</div>
+        <div class="lab-title">
+          <h3>xAI </h3>
+          <div class="lab-parent">🇺🇸 xAI Corp · San Francisco / Memphis · Founded 2023</div>
+        </div>
+        <div class="lab-num">US·05</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Grok 4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">~500B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">grok.com · X integration</span></div>
+        </div>
+        <p class="lab-why">Elon Musk's AI lab. Trained on the largest single GPU cluster in the world (Colossus, 100K+ H100s in Memphis). Distinctive positioning around 'truth-seeking' and X platform integration.</p>
+        <div class="lab-tags"><span class="lab-tag">Compute scale</span><span class="lab-tag">X integration</span><span class="lab-tag">Real-time knowledge</span><span class="lab-tag">Rapid iteration</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('xai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#39594D">
+        <div class="lab-logo" style="background:#39594D">C</div>
+        <div class="lab-title">
+          <h3>Cohere </h3>
+          <div class="lab-parent">🇺🇸 Cohere Inc. · Toronto · Founded 2019</div>
+        </div>
+        <div class="lab-num">US·06</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Command R+</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">104B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">cohere.com · Oracle Cloud</span></div>
+        </div>
+        <p class="lab-why">Enterprise-focused AI lab founded by ex-Google Brain researchers. Command R+ excels at RAG (retrieval-augmented generation). Strong presence in regulated industries via Oracle partnership.</p>
+        <div class="lab-tags"><span class="lab-tag">Enterprise RAG</span><span class="lab-tag">Multilingual</span><span class="lab-tag">On-prem deployment</span><span class="lab-tag">Regulated industries</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('cohere')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#20808D">
+        <div class="lab-logo" style="background:#20808D">P</div>
+        <div class="lab-title">
+          <h3>Perplexity <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇺🇸 Perplexity AI · San Francisco · Founded 2022</div>
+        </div>
+        <div class="lab-num">US·07</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Perplexity Pro</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Multiple (uses partners)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Product layer</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">perplexity.ai · Comet browser</span></div>
+        </div>
+        <p class="lab-why">The AI-native search company. Not a foundation model lab per se — instead orchestrates GPT/Claude/their own Sonar models into a search product. $18B valuation as of 2026.</p>
+        <div class="lab-tags"><span class="lab-tag">AI search</span><span class="lab-tag">Real-time sources</span><span class="lab-tag">Comet browser</span><span class="lab-tag">Consumer product</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('perplexity')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#7B61FF">
+        <div class="lab-logo" style="background:#7B61FF">C</div>
+        <div class="lab-title">
+          <h3>Character.AI </h3>
+          <div class="lab-parent">🇺🇸 Character Technologies · Menlo Park · Founded 2021</div>
+        </div>
+        <div class="lab-num">US·08</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Character AI</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">character.ai</span></div>
+        </div>
+        <p class="lab-why">Founded by Noam Shazeer (Transformer paper co-author). Consumer character-chat app that popularized AI companions. Google took a $2.7B licensing deal for their models and hired the founders back.</p>
+        <div class="lab-tags"><span class="lab-tag">AI companions</span><span class="lab-tag">Consumer scale</span><span class="lab-tag">Character models</span><span class="lab-tag">Founding pedigree</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('character.ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#FF6B4A">
+        <div class="lab-logo" style="background:#FF6B4A">A</div>
+        <div class="lab-title">
+          <h3>Adept </h3>
+          <div class="lab-parent">🇺🇸 Adept AI Labs · San Francisco · Founded 2022</div>
+        </div>
+        <div class="lab-num">US·09</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">ACT-2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Enterprise API</span></div>
+        </div>
+        <p class="lab-why">Building AI agents that operate software the way humans do. Founders and core team acqui-hired by Amazon in 2024, but the tech continues at Adept. Focus on enterprise workflow automation.</p>
+        <div class="lab-tags"><span class="lab-tag">AI agents</span><span class="lab-tag">Workflow automation</span><span class="lab-tag">Enterprise focus</span><span class="lab-tag">UI operation</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('adept')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#3B49DF">
+        <div class="lab-logo" style="background:#3B49DF">I</div>
+        <div class="lab-title">
+          <h3>Inflection AI </h3>
+          <div class="lab-parent">🇺🇸 Inflection AI (Microsoft) · Palo Alto · Founded 2022</div>
+        </div>
+        <div class="lab-num">US·10</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Pi</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">pi.ai · Enterprise</span></div>
+        </div>
+        <p class="lab-why">Founded by Mustafa Suleyman (DeepMind co-founder) and Reid Hoffman. Team and IP largely absorbed by Microsoft in 2024 for $650M, with Suleyman now leading Microsoft AI. Pi consumer app continues.</p>
+        <div class="lab-tags"><span class="lab-tag">Consumer AI</span><span class="lab-tag">Emotional intelligence</span><span class="lab-tag">Founding team</span><span class="lab-tag">MSFT integration</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('inflection-ai')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="tools-view" data-view="europe">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇪🇺</span>
+        <div>
+          <h2 class="region-title">Europe</h2>
+          <div class="region-code-lbl">Region · EU</div>
+        </div>
+      </div>
+      <p class="region-desc">Europe's AI ecosystem is stronger than the media narrative suggests. Mistral has become a serious open-source frontier lab. Google DeepMind's London office ships some of the most important research in the field. The talent depth is real — the missing piece has historically been capital.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">6</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$14B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">4</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF6B00">
+        <div class="lab-logo" style="background:#FF6B00">M</div>
+        <div class="lab-title">
+          <h3>Mistral AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇪🇺 Mistral AI · Paris · Founded 2023</div>
+        </div>
+        <div class="lab-num">EU·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Mistral Large 3</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">175B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">mistral.ai · Le Chat · Azure</span></div>
+        </div>
+        <p class="lab-why">Europe's frontier AI champion. Founded by ex-Meta and DeepMind researchers. Aggressive open-source strategy (Mistral 7B, Mixtral) made them the European response to Llama. $6B valuation, backed by Nvidia and General Catalyst.</p>
+        <div class="lab-tags"><span class="lab-tag">Open weights</span><span class="lab-tag">European sovereignty</span><span class="lab-tag">Efficient models</span><span class="lab-tag">Enterprise deployment</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('mistral-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#1A1A1A">
+        <div class="lab-logo" style="background:#1A1A1A">H</div>
+        <div class="lab-title">
+          <h3>H Company <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇪🇺 H · Paris · Founded 2024</div>
+        </div>
+        <div class="lab-num">EU·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Runner H</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Enterprise partners</span></div>
+        </div>
+        <p class="lab-why">Founded by senior ex-Google DeepMind researchers (Karl Tuyls, Laurent Sifre, Julien Perolat). Raised $220M seed — largest in French history — on the vision of general-purpose AI agents. Product ships in 2026.</p>
+        <div class="lab-tags"><span class="lab-tag">Agent-focused</span><span class="lab-tag">Research pedigree</span><span class="lab-tag">Massive seed round</span><span class="lab-tag">European frontier</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('h-company')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#00B8D4">
+        <div class="lab-logo" style="background:#00B8D4">A</div>
+        <div class="lab-title">
+          <h3>Aleph Alpha </h3>
+          <div class="lab-parent">🇪🇺 Aleph Alpha GmbH · Heidelberg, Germany · Founded 2019</div>
+        </div>
+        <div class="lab-num">EU·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Luminous Supreme</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">70B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">app.aleph-alpha.com · Enterprise</span></div>
+        </div>
+        <p class="lab-why">Germany's answer to sovereign AI. Focused on European enterprise and government sectors. Explainable AI approach with strong multilingual European language support. Backed by SAP and Bosch.</p>
+        <div class="lab-tags"><span class="lab-tag">European sovereignty</span><span class="lab-tag">Explainable AI</span><span class="lab-tag">Government sector</span><span class="lab-tag">Multilingual EU</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('aleph-alpha')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#8659FF">
+        <div class="lab-logo" style="background:#8659FF">S</div>
+        <div class="lab-title">
+          <h3>Stability AI </h3>
+          <div class="lab-parent">🇪🇺 Stability AI Ltd · London · Founded 2020</div>
+        </div>
+        <div class="lab-num">EU·04</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Stable Diffusion 4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">N/A (image model)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">stability.ai · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">The lab that democratized image generation. Stable Diffusion (2022) triggered the open-source generative AI wave. Post-restructuring under new leadership, refocusing on media and enterprise generative tools.</p>
+        <div class="lab-tags"><span class="lab-tag">Open image AI</span><span class="lab-tag">Community-driven</span><span class="lab-tag">Media generation</span><span class="lab-tag">Historical significance</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('stability-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#1A1A2E">
+        <div class="lab-logo" style="background:#1A1A2E">E</div>
+        <div class="lab-title">
+          <h3>ElevenLabs <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇪🇺 ElevenLabs Inc. · London (HQ) · Distributed · Founded 2022</div>
+        </div>
+        <div class="lab-num">EU·05</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Eleven Multilingual v3</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">N/A (audio model)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">elevenlabs.io · API</span></div>
+        </div>
+        <p class="lab-why">The gold standard for AI voice synthesis. Founded by Polish researchers based in the UK. Approaching $6B valuation in secondary market. Voice quality is genuinely indistinguishable from human in most languages.</p>
+        <div class="lab-tags"><span class="lab-tag">Voice cloning</span><span class="lab-tag">Multilingual audio</span><span class="lab-tag">Consumer + API</span><span class="lab-tag">Founder-led</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('elevenlabs')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#00A9E0">
+        <div class="lab-logo" style="background:#00A9E0">P</div>
+        <div class="lab-title">
+          <h3>Poolside </h3>
+          <div class="lab-parent">🇪🇺 Poolside AI · Paris · Founded 2023</div>
+        </div>
+        <div class="lab-num">EU·06</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Poolside Malibu</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Enterprise partners</span></div>
+        </div>
+        <p class="lab-why">Focused exclusively on code generation and software engineering AI. Founded by ex-GitHub Copilot team. Raised $500M Series B in 2024. Deep enterprise deployments with major banks and defense.</p>
+        <div class="lab-tags"><span class="lab-tag">Code generation</span><span class="lab-tag">Enterprise focus</span><span class="lab-tag">Copilot pedigree</span><span class="lab-tag">European frontier</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('poolside')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="tools-view" data-view="china">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇨🇳</span>
+        <div>
+          <h2 class="region-title">China</h2>
+          <div class="region-code-lbl">Region · CN</div>
+        </div>
+      </div>
+      <p class="region-desc">China's AI ecosystem is the second-largest in the world by capital, talent, and model output. Chinese labs have led on open-source efficiency (DeepSeek), consumer scale (Doubao, 200M+ MAU), and specific capabilities like long context (Kimi). Under-covered in English-language media.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">10</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$47B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">5</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#4D6BFE">
+        <div class="lab-logo" style="background:#4D6BFE">D</div>
+        <div class="lab-title">
+          <h3>DeepSeek <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇨🇳 High-Flyer Capital · Hangzhou · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">DeepSeek V4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">671B (37B active)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">chat.deepseek.com · API</span></div>
+        </div>
+        <p class="lab-why">The lab that redefined efficient scaling. V4 matches GPT-5.5 on reasoning at ~1/10th training cost. Open weights make it a favorite for enterprise self-hosting.</p>
+        <div class="lab-tags"><span class="lab-tag">MoE architecture</span><span class="lab-tag">Cost efficiency</span><span class="lab-tag">Math + reasoning</span><span class="lab-tag">Open weights</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('deepseek')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#615CED">
+        <div class="lab-logo" style="background:#615CED">Q</div>
+        <div class="lab-title">
+          <h3>Qwen <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇨🇳 Alibaba Cloud · Hangzhou · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Qwen3-Max</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">480B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">qwen.aliyun.com · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">China's most ubiquitous open-source model family. Dominates Southeast Asian enterprise. Default fine-tune target for Asian-language tasks.</p>
+        <div class="lab-tags"><span class="lab-tag">Multilingual (100+)</span><span class="lab-tag">Open weights</span><span class="lab-tag">Vision-language</span><span class="lab-tag">Long context</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('qwen')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#0F1419">
+        <div class="lab-logo" style="background:#0F1419">K</div>
+        <div class="lab-title">
+          <h3>Kimi <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇨🇳 Moonshot AI · Beijing · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Kimi K2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">~200B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">kimi.com · Chinese-first UI</span></div>
+        </div>
+        <p class="lab-why">Consumer favorite in China. Kimi K2 launched with viral 10M+ token context — reads entire novels in one shot. Backed by Alibaba, Tencent, Sequoia China.</p>
+        <div class="lab-tags"><span class="lab-tag">Ultra-long context</span><span class="lab-tag">Consumer focus</span><span class="lab-tag">Document analysis</span><span class="lab-tag">Research</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('kimi')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#2E7CF6">
+        <div class="lab-logo" style="background:#2E7CF6">G</div>
+        <div class="lab-title">
+          <h3>GLM (Zhipu) </h3>
+          <div class="lab-parent">🇨🇳 Zhipu AI · Beijing · Founded 2019</div>
+        </div>
+        <div class="lab-num">CN·04</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">GLM-5</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">355B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">bigmodel.cn · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">Spun out from Tsinghua University. Strongest showing in Chinese government and state enterprise contracts. Recent $400M round pushed valuation past $3B.</p>
+        <div class="lab-tags"><span class="lab-tag">Enterprise deployment</span><span class="lab-tag">Reasoning</span><span class="lab-tag">Code generation</span><span class="lab-tag">Government sector</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('glm-(zhipu)')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#F23F5D">
+        <div class="lab-logo" style="background:#F23F5D">M</div>
+        <div class="lab-title">
+          <h3>MiniMax </h3>
+          <div class="lab-parent">🇨🇳 MiniMax · Shanghai · Founded 2021</div>
+        </div>
+        <div class="lab-num">CN·05</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">MiniMax-M2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">456B (MoE)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed + open</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">API · Talkie app</span></div>
+        </div>
+        <p class="lab-why">Strongest voice and multimodal player in Chinese AI. Talkie app has 30M+ global MAU. M2 competitive with GPT-4o on multimodal tasks.</p>
+        <div class="lab-tags"><span class="lab-tag">Voice synthesis</span><span class="lab-tag">Multimodal</span><span class="lab-tag">Character AI</span><span class="lab-tag">Video generation</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('minimax')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#00BCD4">
+        <div class="lab-logo" style="background:#00BCD4">Y</div>
+        <div class="lab-title">
+          <h3>Yi </h3>
+          <div class="lab-parent">🇨🇳 01.AI · Beijing · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·06</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Yi-Large 2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">530B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open + closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">01.ai · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">Founded by Kai-Fu Lee (former Google China president). Notable for strong English performance among Chinese labs — genuine bilingual foundation models.</p>
+        <div class="lab-tags"><span class="lab-tag">Bilingual (EN+ZH)</span><span class="lab-tag">Open weights</span><span class="lab-tag">Research friendly</span><span class="lab-tag">Kai-Fu Lee</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('yi')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#000000">
+        <div class="lab-logo" style="background:#000000">D</div>
+        <div class="lab-title">
+          <h3>Doubao </h3>
+          <div class="lab-parent">🇨🇳 ByteDance · Beijing · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·07</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Doubao-Pro 4</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">doubao.com · Chinese-only</span></div>
+        </div>
+        <p class="lab-why">200M+ MAU inside China — the largest AI chatbot in the country by usage. Deep integration with TikTok/Douyin. Aggressive free tier squeezes competitors.</p>
+        <div class="lab-tags"><span class="lab-tag">Massive scale</span><span class="lab-tag">Consumer product</span><span class="lab-tag">TikTok integration</span><span class="lab-tag">Free access</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('doubao')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#2932E1">
+        <div class="lab-logo" style="background:#2932E1">E</div>
+        <div class="lab-title">
+          <h3>Ernie </h3>
+          <div class="lab-parent">🇨🇳 Baidu · Beijing · Founded 2019</div>
+        </div>
+        <div class="lab-num">CN·08</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Ernie 5.0</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">260B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">yiyan.baidu.com</span></div>
+        </div>
+        <p class="lab-why">The original Chinese LLM. Once the leader, now working to reclaim ground. Deep integration with Baidu Search gives it distribution advantage.</p>
+        <div class="lab-tags"><span class="lab-tag">Search integration</span><span class="lab-tag">Chinese web knowledge</span><span class="lab-tag">Enterprise cloud</span><span class="lab-tag">Legacy leader</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('ernie')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#0091FF">
+        <div class="lab-logo" style="background:#0091FF">H</div>
+        <div class="lab-title">
+          <h3>Hunyuan </h3>
+          <div class="lab-parent">🇨🇳 Tencent · Shenzhen · Founded 2023</div>
+        </div>
+        <div class="lab-num">CN·09</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Hunyuan T2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">389B (MoE)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">hunyuan.tencent.com</span></div>
+        </div>
+        <p class="lab-why">Distribution through WeChat gives Hunyuan a captive audience of 1B+ users. Recently open-sourced T2, joining the open-weights race.</p>
+        <div class="lab-tags"><span class="lab-tag">WeChat integration</span><span class="lab-tag">Gaming AI</span><span class="lab-tag">Social use cases</span><span class="lab-tag">MoE efficiency</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('hunyuan')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#00A0E9">
+        <div class="lab-logo" style="background:#00A0E9">S</div>
+        <div class="lab-title">
+          <h3>SenseTime </h3>
+          <div class="lab-parent">🇨🇳 SenseTime Group · Hong Kong · Founded 2014</div>
+        </div>
+        <div class="lab-num">CN·10</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">SenseChat 6</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">600B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Enterprise · API</span></div>
+        </div>
+        <p class="lab-why">Originally computer vision leader, pivoted to LLMs. SenseChat 6 competitive on Chinese benchmarks. Publicly traded (HKG:0020). Heavy government sector focus.</p>
+        <div class="lab-tags"><span class="lab-tag">Computer vision heritage</span><span class="lab-tag">Government contracts</span><span class="lab-tag">Enterprise scale</span><span class="lab-tag">Public company</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('sensetime')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="tools-view" data-view="middle-east">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇦🇪</span>
+        <div>
+          <h2 class="region-title">Middle East</h2>
+          <div class="region-code-lbl">Region · ME</div>
+        </div>
+      </div>
+      <p class="region-desc">The Middle East is spending its way to AI relevance. UAE and Saudi Arabia have committed over $100B combined to sovereign AI initiatives. Falcon (from Abu Dhabi's TII) proved the region can ship credible open-weight foundation models. G42 has become a major infrastructure and application player.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">1</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$100B+ (sovereign)</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#004E42">
+        <div class="lab-logo" style="background:#004E42">F</div>
+        <div class="lab-title">
+          <h3>Falcon (TII) <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇦🇪 Technology Innovation Institute · Abu Dhabi, UAE · Founded 2020 (TII)</div>
+        </div>
+        <div class="lab-num">ME·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Falcon 3-180B</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">180B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">falconllm.tii.ae · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">State-backed research institute that surprised the AI world with Falcon 40B in 2023 — the first credible open-weight model from outside the West or China. Falcon 3 continues the tradition. Fully open including commercial use.</p>
+        <div class="lab-tags"><span class="lab-tag">Sovereign AI</span><span class="lab-tag">Open weights</span><span class="lab-tag">Arabic-language leader</span><span class="lab-tag">Commercial license</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('falcon-(tii)')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#B08D57">
+        <div class="lab-logo" style="background:#B08D57">J</div>
+        <div class="lab-title">
+          <h3>Jais </h3>
+          <div class="lab-parent">🇦🇪 MBZUAI + G42 + Cerebras · Abu Dhabi · Founded 2023</div>
+        </div>
+        <div class="lab-num">ME·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Jais 70B</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">70B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">inceptioniai.org · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">The world's most capable Arabic-language LLM. Bilingual Arabic-English foundation model developed jointly by MBZUAI, G42, and trained on Cerebras hardware. Powers government and enterprise Arabic AI across MENA.</p>
+        <div class="lab-tags"><span class="lab-tag">Arabic language leader</span><span class="lab-tag">Bilingual (AR+EN)</span><span class="lab-tag">MENA enterprise</span><span class="lab-tag">Open weights</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('jais')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#DA291C">
+        <div class="lab-logo" style="background:#DA291C">G</div>
+        <div class="lab-title">
+          <h3>G42 </h3>
+          <div class="lab-parent">🇦🇪 G42 Holdings · Abu Dhabi · Founded 2018</div>
+        </div>
+        <div class="lab-num">ME·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Multiple + infrastructure</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Various</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed + partnerships</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Enterprise partners</span></div>
+        </div>
+        <p class="lab-why">UAE sovereign AI conglomerate. $1.5B Microsoft investment in 2024 solidified strategic partnership. Operates massive compute infrastructure, healthcare AI, and financial AI subsidiaries across the region.</p>
+        <div class="lab-tags"><span class="lab-tag">Sovereign investment</span><span class="lab-tag">MSFT partnership</span><span class="lab-tag">Infrastructure</span><span class="lab-tag">Healthcare AI</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('g42')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="tools-view" data-view="india">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇮🇳</span>
+        <div>
+          <h2 class="region-title">India</h2>
+          <div class="region-code-lbl">Region · IN</div>
+        </div>
+      </div>
+      <p class="region-desc">India's AI ecosystem is at an inflection point. Government-backed initiatives (India AI Mission, $1.2B) and private capital are fueling a wave of foundation model startups focused on Indian languages. The bet: 22 official languages spoken by 1.4B people is a genuinely differentiated market.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">0</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$1.5B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF6B35">
+        <div class="lab-logo" style="background:#FF6B35">S</div>
+        <div class="lab-title">
+          <h3>Sarvam AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇮🇳 Sarvam AI · Bangalore · Founded 2023</div>
+        </div>
+        <div class="lab-num">IN·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Sarvam-2B</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">2B (efficient)</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">sarvam.ai · Hugging Face</span></div>
+        </div>
+        <p class="lab-why">India's most funded AI startup — $41M seed round from Lightspeed and Peak XV. Building models optimized for 10+ Indian languages. Explicit thesis: India needs domestic AI infrastructure, not fine-tunes of American models.</p>
+        <div class="lab-tags"><span class="lab-tag">Indian languages (10+)</span><span class="lab-tag">Sovereign AI</span><span class="lab-tag">Efficient models</span><span class="lab-tag">Government partnerships</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('sarvam-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#000000">
+        <div class="lab-logo" style="background:#000000">K</div>
+        <div class="lab-title">
+          <h3>Krutrim </h3>
+          <div class="lab-parent">🇮🇳 Krutrim (Ola) · Bangalore · Founded 2023</div>
+        </div>
+        <div class="lab-num">IN·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Krutrim v2</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Undisclosed</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">krutrim.ai</span></div>
+        </div>
+        <p class="lab-why">India's first AI unicorn ($1B valuation in 2024). Founded by Bhavish Aggarwal (Ola CEO). Multilingual model supporting 22 Indian languages. Consumer chatbot plus enterprise API. Building own AI chips.</p>
+        <div class="lab-tags"><span class="lab-tag">Indian AI unicorn</span><span class="lab-tag">22 language support</span><span class="lab-tag">Consumer + enterprise</span><span class="lab-tag">Chip ambition</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('krutrim')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#00308F">
+        <div class="lab-logo" style="background:#00308F">J</div>
+        <div class="lab-title">
+          <h3>JioBrain </h3>
+          <div class="lab-parent">🇮🇳 Reliance Jio · Mumbai · Founded 2024</div>
+        </div>
+        <div class="lab-num">IN·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">JioBrain (in dev)</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">TBD</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">TBD</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Reliance ecosystem</span></div>
+        </div>
+        <p class="lab-why">Reliance's AI initiative for their 470M user Jio telecom platform. Backed by parent conglomerate's scale (India's largest company). Partnership rumors with Nvidia for major AI infrastructure buildout. Product launches expected 2026.</p>
+        <div class="lab-tags"><span class="lab-tag">Massive distribution</span><span class="lab-tag">Reliance ecosystem</span><span class="lab-tag">Nvidia partnership</span><span class="lab-tag">Telecom scale</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('jiobrain')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="tools-view" data-view="japan-korea">
+    <div class="region-intro">
+      <div class="region-intro-header">
+        <span class="region-flag-big">🇯🇵</span>
+        <div>
+          <h2 class="region-title">Japan & Korea</h2>
+          <div class="region-code-lbl">Region · JP</div>
+        </div>
+      </div>
+      <p class="region-desc">East Asia's other AI powers. Japan and Korea have historically strong AI research (particularly in robotics and consumer applications) but have been late to LLM development. That's changing — Sakana's evolutionary approach is genuinely novel, and Korean labs are shipping strong Korean-language models.</p>
+      <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">0</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$2B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+    </div>
+    <div class="labs-grid">
+    <div class="lab-card lab-featured">
+      <div class="lab-header" style="--lab-brand:#FF4081">
+        <div class="lab-logo" style="background:#FF4081">S</div>
+        <div class="lab-title">
+          <h3>Sakana AI <span class="lab-star" title="Editorial spotlight">★</span></h3>
+          <div class="lab-parent">🇯🇵 Sakana AI · Tokyo · Founded 2023</div>
+        </div>
+        <div class="lab-num">JP·01</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">Evolutionary AI models</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">Various</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights + research</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">sakana.ai · Papers</span></div>
+        </div>
+        <p class="lab-why">Founded by David Ha and Llion Jones (Transformer paper co-author, ex-Google Brain). Novel research approach: using evolutionary algorithms to combine and improve existing models. Raised $200M Series A at $1.5B valuation.</p>
+        <div class="lab-tags"><span class="lab-tag">Novel research approach</span><span class="lab-tag">Evolutionary AI</span><span class="lab-tag">Transformer pedigree</span><span class="lab-tag">Model merging</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('sakana-ai')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#03C75A">
+        <div class="lab-logo" style="background:#03C75A">H</div>
+        <div class="lab-title">
+          <h3>HyperCLOVA X </h3>
+          <div class="lab-parent">🇯🇵 Naver · Seoul · Founded 2021</div>
+        </div>
+        <div class="lab-num">JP·02</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">HyperCLOVA X</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">204B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Closed</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">clova.ai · Naver ecosystem</span></div>
+        </div>
+        <p class="lab-why">Korea's most capable Korean-language LLM. Built by Naver (Korea's Google-equivalent) on custom infrastructure. Powers Naver Search, Naver Cloud, and enterprise deployments across Korean chaebols.</p>
+        <div class="lab-tags"><span class="lab-tag">Korean language leader</span><span class="lab-tag">Enterprise deployment</span><span class="lab-tag">Search integration</span><span class="lab-tag">Naver ecosystem</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('hyperclova-x')">Visit site →</button>
+      </div>
+    </div>
+    <div class="lab-card">
+      <div class="lab-header" style="--lab-brand:#A50034">
+        <div class="lab-logo" style="background:#A50034">L</div>
+        <div class="lab-title">
+          <h3>LG AI Research </h3>
+          <div class="lab-parent">🇯🇵 LG Corp · Seoul · Founded 2020</div>
+        </div>
+        <div class="lab-num">JP·03</div>
+      </div>
+      <div class="lab-body">
+        <div class="lab-quick-facts">
+          <div class="lab-fact"><span class="fk">Flagship</span><span class="fv">EXAONE 3.0</span></div>
+          <div class="lab-fact"><span class="fk">Parameters</span><span class="fv">32B</span></div>
+          <div class="lab-fact"><span class="fk">Weights</span><span class="fv">Open weights (research)</span></div>
+          <div class="lab-fact"><span class="fk">Access</span><span class="fv">Research + LG products</span></div>
+        </div>
+        <p class="lab-why">LG's dedicated AI research division. EXAONE models focus on scientific and enterprise applications. Notable for bilingual Korean-English performance and integration across LG's consumer electronics and enterprise software.</p>
+        <div class="lab-tags"><span class="lab-tag">Scientific AI</span><span class="lab-tag">Bilingual (KO+EN)</span><span class="lab-tag">Enterprise integration</span><span class="lab-tag">Open research</span></div>
+      </div>
+      <div class="lab-footer">
+        <button class="btn-outline">Read full profile</button>
+        <button class="btn-primary" onclick="trackClick('lg-ai-research')">Visit site →</button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="tools-view" data-view="all-labs">
+    <div class="all-labs-intro">
+      <h2>All labs · <em>alphabetical</em></h2>
+      <p>Every AI lab we track, sorted A-Z. Click any row to jump to that lab's region section.</p>
+    </div>
+    <!-- Filter chips for the A-Z view -->
+    <div class="chip-filters">
+      <div class="chip active">All (35)</div>
+      <div class="chip">🎯 Spotlight (14)</div>
+      <div class="chip">📖 Open weights (14)</div>
+      <div class="chip">🇺🇸 US (10)</div>
+      <div class="chip">🇪🇺 Europe (6)</div>
+      <div class="chip">🇨🇳 China (10)</div>
+      <div class="chip">🌏 Rest of world (9)</div>
+    </div>
+    <div class="all-labs-table">
+      <div class="al-header">
+        <div>Logo</div><div>Lab</div><div>Region</div><div>Flagship Model</div><div>Weights</div><div>Location</div>
+      </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#FF6B4A">A</div>
+      <div class="al-name">Adept <div class="al-parent">Adept AI Labs</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">ACT-2</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">San Francisco</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#00B8D4">A</div>
+      <div class="al-name">Aleph Alpha <div class="al-parent">Aleph Alpha GmbH</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Luminous Supreme</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Heidelberg, Germany</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#E67E4A">A</div>
+      <div class="al-name">Anthropic <span class="al-star">★</span><div class="al-parent">Anthropic PBC</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Claude</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">San Francisco</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#7B61FF">C</div>
+      <div class="al-name">Character.AI <div class="al-parent">Character Technologies</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Character AI</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Menlo Park</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#39594D">C</div>
+      <div class="al-name">Cohere <div class="al-parent">Cohere Inc.</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Command R+</div>
+      <div class="al-type"><span class="al-type-badge">Open + closed</span></div>
+      <div class="al-access">Toronto</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#4D6BFE">D</div>
+      <div class="al-name">DeepSeek <span class="al-star">★</span><div class="al-parent">High-Flyer Capital</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">DeepSeek V4</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Hangzhou</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#000000">D</div>
+      <div class="al-name">Doubao <div class="al-parent">ByteDance</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Doubao-Pro 4</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Beijing</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#1A1A2E">E</div>
+      <div class="al-name">ElevenLabs <span class="al-star">★</span><div class="al-parent">ElevenLabs Inc.</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Eleven Multilingual v3</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">London (HQ) · Distributed</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#2932E1">E</div>
+      <div class="al-name">Ernie <div class="al-parent">Baidu</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Ernie 5.0</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Beijing</div>
+    </div>
+    <div class="al-row" onclick="switchToView('middle-east')">
+      <div class="al-logo" style="background:#004E42">F</div>
+      <div class="al-name">Falcon (TII) <span class="al-star">★</span><div class="al-parent">Technology Innovation Institute</div></div>
+      <div class="al-region"><span class="al-region-flag">🇦🇪</span><span class="al-region-name">Middle East</span></div>
+      <div class="al-flagship">Falcon 3-180B</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Abu Dhabi, UAE</div>
+    </div>
+    <div class="al-row" onclick="switchToView('middle-east')">
+      <div class="al-logo" style="background:#DA291C">G</div>
+      <div class="al-name">G42 <div class="al-parent">G42 Holdings</div></div>
+      <div class="al-region"><span class="al-region-flag">🇦🇪</span><span class="al-region-name">Middle East</span></div>
+      <div class="al-flagship">Multiple + infrastructure</div>
+      <div class="al-type"><span class="al-type-badge">Closed + partnerships</span></div>
+      <div class="al-access">Abu Dhabi</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#2E7CF6">G</div>
+      <div class="al-name">GLM (Zhipu) <div class="al-parent">Zhipu AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">GLM-5</div>
+      <div class="al-type"><span class="al-type-badge">Open + closed</span></div>
+      <div class="al-access">Beijing</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#4285F4">G</div>
+      <div class="al-name">Google DeepMind <span class="al-star">★</span><div class="al-parent">Alphabet</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Gemini 3</div>
+      <div class="al-type"><span class="al-type-badge">Closed + open (Gemma)</span></div>
+      <div class="al-access">Mountain View + London</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#1A1A1A">H</div>
+      <div class="al-name">H Company <span class="al-star">★</span><div class="al-parent">H</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Runner H</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Paris</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#0091FF">H</div>
+      <div class="al-name">Hunyuan <div class="al-parent">Tencent</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Hunyuan T2</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Shenzhen</div>
+    </div>
+    <div class="al-row" onclick="switchToView('japan-korea')">
+      <div class="al-logo" style="background:#03C75A">H</div>
+      <div class="al-name">HyperCLOVA X <div class="al-parent">Naver</div></div>
+      <div class="al-region"><span class="al-region-flag">🇯🇵</span><span class="al-region-name">Japan & Korea</span></div>
+      <div class="al-flagship">HyperCLOVA X</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Seoul</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#3B49DF">I</div>
+      <div class="al-name">Inflection AI <div class="al-parent">Inflection AI (Microsoft)</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Pi</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Palo Alto</div>
+    </div>
+    <div class="al-row" onclick="switchToView('middle-east')">
+      <div class="al-logo" style="background:#B08D57">J</div>
+      <div class="al-name">Jais <div class="al-parent">MBZUAI + G42 + Cerebras</div></div>
+      <div class="al-region"><span class="al-region-flag">🇦🇪</span><span class="al-region-name">Middle East</span></div>
+      <div class="al-flagship">Jais 70B</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Abu Dhabi</div>
+    </div>
+    <div class="al-row" onclick="switchToView('india')">
+      <div class="al-logo" style="background:#00308F">J</div>
+      <div class="al-name">JioBrain <div class="al-parent">Reliance Jio</div></div>
+      <div class="al-region"><span class="al-region-flag">🇮🇳</span><span class="al-region-name">India</span></div>
+      <div class="al-flagship">JioBrain (in dev)</div>
+      <div class="al-type"><span class="al-type-badge">TBD</span></div>
+      <div class="al-access">Mumbai</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#0F1419">K</div>
+      <div class="al-name">Kimi <span class="al-star">★</span><div class="al-parent">Moonshot AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Kimi K2</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Beijing</div>
+    </div>
+    <div class="al-row" onclick="switchToView('india')">
+      <div class="al-logo" style="background:#000000">K</div>
+      <div class="al-name">Krutrim <div class="al-parent">Krutrim (Ola)</div></div>
+      <div class="al-region"><span class="al-region-flag">🇮🇳</span><span class="al-region-name">India</span></div>
+      <div class="al-flagship">Krutrim v2</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Bangalore</div>
+    </div>
+    <div class="al-row" onclick="switchToView('japan-korea')">
+      <div class="al-logo" style="background:#A50034">L</div>
+      <div class="al-name">LG AI Research <div class="al-parent">LG Corp</div></div>
+      <div class="al-region"><span class="al-region-flag">🇯🇵</span><span class="al-region-name">Japan & Korea</span></div>
+      <div class="al-flagship">EXAONE 3.0</div>
+      <div class="al-type"><span class="al-type-badge">Open weights (research)</span></div>
+      <div class="al-access">Seoul</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#0866FF">M</div>
+      <div class="al-name">Meta AI (FAIR) <span class="al-star">★</span><div class="al-parent">Meta Platforms</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Llama 4</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Menlo Park</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#F23F5D">M</div>
+      <div class="al-name">MiniMax <div class="al-parent">MiniMax</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">MiniMax-M2</div>
+      <div class="al-type"><span class="al-type-badge">Closed + open</span></div>
+      <div class="al-access">Shanghai</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#FF6B00">M</div>
+      <div class="al-name">Mistral AI <span class="al-star">★</span><div class="al-parent">Mistral AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Mistral Large 3</div>
+      <div class="al-type"><span class="al-type-badge">Open + closed</span></div>
+      <div class="al-access">Paris</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#10A37F">O</div>
+      <div class="al-name">OpenAI <span class="al-star">★</span><div class="al-parent">OpenAI, Inc.</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">GPT-5.5</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">San Francisco</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#20808D">P</div>
+      <div class="al-name">Perplexity <span class="al-star">★</span><div class="al-parent">Perplexity AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Perplexity Pro</div>
+      <div class="al-type"><span class="al-type-badge">Product layer</span></div>
+      <div class="al-access">San Francisco</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#00A9E0">P</div>
+      <div class="al-name">Poolside <div class="al-parent">Poolside AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Poolside Malibu</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Paris</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#615CED">Q</div>
+      <div class="al-name">Qwen <span class="al-star">★</span><div class="al-parent">Alibaba Cloud</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Qwen3-Max</div>
+      <div class="al-type"><span class="al-type-badge">Open + closed</span></div>
+      <div class="al-access">Hangzhou</div>
+    </div>
+    <div class="al-row" onclick="switchToView('japan-korea')">
+      <div class="al-logo" style="background:#FF4081">S</div>
+      <div class="al-name">Sakana AI <span class="al-star">★</span><div class="al-parent">Sakana AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇯🇵</span><span class="al-region-name">Japan & Korea</span></div>
+      <div class="al-flagship">Evolutionary AI models</div>
+      <div class="al-type"><span class="al-type-badge">Open weights + research</span></div>
+      <div class="al-access">Tokyo</div>
+    </div>
+    <div class="al-row" onclick="switchToView('india')">
+      <div class="al-logo" style="background:#FF6B35">S</div>
+      <div class="al-name">Sarvam AI <span class="al-star">★</span><div class="al-parent">Sarvam AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇮🇳</span><span class="al-region-name">India</span></div>
+      <div class="al-flagship">Sarvam-2B</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">Bangalore</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#00A0E9">S</div>
+      <div class="al-name">SenseTime <div class="al-parent">SenseTime Group</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">SenseChat 6</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">Hong Kong</div>
+    </div>
+    <div class="al-row" onclick="switchToView('europe')">
+      <div class="al-logo" style="background:#8659FF">S</div>
+      <div class="al-name">Stability AI <div class="al-parent">Stability AI Ltd</div></div>
+      <div class="al-region"><span class="al-region-flag">🇪🇺</span><span class="al-region-name">Europe</span></div>
+      <div class="al-flagship">Stable Diffusion 4</div>
+      <div class="al-type"><span class="al-type-badge">Open weights</span></div>
+      <div class="al-access">London</div>
+    </div>
+    <div class="al-row" onclick="switchToView('china')">
+      <div class="al-logo" style="background:#00BCD4">Y</div>
+      <div class="al-name">Yi <div class="al-parent">01.AI</div></div>
+      <div class="al-region"><span class="al-region-flag">🇨🇳</span><span class="al-region-name">China</span></div>
+      <div class="al-flagship">Yi-Large 2</div>
+      <div class="al-type"><span class="al-type-badge">Open + closed</span></div>
+      <div class="al-access">Beijing</div>
+    </div>
+    <div class="al-row" onclick="switchToView('us')">
+      <div class="al-logo" style="background:#0A0A0B">x</div>
+      <div class="al-name">xAI <div class="al-parent">xAI Corp</div></div>
+      <div class="al-region"><span class="al-region-flag">🇺🇸</span><span class="al-region-name">United States</span></div>
+      <div class="al-flagship">Grok 4</div>
+      <div class="al-type"><span class="al-type-badge">Closed</span></div>
+      <div class="al-access">San Francisco / Memphis</div>
+    </div>
+    </div>
+  </div>
+
+<!-- NEWSLETTER INLINE (reuse existing) -->
+<!-- NEWSLETTER INLINE -->
+<div class="newsletter-inline">
+  <div class="newsletter-inline-inner">
+    <div class="newsletter-inline-text">
+      <div class="kicker">The Tuesday Briefing</div>
+      <h3>New tools, <em>every Tuesday</em>.</h3>
+      <p>Get the 5 best new AI tools each week — before they hit the directory.</p>
+    </div>
+    <form class="newsletter-inline-form" onsubmit="event.preventDefault();showToast('Subscribed! Check your inbox')">
+      <input type="email" placeholder="you@work.com" required>
+      <button type="submit" class="btn-primary">Subscribe →</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>How we make money.</strong> Some links are affiliate — we may earn commission when you sign up. Rankings are independent. <a>Read our editorial policy →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Disclosure</span><span>Contact</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING AI ASSISTANT -->
+<div class="floating-assistant" onclick="showToast('AI Assistant opening...')">
+  <div class="fa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+try { const saved = localStorage.getItem('theme'); if (saved) document.documentElement.setAttribute('data-theme', saved); } catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Checkbox interaction
+document.querySelectorAll('.checkbox-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if (e.target.tagName !== 'INPUT') {
+      const cb = this.querySelector('input');
+      cb.checked = !cb.checked;
+    }
+    this.classList.toggle('checked', this.querySelector('input').checked);
+  });
+});
+
+// Chip interaction
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Rating button interaction
+document.querySelectorAll('.rating-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const siblings = this.parentElement.querySelectorAll('.rating-btn');
+    siblings.forEach(s => s.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// v4.2 World AI: tab switching
+function switchToView(viewName) {
+  document.querySelectorAll('.tools-tab').forEach(t => t.classList.toggle('active', t.dataset.view === viewName));
+  document.querySelectorAll('.tools-view').forEach(v => v.classList.toggle('active', v.dataset.view === viewName));
+  const tabs = document.querySelector('.region-tabs');
+  if (tabs) { window.scrollTo({ top: tabs.getBoundingClientRect().top + window.pageYOffset - 100, behavior: 'smooth' }); }
+}
+document.querySelectorAll('.region-tabs .tools-tab').forEach(tab => {
+  tab.addEventListener('click', function() {
+    const v = this.dataset.view;
+    if (v) switchToView(v);
+  });
+});
+
+</script>
+</body>
+</html>

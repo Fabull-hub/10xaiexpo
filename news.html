@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News & Research: Live Feed — 10X AI Expo</title>
+<meta name="description" content="Live feed of AI industry news, research papers, and analysis. Auto-aggregated from 20+ trusted sources including major English and Chinese outlets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK (shared)
+   ============================================ */
+:root {
+  --bg: #0A0A0B; --bg-elevated: #111114; --bg-card: #16171B; --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.10); --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7; --text-muted: #9A9A95; --text-subtle: #5F5F5A; --text-inverse: #0A0A0B;
+  --lime: #B4FF3A; --lime-hover: #C4FF5A; --lime-subtle: rgba(180,255,58,0.08); --lime-tint: rgba(180,255,58,0.14); --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF; --cyan-subtle: rgba(58,189,255,0.10); --cyan-tint: rgba(58,189,255,0.16);
+  --pink: #FF6B9D; --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800; --amber-subtle: rgba(255,184,0,0.10); --amber-tint: rgba(255,184,0,0.16);
+  --success: #7EFFB8; --success-subtle: rgba(126,255,184,0.10);
+  --urgent: #FF5C6E; --urgent-subtle: rgba(255,92,110,0.10);
+  --violet: #A88BFF; --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3); --shadow-lg: 0 20px 50px rgba(0,0,0,0.45); --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1400px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10); --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B; --text-muted: #4A4A45; --text-subtle: #8A8A85; --text-inverse: #FAFAF7;
+  --lime: #6BAA00; --lime-hover: #7CB800; --lime-subtle: rgba(107,170,0,0.08); --lime-tint: rgba(107,170,0,0.14); --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7; --cyan-subtle: rgba(2,132,199,0.08); --cyan-tint: rgba(2,132,199,0.14);
+  --pink: #D63A6E; --pink-subtle: rgba(214,58,110,0.08);
+  --amber: #B8890C; --amber-subtle: rgba(184,137,12,0.08); --amber-tint: rgba(184,137,12,0.14);
+  --success: #16A34A; --success-subtle: rgba(22,163,74,0.08);
+  --urgent: #DC2626; --urgent-subtle: rgba(220,38,38,0.08);
+  --violet: #7458A0; --violet-subtle: rgba(116,88,160,0.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08); --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* NAV (shared) */
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 24px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 32px; }
+.logo-lockup { display: flex; align-items: center; gap: 10px; cursor: pointer; flex-shrink: 0; }
+.logo-mark { width: 32px; height: 32px; background: var(--lime); color: var(--bg); border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 15px; box-shadow: 0 0 20px var(--lime-glow); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.03em; line-height: 1; }
+.logo-wordmark em { color: var(--lime); font-style: italic; }
+.nav-primary { display: flex; gap: 2px; align-items: center; }
+.nav-link { padding: 6px 12px; border-radius: var(--r-sm); font-size: 13.5px; font-weight: 500; color: var(--text-muted); transition: all 0.12s; cursor: pointer; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); }
+.nav-link.hot::after { content: ''; position: absolute; top: 4px; right: 3px; width: 6px; height: 6px; background: var(--lime); border-radius: 50%; box-shadow: 0 0 8px var(--lime-glow); }
+.nav-search { flex: 1; max-width: 380px; margin-left: auto; position: relative; }
+.nav-search input { width: 100%; padding: 8px 14px 8px 36px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.nav-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.nav-search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 13px; }
+.kbd { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); padding: 2px 6px; background: var(--bg); border: 1px solid var(--border); border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 6px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; color: var(--text-muted); cursor: pointer; }
+.theme-toggle:hover { color: var(--text); background: var(--bg-hover); }
+.theme-toggle .sun { display: none; }
+:root[data-theme="light"] .theme-toggle .sun { display: block; }
+:root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-primary { padding: 8px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; transition: all 0.15s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-primary:hover { background: var(--lime-hover); transform: translateY(-1px); box-shadow: var(--shadow-glow); }
+.btn-outline { padding: 8px 16px; background: transparent; color: var(--text); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; transition: all 0.12s; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+.btn-outline:hover { border-color: var(--lime); color: var(--lime); background: var(--lime-subtle); }
+
+/* BRAND LOGOS */
+.brand-jasper { background: linear-gradient(135deg, #FF6B4A 0%, #E5502F 100%); }
+.brand-elevenlabs { background: linear-gradient(135deg, #1A1A2E 0%, #0F0F1E 100%); }
+.brand-descript { background: linear-gradient(135deg, #7B61FF 0%, #5A3EE0 100%); }
+.brand-notion { background: linear-gradient(135deg, #F5F5F0 0%, #DEDEE0 100%); color: #16171B; }
+.brand-perplexity { background: linear-gradient(135deg, #20808D 0%, #135A65 100%); }
+.brand-chatgpt { background: linear-gradient(135deg, #10A37F 0%, #0A6B52 100%); }
+.brand-claude { background: linear-gradient(135deg, #E67E4A 0%, #C4602B 100%); }
+.brand-cursor { background: linear-gradient(135deg, #16171B 0%, #2A2B32 100%); }
+.brand-midjourney { background: linear-gradient(135deg, #A88BC7 0%, #7B5FA0 100%); }
+.brand-runway { background: linear-gradient(135deg, #16C79A 0%, #0F8E6E 100%); }
+.brand-suno { background: linear-gradient(135deg, #FFB84E 0%, #E89A2A 100%); }
+.brand-fathom { background: linear-gradient(135deg, #6B9BB8 0%, #4A7B98 100%); }
+.brand-copyai { background: linear-gradient(135deg, #333 0%, #111 100%); }
+.brand-taplio { background: linear-gradient(135deg, #A88BFF 0%, #7B5FCC 100%); }
+.brand-writesonic { background: linear-gradient(135deg, #6366F1 0%, #4338CA 100%); }
+.brand-rytr { background: linear-gradient(135deg, #E11D48 0%, #9F1239 100%); }
+.brand-surfer { background: linear-gradient(135deg, #22C55E 0%, #15803D 100%); }
+.brand-otter { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); }
+.brand-canva { background: linear-gradient(135deg, #00C4CC 0%, #7D2AE8 100%); }
+.brand-loom { background: linear-gradient(135deg, #625DF5 0%, #4941E0 100%); }
+
+/* BREADCRUMB */
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 20px 28px 0; display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.breadcrumb a { color: var(--text-muted); cursor: pointer; transition: color 0.12s; }
+.breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .sep { color: var(--text-subtle); }
+.breadcrumb .current { color: var(--text); }
+
+/* DIRECTORY HERO */
+.directory-hero { max-width: var(--max-w); margin: 0 auto; padding: 32px 28px 24px; }
+.directory-hero h1 { font-family: var(--font-editorial); font-size: clamp(32px, 4vw, 48px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 12px; }
+.directory-hero h1 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.directory-hero .subtitle { font-size: 17px; color: var(--text-muted); line-height: 1.5; max-width: 700px; }
+.directory-hero .subtitle strong { color: var(--text); font-weight: 600; }
+
+/* BIG SEARCH */
+.dir-search { max-width: var(--max-w); margin: 0 auto; padding: 12px 28px 20px; }
+.dir-search-wrapper { position: relative; }
+.dir-search input { width: 100%; padding: 16px 20px 16px 52px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--r-lg); color: var(--text); font-family: var(--font-body); font-size: 16px; outline: none; transition: all 0.15s; }
+.dir-search input:focus { border-color: var(--lime); box-shadow: 0 0 0 3px var(--lime-subtle); }
+.dir-search input::placeholder { color: var(--text-subtle); }
+.dir-search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); font-size: 18px; pointer-events: none; }
+.dir-search-hint { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+
+/* QUICK CHIP FILTERS */
+.chip-filters { max-width: var(--max-w); margin: 0 auto; padding: 0 28px 24px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.chip-filters::-webkit-scrollbar { display: none; }
+.chip { padding: 7px 14px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 100px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; white-space: nowrap; letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px; }
+.chip:hover { border-color: var(--border-hover); color: var(--text); background: var(--bg-hover); }
+.chip.active { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); box-shadow: 0 0 12px var(--lime-glow); }
+.chip .count { color: var(--text-subtle); font-weight: 500; }
+.chip.active .count { color: var(--text-inverse); opacity: 0.6; }
+
+/* MAIN LAYOUT */
+.dir-main { max-width: var(--max-w); margin: 0 auto; padding: 0 28px 48px; display: grid; grid-template-columns: 260px 1fr; gap: 32px; align-items: start; }
+
+/* SIDEBAR FILTERS */
+.dir-sidebar { position: sticky; top: 76px; max-height: calc(100vh - 100px); overflow-y: auto; padding-right: 4px; }
+.filter-group { padding: 20px 0; border-bottom: 1px solid var(--border); }
+.filter-group:first-child { padding-top: 0; }
+.filter-group h4 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-subtle); margin-bottom: 14px; font-weight: 700; display: flex; align-items: center; justify-content: space-between; }
+.filter-group h4 .count-total { color: var(--text-muted); font-weight: 500; }
+
+/* CHECKBOX LIST */
+.checkbox-list { display: flex; flex-direction: column; gap: 4px; }
+.checkbox-item { display: flex; align-items: center; gap: 10px; padding: 6px 8px; border-radius: var(--r-sm); cursor: pointer; transition: background 0.12s; font-size: 13.5px; color: var(--text-muted); }
+.checkbox-item:hover { background: var(--bg-hover); color: var(--text); }
+.checkbox-item input { width: 15px; height: 15px; accent-color: var(--lime); cursor: pointer; flex-shrink: 0; }
+.checkbox-item .cb-label { flex: 1; }
+.checkbox-item .cb-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
+.checkbox-item.checked { color: var(--text); font-weight: 500; }
+
+/* PRICE SLIDER (mock) */
+.price-inputs { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+.price-inputs input { width: 100%; padding: 8px 10px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-sm); color: var(--text); font-family: var(--font-mono); font-size: 12px; outline: none; }
+.price-inputs input:focus { border-color: var(--lime); }
+.price-inputs .to { color: var(--text-subtle); font-family: var(--font-mono); font-size: 11px; }
+
+/* RATING FILTER */
+.rating-btn { padding: 6px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); font-size: 12.5px; color: var(--text-muted); cursor: pointer; transition: all 0.12s; margin: 3px 3px 0 0; display: inline-flex; align-items: center; gap: 4px; font-family: var(--font-body); font-weight: 500; }
+.rating-btn:hover { border-color: var(--lime); color: var(--text); }
+.rating-btn.active { background: var(--lime-subtle); border-color: var(--lime); color: var(--lime); font-weight: 600; }
+.rating-btn .star { color: var(--amber); }
+
+/* RESET BUTTON */
+.reset-filters { width: 100%; padding: 10px; background: var(--bg-elevated); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; margin-top: 16px; }
+.reset-filters:hover { border-color: var(--urgent); color: var(--urgent); }
+
+/* RESULTS AREA */
+.dir-results { min-width: 0; }
+.results-header { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); margin-bottom: 16px; flex-wrap: wrap; gap: 12px; }
+.results-count { font-size: 14px; color: var(--text-muted); }
+.results-count strong { color: var(--text); font-weight: 700; }
+.results-count .lime { color: var(--lime); }
+.results-controls { display: flex; align-items: center; gap: 10px; }
+.sort-select { padding: 7px 12px 7px 12px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); color: var(--text); font-family: var(--font-body); font-size: 13px; cursor: pointer; font-weight: 500; }
+.sort-select:focus { outline: none; border-color: var(--lime); }
+.view-toggle { display: flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); overflow: hidden; }
+.view-btn { padding: 7px 10px; background: transparent; color: var(--text-subtle); cursor: pointer; transition: all 0.12s; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+.view-btn:hover { color: var(--text); background: var(--bg-hover); }
+.view-btn.active { background: var(--lime); color: var(--text-inverse); }
+.view-btn svg { width: 14px; height: 14px; }
+
+/* ACTIVE FILTER PILLS */
+.active-filters { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+.active-filters .label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-right: 4px; }
+.filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--lime-subtle); color: var(--lime); border: 1px solid var(--lime-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
+.filter-pill .x { cursor: pointer; padding: 0 2px; opacity: 0.7; transition: opacity 0.12s; }
+.filter-pill .x:hover { opacity: 1; }
+.clear-all { font-family: var(--font-mono); font-size: 10.5px; color: var(--urgent); cursor: pointer; padding: 4px 8px; letter-spacing: 0.03em; font-weight: 600; }
+.clear-all:hover { text-decoration: underline; }
+
+/* TOOL GRID */
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.tool-card:hover { border-color: var(--lime-tint); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.tool-card.editors-pick { border-color: var(--lime-tint); }
+.tool-card.editors-pick::before { content: '★'; position: absolute; top: 12px; right: 12px; width: 24px; height: 24px; background: var(--lime); color: var(--text-inverse); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; z-index: 2; box-shadow: 0 0 12px var(--lime-glow); }
+
+.tc-header { padding: 18px 18px 12px; display: flex; align-items: flex-start; gap: 12px; }
+.tc-logo { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 800; font-size: 20px; color: #fff; flex-shrink: 0; box-shadow: var(--shadow-md); }
+.tc-title { flex: 1; min-width: 0; }
+.tc-title h3 { font-family: var(--font-editorial); font-size: 17px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 3px; }
+.tc-title .cat { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; }
+
+.tc-body { padding: 0 18px 12px; flex: 1; }
+.tc-body p { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+.tc-badges { padding: 0 18px 12px; display: flex; gap: 5px; flex-wrap: wrap; }
+.tc-badge { font-family: var(--font-mono); font-size: 9.5px; padding: 2px 7px; border-radius: 3px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 700; }
+.tc-badge.deal { background: var(--amber-subtle); color: var(--amber); border: 1px solid var(--amber-tint); }
+.tc-badge.free { background: var(--success-subtle); color: var(--success); border: 1px solid rgba(126,255,184,0.2); }
+.tc-badge.new { background: var(--cyan-subtle); color: var(--cyan); border: 1px solid var(--cyan-tint); }
+.tc-badge.trending { background: var(--pink-subtle); color: var(--pink); border: 1px solid rgba(255,107,157,0.2); }
+.tc-badge.verified { background: var(--bg-hover); color: var(--text-muted); }
+
+.tc-footer { padding: 12px 18px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.tc-rating { display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; color: var(--text); }
+.tc-rating .stars { color: var(--amber); letter-spacing: 0.5px; font-size: 11px; }
+.tc-rating .reviews { color: var(--text-subtle); font-weight: 400; font-family: var(--font-mono); font-size: 10.5px; }
+.tc-price { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--text); }
+.tc-price.free-color { color: var(--success); }
+
+/* PAGINATION */
+.pagination { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 32px 0 16px; }
+.page-btn { min-width: 36px; height: 36px; padding: 0 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-sm); font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.12s; display: flex; align-items: center; justify-content: center; }
+.page-btn:hover { border-color: var(--lime); color: var(--lime); }
+.page-btn.active { background: var(--lime); color: var(--text-inverse); border-color: var(--lime); }
+.page-btn.disabled { opacity: 0.4; cursor: not-allowed; }
+.page-dots { padding: 0 6px; color: var(--text-subtle); }
+
+/* NEWSLETTER INLINE */
+.newsletter-inline { max-width: var(--max-w); margin: 40px auto 0; padding: 0 28px; }
+.newsletter-inline-inner { background: linear-gradient(135deg, var(--lime-subtle) 0%, var(--cyan-subtle) 100%); border: 1px solid var(--lime-tint); border-radius: var(--r-xl); padding: 32px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+.newsletter-inline-text { flex: 1; min-width: 260px; }
+.newsletter-inline-text .kicker { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--lime); font-weight: 700; margin-bottom: 8px; }
+.newsletter-inline-text h3 { font-family: var(--font-editorial); font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; line-height: 1.15; }
+.newsletter-inline-text h3 em { color: var(--lime); font-style: italic; font-weight: 500; }
+.newsletter-inline-text p { font-size: 13.5px; color: var(--text-muted); }
+.newsletter-inline-form { display: flex; gap: 6px; min-width: 320px; }
+.newsletter-inline-form input { flex: 1; padding: 11px 14px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); color: var(--text); font-size: 13.5px; outline: none; }
+.newsletter-inline-form input:focus { border-color: var(--lime); }
+.newsletter-inline-form .btn-primary { padding: 11px 18px; font-size: 13.5px; }
+
+/* FLOATING AI ASSISTANT */
+.floating-assistant { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--lime), var(--cyan)); display: flex; align-items: center; justify-content: center; color: var(--bg); cursor: pointer; box-shadow: 0 10px 32px var(--lime-glow); z-index: 998; border: 2px solid rgba(255,255,255,0.15); }
+.fa-pulse { position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--lime); animation: faPulse 2.2s ease-out infinite; pointer-events: none; }
+@keyframes faPulse { 0% { transform: scale(1); opacity: 0.6; } 100% { transform: scale(1.6); opacity: 0; } }
+.floating-assistant svg { width: 22px; height: 22px; }
+
+/* MOBILE FILTER BUTTON */
+.mobile-filter-btn { display: none; padding: 10px 14px; background: var(--bg-card); border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13px; font-weight: 600; color: var(--text); cursor: pointer; align-items: center; gap: 6px; }
+.mobile-filter-btn .count-badge { background: var(--lime); color: var(--text-inverse); padding: 1px 6px; border-radius: 100px; font-size: 10px; font-family: var(--font-mono); font-weight: 700; }
+
+/* FOOTER */
+footer.site-footer { background: var(--bg); padding: 40px 28px 24px; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 24px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--lime); }
+
+/* TOAST */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .tools-grid { grid-template-columns: 1fr 1fr; }
+  .dir-main { grid-template-columns: 220px 1fr; gap: 24px; }
+}
+@media (max-width: 768px) {
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .breadcrumb, .directory-hero, .dir-search, .chip-filters, .dir-main, .newsletter-inline { padding-left: 18px; padding-right: 18px; }
+  .dir-main { grid-template-columns: 1fr; }
+  .dir-sidebar { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 200; background: var(--bg); padding: 24px 20px; max-height: none; }
+  .dir-sidebar.open { display: block; overflow-y: auto; }
+  .mobile-filter-btn { display: inline-flex; }
+  .tools-grid { grid-template-columns: 1fr; }
+  .top-strip .disclosure { display: none; }
+  .newsletter-inline-inner { flex-direction: column; align-items: stretch; text-align: center; gap: 20px; padding: 24px; }
+  .newsletter-inline-form { min-width: 0; }
+  .newsletter-inline-form { flex-direction: column; }
+  .newsletter-inline-form .btn-primary { width: 100%; justify-content: center; }
+  .results-header { flex-direction: column; align-items: stretch; }
+  .floating-assistant { bottom: 18px; right: 18px; }
+}
+
+/* ============================================
+   NEWS FEED PAGE (v4.2 extension)
+   ============================================ */
+.feed-stat-bar {
+  max-width: var(--max-w); margin: 0 auto; padding: 4px 28px 20px;
+  display: flex; gap: 24px; flex-wrap: wrap; align-items: center;
+}
+.feed-stat { display: flex; flex-direction: column; gap: 2px; }
+.feed-stat .fs-num {
+  font-family: var(--font-editorial); font-size: 22px; font-weight: 600;
+  color: var(--lime); letter-spacing: -0.02em; line-height: 1;
+}
+.feed-stat .fs-label {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle);
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600;
+}
+.feed-stat.feed-live { flex-direction: row; align-items: center; gap: 6px; padding: 4px 10px; background: var(--lime-subtle); border-radius: 4px; border: 1px solid var(--lime-tint); }
+.feed-stat.feed-live .fs-label { color: var(--lime); }
+.feed-stat.feed-live .fs-live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulseFeed 1.6s ease-in-out infinite; box-shadow: 0 0 8px var(--lime-glow); }
+@keyframes livePulseFeed { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+.time-filter-bar {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 28px 20px;
+  display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap;
+  border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 20px;
+}
+.time-filter-left, .time-filter-right { display: flex; align-items: center; gap: 12px; }
+.tf-label { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+.tf-toggle { display: flex; background: var(--bg-card); border: 1px solid var(--border); border-radius: 6px; padding: 3px; }
+.tf-btn { padding: 5px 12px; background: transparent; color: var(--text-muted); border-radius: 4px; font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; cursor: pointer; transition: all 0.12s; }
+.tf-btn:hover { color: var(--text); }
+.tf-btn.active { background: var(--lime); color: var(--text-inverse); }
+
+/* TWO-COLUMN FEED — the Finviz feel */
+.feed-two-col {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 28px 40px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.feed-col { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; }
+.feed-col-header {
+  padding: 14px 20px; background: var(--bg-elevated); border-bottom: 1px solid var(--border-strong);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.feed-col-header h2 { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--text); }
+.feed-col-count { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+
+.feed-row {
+  display: grid; grid-template-columns: 32px 62px 1fr; gap: 12px;
+  padding: 10px 16px; border-bottom: 1px solid var(--border); cursor: pointer;
+  transition: all 0.1s; align-items: start;
+}
+.feed-row:hover { background: var(--bg-hover); }
+.feed-row:last-of-type { border-bottom: none; }
+.feed-source-icon {
+  width: 26px; height: 26px; border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 9px; font-weight: 800; letter-spacing: -0.03em; flex-shrink: 0;
+  margin-top: 1px; box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.feed-time { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.02em; padding-top: 5px; font-weight: 600; }
+.feed-body { min-width: 0; }
+.feed-title {
+  font-size: 13.5px; line-height: 1.4; color: var(--text); font-weight: 500;
+  margin-bottom: 4px;
+}
+.feed-row:hover .feed-title { color: var(--lime); }
+.feed-tags { display: flex; gap: 5px; flex-wrap: wrap; align-items: center; }
+.feed-tag {
+  font-family: var(--font-mono); font-size: 9px; padding: 1px 6px; border-radius: 3px;
+  background: var(--bg); border: 1px solid var(--border); color: var(--text-muted);
+  letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700;
+}
+.feed-tag.hot { background: var(--urgent-subtle); color: var(--urgent); border-color: rgba(255,92,110,0.2); }
+.feed-tag.china { background: var(--bg); color: var(--text-muted); border-color: var(--border); }
+.feed-tag.new { background: var(--cyan-subtle); color: var(--cyan); border-color: var(--cyan-tint); }
+.feed-tag.amber { background: var(--amber-subtle); color: var(--amber); border-color: var(--amber-tint); }
+.feed-tag.cyan { background: var(--cyan-subtle); color: var(--cyan); border-color: var(--cyan-tint); }
+.feed-source-name { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); font-weight: 600; letter-spacing: 0.02em; }
+
+.feed-col-footer { padding: 14px 16px; text-align: center; background: var(--bg-data, var(--bg-elevated)); border-top: 1px solid var(--border); }
+.feed-col-footer .btn-outline { padding: 6px 14px; font-size: 12px; }
+
+@media (max-width: 1024px) {
+  .feed-two-col { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 768px) {
+  .feed-stat-bar { gap: 14px; padding: 4px 18px 16px; }
+  .feed-stat .fs-num { font-size: 18px; }
+  .time-filter-bar { padding: 0 18px 14px; flex-direction: column; align-items: stretch; }
+  .feed-two-col { padding: 0 18px 32px; }
+  .feed-row { grid-template-columns: 26px 50px 1fr; gap: 8px; padding: 10px 12px; }
+  .feed-source-icon { width: 22px; height: 22px; font-size: 8px; }
+  .feed-title { font-size: 13px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
+  <span class="divider">·</span>
+  <span>247 tools tracked today</span>
+  <span class="divider">·</span>
+  <span>18 new tools this week</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link active" onclick="window.location='news.html'">News</div>
+      <div class="nav-link" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='index.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='index.html'">Stacks</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input placeholder="Search 2,400+ AI tools...">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline">Sign in</button>
+      <button class="btn-primary">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <span class="current">News &amp; Research</span>
+</div>
+
+<!-- HERO -->
+<div class="directory-hero">
+  <h1>The AI industry, <em>as it happens</em>.</h1>
+  <p class="subtitle"><strong>Live from 21 sources.</strong> News, research papers, and analysis — auto-aggregated from the outlets that matter. Updated continuously.</p>
+</div>
+
+<!-- STAT BAR -->
+<div class="feed-stat-bar">
+  <div class="feed-stat"><span class="fs-num">23</span><span class="fs-label">News today</span></div>
+  <div class="feed-stat"><span class="fs-num">24</span><span class="fs-label">Research &amp; blogs</span></div>
+  <div class="feed-stat"><span class="fs-num">8</span><span class="fs-label">Global coverage</span></div>
+  <div class="feed-stat"><span class="fs-num">21</span><span class="fs-label">Active sources</span></div>
+  <div class="feed-stat feed-live"><span class="fs-live-dot"></span><span class="fs-label">Auto-updating</span></div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="chip-filters">
+  <div class="chip active">All updates</div>
+  <div class="chip">🔥 Breaking</div>
+  <div class="chip">🇺🇸 US</div>
+  <div class="chip">🇪🇺 Europe</div>
+  <div class="chip">🇨🇳 China</div>
+  <div class="chip">🌏 Other regions</div>
+  <div class="chip">🧠 Models</div>
+  <div class="chip">💰 Funding</div>
+  <div class="chip">📦 Products</div>
+  <div class="chip">📄 Research</div>
+  <div class="chip">🏛️ Policy</div>
+</div>
+
+<!-- TIME FILTER -->
+<div class="time-filter-bar">
+  <div class="time-filter-left">
+    <span class="tf-label">View by time:</span>
+    <div class="tf-toggle">
+      <button class="tf-btn active">Today</button>
+      <button class="tf-btn">This week</button>
+      <button class="tf-btn">All</button>
+    </div>
+  </div>
+  <div class="time-filter-right">
+    <span class="tf-label">Sort:</span>
+    <select class="sort-select">
+      <option>Newest first</option>
+      <option>Most discussed</option>
+      <option>By source A-Z</option>
+    </select>
+  </div>
+</div>
+
+<!-- TWO-COLUMN FEED (Finviz-inspired) -->
+<div class="feed-two-col">
+
+  <div class="feed-col">
+    <div class="feed-col-header">
+      <h2>News</h2>
+      <span class="feed-col-count">23 items</span>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: OpenAI')">
+      <div class="feed-source-icon" style="background:#10A37F;color:#fff" title="OpenAI">OAI</div>
+      <div class="feed-time">2h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">GPT-5.5 released with 2M token context and native video understanding</div>
+        <div class="feed-tags"><span class="feed-tag hot">breaking</span> <span class="feed-tag new">model</span> <span class="feed-source-name">· OpenAI</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: TechCrunch')">
+      <div class="feed-source-icon" style="background:#0F9D58;color:#fff" title="TechCrunch">TC</div>
+      <div class="feed-time">3h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Runway ML raises $450M Series E at $7B valuation</div>
+        <div class="feed-tags"><span class="feed-tag amber">funding</span> <span class="feed-source-name">· TechCrunch</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: The Information')">
+      <div class="feed-source-icon" style="background:#B4FF3A;color:#0A0A0B" title="The Information">INF</div>
+      <div class="feed-time">4h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Anthropic in talks to raise at $180B valuation, sources say</div>
+        <div class="feed-tags"><span class="feed-tag amber">funding</span> <span class="feed-tag hot">hot</span> <span class="feed-source-name">· The Information</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Anthropic')">
+      <div class="feed-source-icon" style="background:#E67E4A;color:#fff" title="Anthropic">ANT</div>
+      <div class="feed-time">5h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Claude Skills marketplace launches for enterprise teams</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Anthropic</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Reuters')">
+      <div class="feed-source-icon" style="background:#FF6B00;color:#0A0A0B" title="Reuters">RTR</div>
+      <div class="feed-time">6h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">China's DeepSeek releases V4 model, matches GPT-5 on reasoning benchmarks</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-tag new">model</span> <span class="feed-source-name">· Reuters</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Bloomberg')">
+      <div class="feed-source-icon" style="background:#000000;color:#fff" title="Bloomberg">BLM</div>
+      <div class="feed-time">7h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Nvidia unveils GB300 chip; 2.5x inference speed vs H200</div>
+        <div class="feed-tags"><span class="feed-tag ">hardware</span> <span class="feed-source-name">· Bloomberg</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: WSJ')">
+      <div class="feed-source-icon" style="background:#000000;color:#fff" title="WSJ">WSJ</div>
+      <div class="feed-time">8h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">US restricts export of advanced AI chips to 42 additional countries</div>
+        <div class="feed-tags"><span class="feed-tag ">policy</span> <span class="feed-source-name">· WSJ</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Cursor')">
+      <div class="feed-source-icon" style="background:#16171B;color:#fff" title="Cursor">CUR</div>
+      <div class="feed-time">8h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Cursor 2.0 ships with multi-repo agents and background execution</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Cursor</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Microsoft')">
+      <div class="feed-source-icon" style="background:#00A4EF;color:#fff" title="Microsoft">MSFT</div>
+      <div class="feed-time">9h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">GitHub Copilot Pro adds autonomous agent tier at $39/mo</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Microsoft</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Financial Times')">
+      <div class="feed-source-icon" style="background:#FFF1E5;color:#333" title="Financial Times">FT</div>
+      <div class="feed-time">20h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Alibaba's Qwen3 gains ground in Southeast Asian enterprise market</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-tag ">enterprise</span> <span class="feed-source-name">· Financial Times</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: TechCrunch')">
+      <div class="feed-source-icon" style="background:#0F9D58;color:#fff" title="TechCrunch">TC</div>
+      <div class="feed-time">22h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Perplexity offers free year of Pro to verified students and developers</div>
+        <div class="feed-tags"><span class="feed-tag amber">deal</span> <span class="feed-source-name">· TechCrunch</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: The Verge')">
+      <div class="feed-source-icon" style="background:#5200FF;color:#fff" title="The Verge">VRG</div>
+      <div class="feed-time">23h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Meta launches Llama 4 Nano — 3B parameters, runs on consumer laptops</div>
+        <div class="feed-tags"><span class="feed-tag new">model</span> <span class="feed-tag cyan">open-source</span> <span class="feed-source-name">· The Verge</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Reuters')">
+      <div class="feed-source-icon" style="background:#FF6B00;color:#0A0A0B" title="Reuters">RTR</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Moonshot AI (Kimi) raises $600M at $4.5B valuation from Alibaba, Tencent</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-tag amber">funding</span> <span class="feed-source-name">· Reuters</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Bloomberg')">
+      <div class="feed-source-icon" style="background:#000000;color:#fff" title="Bloomberg">BLM</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Google DeepMind's Gemini 3 tops MMLU with 94.2%, edges out GPT-5.5</div>
+        <div class="feed-tags"><span class="feed-tag new">model</span> <span class="feed-source-name">· Bloomberg</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Axios')">
+      <div class="feed-source-icon" style="background:#0B0B0B;color:#fff" title="Axios">AXS</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">EU AI Act enforcement begins for foundation model providers</div>
+        <div class="feed-tags"><span class="feed-tag ">policy</span> <span class="feed-tag hot">hot</span> <span class="feed-source-name">· Axios</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: TechCrunch')">
+      <div class="feed-source-icon" style="background:#0F9D58;color:#fff" title="TechCrunch">TC</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Suno raises $200M Series C for AI music generation platform</div>
+        <div class="feed-tags"><span class="feed-tag amber">funding</span> <span class="feed-source-name">· TechCrunch</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: The Information')">
+      <div class="feed-source-icon" style="background:#B4FF3A;color:#0A0A0B" title="The Information">INF</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">ElevenLabs approaches $6B valuation in secondary market</div>
+        <div class="feed-tags"><span class="feed-tag amber">funding</span> <span class="feed-source-name">· The Information</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: WSJ')">
+      <div class="feed-source-icon" style="background:#000000;color:#fff" title="WSJ">WSJ</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">OpenAI signs $10B compute deal with Oracle Cloud Infrastructure</div>
+        <div class="feed-tags"><span class="feed-tag ">hardware</span> <span class="feed-source-name">· WSJ</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Reuters')">
+      <div class="feed-source-icon" style="background:#FF6B00;color:#0A0A0B" title="Reuters">RTR</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">ByteDance's Doubao surpasses 200M monthly active users in China</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-source-name">· Reuters</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Bloomberg')">
+      <div class="feed-source-icon" style="background:#000000;color:#fff" title="Bloomberg">BLM</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Amazon integrates Claude into Alexa+ for all Prime members</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Bloomberg</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: TechCrunch')">
+      <div class="feed-source-icon" style="background:#0F9D58;color:#fff" title="TechCrunch">TC</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Character.AI launches interactive agent SDK for developers</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· TechCrunch</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Financial Times')">
+      <div class="feed-source-icon" style="background:#FFF1E5;color:#333" title="Financial Times">FT</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Zhipu AI (GLM) reaches $3B valuation with $400M funding round</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-tag amber">funding</span> <span class="feed-source-name">· Financial Times</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Axios')">
+      <div class="feed-source-icon" style="background:#0B0B0B;color:#fff" title="Axios">AXS</div>
+      <div class="feed-time">3d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Adobe Firefly 4 launches with commercial-safe video generation</div>
+        <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Axios</span></div>
+      </div>
+    </div>
+    <div class="feed-col-footer">
+      <button class="btn-outline">Load older news →</button>
+    </div>
+  </div>
+
+  <div class="feed-col">
+    <div class="feed-col-header">
+      <h2>Research &amp; Blogs</h2>
+      <span class="feed-col-count">24 items</span>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Simon Willison')">
+      <div class="feed-source-icon" style="background:#FF6B4A;color:#0A0A0B" title="Simon Willison">SW</div>
+      <div class="feed-time">1h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Notes on prompting GPT-5.5: what's changed in the reasoning layer</div>
+        <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Simon Willison</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: arXiv')">
+      <div class="feed-source-icon" style="background:#B31B1B;color:#fff" title="arXiv">AX</div>
+      <div class="feed-time">2h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Scaling Laws for Mixture-of-Experts Models at 1T+ Parameters</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· arXiv</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Latent Space')">
+      <div class="feed-source-icon" style="background:#0A0A0B;color:#fff" title="Latent Space">LS</div>
+      <div class="feed-time">3h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">The Rise of Small Language Models: Why 3B is the new 70B</div>
+        <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Latent Space</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Dwarkesh')">
+      <div class="feed-source-icon" style="background:#FFB800;color:#0A0A0B" title="Dwarkesh">DP</div>
+      <div class="feed-time">4h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Podcast: Demis Hassabis on Gemini 3 and AGI timelines</div>
+        <div class="feed-tags"><span class="feed-tag amber">podcast</span> <span class="feed-source-name">· Dwarkesh</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: OpenAI')">
+      <div class="feed-source-icon" style="background:#10A37F;color:#fff" title="OpenAI">OAI</div>
+      <div class="feed-time">5h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Building safer agents: our latest safety evaluations for GPT-5.5</div>
+        <div class="feed-tags"><span class="feed-tag ">safety</span> <span class="feed-source-name">· OpenAI</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: arXiv')">
+      <div class="feed-source-icon" style="background:#B31B1B;color:#fff" title="arXiv">AX</div>
+      <div class="feed-time">6h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Efficient Long-Context Attention via Learned Sparse Patterns</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· arXiv</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Ben Evans')">
+      <div class="feed-source-icon" style="background:#3ABDFF;color:#0A0A0B" title="Ben Evans">BE</div>
+      <div class="feed-time">7h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">AI's second act: the death of the general-purpose chatbot</div>
+        <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Ben Evans</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Hugging Face')">
+      <div class="feed-source-icon" style="background:#FFD21E;color:#0A0A0B" title="Hugging Face">HF</div>
+      <div class="feed-time">8h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Community round-up: 47 new open models released this week</div>
+        <div class="feed-tags"><span class="feed-tag cyan">open-source</span> <span class="feed-source-name">· Hugging Face</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: DeepMind')">
+      <div class="feed-source-icon" style="background:#4285F4;color:#fff" title="DeepMind">DPM</div>
+      <div class="feed-time">8h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Reinforcement learning from human feedback: five years later</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· DeepMind</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Import AI')">
+      <div class="feed-source-icon" style="background:#A88BFF;color:#fff" title="Import AI">IA</div>
+      <div class="feed-time">9h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Import AI 412: RL breakthroughs, China's chip catch-up, robotics</div>
+        <div class="feed-tags"><span class="feed-tag ">newsletter</span> <span class="feed-source-name">· Import AI</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Anthropic')">
+      <div class="feed-source-icon" style="background:#E67E4A;color:#fff" title="Anthropic">ANT</div>
+      <div class="feed-time">20h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Deep dive: how Claude Skills work under the hood</div>
+        <div class="feed-tags"><span class="feed-tag ">engineering</span> <span class="feed-source-name">· Anthropic</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Simon Willison')">
+      <div class="feed-source-icon" style="background:#FF6B4A;color:#0A0A0B" title="Simon Willison">SW</div>
+      <div class="feed-time">22h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Building an AI news aggregator in 120 lines of Python</div>
+        <div class="feed-tags"><span class="feed-tag ">tutorial</span> <span class="feed-source-name">· Simon Willison</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: arXiv')">
+      <div class="feed-source-icon" style="background:#B31B1B;color:#fff" title="arXiv">AX</div>
+      <div class="feed-time">23h ago</div>
+      <div class="feed-body">
+        <div class="feed-title">DeepSeek-V4 Technical Report: 671B params, 37B active</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-tag china">china</span> <span class="feed-source-name">· arXiv</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Latent Space')">
+      <div class="feed-source-icon" style="background:#0A0A0B;color:#fff" title="Latent Space">LS</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Cursor vs Windsurf vs Copilot: which agent actually ships code?</div>
+        <div class="feed-tags"><span class="feed-tag ">review</span> <span class="feed-source-name">· Latent Space</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Stratechery')">
+      <div class="feed-source-icon" style="background:#7EFFB8;color:#0A0A0B" title="Stratechery">STR</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">The AI Aggregators: How OpenAI became the Google of AI</div>
+        <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Stratechery</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Hugging Face')">
+      <div class="feed-source-icon" style="background:#FFD21E;color:#0A0A0B" title="Hugging Face">HF</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Fine-tuning Llama 4 for domain-specific tasks: a practical guide</div>
+        <div class="feed-tags"><span class="feed-tag ">tutorial</span> <span class="feed-source-name">· Hugging Face</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Dwarkesh')">
+      <div class="feed-source-icon" style="background:#FFB800;color:#0A0A0B" title="Dwarkesh">DP</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Podcast: Dario Amodei on AI safety in the age of agents</div>
+        <div class="feed-tags"><span class="feed-tag amber">podcast</span> <span class="feed-source-name">· Dwarkesh</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: arXiv')">
+      <div class="feed-source-icon" style="background:#B31B1B;color:#fff" title="arXiv">AX</div>
+      <div class="feed-time">yesterday</div>
+      <div class="feed-body">
+        <div class="feed-title">Constitutional AI at Scale: Lessons from 100M+ Interactions</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· arXiv</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Ben Evans')">
+      <div class="feed-source-icon" style="background:#3ABDFF;color:#0A0A0B" title="Ben Evans">BE</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Chinese AI: what Western analysts keep getting wrong</div>
+        <div class="feed-tags"><span class="feed-tag china">china</span> <span class="feed-tag ">analysis</span> <span class="feed-source-name">· Ben Evans</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Import AI')">
+      <div class="feed-source-icon" style="background:#A88BFF;color:#fff" title="Import AI">IA</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Import AI 411: Small models eat the world, sovereign AI trend</div>
+        <div class="feed-tags"><span class="feed-tag ">newsletter</span> <span class="feed-source-name">· Import AI</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: OpenAI')">
+      <div class="feed-source-icon" style="background:#10A37F;color:#fff" title="OpenAI">OAI</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Scaling test-time compute: our latest results with o5-preview</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· OpenAI</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: DeepMind')">
+      <div class="feed-source-icon" style="background:#4285F4;color:#fff" title="DeepMind">DPM</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">AlphaFold 4: predicting protein interactions at atomic resolution</div>
+        <div class="feed-tags"><span class="feed-tag cyan">research</span> <span class="feed-source-name">· DeepMind</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Latent Space')">
+      <div class="feed-source-icon" style="background:#0A0A0B;color:#fff" title="Latent Space">LS</div>
+      <div class="feed-time">2d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">Interview: Perplexity's Aravind Srinivas on the search wars</div>
+        <div class="feed-tags"><span class="feed-tag ">interview</span> <span class="feed-source-name">· Latent Space</span></div>
+      </div>
+    </div>
+    <div class="feed-row" onclick="showToast('Opening: Stratechery')">
+      <div class="feed-source-icon" style="background:#7EFFB8;color:#0A0A0B" title="Stratechery">STR</div>
+      <div class="feed-time">3d ago</div>
+      <div class="feed-body">
+        <div class="feed-title">The Compute Trap: Why AI startups fail at scale</div>
+        <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Stratechery</span></div>
+      </div>
+    </div>
+    <div class="feed-col-footer">
+      <button class="btn-outline">Load older posts →</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- NEWSLETTER INLINE (reuse existing) -->
+<!-- NEWSLETTER INLINE -->
+<div class="newsletter-inline">
+  <div class="newsletter-inline-inner">
+    <div class="newsletter-inline-text">
+      <div class="kicker">The Tuesday Briefing</div>
+      <h3>New tools, <em>every Tuesday</em>.</h3>
+      <p>Get the 5 best new AI tools each week — before they hit the directory.</p>
+    </div>
+    <form class="newsletter-inline-form" onsubmit="event.preventDefault();showToast('Subscribed! Check your inbox')">
+      <input type="email" placeholder="you@work.com" required>
+      <button type="submit" class="btn-primary">Subscribe →</button>
+    </form>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>How we make money.</strong> Some links are affiliate — we may earn commission when you sign up. Rankings are independent. <a>Read our editorial policy →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Disclosure</span><span>Contact</span></div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING AI ASSISTANT -->
+<div class="floating-assistant" onclick="showToast('AI Assistant opening...')">
+  <div class="fa-pulse"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</div>
+
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+try { const saved = localStorage.getItem('theme'); if (saved) document.documentElement.setAttribute('data-theme', saved); } catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Checkbox interaction
+document.querySelectorAll('.checkbox-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    if (e.target.tagName !== 'INPUT') {
+      const cb = this.querySelector('input');
+      cb.checked = !cb.checked;
+    }
+    this.classList.toggle('checked', this.querySelector('input').checked);
+  });
+});
+
+// Chip interaction
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+// Rating button interaction
+document.querySelectorAll('.rating-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const siblings = this.parentElement.querySelectorAll('.rating-btn');
+    siblings.forEach(s => s.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
