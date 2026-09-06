@@ -81,7 +81,7 @@ const RSS_FEEDS = [
 async function fetchFeed(feedConfig) {
   try {
     const feed = await parser.parseURL(feedConfig.url);
-    return (feed.items || []).slice(0, 5).map(item => ({
+    const items = (feed.items || []).slice(0, 5).map(item => ({
       title: (item.title || '').trim(),
       link: item.link || item.guid || '',
       description: cleanDescription(item.contentSnippet || item.content || item.summary || ''),
@@ -90,9 +90,10 @@ async function fetchFeed(feedConfig) {
       type: feedConfig.type,
       color: feedConfig.color,
     })).filter(item => item.title && item.link);
+    return { ok: true, source: feedConfig.source, items };
   } catch (err) {
     console.error('[RSS] Failed: ' + feedConfig.source + ' → ' + err.message);
-    return [];
+    return { ok: false, source: feedConfig.source, url: feedConfig.url, error: err.message, items: [] };
   }
 }
 
@@ -133,7 +134,7 @@ module.exports = async (req, res) => {
 
   try {
     const results = await Promise.all(RSS_FEEDS.map(fetchFeed));
-    const allItems = results.flat();
+    const allItems = results.flatMap(r => r.items);
     allItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
     const news = allItems
@@ -146,14 +147,17 @@ module.exports = async (req, res) => {
       .slice(0, 50)
       .map(item => Object.assign({}, item, { timeAgo: timeAgo(item.pubDate) }));
 
-    const workingFeeds = results.filter(r => r.length > 0).length;
-    const failedFeeds = RSS_FEEDS.length - workingFeeds;
+    const workingFeeds = results.filter(r => r.ok).length;
+    const failedFeedList = results
+      .filter(r => !r.ok)
+      .map(r => ({ source: r.source, url: r.url, error: r.error }));
 
     res.status(200).json({
       generatedAt: new Date().toISOString(),
       totalFeeds: RSS_FEEDS.length,
       workingFeeds,
-      failedFeeds,
+      failedFeeds: failedFeedList.length,
+      failedFeedList,
       totalItems: news.length + blogs.length,
       news,
       blogs,

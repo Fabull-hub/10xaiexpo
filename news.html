@@ -435,6 +435,8 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 <div class="top-strip">
   <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
   <span class="divider">·</span>
+  <span data-feed-stamp>Updating…</span>
+  <span class="divider">·</span>
   <span>247 tools tracked today</span>
   <span class="divider">·</span>
   <span>18 new tools this week</span>
@@ -1131,22 +1133,50 @@ document.querySelectorAll('.rating-btn').forEach(btn => {
     if (countEl) countEl.textContent = items.length + ' items';
   }
 
+  var REFRESH_MS = 5 * 60 * 1000; // re-poll every 5 min (server edge-caches for 15, so this just catches the next cache turnover promptly)
+  var lastLoadedAt = null;
+
+  function updateStamp() {
+    var stamp = document.querySelector('[data-feed-stamp]');
+    if (!stamp) return;
+    if (!lastLoadedAt) { stamp.textContent = 'Updating…'; return; }
+    var mins = Math.floor((Date.now() - lastLoadedAt) / 60000);
+    stamp.textContent = mins < 1 ? 'Updated just now' : 'Updated ' + mins + 'm ago';
+  }
+
   async function loadFeed() {
     try {
-      var res = await fetch('/api/news');
+      var res = await fetch('/api/news', { cache: 'no-store' });
       if (!res.ok) throw new Error('API returned ' + res.status);
       var data = await res.json();
       renderColumn('news', data.news);
       renderColumn('blog', data.blogs);
+      lastLoadedAt = Date.now();
+      updateStamp();
     } catch (err) {
       console.warn('[RSS] Live feed unavailable, showing static fallback content:', err);
+      var stamp = document.querySelector('[data-feed-stamp]');
+      if (stamp && !lastLoadedAt) stamp.textContent = 'Live feed unavailable';
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadFeed);
-  } else {
+  function init() {
     loadFeed();
+    setInterval(updateStamp, 30 * 1000); // keep the "Xm ago" label ticking
+    setInterval(function() {
+      if (document.visibilityState === 'visible') loadFeed();
+    }, REFRESH_MS);
+    document.addEventListener('visibilitychange', function() {
+      if (document.visibilityState === 'visible' && (!lastLoadedAt || Date.now() - lastLoadedAt > REFRESH_MS)) {
+        loadFeed();
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
   }
 })();
 </script>
