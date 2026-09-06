@@ -535,8 +535,9 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   <div class="feed-col">
     <div class="feed-col-header">
       <h2>News</h2>
-      <span class="feed-col-count">23 items</span>
+      <span class="feed-col-count" data-feed-count="news">23 items</span>
     </div>
+    <div class="feed-rows" data-feed-col="news">
     <div class="feed-row" onclick="showToast('Opening: OpenAI')">
       <div class="feed-source-icon" style="background:#10A37F;color:#fff" title="OpenAI">OAI</div>
       <div class="feed-time">2h ago</div>
@@ -721,6 +722,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
         <div class="feed-tags"><span class="feed-tag ">product</span> <span class="feed-source-name">· Axios</span></div>
       </div>
     </div>
+    </div>
     <div class="feed-col-footer">
       <button class="btn-outline">Load older news →</button>
     </div>
@@ -729,8 +731,9 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   <div class="feed-col">
     <div class="feed-col-header">
       <h2>Research &amp; Blogs</h2>
-      <span class="feed-col-count">24 items</span>
+      <span class="feed-col-count" data-feed-count="blog">24 items</span>
     </div>
+    <div class="feed-rows" data-feed-col="blog">
     <div class="feed-row" onclick="showToast('Opening: Simon Willison')">
       <div class="feed-source-icon" style="background:#FF6B4A;color:#0A0A0B" title="Simon Willison">SW</div>
       <div class="feed-time">1h ago</div>
@@ -923,6 +926,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
         <div class="feed-tags"><span class="feed-tag ">analysis</span> <span class="feed-source-name">· Stratechery</span></div>
       </div>
     </div>
+    </div>
     <div class="feed-col-footer">
       <button class="btn-outline">Load older posts →</button>
     </div>
@@ -1051,6 +1055,100 @@ document.querySelectorAll('.rating-btn').forEach(btn => {
     this.classList.add('active');
   });
 });
+</script>
+
+<!-- Live RSS feed: fetches /api/news and replaces the rows above in place -->
+<script>
+(function() {
+  var BRAND_COLORS = ['#B4FF3A', '#3ABDFF', '#FF6B9D', '#FFB800'];
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+
+  function colorFor(source) {
+    var s = String(source || '');
+    var hash = 0;
+    for (var i = 0; i < s.length; i++) hash = (hash * 31 + s.charCodeAt(i)) >>> 0;
+    return BRAND_COLORS[hash % BRAND_COLORS.length];
+  }
+
+  function contrastTextFor(hex) {
+    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(String(hex || ''));
+    if (!m) return '#0A0A0B';
+    var r = parseInt(m[1], 16), g = parseInt(m[2], 16), b = parseInt(m[3], 16);
+    var luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return luminance > 0.6 ? '#0A0A0B' : '#FFFFFF';
+  }
+
+  function initialsFor(source) {
+    var words = String(source || '?').trim().split(/\s+/);
+    if (words.length === 1) return words[0].slice(0, 3).toUpperCase();
+    return words.slice(0, 2).map(function(w) { return w[0]; }).join('').toUpperCase();
+  }
+
+  function timeAgo(dateStr) {
+    if (!dateStr) return '';
+    var then = new Date(dateStr).getTime();
+    if (isNaN(then)) return '';
+    var diffMs = Date.now() - then;
+    var mins = Math.round(diffMs / 60000);
+    if (mins < 1) return 'just now';
+    if (mins < 60) return mins + 'm ago';
+    var hrs = Math.round(mins / 60);
+    if (hrs < 24) return hrs + 'h ago';
+    var days = Math.round(hrs / 24);
+    if (days === 1) return 'yesterday';
+    if (days < 7) return days + 'd ago';
+    return new Date(then).toLocaleDateString();
+  }
+
+  function renderRow(item) {
+    var source = item.source || item.feedName || 'Unknown';
+    var color = item.color || colorFor(source);
+    var initials = item.initials || initialsFor(source);
+    var link = item.link || item.url || '#';
+    var title = item.title || '(untitled)';
+    var textColor = item.textColor || contrastTextFor(color);
+    var when = item.timeAgo || timeAgo(item.pubDate || item.isoDate);
+    return '<div class="feed-row" onclick="window.open(\'' + escapeHtml(link).replace(/'/g, "\\'") + '\', \'_blank\', \'noopener\')">' +
+      '<div class="feed-source-icon" style="background:' + escapeHtml(color) + ';color:' + escapeHtml(textColor) + '" title="' + escapeHtml(source) + '">' + escapeHtml(initials) + '</div>' +
+      '<div class="feed-time">' + escapeHtml(when) + '</div>' +
+      '<div class="feed-body">' +
+        '<div class="feed-title">' + escapeHtml(title) + '</div>' +
+        '<div class="feed-tags"><span class="feed-source-name">&middot; ' + escapeHtml(source) + '</span></div>' +
+      '</div>' +
+    '</div>';
+  }
+
+  function renderColumn(key, items) {
+    var container = document.querySelector('.feed-rows[data-feed-col="' + key + '"]');
+    var countEl = document.querySelector('[data-feed-count="' + key + '"]');
+    if (!container) return;
+    if (!items || !items.length) return; // leave the existing static rows as a fallback
+    container.innerHTML = items.map(renderRow).join('');
+    if (countEl) countEl.textContent = items.length + ' items';
+  }
+
+  async function loadFeed() {
+    try {
+      var res = await fetch('/api/news');
+      if (!res.ok) throw new Error('API returned ' + res.status);
+      var data = await res.json();
+      renderColumn('news', data.news);
+      renderColumn('blog', data.blogs);
+    } catch (err) {
+      console.warn('[RSS] Live feed unavailable, showing static fallback content:', err);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadFeed);
+  } else {
+    loadFeed();
+  }
+})();
 </script>
 </body>
 </html>

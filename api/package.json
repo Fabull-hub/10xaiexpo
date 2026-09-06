@@ -1,0 +1,12 @@
+{
+  "name": "10xaiexpo",
+  "version": "1.0.0",
+  "description": "Independent AI tool guide with dynamic news aggregation",
+  "private": true,
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  },
+  "engines": {
+    "node": "20.x"
+  }
+}
