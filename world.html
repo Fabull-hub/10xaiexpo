@@ -608,7 +608,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   justify-content: flex-end;
   padding: 6px 8px;
   cursor: pointer;
-  transition: filter 0.12s ease;
+  transition: filter 0.12s ease, opacity 0.15s ease;
 }
 .hm-cell:hover, .hm-cell:focus-visible { filter: brightness(1.1); }
 .hm-cell:focus-visible { outline: 2px solid var(--text); outline-offset: -2px; }
@@ -619,10 +619,16 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   letter-spacing: -0.01em;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.hm-cell .hm-name.hm-name-clamp {
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  overflow-wrap: anywhere;
+  -webkit-line-clamp: 2;
+  overflow-wrap: break-word;
   word-break: normal;
+}
+.hm-cell .hm-name.hm-name-single {
+  white-space: nowrap;
 }
 .hm-cell .hm-tag {
   font-family: var(--font-mono);
@@ -667,6 +673,20 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 }
 .hm-swatch { display: inline-flex; align-items: center; gap: 6px; }
 .hm-swatch .hm-dot { width: 11px; height: 11px; border-radius: 3px; display: inline-block; flex: none; }
+.hm-swatch[data-hm-filter] {
+  cursor: pointer; padding: 4px 9px; margin: -4px -2px; border-radius: 100px;
+  border: 1px solid transparent; transition: background 0.12s, border-color 0.12s;
+}
+.hm-swatch[data-hm-filter]:hover { background: var(--bg-hover); }
+.hm-swatch[data-hm-filter]:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+.hm-swatch[data-hm-filter][aria-pressed="true"] { background: var(--bg-hover); border-color: var(--border-strong); font-weight: 600; color: var(--text); }
+.hm-legend-hint { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: 0.75; }
+.hm-clear-filter {
+  cursor: pointer; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted);
+  padding: 4px 9px; border-radius: 100px; border: 1px solid var(--border);
+}
+.hm-clear-filter:hover { color: var(--text); border-color: var(--border-hover); }
+.hm-cell-dim { opacity: 0.16; filter: grayscale(60%); }
 .hm-legend-divider { width: 1px; align-self: stretch; background: var(--border); }
 .hm-legend-note { font-size: 12px; color: var(--text-subtle); font-style: italic; }
 .hm-disclaimer {
@@ -800,7 +820,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <div class="tools-tab" data-view="india">🇮🇳 India <span class="tab-count">3</span></div>
     <div class="tools-tab" data-view="japan-korea">🇯🇵 Japan/Korea <span class="tab-count">3</span></div>
     <div class="tools-tab" data-view="all-labs">All Labs A–Z <span class="tab-count">35</span></div>
-    <div class="tools-tab" data-view="heatmap">🗺️ Heat Map <span class="tab-count">42</span></div>
+    <div class="tools-tab" data-view="heatmap">🗺️ Heat Map <span class="tab-count">47</span></div>
   </div>
 
 <!-- TAB VIEWS -->
@@ -2265,7 +2285,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <div class="hm-intro">
       <h2>The global AI landscape, <em>as a heat map</em>.</h2>
       <p>Every company sized by estimated scale, colored by what it builds, grouped by country — in the spirit of a stock-market sector map. Click any tile for a full summary.</p>
-      <div class="hm-scope-note">🔎 <span><strong>42 companies</strong> here vs. <strong>35 labs</strong> in the tabs above — this view widens the lens to include 7 applied-AI companies (coding tools, robotics, open-source infra) alongside the core frontier labs.</span></div>
+      <div class="hm-scope-note">🔎 <span><strong>47 companies</strong> here vs. <strong>35 labs</strong> in the tabs above — this view widens the lens to include 12 non-lab AI products (coding tools, robotics, open-source infra, consumer assistants, image/video/music generation) alongside the core frontier labs.</span></div>
     </div>
     <div class="hm-canvas-wrap">
       <div class="hm-canvas-scroll">
@@ -2275,10 +2295,11 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <div class="hm-legend">
       <div class="hm-legend-inner">
         <div class="hm-legend-group">
-          <span class="hm-legend-title">Color = What they build</span>
-          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-foundation)"></span>Foundation Models</span>
-          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-enterprise)"></span>Enterprise &amp; Product AI</span>
-          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-applied)"></span>Applied AI <span style="opacity:.75">(image&nbsp;gen · code · robotics · open-source)</span></span>
+          <span class="hm-legend-title">Color = what they build <span class="hm-legend-hint">(click to filter)</span></span>
+          <span class="hm-swatch" data-hm-filter="foundation" role="button" tabindex="0" aria-pressed="false"><span class="hm-dot" style="background:var(--hm-foundation)"></span>Foundation Models</span>
+          <span class="hm-swatch" data-hm-filter="enterprise" role="button" tabindex="0" aria-pressed="false"><span class="hm-dot" style="background:var(--hm-enterprise)"></span>Enterprise &amp; Product AI</span>
+          <span class="hm-swatch" data-hm-filter="applied" role="button" tabindex="0" aria-pressed="false"><span class="hm-dot" style="background:var(--hm-applied)"></span>Applied AI <span style="opacity:.75">(image&nbsp;gen · code · robotics · open-source)</span></span>
+          <span class="hm-clear-filter" id="hm-clear-filter" role="button" tabindex="0" hidden>✕ Clear filter</span>
         </div>
         <div class="hm-legend-divider"></div>
         <div class="hm-legend-group">
@@ -2455,6 +2476,11 @@ if (location.hash) {
     ['Physical Intelligence','','us','applied','Robotics AI','medium','Closed','π0','Robotics foundation-model startup teaching general-purpose robots broad physical skills.'],
     ['Adept','','us','foundation','Foundation Model','small','Closed','ACT-2','Building AI agents that operate software the way humans do; core team acqui-hired by Amazon in 2024.'],
     ['Inflection AI','','us','foundation','Foundation Model','small','Closed','Pi','Founded by Mustafa Suleyman and Reid Hoffman; team and IP largely absorbed by Microsoft in 2024.'],
+    ['Gemini','Google','us','enterprise','AI Assistant','huge','Closed','Gemini 3','Google’s consumer AI app, built on the Gemini model family and wired into Search, Workspace, and Android by default.'],
+    ['Microsoft Copilot','Microsoft','us','enterprise','AI Assistant','huge','Closed','Copilot','Built on OpenAI’s models and woven across Windows, Office 365, and Edge — the widest-reaching AI product by sheer distribution, distinct from the developer-focused GitHub Copilot.'],
+    ['Midjourney','','us','applied','Image Generation','large','Closed','Midjourney v7','Set the bar for aesthetic quality in AI image generation, run almost entirely through Discord.'],
+    ['Runway','','us','applied','Video Generation','medium','Closed','Gen-4','Early mover in AI video generation; Gen-4 pushed text-to-video from novelty toward usable footage for previz and short-form content.'],
+    ['Suno','','us','applied','Music Generation','medium','Closed','Suno v5','Text-to-song generator producing full vocals and instrumentation in seconds — the breakout consumer app for AI music.'],
     // China
     ['DeepSeek','','china','foundation','Foundation Model','large','Open weights','DeepSeek V4','The lab that redefined efficient scaling — V4 matches frontier reasoning at a fraction of training cost.'],
     ['Qwen','Alibaba','china','foundation','Foundation Model','large','Open + Closed','Qwen3-Max','China’s most ubiquitous open-source model family; dominant across Southeast Asian enterprise.'],
@@ -2577,6 +2603,22 @@ if (location.hash) {
     return lum > 0.55 ? '#0A0A0B' : '#FFFFFF';
   }
 
+  // Legend-as-filter: click a category swatch to dim everything else
+  let hmActiveFilter = null;
+
+  function hmSetFilter(cat) {
+    hmActiveFilter = (hmActiveFilter === cat) ? null : cat;
+    document.querySelectorAll('.hm-cell').forEach(el => {
+      el.classList.toggle('hm-cell-dim', !!hmActiveFilter && el.dataset.category !== hmActiveFilter);
+    });
+    document.querySelectorAll('.hm-swatch[data-hm-filter]').forEach(sw => {
+      const active = sw.dataset.hmFilter === hmActiveFilter;
+      sw.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    const clearBtn = document.getElementById('hm-clear-filter');
+    if (clearBtn) clearBtn.hidden = !hmActiveFilter;
+  }
+
   function hmRender() {
     const canvas = document.getElementById('hm-canvas');
     if (!canvas) return;
@@ -2631,18 +2673,22 @@ if (location.hash) {
         el.style.width = gw + 'px';
         el.style.height = gh + 'px';
         el.style.background = `var(--hm-${box.category})`;
+        el.dataset.category = box.category;
         const tc = hmTextColorFor(catRGB, box.category);
         el.style.color = tc;
+        if (hmActiveFilter && box.category !== hmActiveFilter) el.classList.add('hm-cell-dim');
 
         const area = gw * gh;
         const nameSize = Math.max(8.5, Math.min(21, Math.sqrt(area) / 6.4));
         const tagSize = Math.max(7, Math.min(11, nameSize * 0.5));
-        const clampLines = gh < 46 ? 1 : (gw < 90 ? 4 : 2);
+        // Small/narrow cells truncate to one line with an ellipsis instead of wrapping.
+        // Single-token names (e.g. "Character.AI") also stay single-line — with no space
+        // to break on, a 2-line clamp would just break mid-word ("Charac-ter.AI").
+        const canWrap = gw >= 100 && gh >= 46 && /\s/.test(box.name);
 
         const nameEl = document.createElement('div');
-        nameEl.className = 'hm-name';
+        nameEl.className = 'hm-name ' + (canWrap ? 'hm-name-clamp' : 'hm-name-single');
         nameEl.style.fontSize = nameSize + 'px';
-        nameEl.style.webkitLineClamp = String(clampLines);
         nameEl.textContent = box.name;
         el.appendChild(nameEl);
 
@@ -2718,6 +2764,21 @@ if (location.hash) {
     document.getElementById('hm-pv-close').addEventListener('click', hmClosePopover);
     hmBackdrop.addEventListener('click', (e) => { if (e.target === hmBackdrop) hmClosePopover(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !hmBackdrop.hidden) hmClosePopover(); });
+  }
+
+  // Legend swatches double as category filters
+  document.querySelectorAll('.hm-swatch[data-hm-filter]').forEach(sw => {
+    sw.addEventListener('click', () => hmSetFilter(sw.dataset.hmFilter));
+    sw.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hmSetFilter(sw.dataset.hmFilter); }
+    });
+  });
+  const hmClearBtn = document.getElementById('hm-clear-filter');
+  if (hmClearBtn) {
+    hmClearBtn.addEventListener('click', () => hmSetFilter(null));
+    hmClearBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hmSetFilter(null); }
+    });
   }
 
   // render once; re-render on theme toggle so category text-contrast stays correct
