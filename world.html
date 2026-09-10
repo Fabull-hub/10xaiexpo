@@ -29,6 +29,10 @@
   --font-body: 'Inter', -apple-system, system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --max-w: 1400px;
+  /* Heat map categorical colors — fixed hex in both themes (validated against light #FAFAF7 and dark #0A0A0B surfaces) */
+  --hm-foundation: #0284C7;
+  --hm-enterprise: #B8890C;
+  --hm-applied: #D63A6E;
 }
 :root[data-theme="light"] {
   --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
@@ -406,6 +410,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 .rgn-stat { display: flex; flex-direction: column; gap: 3px; }
 .rs-num { font-family: var(--font-editorial); font-size: 20px; font-weight: 600; color: var(--lime); letter-spacing: -0.02em; line-height: 1; }
 .rs-lbl { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-subtle); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; }
+.rgn-stats-asof { font-family: var(--font-mono); font-size: 10px; color: var(--text-subtle); margin-top: 8px; }
 
 /* Labs grid */
 .labs-grid {
@@ -553,6 +558,168 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   .al-region { justify-content: center; }
 }
 
+/* ============================================
+   HEAT MAP VIEW (Global AI Landscape treemap)
+   ============================================ */
+.hm-intro { padding: 0 28px 8px; max-width: var(--max-w); margin: 0 auto; }
+.hm-intro h2 { font-family: var(--font-editorial); font-size: 26px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+.hm-intro h2 em { color: var(--lime); font-style: normal; }
+.hm-intro p { font-size: 15px; line-height: 1.6; color: var(--text-muted); max-width: 760px; margin-bottom: 10px; }
+.hm-scope-note {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
+  background: var(--cyan-subtle); border: 1px solid var(--border); border-radius: 100px;
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--text-muted); margin-bottom: 4px;
+}
+.hm-scope-note strong { color: var(--text); font-weight: 600; }
+.hm-canvas-wrap { padding: 16px 28px 0; max-width: var(--max-w); margin: 0 auto; }
+.hm-canvas-scroll { overflow-x: auto; border-radius: var(--r-md); }
+#hm-canvas {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+}
+.hm-region-label {
+  position: absolute;
+  font-family: var(--font-editorial);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+  pointer-events: none;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
+}
+.hm-region-label .hm-flag { font-family: system-ui, sans-serif; }
+.hm-region-label .hm-count {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.55em;
+  color: var(--text-subtle);
+  letter-spacing: 0;
+}
+.hm-cell {
+  position: absolute;
+  border-radius: 3px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 6px 8px;
+  cursor: pointer;
+  transition: filter 0.12s ease;
+}
+.hm-cell:hover, .hm-cell:focus-visible { filter: brightness(1.1); }
+.hm-cell:focus-visible { outline: 2px solid var(--text); outline-offset: -2px; }
+.hm-cell .hm-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+.hm-cell .hm-tag {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  margin-top: 3px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hm-cell .hm-sub {
+  font-family: var(--font-mono);
+  opacity: 0.7;
+  margin-top: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.hm-legend {
+  max-width: var(--max-w); margin: 16px auto 0; padding: 0 28px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px;
+}
+.hm-legend-inner {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 20px; width: 100%;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+.hm-legend-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.hm-legend-title {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-subtle);
+  margin-right: 2px;
+}
+.hm-swatch { display: inline-flex; align-items: center; gap: 6px; }
+.hm-swatch .hm-dot { width: 11px; height: 11px; border-radius: 3px; display: inline-block; flex: none; }
+.hm-legend-divider { width: 1px; align-self: stretch; background: var(--border); }
+.hm-legend-note { font-size: 12px; color: var(--text-subtle); font-style: italic; }
+.hm-disclaimer {
+  max-width: var(--max-w); margin: 14px auto 40px; padding: 0 28px;
+  font-size: 11.5px; color: var(--text-subtle); line-height: 1.5;
+}
+.hm-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  z-index: 200;
+}
+.hm-backdrop[hidden] { display: none; }
+.hm-popover {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-lg);
+  max-width: 420px;
+  width: 100%;
+  padding: 22px 24px 20px;
+  box-shadow: var(--shadow-lg);
+}
+.hm-popover-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+.hm-popover-head h2 { font-family: var(--font-editorial); font-weight: 600; font-size: 22px; letter-spacing: -0.01em; margin: 0; }
+.hm-popover-head .hm-parent { font-size: 12.5px; color: var(--text-subtle); margin-top: 2px; }
+.hm-popover-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 20px; line-height: 1; color: var(--text-muted);
+  padding: 4px; margin: -4px -4px 0 0;
+}
+.hm-popover-close:hover { color: var(--text); }
+.hm-popover-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.hm-badge {
+  font-family: var(--font-mono); font-size: 10.5px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 3px 8px; border-radius: 4px; color: #fff;
+}
+.hm-badge.hm-region {
+  background: none; color: var(--text-muted); border: 1px solid var(--border);
+  text-transform: none; font-weight: 500; display: inline-flex; align-items: center; gap: 4px;
+}
+.hm-popover-blurb { font-size: 14px; line-height: 1.55; color: var(--text); margin: 0 0 14px; }
+.hm-popover-meta { display: grid; grid-template-columns: auto 1fr; gap: 5px 12px; font-size: 12.5px; }
+.hm-popover-meta dt {
+  font-family: var(--font-mono); color: var(--text-subtle);
+  text-transform: uppercase; font-size: 10px; letter-spacing: 0.05em; padding-top: 1px;
+}
+.hm-popover-meta dd { margin: 0; color: var(--text-muted); }
+@media (max-width: 640px) {
+  .hm-legend-inner { font-size: 12px; gap: 14px; }
+}
+
 </style>
 </head>
 <body>
@@ -633,6 +800,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <div class="tools-tab" data-view="india">🇮🇳 India <span class="tab-count">3</span></div>
     <div class="tools-tab" data-view="japan-korea">🇯🇵 Japan/Korea <span class="tab-count">3</span></div>
     <div class="tools-tab" data-view="all-labs">All Labs A–Z <span class="tab-count">35</span></div>
+    <div class="tools-tab" data-view="heatmap">🗺️ Heat Map <span class="tab-count">42</span></div>
   </div>
 
 <!-- TAB VIEWS -->
@@ -865,6 +1033,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">Home to the frontier. Six of the ten most capable models in the world are built here. The concentration of talent, capital, and compute in the San Francisco Bay Area remains without parallel — but the moat is narrowing.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">10</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">6</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$180B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -1120,6 +1289,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">Europe's AI ecosystem is stronger than the media narrative suggests. Mistral has become a serious open-source frontier lab. Google DeepMind's London office ships some of the most important research in the field. The talent depth is real — the missing piece has historically been capital.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">6</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$14B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">4</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -1279,6 +1449,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">China's AI ecosystem is the second-largest in the world by capital, talent, and model output. Chinese labs have led on open-source efficiency (DeepSeek), consumer scale (Doubao, 200M+ MAU), and specific capabilities like long context (Kimi). Under-covered in English-language media.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">10</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$47B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">5</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -1534,6 +1705,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">The Middle East is spending its way to AI relevance. UAE and Saudi Arabia have committed over $100B combined to sovereign AI initiatives. Falcon (from Abu Dhabi's TII) proved the region can ship credible open-weight foundation models. G42 has become a major infrastructure and application player.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">1</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$100B+ (sovereign)</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -1621,6 +1793,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">India's AI ecosystem is at an inflection point. Government-backed initiatives (India AI Mission, $1.2B) and private capital are fueling a wave of foundation model startups focused on Indian languages. The bet: 22 official languages spoken by 1.4B people is a genuinely differentiated market.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">0</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$1.5B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -1708,6 +1881,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
       <p class="region-desc">East Asia's other AI powers. Japan and Korea have historically strong AI research (particularly in robotics and consumer applications) but have been late to LLM development. That's changing — Sakana's evolutionary approach is genuinely novel, and Korean labs are shipping strong Korean-language models.</p>
       <div class="region-stats"><div class="rgn-stat"><span class="rs-num">3</span><span class="rs-lbl">Labs tracked</span></div><div class="rgn-stat"><span class="rs-num">0</span><span class="rs-lbl">Frontier models</span></div><div class="rgn-stat"><span class="rs-num">$2B+</span><span class="rs-lbl">Combined funding</span></div><div class="rgn-stat"><span class="rs-num">2</span><span class="rs-lbl">Open weights</span></div></div>
+      <div class="rgn-stats-asof">Funding figures as of September 2026 — editorial estimates, not audited financials.</div>
     </div>
     <div class="labs-grid">
     <div class="lab-card lab-featured">
@@ -2087,6 +2261,60 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     </div>
   </div>
 
+  <div class="tools-view" data-view="heatmap">
+    <div class="hm-intro">
+      <h2>The global AI landscape, <em>as a heat map</em>.</h2>
+      <p>Every company sized by estimated scale, colored by what it builds, grouped by country — in the spirit of a stock-market sector map. Click any tile for a full summary.</p>
+      <div class="hm-scope-note">🔎 <span><strong>42 companies</strong> here vs. <strong>35 labs</strong> in the tabs above — this view widens the lens to include 7 applied-AI companies (coding tools, robotics, open-source infra) alongside the core frontier labs.</span></div>
+    </div>
+    <div class="hm-canvas-wrap">
+      <div class="hm-canvas-scroll">
+        <div id="hm-canvas"></div>
+      </div>
+    </div>
+    <div class="hm-legend">
+      <div class="hm-legend-inner">
+        <div class="hm-legend-group">
+          <span class="hm-legend-title">Color = What they build</span>
+          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-foundation)"></span>Foundation Models</span>
+          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-enterprise)"></span>Enterprise &amp; Product AI</span>
+          <span class="hm-swatch"><span class="hm-dot" style="background:var(--hm-applied)"></span>Applied AI <span style="opacity:.75">(image&nbsp;gen · code · robotics · open-source)</span></span>
+        </div>
+        <div class="hm-legend-divider"></div>
+        <div class="hm-legend-group">
+          <span class="hm-legend-title">Size</span>
+          <span class="hm-legend-note">= estimated scale / funding tier (illustrative, not verified financials)</span>
+        </div>
+      </div>
+    </div>
+    <div class="hm-disclaimer">
+      Company placements, categories, and flagship models are drawn from public information as of September 2026 and may be out of date. Scale tiers (Huge / Large / Medium / Small) are editorial estimates for visual proportion, not audited valuations or revenue. Verify before citing.
+    </div>
+  </div>
+
+  <div class="hm-backdrop" id="hm-backdrop" hidden>
+    <div class="hm-popover" role="dialog" aria-modal="true" aria-labelledby="hm-pv-name">
+      <div class="hm-popover-head">
+        <div>
+          <h2 id="hm-pv-name"></h2>
+          <div class="hm-parent" id="hm-pv-parent"></div>
+        </div>
+        <button class="hm-popover-close" id="hm-pv-close" aria-label="Close">✕</button>
+      </div>
+      <div class="hm-popover-badges">
+        <span class="hm-badge hm-region" id="hm-pv-region"></span>
+        <span class="hm-badge" id="hm-pv-category"></span>
+      </div>
+      <p class="hm-popover-blurb" id="hm-pv-blurb"></p>
+      <dl class="hm-popover-meta">
+        <dt>Flagship</dt><dd id="hm-pv-flagship"></dd>
+        <dt>Type</dt><dd id="hm-pv-subtype"></dd>
+        <dt>Access</dt><dd id="hm-pv-access"></dd>
+        <dt>Scale</dt><dd id="hm-pv-scale"></dd>
+      </dl>
+    </div>
+  </div>
+
 <!-- NEWSLETTER INLINE (reuse existing) -->
 <!-- NEWSLETTER INLINE -->
 <div class="newsletter-inline">
@@ -2183,6 +2411,320 @@ document.querySelectorAll('.region-tabs .tools-tab').forEach(tab => {
   });
 });
 
+// Deep link support: world.html#heatmap (or any #<view-name>) opens straight to that tab
+if (location.hash) {
+  const targetView = location.hash.slice(1);
+  if (document.querySelector('.tools-tab[data-view="' + targetView + '"]')) {
+    switchToView(targetView);
+  }
+}
+
+// ============================================
+// HEAT MAP: Global AI Landscape treemap
+// ============================================
+(function() {
+  const HM_WEIGHT = { huge: 100, large: 55, medium: 28, small: 14 };
+
+  // region keys match the region tabs above: us, europe, china, middle-east, india, japan-korea
+  const HM_REGIONS = [
+    { key: 'us', name: 'United States', flag: '🇺🇸' },
+    { key: 'china', name: 'China', flag: '🇨🇳' },
+    { key: 'europe', name: 'Europe', flag: '🇪🇺' },
+    { key: 'middle-east', name: 'Middle East', flag: '🇦🇪' },
+    { key: 'japan-korea', name: 'Japan/Korea', flag: '🇯🇵' },
+    { key: 'india', name: 'India', flag: '🇮🇳' },
+  ];
+
+  const HM_COMPANIES_RAW = [
+    // name, parent, region, category, subtype, scale, access, flagship, blurb
+    // US
+    ['OpenAI','','us','foundation','Foundation Model','huge','Closed','GPT-5.5','The company that mainstreamed generative AI — GPT-5.5 remains the reference model for general-purpose tasks.'],
+    ['Anthropic','','us','foundation','Foundation Model','huge','Closed','Claude','Founded by ex-OpenAI research leads. Claude is the developer favorite for writing quality, coding, and long-context reasoning.'],
+    ['Google DeepMind','Alphabet','us','foundation','Foundation Model','huge','Closed + Open','Gemini 3','Merged Google Brain and DeepMind in 2023. Gemini 3 tops MMLU, backed by Google’s research depth and compute scale.'],
+    ['Meta AI','FAIR','us','foundation','Foundation Model','huge','Open weights','Llama 4','The dominant force in open-weight AI — Llama is the base model of choice for fine-tuning across the industry.'],
+    ['xAI','','us','foundation','Foundation Model','large','Closed','Grok 4','Elon Musk’s AI lab, trained on one of the largest GPU clusters in the world (Colossus, Memphis).'],
+    ['GitHub Copilot','Microsoft','us','applied','Code Assistants','huge','Closed','Copilot','The AI pair-programmer that brought code completion to hundreds of millions of developers.'],
+    ['Cursor','Anysphere','us','applied','Code Assistants','large','Closed','Cursor','AI-native code editor that became one of the fastest-growing developer tools in the industry.'],
+    ['Hugging Face','','us','applied','Open-Source AI Tools','large','Open weights','Transformers / Hub','The open-source hub where most of the world’s AI models, datasets, and demos live.'],
+    ['Figure AI','','us','applied','Robotics AI','large','Closed','Figure 03','Humanoid-robotics startup building general-purpose robots for logistics and manufacturing.'],
+    ['Boston Dynamics','Hyundai','us','applied','Robotics AI','large','Closed','Atlas / Spot','Pioneering legged-robot maker, now owned by Hyundai, pushing into AI-driven automation.'],
+    ['Cohere','','us','enterprise','Enterprise AI Platform','medium','Open + Closed','Command R+','Enterprise-focused AI lab founded by ex-Google Brain researchers. Command R+ excels at RAG.'],
+    ['Perplexity','','us','enterprise','Enterprise AI Platform','medium','Product layer','Perplexity Pro','The AI-native search company — orchestrates GPT/Claude/its own Sonar models into a search product.'],
+    ['Character.AI','','us','enterprise','Enterprise AI Platform','medium','Closed','Character AI','Founded by Noam Shazeer. The consumer character-chat app that popularized AI companions.'],
+    ['Replit','','us','applied','Code Assistants','medium','Closed','Replit Agent','Browser-based coding platform pairing an AI agent with instant app deployment.'],
+    ['Physical Intelligence','','us','applied','Robotics AI','medium','Closed','π0','Robotics foundation-model startup teaching general-purpose robots broad physical skills.'],
+    ['Adept','','us','foundation','Foundation Model','small','Closed','ACT-2','Building AI agents that operate software the way humans do; core team acqui-hired by Amazon in 2024.'],
+    ['Inflection AI','','us','foundation','Foundation Model','small','Closed','Pi','Founded by Mustafa Suleyman and Reid Hoffman; team and IP largely absorbed by Microsoft in 2024.'],
+    // China
+    ['DeepSeek','','china','foundation','Foundation Model','large','Open weights','DeepSeek V4','The lab that redefined efficient scaling — V4 matches frontier reasoning at a fraction of training cost.'],
+    ['Qwen','Alibaba','china','foundation','Foundation Model','large','Open + Closed','Qwen3-Max','China’s most ubiquitous open-source model family; dominant across Southeast Asian enterprise.'],
+    ['Doubao','ByteDance','china','foundation','Foundation Model','large','Closed','Doubao-Pro 4','200M+ MAU inside China — the largest AI chatbot in the country, deeply tied to TikTok/Douyin.'],
+    ['Ernie','Baidu','china','foundation','Foundation Model','large','Closed','Ernie 5.0','The original Chinese LLM. Deep integration with Baidu Search gives it distribution advantage.'],
+    ['Hunyuan','Tencent','china','foundation','Foundation Model','large','Open weights','Hunyuan T2','Distribution through WeChat gives Hunyuan a captive audience of 1B+ users.'],
+    ['GLM','Zhipu AI','china','foundation','Foundation Model','medium','Open + Closed','GLM-5','Spun out from Tsinghua University; strongest showing in Chinese government and state contracts.'],
+    ['Kimi','Moonshot AI','china','foundation','Foundation Model','medium','Closed','Kimi K2','Consumer favorite in China; launched with a viral 10M+ token context window.'],
+    ['MiniMax','','china','foundation','Foundation Model','medium','Closed + Open','MiniMax-M2','Strongest voice and multimodal player in Chinese AI; Talkie app has 30M+ global MAU.'],
+    ['SenseTime','','china','enterprise','Enterprise AI Platform','medium','Closed','SenseChat 6','Originally a computer-vision leader, pivoted to LLMs; publicly traded, heavy government focus.'],
+    ['Yi','01.AI','china','foundation','Foundation Model','small','Open + Closed','Yi-Large 2','Founded by Kai-Fu Lee; notable for strong bilingual English performance among Chinese labs.'],
+    // Europe
+    ['Mistral AI','','europe','foundation','Foundation Model','large','Open + Closed','Mistral Large 3','Europe’s frontier AI champion. Aggressive open-source strategy made it the European answer to Llama.'],
+    ['Stability AI','','europe','applied','Image Generation','medium','Open weights','Stable Diffusion 4','The lab that democratized image generation — Stable Diffusion triggered the open-source gen-AI wave.'],
+    ['ElevenLabs','','europe','enterprise','Enterprise AI Platform','medium','Closed','Eleven Multilingual v3','The gold standard for AI voice synthesis; voice quality genuinely indistinguishable from human.'],
+    ['Aleph Alpha','','europe','foundation','Foundation Model','small','Closed','Luminous Supreme','Germany’s answer to sovereign AI, focused on European enterprise and government sectors.'],
+    ['H Company','','europe','foundation','Foundation Model','small','Closed','Runner H','Founded by senior ex-Google DeepMind researchers; largest seed round in French history.'],
+    ['Poolside','','europe','foundation','Foundation Model','small','Closed','Poolside Malibu','Focused exclusively on code generation and software-engineering AI; founded by ex-GitHub Copilot team.'],
+    // Middle East
+    ['Falcon','TII','middle-east','foundation','Foundation Model','medium','Open weights','Falcon 3-180B','State-backed institute that surprised the AI world with Falcon 40B — the first credible open model outside the West or China.'],
+    ['G42','','middle-east','enterprise','Enterprise AI Platform','medium','Closed + Partners','Infrastructure + models','UAE sovereign AI conglomerate; $1.5B Microsoft investment solidified a strategic partnership.'],
+    ['Jais','','middle-east','foundation','Foundation Model','small','Open weights','Jais 70B','The world’s most capable Arabic-language LLM, developed jointly by MBZUAI, G42, and Cerebras.'],
+    // Japan/Korea
+    ['HyperCLOVA X','Naver','japan-korea','foundation','Foundation Model','medium','Closed','HyperCLOVA X','Korea’s most capable Korean-language LLM, built by Naver on custom infrastructure.'],
+    ['LG AI Research','','japan-korea','foundation','Foundation Model','small','Open weights','EXAONE 3.0','LG’s dedicated AI research division; EXAONE focuses on scientific and enterprise applications.'],
+    ['Sakana AI','','japan-korea','foundation','Foundation Model','small','Open weights','Evolutionary AI models','Founded by David Ha and Llion Jones; uses evolutionary algorithms to combine and improve models.'],
+    // India
+    ['Sarvam AI','','india','foundation','Foundation Model','small','Open weights','Sarvam-2B','India’s most funded AI startup, building models optimized for 10+ Indian languages.'],
+    ['Krutrim','Ola','india','foundation','Foundation Model','small','Closed','Krutrim v2','India’s first AI unicorn, founded by Ola CEO Bhavish Aggarwal; supports 22 Indian languages.'],
+    ['JioBrain','Reliance Jio','india','foundation','Foundation Model','small','TBD','In development','Reliance’s AI initiative for its 470M-user Jio telecom platform.'],
+  ];
+  const HM_COMPANIES = HM_COMPANIES_RAW.map(([name, parent, region, category, subtype, scale, access, flagship, blurb]) => ({
+    name, parent, region, category, subtype, scale, access, flagship, blurb, value: HM_WEIGHT[scale]
+  }));
+
+  // ---------- SQUARIFIED TREEMAP ----------
+  function hmWorstRatio(row, rowValue, side) {
+    if (!row.length) return Infinity;
+    let rmax = -Infinity, rmin = Infinity;
+    for (const d of row) { if (d.value > rmax) rmax = d.value; if (d.value < rmin) rmin = d.value; }
+    const s2 = side * side, v2 = rowValue * rowValue;
+    return Math.max((s2 * rmax) / v2, v2 / (s2 * rmin));
+  }
+
+  function hmScaleToArea(items, targetArea) {
+    const sum = items.reduce((s, d) => s + d.value, 0) || 1;
+    const k = targetArea / sum;
+    return items.map(d => ({ ...d, value: d.value * k }));
+  }
+
+  function hmSquarify(items, x, y, w, h) {
+    if (!items.length) return [];
+    if (w <= 0 || h <= 0) {
+      items.forEach(d => { d.x = x; d.y = y; d.w = 0; d.h = 0; });
+      return items;
+    }
+    let remaining = items.slice();
+    let cx = x, cy = y, cw = w, ch = h;
+    const placed = [];
+    while (remaining.length) {
+      const side = Math.min(cw, ch);
+      let row = [remaining[0]];
+      let rowValue = remaining[0].value;
+      let i = 1;
+      while (i < remaining.length) {
+        const next = remaining[i];
+        const testValue = rowValue + next.value;
+        if (hmWorstRatio(row, rowValue, side) >= hmWorstRatio(row.concat([next]), testValue, side)) {
+          row.push(next);
+          rowValue = testValue;
+          i++;
+        } else break;
+      }
+      if (cw >= ch) {
+        const colW = Math.min(rowValue / ch, cw);
+        let oy = cy;
+        row.forEach(d => {
+          const rh = d.value / colW;
+          d.x = cx; d.y = oy; d.w = colW; d.h = rh;
+          oy += rh;
+        });
+        cx += colW; cw -= colW;
+      } else {
+        const rowH = Math.min(rowValue / cw, ch);
+        let ox = cx;
+        row.forEach(d => {
+          const rw = d.value / rowH;
+          d.x = ox; d.y = cy; d.w = rw; d.h = rowH;
+          ox += rw;
+        });
+        cy += rowH; ch -= rowH;
+      }
+      placed.push(...row);
+      remaining = remaining.slice(row.length);
+    }
+    return placed;
+  }
+
+  // ---------- LAYOUT ----------
+  const HM_CANVAS_W = 1340;
+  const HM_CANVAS_H = 820;
+  const HM_OUTER_PAD = 6;
+  const HM_REGION_HEADER_H = 30;
+  const HM_CELL_GAP = 2.5;
+
+  function hmResolveRGB(varName) {
+    const probe = document.createElement('div');
+    probe.style.display = 'none';
+    probe.style.color = `var(${varName})`;
+    document.body.appendChild(probe);
+    const rgb = getComputedStyle(probe).color;
+    probe.remove();
+    const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(rgb);
+    return m ? [+m[1], +m[2], +m[3]] : [0, 0, 0];
+  }
+
+  function hmTextColorFor(catRGB, cat) {
+    const [r, g, b] = catRGB[cat];
+    const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+    return lum > 0.55 ? '#0A0A0B' : '#FFFFFF';
+  }
+
+  function hmRender() {
+    const canvas = document.getElementById('hm-canvas');
+    if (!canvas) return;
+    canvas.style.width = HM_CANVAS_W + 'px';
+    canvas.style.height = HM_CANVAS_H + 'px';
+    canvas.innerHTML = '';
+
+    const catRGB = {
+      foundation: hmResolveRGB('--hm-foundation'),
+      enterprise: hmResolveRGB('--hm-enterprise'),
+      applied: hmResolveRGB('--hm-applied'),
+    };
+
+    const byRegion = {};
+    HM_REGIONS.forEach(r => byRegion[r.key] = []);
+    HM_COMPANIES.forEach(c => { if (byRegion[c.region]) byRegion[c.region].push(c); });
+    const regionItems = HM_REGIONS.map(r => ({
+      ...r,
+      companies: byRegion[r.key],
+      value: byRegion[r.key].reduce((s, c) => s + c.value, 0),
+    })).filter(r => r.companies.length);
+
+    const innerX = HM_OUTER_PAD, innerY = HM_OUTER_PAD;
+    const innerW = HM_CANVAS_W - HM_OUTER_PAD * 2, innerH = HM_CANVAS_H - HM_OUTER_PAD * 2;
+    const scaledRegions = hmScaleToArea(regionItems, innerW * innerH);
+    const regionBoxes = hmSquarify(scaledRegions, innerX, innerY, innerW, innerH);
+
+    regionBoxes.forEach(rb => {
+      const label = document.createElement('div');
+      label.className = 'hm-region-label';
+      label.style.left = (rb.x + 10) + 'px';
+      label.style.top = (rb.y + 8) + 'px';
+      label.style.fontSize = Math.max(13, Math.min(20, rb.w / 14)) + 'px';
+      label.innerHTML = `<span class="hm-flag">${rb.flag}</span>${rb.name}<span class="hm-count">${rb.companies.length}</span>`;
+      canvas.appendChild(label);
+
+      const catOrder = { foundation: 0, enterprise: 1, applied: 2 };
+      const comps = rb.companies.slice().sort((a, b) => catOrder[a.category] - catOrder[b.category] || b.value - a.value);
+
+      const cx = rb.x + HM_CELL_GAP, cy = rb.y + HM_REGION_HEADER_H;
+      const cw = Math.max(0, rb.w - HM_CELL_GAP * 2), ch = Math.max(0, rb.h - HM_REGION_HEADER_H - HM_CELL_GAP);
+      const scaledComps = hmScaleToArea(comps, cw * ch);
+      const cellBoxes = hmSquarify(scaledComps, cx, cy, cw, ch);
+
+      cellBoxes.forEach(box => {
+        const el = document.createElement('div');
+        el.className = 'hm-cell';
+        const gx = box.x + HM_CELL_GAP / 2, gy = box.y + HM_CELL_GAP / 2;
+        const gw = Math.max(0, box.w - HM_CELL_GAP), gh = Math.max(0, box.h - HM_CELL_GAP);
+        el.style.left = gx + 'px';
+        el.style.top = gy + 'px';
+        el.style.width = gw + 'px';
+        el.style.height = gh + 'px';
+        el.style.background = `var(--hm-${box.category})`;
+        const tc = hmTextColorFor(catRGB, box.category);
+        el.style.color = tc;
+
+        const area = gw * gh;
+        const nameSize = Math.max(8.5, Math.min(21, Math.sqrt(area) / 6.4));
+        const tagSize = Math.max(7, Math.min(11, nameSize * 0.5));
+        const clampLines = gh < 46 ? 1 : (gw < 90 ? 4 : 2);
+
+        const nameEl = document.createElement('div');
+        nameEl.className = 'hm-name';
+        nameEl.style.fontSize = nameSize + 'px';
+        nameEl.style.webkitLineClamp = String(clampLines);
+        nameEl.textContent = box.name;
+        el.appendChild(nameEl);
+
+        if (gh > 40 && gw > 52) {
+          const tagEl = document.createElement('div');
+          tagEl.className = 'hm-tag';
+          tagEl.style.fontSize = tagSize + 'px';
+          tagEl.textContent = box.subtype;
+          el.appendChild(tagEl);
+        }
+        if (gh > 66 && gw > 78) {
+          const subEl = document.createElement('div');
+          subEl.className = 'hm-sub';
+          subEl.style.fontSize = tagSize + 'px';
+          subEl.style.opacity = tc === '#FFFFFF' ? '0.65' : '0.55';
+          subEl.textContent = box.parent ? `${box.parent} · ${box.access}` : box.access;
+          el.appendChild(subEl);
+        }
+        el.title = `${box.name}${box.parent ? ' (' + box.parent + ')' : ''} — ${box.subtype} — ${box.access}`;
+        el.tabIndex = 0;
+        el.setAttribute('role', 'button');
+        el.setAttribute('aria-haspopup', 'dialog');
+        el.addEventListener('click', () => hmOpenPopover(box));
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hmOpenPopover(box); }
+        });
+        canvas.appendChild(el);
+      });
+    });
+  }
+
+  // ---------- POPOVER ----------
+  const HM_CATEGORY_LABEL = {
+    foundation: 'Foundation Model',
+    enterprise: 'Enterprise & Product AI',
+    applied: 'Applied AI',
+  };
+  const HM_SCALE_LABEL = { huge: 'Huge', large: 'Large', medium: 'Medium', small: 'Small' };
+  const HM_REGION_BY_KEY = Object.fromEntries(HM_REGIONS.map(r => [r.key, r]));
+
+  let hmLastFocused = null;
+
+  function hmOpenPopover(box) {
+    hmLastFocused = document.activeElement;
+    const region = HM_REGION_BY_KEY[box.region];
+    document.getElementById('hm-pv-name').textContent = box.name;
+    const parentEl = document.getElementById('hm-pv-parent');
+    parentEl.textContent = box.parent ? `Part of ${box.parent}` : '';
+    parentEl.style.display = box.parent ? '' : 'none';
+    document.getElementById('hm-pv-region').innerHTML = `${region.flag} ${region.name}`;
+    const catBadge = document.getElementById('hm-pv-category');
+    catBadge.textContent = HM_CATEGORY_LABEL[box.category];
+    catBadge.style.background = `var(--hm-${box.category})`;
+    catBadge.style.color = '#fff';
+    document.getElementById('hm-pv-blurb').textContent = box.blurb || '';
+    document.getElementById('hm-pv-flagship').textContent = box.flagship || '—';
+    document.getElementById('hm-pv-subtype').textContent = box.subtype;
+    document.getElementById('hm-pv-access').textContent = box.access;
+    document.getElementById('hm-pv-scale').textContent = HM_SCALE_LABEL[box.scale];
+    const backdrop = document.getElementById('hm-backdrop');
+    backdrop.hidden = false;
+    document.getElementById('hm-pv-close').focus();
+  }
+
+  function hmClosePopover() {
+    const backdrop = document.getElementById('hm-backdrop');
+    backdrop.hidden = true;
+    if (hmLastFocused) hmLastFocused.focus();
+  }
+
+  const hmBackdrop = document.getElementById('hm-backdrop');
+  if (hmBackdrop) {
+    document.getElementById('hm-pv-close').addEventListener('click', hmClosePopover);
+    hmBackdrop.addEventListener('click', (e) => { if (e.target === hmBackdrop) hmClosePopover(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !hmBackdrop.hidden) hmClosePopover(); });
+  }
+
+  // render once; re-render on theme toggle so category text-contrast stays correct
+  hmRender();
+  const hmThemeBtn = document.querySelector('.theme-toggle');
+  if (hmThemeBtn) hmThemeBtn.addEventListener('click', () => setTimeout(hmRender, 0));
+})();
 </script>
 </body>
 </html>

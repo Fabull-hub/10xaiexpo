@@ -437,6 +437,38 @@ nav.masthead {
   opacity: 0.5;
 }
 
+/* Heat-map teaser (homepage) */
+.hm-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 2px;
+  width: 100%; height: 100%;
+  padding: 2px;
+}
+.hm-teaser-cell {
+  border-radius: 2px;
+  display: flex; align-items: flex-end;
+  padding: 6px 8px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  overflow: hidden;
+}
+.hm-teaser-badge {
+  position: absolute;
+  right: 10px; bottom: 10px;
+  background: rgba(10,10,11,0.78);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  padding: 5px 10px;
+  border-radius: 100px;
+  backdrop-filter: blur(4px);
+}
+
 /* ============================================
    SECTIONS — Tighter, flowing
    ============================================ */
@@ -1357,22 +1389,37 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
 
     <div class="hero-visual fade-in delay-1">
       <div class="hero-feature-back"></div>
-      <div class="hero-feature-card">
-        <div class="hero-image-slot"><img src="images/hero-homepage.jpg" alt="AI intelligence data streams" loading="lazy"></div>
+      <div class="hero-feature-card" onclick="window.location='world.html#heatmap'" style="cursor:pointer">
+        <div class="hero-image-slot" style="position:relative">
+          <div class="hm-teaser-grid">
+            <div class="hm-teaser-cell" style="grid-column:1/3;grid-row:1/3;background:#0284C7">OpenAI</div>
+            <div class="hm-teaser-cell" style="grid-column:3/5;grid-row:1/3;background:#0284C7">Anthropic</div>
+            <div class="hm-teaser-cell" style="grid-column:5/7;grid-row:1/2;background:#0284C7"></div>
+            <div class="hm-teaser-cell" style="grid-column:5/7;grid-row:2/3;background:#0284C7"></div>
+            <div class="hm-teaser-cell" style="grid-column:1/3;grid-row:3/4;background:#0284C7"></div>
+            <div class="hm-teaser-cell" style="grid-column:3/4;grid-row:3/4;background:#0284C7"></div>
+            <div class="hm-teaser-cell" style="grid-column:4/5;grid-row:3/4;background:#D63A6E"></div>
+            <div class="hm-teaser-cell" style="grid-column:5/6;grid-row:3/4;background:#D63A6E"></div>
+            <div class="hm-teaser-cell" style="grid-column:6/7;grid-row:3/4;background:#D63A6E"></div>
+            <div class="hm-teaser-cell" style="grid-column:1/2;grid-row:4/5;background:#B8890C"></div>
+            <div class="hm-teaser-cell" style="grid-column:2/3;grid-row:4/5;background:#B8890C"></div>
+            <div class="hm-teaser-cell" style="grid-column:3/4;grid-row:4/5;background:#B8890C"></div>
+            <div class="hm-teaser-cell" style="grid-column:4/5;grid-row:4/5;background:#D63A6E"></div>
+            <div class="hm-teaser-cell" style="grid-column:5/6;grid-row:4/5;background:#D63A6E"></div>
+            <div class="hm-teaser-cell" style="grid-column:6/7;grid-row:4/5;background:#D63A6E"></div>
+          </div>
+          <span class="hm-teaser-badge">42 companies · 6 regions</span>
         </div>
         <div class="hero-feature-body">
-          <span class="hero-feature-cat">TODAY'S COVER STORY</span>
-          <h3>GPT-5.5 launched: what changes for your workflow this week</h3>
-          <p>OpenAI's biggest model since GPT-5. We benchmarked it against Claude 5 and Gemini 3 on 40 real tasks — the results surprised us.</p>
+          <span class="hero-feature-cat">🗺️ NEW · INTERACTIVE</span>
+          <h3>The global AI landscape, mapped as a heat map</h3>
+          <p>Every major AI company sized by scale, colored by what it builds, grouped by country — click into the full interactive map on World AI.</p>
           <div class="hero-feature-meta">
-            <div class="byline">
-              <div class="avatar-tiny">SR</div>
-              <span>Sarah Ramirez</span>
-            </div>
+            <span>42 companies</span>
             <span class="dot-sep">·</span>
-            <span>8 min</span>
+            <span>6 regions</span>
             <span class="dot-sep">·</span>
-            <span>2h ago</span>
+            <span>Updated regularly</span>
           </div>
         </div>
       </div>
