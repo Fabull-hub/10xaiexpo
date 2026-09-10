@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Tool Directory: Browse 2,400+ Tools — 10X AI Expo</title>
-<meta name="description" content="Browse and filter 2,400+ AI tools by category, pricing, and use case. Reviewed and ranked by our editorial team.">
+<title>AI Tool Directory: Browse Reviewed AI Tools — 10X AI Expo</title>
+<meta name="description" content="Browse and filter our hand-reviewed AI tool directory by category, pricing, and use case. Every tool ranked by our editorial team — no pay-to-play.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -158,6 +158,10 @@ nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); borde
 .checkbox-item .cb-label { flex: 1; }
 .checkbox-item .cb-count { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
 .checkbox-item.checked { color: var(--text); font-weight: 500; }
+.checkbox-item.disabled-cat { opacity: 0.45; cursor: not-allowed; }
+.checkbox-item.disabled-cat:hover { background: none; color: var(--text-muted); }
+.checkbox-item.disabled-cat input { cursor: not-allowed; }
+.checkbox-item.disabled-cat .cb-count { font-style: italic; }
 
 /* PRICE SLIDER (mock) */
 .price-inputs { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
@@ -192,6 +196,7 @@ nav.masthead { background: color-mix(in srgb, var(--bg) 88%, transparent); borde
 
 /* ACTIVE FILTER PILLS */
 .active-filters { display: flex; gap: 6px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; }
+.active-filters[hidden] { display: none; }
 .active-filters .label { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; margin-right: 4px; }
 .filter-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; background: var(--lime-subtle); color: var(--lime); border: 1px solid var(--lime-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; }
 .filter-pill .x { cursor: pointer; padding: 0 2px; opacity: 0.7; transition: opacity 0.12s; }
@@ -322,9 +327,9 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 <div class="top-strip">
   <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
   <span class="divider">·</span>
-  <span>247 tools tracked today</span>
+  <span>18 tools reviewed</span>
   <span class="divider">·</span>
-  <span>18 new tools this week</span>
+  <span>2 added this week</span>
   <span class="disclosure">ⓘ Affiliate disclosure</span>
 </div>
 
@@ -345,7 +350,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     </div>
     <div class="nav-search">
       <span class="nav-search-icon">⌕</span>
-      <input placeholder="Search 2,400+ AI tools...">
+      <input id="nav-search-input" placeholder="Search the directory...">
       <span class="kbd">⌘K</span>
     </div>
     <div class="nav-actions">
@@ -369,27 +374,27 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 <!-- HERO -->
 <div class="directory-hero">
   <h1>Every AI tool <em>that matters</em>.</h1>
-  <p class="subtitle"><strong>2,400+ AI tools indexed.</strong> Filter by category, price, or use case. Every tool ranked by our editorial team — no pay-to-play.</p>
+  <p class="subtitle"><strong>18 tools reviewed so far</strong> — we're adding more every week. Filter by category, price, or use case. Every tool ranked by our editorial team — no pay-to-play.</p>
 </div>
 
 <!-- BIG SEARCH -->
 <div class="dir-search">
   <div class="dir-search-wrapper">
     <span class="dir-search-icon">⌕</span>
-    <input placeholder="Search by tool name, category, or use case..." onfocus="showToast('Try: image generators, or free tools')">
-    <span class="dir-search-hint">Press ↵ to search</span>
+    <input id="dir-search-input" placeholder="Search by tool name, category, or use case...">
+    <span class="dir-search-hint" id="dir-search-hint">18 tools</span>
   </div>
 </div>
 
 <!-- QUICK CHIP FILTERS -->
 <div class="chip-filters">
-  <div class="chip active">All tools <span class="count">2,412</span></div>
-  <div class="chip">🔥 Trending <span class="count">42</span></div>
-  <div class="chip">✨ New this week <span class="count">18</span></div>
-  <div class="chip">🎁 Free tier <span class="count">312</span></div>
-  <div class="chip">💰 Active deals <span class="count">89</span></div>
-  <div class="chip">★ Editor's Choice <span class="count">24</span></div>
-  <div class="chip">⚡ Under $20/mo <span class="count">184</span></div>
+  <div class="chip active" data-chip="all">All tools <span class="count">18</span></div>
+  <div class="chip" data-chip="trending">🔥 Trending <span class="count">4</span></div>
+  <div class="chip" data-chip="new">✨ New this week <span class="count">2</span></div>
+  <div class="chip" data-chip="free">🎁 Free tier <span class="count">10</span></div>
+  <div class="chip" data-chip="deal">💰 Active deals <span class="count">4</span></div>
+  <div class="chip" data-chip="pick">★ Editor's Choice <span class="count">4</span></div>
+  <div class="chip" data-chip="under20">⚡ Under $20/mo <span class="count">15</span></div>
 </div>
 
 <!-- MAIN LAYOUT -->
@@ -398,111 +403,92 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   <!-- SIDEBAR FILTERS -->
   <aside class="dir-sidebar">
     <div class="filter-group">
-      <h4>Category <span class="count-total">42 total</span></h4>
-      <div class="checkbox-list">
-        <label class="checkbox-item checked"><input type="checkbox" checked><span class="cb-label">Writing & Copy</span><span class="cb-count">142</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Image Generation</span><span class="cb-count">89</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Video & Motion</span><span class="cb-count">67</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Voice & Audio</span><span class="cb-count">54</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Code & Dev Tools</span><span class="cb-count">98</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Autonomous Agents</span><span class="cb-count">76</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Marketing & SEO</span><span class="cb-count">72</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Business & Ops</span><span class="cb-count">104</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Data & Analytics</span><span class="cb-count">51</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Sales & CRM</span><span class="cb-count">42</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Productivity</span><span class="cb-count">44</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Research & Search</span><span class="cb-count">32</span></label>
+      <h4>Category <span class="count-total" id="category-total">18 total</span></h4>
+      <div class="checkbox-list" id="category-list">
+        <label class="checkbox-item" data-cat="writing"><input type="checkbox"><span class="cb-label">Writing & Copy</span><span class="cb-count">7</span></label>
+        <label class="checkbox-item" data-cat="image"><input type="checkbox"><span class="cb-label">Image Generation</span><span class="cb-count">1</span></label>
+        <label class="checkbox-item" data-cat="video"><input type="checkbox"><span class="cb-label">Video & Motion</span><span class="cb-count">2</span></label>
+        <label class="checkbox-item" data-cat="voice"><input type="checkbox"><span class="cb-label">Voice & Audio</span><span class="cb-count">2</span></label>
+        <label class="checkbox-item" data-cat="code"><input type="checkbox"><span class="cb-label">Code & Dev Tools</span><span class="cb-count">1</span></label>
+        <label class="checkbox-item" data-cat="marketing"><input type="checkbox"><span class="cb-label">Marketing & SEO</span><span class="cb-count">2</span></label>
+        <label class="checkbox-item" data-cat="business"><input type="checkbox"><span class="cb-label">Business & Ops</span><span class="cb-count">2</span></label>
+        <label class="checkbox-item" data-cat="research"><input type="checkbox"><span class="cb-label">Research & Search</span><span class="cb-count">1</span></label>
+        <label class="checkbox-item disabled-cat" data-cat="agents" title="No tools reviewed in this category yet"><input type="checkbox" disabled><span class="cb-label">Autonomous Agents</span><span class="cb-count">Soon</span></label>
+        <label class="checkbox-item disabled-cat" data-cat="data" title="No tools reviewed in this category yet"><input type="checkbox" disabled><span class="cb-label">Data & Analytics</span><span class="cb-count">Soon</span></label>
+        <label class="checkbox-item disabled-cat" data-cat="sales" title="No tools reviewed in this category yet"><input type="checkbox" disabled><span class="cb-label">Sales & CRM</span><span class="cb-count">Soon</span></label>
+        <label class="checkbox-item disabled-cat" data-cat="productivity" title="No tools reviewed in this category yet"><input type="checkbox" disabled><span class="cb-label">Productivity</span><span class="cb-count">Soon</span></label>
       </div>
     </div>
 
     <div class="filter-group">
       <h4>Pricing Model</h4>
-      <div class="checkbox-list">
-        <label class="checkbox-item checked"><input type="checkbox" checked><span class="cb-label">Free tier available</span><span class="cb-count">312</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Free trial</span><span class="cb-count">687</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Freemium</span><span class="cb-count">198</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">One-time payment</span><span class="cb-count">42</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Enterprise only</span><span class="cb-count">86</span></label>
+      <div class="checkbox-list" id="pricing-list">
+        <label class="checkbox-item" data-pricing="free"><input type="checkbox"><span class="cb-label">Free tier available</span><span class="cb-count">10</span></label>
+        <label class="checkbox-item" data-pricing="paid"><input type="checkbox"><span class="cb-label">Paid only</span><span class="cb-count">8</span></label>
       </div>
     </div>
 
     <div class="filter-group">
       <h4>Price Range</h4>
       <div class="price-inputs">
-        <input type="number" placeholder="$0" value="0">
+        <input type="number" id="price-min" placeholder="$0" value="0">
         <span class="to">to</span>
-        <input type="number" placeholder="$500" value="500">
+        <input type="number" id="price-max" placeholder="$500" value="500">
       </div>
-      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
-        <div class="rating-btn">Under $10</div>
-        <div class="rating-btn">$10-30</div>
-        <div class="rating-btn active">$30-100</div>
-        <div class="rating-btn">$100+</div>
+      <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;" id="price-quick">
+        <div class="rating-btn" data-range="0-9">Under $10</div>
+        <div class="rating-btn" data-range="10-30">$10-30</div>
+        <div class="rating-btn" data-range="30-100">$30-100</div>
+        <div class="rating-btn" data-range="100-999999">$100+</div>
       </div>
     </div>
 
     <div class="filter-group">
       <h4>Minimum Rating</h4>
-      <div>
-        <div class="rating-btn"><span class="star">★</span> 3.0+</div>
-        <div class="rating-btn"><span class="star">★</span> 4.0+</div>
-        <div class="rating-btn active"><span class="star">★</span> 4.5+</div>
-        <div class="rating-btn"><span class="star">★</span> 4.8+</div>
+      <div id="rating-quick">
+        <div class="rating-btn" data-minrating="3.0"><span class="star">★</span> 3.0+</div>
+        <div class="rating-btn" data-minrating="4.0"><span class="star">★</span> 4.0+</div>
+        <div class="rating-btn" data-minrating="4.5"><span class="star">★</span> 4.5+</div>
+        <div class="rating-btn" data-minrating="4.8"><span class="star">★</span> 4.8+</div>
       </div>
     </div>
 
     <div class="filter-group">
       <h4>Special Features</h4>
-      <div class="checkbox-list">
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Editor's Choice</span><span class="cb-count">24</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">API access</span><span class="cb-count">312</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Team collaboration</span><span class="cb-count">198</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Mobile app</span><span class="cb-count">156</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Chrome extension</span><span class="cb-count">89</span></label>
+      <div class="checkbox-list" id="features-list">
+        <label class="checkbox-item" data-feature="pick"><input type="checkbox"><span class="cb-label">Editor's Choice</span><span class="cb-count">4</span></label>
       </div>
     </div>
 
-    <div class="filter-group">
-      <h4>Business Model</h4>
-      <div class="checkbox-list">
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Open source</span><span class="cb-count">42</span></label>
-        <label class="checkbox-item"><input type="checkbox"><span class="cb-label">Self-hosted option</span><span class="cb-count">28</span></label>
-      </div>
-    </div>
-
-    <button class="reset-filters" onclick="showToast('Filters reset')">Reset all filters</button>
+    <button class="reset-filters" id="reset-filters-btn">Reset all filters</button>
   </aside>
 
   <!-- RESULTS -->
   <main class="dir-results">
 
     <!-- ACTIVE FILTER PILLS -->
-    <div class="active-filters">
+    <div class="active-filters" id="active-filters" hidden>
       <span class="label">Active:</span>
-      <div class="filter-pill">Writing & Copy <span class="x">×</span></div>
-      <div class="filter-pill">Free tier <span class="x">×</span></div>
-      <div class="filter-pill">$30-100 <span class="x">×</span></div>
-      <div class="filter-pill">★ 4.5+ <span class="x">×</span></div>
-      <span class="clear-all">Clear all</span>
+      <div id="active-filters-pills" style="display:contents;"></div>
+      <span class="clear-all" id="clear-all-btn">Clear all</span>
     </div>
 
     <!-- RESULTS HEADER -->
     <div class="results-header">
-      <div class="results-count">
-        Showing <strong>1-18</strong> of <strong class="lime">142</strong> tools
+      <div class="results-count" id="results-count">
+        Showing <strong id="results-shown">18</strong> of <strong class="lime" id="results-total">18</strong> tools
       </div>
       <div class="results-controls">
         <button class="mobile-filter-btn" onclick="document.querySelector('.dir-sidebar').classList.toggle('open')">
-          ⚙ Filters <span class="count-badge">4</span>
+          ⚙ Filters <span class="count-badge" id="mobile-filter-count">0</span>
         </button>
-        <select class="sort-select">
-          <option>Sort: Editor's Score</option>
-          <option>Sort: Highest Rated</option>
-          <option>Sort: Most Reviews</option>
-          <option>Sort: Price: Low to High</option>
-          <option>Sort: Price: High to Low</option>
-          <option>Sort: Newest First</option>
-          <option>Sort: Alphabetical</option>
+        <select class="sort-select" id="sort-select">
+          <option value="score">Sort: Editor's Score</option>
+          <option value="rating">Sort: Highest Rated</option>
+          <option value="reviews">Sort: Most Reviews</option>
+          <option value="price-asc">Sort: Price: Low to High</option>
+          <option value="price-desc">Sort: Price: High to Low</option>
+          <option value="alpha">Sort: Alphabetical</option>
         </select>
         <div class="view-toggle">
           <button class="view-btn active" title="Grid view">
@@ -519,7 +505,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <div class="tools-grid">
 
       <!-- Card 1 - Jasper (Editor's pick) -->
-      <div class="tool-card editors-pick" onclick="window.location='tool-detail.html'">
+      <div class="tool-card editors-pick" data-name="Jasper AI" data-category="writing" data-price="39" data-rating="4.8" data-reviews="2400" data-free="false" data-trending="false" data-new="false" data-deal="true" data-pick="true" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-jasper">J</div>
           <div class="tc-title">
@@ -539,7 +525,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 2 - ChatGPT -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="ChatGPT Plus" data-category="writing" data-price="20" data-rating="4.8" data-reviews="12000" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-chatgpt">G</div>
           <div class="tc-title">
@@ -559,7 +545,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 3 - Claude -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Claude Pro" data-category="writing" data-price="20" data-rating="4.8" data-reviews="8200" data-free="true" data-trending="true" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-claude">C</div>
           <div class="tc-title">
@@ -579,7 +565,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 4 - Copy.ai -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Copy.ai" data-category="writing" data-price="36" data-rating="4.6" data-reviews="3100" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-copyai">C</div>
           <div class="tc-title">
@@ -598,7 +584,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 5 - Notion AI -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Notion AI" data-category="writing" data-price="10" data-rating="4.5" data-reviews="5400" data-free="false" data-trending="false" data-new="false" data-deal="true" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-notion">N</div>
           <div class="tc-title">
@@ -617,7 +603,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 6 - Perplexity -->
-      <div class="tool-card editors-pick" onclick="window.location='tool-detail.html'">
+      <div class="tool-card editors-pick" data-name="Perplexity Pro" data-category="research" data-price="20" data-rating="4.8" data-reviews="4200" data-free="false" data-trending="false" data-new="false" data-deal="true" data-pick="true" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-perplexity">P</div>
           <div class="tc-title">
@@ -636,7 +622,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 7 - ElevenLabs -->
-      <div class="tool-card editors-pick" onclick="window.location='tool-detail.html'">
+      <div class="tool-card editors-pick" data-name="ElevenLabs" data-category="voice" data-price="5" data-rating="4.9" data-reviews="1800" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="true" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-elevenlabs">11</div>
           <div class="tc-title">
@@ -655,7 +641,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 8 - Descript -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Descript" data-category="video" data-price="15" data-rating="4.7" data-reviews="1600" data-free="false" data-trending="false" data-new="false" data-deal="true" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-descript">D</div>
           <div class="tc-title">
@@ -674,7 +660,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 9 - Midjourney -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Midjourney" data-category="image" data-price="10" data-rating="4.8" data-reviews="9400" data-free="false" data-trending="true" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-midjourney">M</div>
           <div class="tc-title">
@@ -693,7 +679,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 10 - Cursor -->
-      <div class="tool-card editors-pick" onclick="window.location='tool-detail.html'">
+      <div class="tool-card editors-pick" data-name="Cursor" data-category="code" data-price="20" data-rating="4.9" data-reviews="6300" data-free="true" data-trending="false" data-new="true" data-deal="false" data-pick="true" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-cursor">⟩</div>
           <div class="tc-title">
@@ -713,7 +699,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 11 - Runway -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Runway ML" data-category="video" data-price="15" data-rating="4.6" data-reviews="2900" data-free="false" data-trending="true" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-runway">R</div>
           <div class="tc-title">
@@ -733,7 +719,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 12 - Suno -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Suno AI" data-category="voice" data-price="8" data-rating="4.6" data-reviews="3700" data-free="true" data-trending="false" data-new="true" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-suno">S</div>
           <div class="tc-title">
@@ -753,7 +739,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 13 - Fathom -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Fathom" data-category="business" data-price="0" data-rating="4.8" data-reviews="2100" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-fathom">F</div>
           <div class="tc-title">
@@ -772,7 +758,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 14 - Surfer -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Surfer SEO" data-category="marketing" data-price="69" data-rating="4.5" data-reviews="1900" data-free="false" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-surfer">S</div>
           <div class="tc-title">
@@ -791,7 +777,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 15 - Writesonic -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Writesonic" data-category="writing" data-price="19" data-rating="4.4" data-reviews="2600" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-writesonic">W</div>
           <div class="tc-title">
@@ -810,7 +796,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 16 - Taplio -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Taplio" data-category="marketing" data-price="39" data-rating="4.5" data-reviews="1300" data-free="false" data-trending="true" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-taplio">T</div>
           <div class="tc-title">
@@ -829,7 +815,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 17 - Otter -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Otter.ai" data-category="business" data-price="17" data-rating="4.4" data-reviews="4100" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-otter">O</div>
           <div class="tc-title">
@@ -848,7 +834,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
       </div>
 
       <!-- Card 18 - Rytr -->
-      <div class="tool-card" onclick="window.location='tool-detail.html'">
+      <div class="tool-card" data-name="Rytr" data-category="writing" data-price="9" data-rating="4.3" data-reviews="1700" data-free="true" data-trending="false" data-new="false" data-deal="false" data-pick="false" onclick="window.location='tool-detail.html'">
         <div class="tc-header">
           <div class="tc-logo brand-rytr">R</div>
           <div class="tc-title">
@@ -869,15 +855,15 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     </div>
 
     <!-- PAGINATION -->
-    <div class="pagination">
+    <div class="pagination" id="pagination">
       <button class="page-btn disabled">← Prev</button>
       <button class="page-btn active">1</button>
-      <button class="page-btn">2</button>
-      <button class="page-btn">3</button>
-      <button class="page-btn">4</button>
-      <span class="page-dots">...</span>
-      <button class="page-btn">8</button>
-      <button class="page-btn">Next →</button>
+      <button class="page-btn disabled">Next →</button>
+    </div>
+    <div id="empty-state" style="display:none; text-align:center; padding:48px 20px; color:var(--text-muted);">
+      <div style="font-size:32px; margin-bottom:10px;">🔍</div>
+      <p style="font-size:15px; font-weight:600; color:var(--text); margin-bottom:4px;">No tools match those filters</p>
+      <p style="font-size:13.5px;">Try clearing a filter or two — we're adding new tools every week.</p>
     </div>
 
   </main>
@@ -936,33 +922,287 @@ function showToast(msg) {
   t._timer = setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// Checkbox interaction
-document.querySelectorAll('.checkbox-item').forEach(item => {
-  item.addEventListener('click', function(e) {
-    if (e.target.tagName !== 'INPUT') {
-      const cb = this.querySelector('input');
-      cb.checked = !cb.checked;
+// ============================================
+// REAL FILTERING ENGINE
+// ============================================
+(function () {
+  const cards = Array.from(document.querySelectorAll('.tool-card'));
+  const grid = document.querySelector('.tools-grid');
+  const TOTAL = cards.length;
+
+  const state = {
+    search: '',
+    categories: new Set(),      // checked category slugs
+    pricing: new Set(),         // 'free' | 'paid'
+    priceMin: 0,
+    priceMax: 500,
+    minRating: 0,
+    editorsChoice: false,
+    chip: 'all'                 // active quick chip
+  };
+
+  const catLabels = {
+    writing: 'Writing & Copy', image: 'Image Generation', video: 'Video & Motion',
+    voice: 'Voice & Audio', code: 'Code & Dev Tools', marketing: 'Marketing & SEO',
+    business: 'Business & Ops', research: 'Research & Search'
+  };
+
+  function cardMatches(card) {
+    const name = (card.dataset.name || '').toLowerCase();
+    const desc = (card.querySelector('.tc-body p')?.textContent || '').toLowerCase();
+    const cat = card.dataset.category;
+    const price = parseFloat(card.dataset.price);
+    const rating = parseFloat(card.dataset.rating);
+    const free = card.dataset.free === 'true';
+    const trending = card.dataset.trending === 'true';
+    const isNew = card.dataset.new === 'true';
+    const deal = card.dataset.deal === 'true';
+    const pick = card.dataset.pick === 'true';
+
+    // search
+    if (state.search) {
+      const q = state.search.toLowerCase();
+      const catLabel = (catLabels[cat] || '').toLowerCase();
+      if (!name.includes(q) && !desc.includes(q) && !catLabel.includes(q)) return false;
     }
-    this.classList.toggle('checked', this.querySelector('input').checked);
-  });
-});
+    // category (OR within group)
+    if (state.categories.size > 0 && !state.categories.has(cat)) return false;
+    // pricing model (OR within group)
+    if (state.pricing.size > 0) {
+      const okFree = state.pricing.has('free') && free;
+      const okPaid = state.pricing.has('paid') && !free;
+      if (!okFree && !okPaid) return false;
+    }
+    // price range
+    if (price < state.priceMin || price > state.priceMax) return false;
+    // rating
+    if (rating < state.minRating) return false;
+    // editor's choice
+    if (state.editorsChoice && !pick) return false;
+    // quick chip
+    if (state.chip === 'trending' && !trending) return false;
+    if (state.chip === 'new' && !isNew) return false;
+    if (state.chip === 'free' && !free) return false;
+    if (state.chip === 'deal' && !deal) return false;
+    if (state.chip === 'pick' && !pick) return false;
+    if (state.chip === 'under20') {
+      const effective = free ? 0 : price;
+      if (effective > 20) return false;
+    }
 
-// Chip interaction
-document.querySelectorAll('.chip').forEach(chip => {
-  chip.addEventListener('click', function() {
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    this.classList.add('active');
-  });
-});
+    return true;
+  }
 
-// Rating button interaction
-document.querySelectorAll('.rating-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    const siblings = this.parentElement.querySelectorAll('.rating-btn');
-    siblings.forEach(s => s.classList.remove('active'));
-    this.classList.add('active');
+  function applySort(visibleCards) {
+    const mode = document.getElementById('sort-select').value;
+    const sorted = visibleCards.slice();
+    if (mode === 'rating') sorted.sort((a, b) => parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating));
+    else if (mode === 'reviews') sorted.sort((a, b) => parseInt(b.dataset.reviews) - parseInt(a.dataset.reviews));
+    else if (mode === 'price-asc') sorted.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+    else if (mode === 'price-desc') sorted.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+    else if (mode === 'alpha') sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
+    else sorted.sort((a, b) => (b.dataset.pick === 'true') - (a.dataset.pick === 'true') || parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating)); // editor's score default
+    sorted.forEach(c => grid.appendChild(c));
+  }
+
+  function renderPills() {
+    const container = document.getElementById('active-filters-pills');
+    const wrap = document.getElementById('active-filters');
+    container.innerHTML = '';
+    const pills = [];
+
+    state.categories.forEach(c => pills.push({ label: catLabels[c] || c, clear: () => { state.categories.delete(c); syncControlsFromState(); } }));
+    state.pricing.forEach(p => pills.push({ label: p === 'free' ? 'Free tier' : 'Paid only', clear: () => { state.pricing.delete(p); syncControlsFromState(); } }));
+    if (state.priceMin > 0 || state.priceMax < 500) pills.push({ label: `$${state.priceMin}-${state.priceMax >= 500 ? '500+' : state.priceMax}`, clear: () => { state.priceMin = 0; state.priceMax = 500; syncControlsFromState(); } });
+    if (state.minRating > 0) pills.push({ label: `★ ${state.minRating.toFixed(1)}+`, clear: () => { state.minRating = 0; syncControlsFromState(); } });
+    if (state.editorsChoice) pills.push({ label: "Editor's Choice", clear: () => { state.editorsChoice = false; syncControlsFromState(); } });
+    if (state.search) pills.push({ label: `"${state.search}"`, clear: () => { state.search = ''; document.getElementById('dir-search-input').value = ''; document.getElementById('nav-search-input').value = ''; syncControlsFromState(); } });
+    if (state.chip !== 'all') {
+      const chipLabels = { trending: '🔥 Trending', new: '✨ New this week', free: '🎁 Free tier', deal: '💰 Active deals', pick: "★ Editor's Choice", under20: '⚡ Under $20/mo' };
+      pills.push({ label: chipLabels[state.chip], clear: () => { setChip('all'); } });
+    }
+
+    if (pills.length === 0) { wrap.hidden = true; return; }
+    wrap.hidden = false;
+    pills.forEach(p => {
+      const el = document.createElement('div');
+      el.className = 'filter-pill';
+      el.innerHTML = `${p.label} <span class="x">×</span>`;
+      el.querySelector('.x').addEventListener('click', p.clear);
+      container.appendChild(el);
+    });
+  }
+
+  function render() {
+    let visibleCount = 0;
+    const visibleCards = [];
+    cards.forEach(card => {
+      const match = cardMatches(card);
+      card.style.display = match ? '' : 'none';
+      if (match) { visibleCount++; visibleCards.push(card); }
+    });
+    applySort(visibleCards);
+
+    document.getElementById('results-shown').textContent = visibleCount;
+    document.getElementById('results-total').textContent = TOTAL;
+    document.getElementById('dir-search-hint').textContent = state.search ? `${visibleCount} match${visibleCount === 1 ? '' : 'es'}` : `${TOTAL} tools`;
+
+    const activeFilterCount = state.categories.size + state.pricing.size + (state.priceMin > 0 || state.priceMax < 500 ? 1 : 0) + (state.minRating > 0 ? 1 : 0) + (state.editorsChoice ? 1 : 0) + (state.chip !== 'all' ? 1 : 0) + (state.search ? 1 : 0);
+    document.getElementById('mobile-filter-count').textContent = activeFilterCount;
+
+    document.getElementById('empty-state').style.display = visibleCount === 0 ? 'block' : 'none';
+    grid.style.display = visibleCount === 0 ? 'none' : 'grid';
+    document.getElementById('pagination').style.display = visibleCount === 0 ? 'none' : 'flex';
+
+    renderPills();
+  }
+
+  function setChip(name) {
+    state.chip = name;
+    document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.chip === name));
+    render();
+  }
+
+  function syncControlsFromState() {
+    // category checkboxes
+    document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
+      const cb = item.querySelector('input');
+      const on = state.categories.has(item.dataset.cat);
+      cb.checked = on;
+      item.classList.toggle('checked', on);
+    });
+    // pricing checkboxes
+    document.querySelectorAll('#pricing-list .checkbox-item[data-pricing]').forEach(item => {
+      const cb = item.querySelector('input');
+      const on = state.pricing.has(item.dataset.pricing);
+      cb.checked = on;
+      item.classList.toggle('checked', on);
+    });
+    // features
+    document.querySelectorAll('#features-list .checkbox-item[data-feature]').forEach(item => {
+      const cb = item.querySelector('input');
+      cb.checked = state.editorsChoice;
+      item.classList.toggle('checked', state.editorsChoice);
+    });
+    // price quick buttons
+    document.querySelectorAll('#price-quick .rating-btn').forEach(btn => {
+      const [lo, hi] = btn.dataset.range.split('-').map(Number);
+      btn.classList.toggle('active', state.priceMin === lo && state.priceMax === hi);
+    });
+    document.getElementById('price-min').value = state.priceMin;
+    document.getElementById('price-max').value = state.priceMax >= 500 ? 500 : state.priceMax;
+    // rating quick buttons
+    document.querySelectorAll('#rating-quick .rating-btn').forEach(btn => {
+      btn.classList.toggle('active', parseFloat(btn.dataset.minrating) === state.minRating);
+    });
+    render();
+  }
+
+  // Category checkboxes
+  document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const cat = this.dataset.cat;
+      if (state.categories.has(cat)) state.categories.delete(cat); else state.categories.add(cat);
+      syncControlsFromState();
+    });
   });
-});
+
+  // Pricing checkboxes
+  document.querySelectorAll('#pricing-list .checkbox-item[data-pricing]').forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      const p = this.dataset.pricing;
+      if (state.pricing.has(p)) state.pricing.delete(p); else state.pricing.add(p);
+      syncControlsFromState();
+    });
+  });
+
+  // Special features (Editor's Choice)
+  document.querySelectorAll('#features-list .checkbox-item[data-feature]').forEach(item => {
+    item.addEventListener('click', function (e) {
+      e.preventDefault();
+      state.editorsChoice = !state.editorsChoice;
+      syncControlsFromState();
+    });
+  });
+
+  // Price range quick buttons
+  document.querySelectorAll('#price-quick .rating-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const [lo, hi] = this.dataset.range.split('-').map(Number);
+      const alreadyActive = this.classList.contains('active');
+      if (alreadyActive) { state.priceMin = 0; state.priceMax = 500; }
+      else { state.priceMin = lo; state.priceMax = hi; }
+      syncControlsFromState();
+    });
+  });
+
+  // Price range number inputs
+  document.getElementById('price-min').addEventListener('input', function () {
+    state.priceMin = this.value === '' ? 0 : Number(this.value);
+    syncControlsFromState();
+  });
+  document.getElementById('price-max').addEventListener('input', function () {
+    state.priceMax = this.value === '' ? 500 : Number(this.value);
+    syncControlsFromState();
+  });
+
+  // Rating quick buttons
+  document.querySelectorAll('#rating-quick .rating-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      const val = parseFloat(this.dataset.minrating);
+      state.minRating = state.minRating === val ? 0 : val;
+      syncControlsFromState();
+    });
+  });
+
+  // Quick chips
+  document.querySelectorAll('.chip[data-chip]').forEach(chip => {
+    chip.addEventListener('click', () => setChip(chip.dataset.chip));
+  });
+
+  // Search (both nav search and big directory search, kept in sync)
+  const navSearch = document.getElementById('nav-search-input');
+  const dirSearch = document.getElementById('dir-search-input');
+  function onSearchInput(e) {
+    state.search = e.target.value.trim();
+    if (e.target === navSearch) dirSearch.value = state.search;
+    else navSearch.value = state.search;
+    render();
+  }
+  navSearch.addEventListener('input', onSearchInput);
+  dirSearch.addEventListener('input', onSearchInput);
+
+  // Sort
+  document.getElementById('sort-select').addEventListener('change', render);
+
+  // Reset
+  document.getElementById('reset-filters-btn').addEventListener('click', function () {
+    state.search = ''; state.categories.clear(); state.pricing.clear();
+    state.priceMin = 0; state.priceMax = 500; state.minRating = 0;
+    state.editorsChoice = false; state.chip = 'all';
+    navSearch.value = ''; dirSearch.value = '';
+    document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.chip === 'all'));
+    syncControlsFromState();
+    showToast('Filters reset');
+  });
+
+  // Clear all (pills row)
+  document.getElementById('clear-all-btn').addEventListener('click', function () {
+    document.getElementById('reset-filters-btn').click();
+  });
+
+  // View toggle (grid/list — cosmetic, both use the same card layout)
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  render();
+})();
 </script>
 </body>
 </html>
