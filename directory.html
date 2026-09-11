@@ -327,6 +327,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
   .nav-primary { display: none; }
   .nav-search { max-width: none; }
   .kbd { display: none; }
+  .dir-search-hint { display: none; }
   .masthead-inner { padding: 12px 18px; gap: 14px; }
   .breadcrumb, .directory-hero, .dir-search, .chip-filters, .dir-main, .newsletter-inline { padding-left: 18px; padding-right: 18px; }
   .dir-main { grid-template-columns: 1fr; }
@@ -350,7 +351,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 <div class="top-strip">
   <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
   <span class="divider">·</span>
-  <span>41 tools reviewed</span>
+  <span id="topstrip-count">41 tools reviewed</span>
   <span class="divider">·</span>
   <span>23 added this week</span>
   <span class="disclosure">ⓘ Affiliate disclosure</span>
@@ -397,7 +398,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
 <!-- HERO -->
 <div class="directory-hero">
   <h1>Every AI tool <em>that matters</em>.</h1>
-  <p class="subtitle"><strong>41 tools reviewed so far</strong> — we're adding more every week. Filter by category, price, or use case. Every tool ranked by our editorial team — no pay-to-play.</p>
+  <p class="subtitle"><strong id="hero-count">41 tools reviewed so far</strong> — we're adding more every week. Filter by category, price, or use case. Every tool ranked by our editorial team — no pay-to-play.</p>
 </div>
 
 <!-- BIG SEARCH -->
@@ -499,7 +500,7 @@ footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top:
     <!-- RESULTS HEADER -->
     <div class="results-header">
       <div class="results-count" id="results-count">
-        Showing <strong id="results-shown">41</strong> of <strong class="lime" id="results-total">41</strong> tools
+        Showing <strong><span id="results-start">1</span>-<span id="results-end">12</span></strong> of <strong class="lime" id="results-total">41</strong> tools
       </div>
       <div class="results-controls">
         <button class="mobile-filter-btn" onclick="document.querySelector('.dir-sidebar').classList.toggle('open')">
@@ -1380,6 +1381,7 @@ function showToast(msg) {
   const cards = Array.from(document.querySelectorAll('.tool-card'));
   const grid = document.querySelector('.tools-grid');
   const TOTAL = cards.length;
+  const PAGE_SIZE = 12;
 
   const state = {
     search: '',
@@ -1389,8 +1391,67 @@ function showToast(msg) {
     priceMax: 500,
     minRating: 0,
     editorsChoice: false,
-    chip: 'all'                 // active quick chip
+    chip: 'all',                // active quick chip
+    page: 1
   };
+
+  // Every count in the sidebar/chips/header is computed from the cards' own
+  // data-* attributes, not typed in by hand — so it can never drift out of
+  // sync the way the original fabricated counts did. Add a tool card with the
+  // right data-* attributes and every number here updates itself.
+  function computeAndApplyCounts() {
+    const counts = { cat: {}, free: 0, paid: 0, pick: 0, trending: 0, new: 0, deal: 0, under20: 0 };
+    cards.forEach(card => {
+      const cat = card.dataset.category;
+      counts.cat[cat] = (counts.cat[cat] || 0) + 1;
+      const free = card.dataset.free === 'true';
+      if (free) counts.free++; else counts.paid++;
+      if (card.dataset.pick === 'true') counts.pick++;
+      if (card.dataset.trending === 'true') counts.trending++;
+      if (card.dataset.new === 'true') counts.new++;
+      if (card.dataset.deal === 'true') counts.deal++;
+      const effective = free ? 0 : parseFloat(card.dataset.price);
+      if (effective <= 20) counts.under20++;
+    });
+
+    document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
+      const n = counts.cat[item.dataset.cat] || 0;
+      const countEl = item.querySelector('.cb-count');
+      const input = item.querySelector('input');
+      if (n === 0) {
+        countEl.textContent = 'Soon';
+        item.classList.add('disabled-cat');
+        input.disabled = true;
+        item.title = 'No tools reviewed in this category yet';
+      } else {
+        countEl.textContent = n;
+        item.classList.remove('disabled-cat');
+        input.disabled = false;
+        item.removeAttribute('title');
+      }
+    });
+
+    document.querySelectorAll('#pricing-list .checkbox-item[data-pricing]').forEach(item => {
+      item.querySelector('.cb-count').textContent = item.dataset.pricing === 'free' ? counts.free : counts.paid;
+    });
+
+    document.querySelectorAll('#features-list .checkbox-item[data-feature]').forEach(item => {
+      item.querySelector('.cb-count').textContent = counts.pick;
+    });
+
+    const chipCountMap = { all: TOTAL, trending: counts.trending, new: counts.new, free: counts.free, deal: counts.deal, pick: counts.pick, under20: counts.under20 };
+    document.querySelectorAll('.chip[data-chip]').forEach(chip => {
+      const el = chip.querySelector('.count');
+      if (el && chip.dataset.chip in chipCountMap) el.textContent = chipCountMap[chip.dataset.chip];
+    });
+
+    const catTotalEl = document.getElementById('category-total');
+    if (catTotalEl) catTotalEl.textContent = TOTAL + ' total';
+    const topstripEl = document.getElementById('topstrip-count');
+    if (topstripEl) topstripEl.textContent = TOTAL + ' tools reviewed';
+    const heroEl = document.getElementById('hero-count');
+    if (heroEl) heroEl.textContent = TOTAL + ' tools reviewed so far';
+  }
 
   const catLabels = {
     writing: 'Writing & Copy', image: 'Image Generation', video: 'Video & Motion',
@@ -1455,6 +1516,49 @@ function showToast(msg) {
     else if (mode === 'alpha') sorted.sort((a, b) => a.dataset.name.localeCompare(b.dataset.name));
     else sorted.sort((a, b) => (b.dataset.pick === 'true') - (a.dataset.pick === 'true') || parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating)); // editor's score default
     sorted.forEach(c => grid.appendChild(c));
+    return sorted;
+  }
+
+  function renderPagination(totalPages) {
+    const container = document.getElementById('pagination');
+    container.innerHTML = '';
+
+    function mkBtn(label, page, opts) {
+      opts = opts || {};
+      const btn = document.createElement('button');
+      btn.className = 'page-btn' + (opts.active ? ' active' : '') + (opts.disabled ? ' disabled' : '');
+      btn.textContent = label;
+      if (!opts.disabled && !opts.active) {
+        btn.addEventListener('click', () => {
+          state.page = page;
+          render();
+          const results = document.querySelector('.dir-results');
+          if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+      return btn;
+    }
+
+    container.appendChild(mkBtn('← Prev', state.page - 1, { disabled: state.page <= 1 }));
+
+    const pages = [1];
+    for (let p = state.page - 1; p <= state.page + 1; p++) if (p > 1 && p < totalPages) pages.push(p);
+    if (totalPages > 1) pages.push(totalPages);
+    const uniquePages = [...new Set(pages)].sort((a, b) => a - b);
+
+    let prev = 0;
+    uniquePages.forEach(p => {
+      if (p - prev > 1) {
+        const dots = document.createElement('span');
+        dots.className = 'page-dots';
+        dots.textContent = '...';
+        container.appendChild(dots);
+      }
+      container.appendChild(mkBtn(String(p), p, { active: p === state.page }));
+      prev = p;
+    });
+
+    container.appendChild(mkBtn('Next →', state.page + 1, { disabled: state.page >= totalPages }));
   }
 
   function renderPills() {
@@ -1486,17 +1590,22 @@ function showToast(msg) {
   }
 
   function render() {
-    let visibleCount = 0;
-    const visibleCards = [];
-    cards.forEach(card => {
-      const match = cardMatches(card);
-      card.style.display = match ? '' : 'none';
-      if (match) { visibleCount++; visibleCards.push(card); }
-    });
-    applySort(visibleCards);
+    const visibleCards = cards.filter(cardMatches);
+    const visibleCount = visibleCards.length;
+    const sortedVisible = applySort(visibleCards);
 
-    document.getElementById('results-shown').textContent = visibleCount;
-    document.getElementById('results-total').textContent = TOTAL;
+    const totalPages = Math.max(1, Math.ceil(visibleCount / PAGE_SIZE));
+    if (state.page > totalPages) state.page = totalPages;
+    if (state.page < 1) state.page = 1;
+    const startIdx = (state.page - 1) * PAGE_SIZE;
+    const endIdx = Math.min(startIdx + PAGE_SIZE, visibleCount);
+    const pageSet = new Set(sortedVisible.slice(startIdx, endIdx));
+
+    cards.forEach(card => { card.style.display = pageSet.has(card) ? '' : 'none'; });
+
+    document.getElementById('results-start').textContent = visibleCount === 0 ? 0 : startIdx + 1;
+    document.getElementById('results-end').textContent = endIdx;
+    document.getElementById('results-total').textContent = visibleCount;
     document.getElementById('dir-search-hint').textContent = state.search ? `${visibleCount} match${visibleCount === 1 ? '' : 'es'}` : `${TOTAL} tools`;
 
     const activeFilterCount = state.categories.size + state.pricing.size + (state.priceMin > 0 || state.priceMax < 500 ? 1 : 0) + (state.minRating > 0 ? 1 : 0) + (state.editorsChoice ? 1 : 0) + (state.chip !== 'all' ? 1 : 0) + (state.search ? 1 : 0);
@@ -1506,16 +1615,19 @@ function showToast(msg) {
     grid.style.display = visibleCount === 0 ? 'none' : 'grid';
     document.getElementById('pagination').style.display = visibleCount === 0 ? 'none' : 'flex';
 
+    renderPagination(totalPages);
     renderPills();
   }
 
   function setChip(name) {
     state.chip = name;
+    state.page = 1;
     document.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c.dataset.chip === name));
     render();
   }
 
   function syncControlsFromState() {
+    state.page = 1;
     // category checkboxes
     document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
       const cb = item.querySelector('input');
@@ -1554,6 +1666,7 @@ function showToast(msg) {
   document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
     item.addEventListener('click', function (e) {
       e.preventDefault();
+      if (this.classList.contains('disabled-cat')) return;
       const cat = this.dataset.cat;
       if (state.categories.has(cat)) state.categories.delete(cat); else state.categories.add(cat);
       syncControlsFromState();
@@ -1621,13 +1734,17 @@ function showToast(msg) {
     state.search = e.target.value.trim();
     if (e.target === navSearch) dirSearch.value = state.search;
     else navSearch.value = state.search;
+    state.page = 1;
     render();
   }
   navSearch.addEventListener('input', onSearchInput);
   dirSearch.addEventListener('input', onSearchInput);
 
   // Sort
-  document.getElementById('sort-select').addEventListener('change', render);
+  document.getElementById('sort-select').addEventListener('change', function () {
+    state.page = 1;
+    render();
+  });
 
   // Reset
   document.getElementById('reset-filters-btn').addEventListener('click', function () {
@@ -1653,6 +1770,7 @@ function showToast(msg) {
     });
   });
 
+  computeAndApplyCounts();
   render();
 })();
 </script>
