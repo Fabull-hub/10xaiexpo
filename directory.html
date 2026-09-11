@@ -1662,32 +1662,36 @@ function showToast(msg) {
     render();
   }
 
-  // Category checkboxes
-  document.querySelectorAll('#category-list .checkbox-item[data-cat]').forEach(item => {
-    item.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (this.classList.contains('disabled-cat')) return;
-      const cat = this.dataset.cat;
-      if (state.categories.has(cat)) state.categories.delete(cat); else state.categories.add(cat);
+  // Category checkboxes — listen for 'change' on the actual <input>, not 'click' on the
+  // wrapping label. A label's click either (a) lands on the input directly, where calling
+  // preventDefault() on 'click' still lets the browser's deferred "revert checkbox state"
+  // step run after our handler and stomp any manual .checked write back to the wrong value,
+  // or (b) lands on the label text, which the browser separately forwards as a synthetic
+  // click to the input — both paths caused the checkbox to visually fail to stay checked.
+  // 'change' sidesteps both: it fires once, after the browser's own toggle is already final.
+  document.querySelectorAll('#category-list .checkbox-item[data-cat] input').forEach(input => {
+    input.addEventListener('change', function () {
+      const item = this.closest('.checkbox-item');
+      const cat = item.dataset.cat;
+      if (this.checked) state.categories.add(cat); else state.categories.delete(cat);
       syncControlsFromState();
     });
   });
 
   // Pricing checkboxes
-  document.querySelectorAll('#pricing-list .checkbox-item[data-pricing]').forEach(item => {
-    item.addEventListener('click', function (e) {
-      e.preventDefault();
-      const p = this.dataset.pricing;
-      if (state.pricing.has(p)) state.pricing.delete(p); else state.pricing.add(p);
+  document.querySelectorAll('#pricing-list .checkbox-item[data-pricing] input').forEach(input => {
+    input.addEventListener('change', function () {
+      const item = this.closest('.checkbox-item');
+      const p = item.dataset.pricing;
+      if (this.checked) state.pricing.add(p); else state.pricing.delete(p);
       syncControlsFromState();
     });
   });
 
   // Special features (Editor's Choice)
-  document.querySelectorAll('#features-list .checkbox-item[data-feature]').forEach(item => {
-    item.addEventListener('click', function (e) {
-      e.preventDefault();
-      state.editorsChoice = !state.editorsChoice;
+  document.querySelectorAll('#features-list .checkbox-item[data-feature] input').forEach(input => {
+    input.addEventListener('change', function () {
+      state.editorsChoice = this.checked;
       syncControlsFromState();
     });
   });
