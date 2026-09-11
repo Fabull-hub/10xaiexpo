@@ -2683,14 +2683,14 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
           </div>
         </div>
       </div>
-      <button class="btn-primary" onclick="showToast('Opening AI assistant...')">Try the assistant →</button>
+      <button class="btn-primary" onclick="showToast('Coming soon — we\'re building this now')">Coming soon →</button>
     </div>
 
     <div class="ai-assistant-right">
       <div class="chat-mock-header">
         <div class="chat-mock-avatar">10</div>
         <h5>10X AI Assistant</h5>
-        <div class="status">Online</div>
+        <div class="status">Preview</div>
       </div>
       <div class="chat-messages">
         <div class="msg msg-user">I run a solo consulting biz. Need AI for proposals, call notes, and LinkedIn. Budget ~$100/mo.</div>
@@ -2717,8 +2717,8 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
         </div>
       </div>
       <div class="chat-input-mock">
-        <input placeholder="Ask about any AI tool..." onkeypress="if(event.key==='Enter') showToast('Analyzing...')">
-        <button onclick="showToast('Analyzing...')">Send</button>
+        <input placeholder="Coming soon..." disabled>
+        <button disabled style="opacity:0.5;cursor:not-allowed;">Send</button>
       </div>
     </div>
   </div>
@@ -2730,12 +2730,12 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     <div class="kicker">The Tuesday Briefing</div>
     <h2>Five new tools. Two exclusive deals.<br><em>One useful idea.</em> Every Tuesday.</h2>
     <p class="lede">A short, opinionated brief on what actually matters in AI this week — read in under 4 minutes.</p>
-    <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Welcome — check your inbox')">
-      <input type="email" placeholder="you@work.com" required>
-      <button type="submit" class="btn-primary">Subscribe →</button>
+    <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Coming soon — check back to sign up')">
+      <input type="email" placeholder="Coming soon..." disabled>
+      <button type="submit" class="btn-primary" style="opacity:0.5;cursor:not-allowed;">Coming soon →</button>
     </form>
     <div class="newsletter-trust">
-      <span>No spam. Unsubscribe anytime.</span>
+      <span>Launching soon. No spam, ever.</span>
     </div>
   </div>
 </section>
@@ -2770,10 +2770,10 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
 </footer>
 
 <!-- FLOATING AI ASSISTANT -->
-<div class="floating-assistant" onclick="showToast('AI Assistant opening...')" title="Ask the 10X AI Assistant">
+<div class="floating-assistant" onclick="showToast('AI Assistant — coming soon')" title="AI Assistant — coming soon">
   <div class="fa-pulse"></div>
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-  <span class="fa-tooltip">Ask about any AI tool →</span>
+  <span class="fa-tooltip">Coming soon →</span>
 </div>
 
 <!-- TOAST -->
