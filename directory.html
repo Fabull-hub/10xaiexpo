@@ -2913,7 +2913,18 @@ function showToast(msg) {
   });
 
   computeAndApplyCounts();
-  render();
+
+  // Pre-filter by category via a `?category=` URL param, e.g. directory.html?category=writing.
+  // Used by the homepage's "Explore by category" tiles and the Category Champions "More" tab
+  // so a click lands directly on the filtered view instead of the unfiltered full list.
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlCategory = urlParams.get('category');
+  if (urlCategory && catLabels[urlCategory]) {
+    state.categories.add(urlCategory);
+    syncControlsFromState();
+  } else {
+    render();
+  }
 })();
 </script>
 </body>

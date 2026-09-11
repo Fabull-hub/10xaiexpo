@@ -608,6 +608,8 @@ section { padding: 16px 28px; max-width: var(--max-w); margin: 0 auto; }
 }
 .tools-tab:hover { color: var(--text); }
 .tools-tab.active { color: var(--lime); border-bottom-color: var(--lime); }
+.tools-tab-more { color: var(--cyan); margin-left: 4px; }
+.tools-tab-more:hover { color: var(--cyan); opacity: 0.75; }
 .tools-tab .tab-count { font-size: 10px; color: var(--text-subtle); font-weight: 600; padding: 1px 6px; background: var(--bg-hover); border-radius: 3px; letter-spacing: 0; }
 .tools-tab.active .tab-count { color: var(--lime); background: var(--lime-subtle); }
 
@@ -1168,50 +1170,6 @@ section { padding: 16px 28px; max-width: var(--max-w); margin: 0 auto; }
 .chat-input-mock button { padding: 9px 14px; background: var(--lime); color: var(--bg); border-radius: 8px; font-weight: 700; font-size: 12.5px; }
 
 /* ============================================
-   COMPARE PROMO
-   ============================================ */
-.compare-promo {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 40px;
-  margin: 48px 28px;
-  max-width: calc(var(--max-w) - 56px);
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-}
-.compare-promo::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; background: radial-gradient(circle, var(--lime-subtle) 0%, transparent 70%); pointer-events: none; }
-.compare-promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
-.compare-promo-left .kicker { font-family: var(--font-mono); font-size: 10px; color: var(--lime); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700; margin-bottom: 12px; }
-.compare-promo-left h2 { font-family: var(--font-editorial); font-size: clamp(26px, 3vw, 36px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 14px; }
-.compare-promo-left h2 em { font-style: italic; color: var(--lime); font-weight: 500; }
-.compare-promo-left p { font-size: 15px; color: var(--text-muted); line-height: 1.55; margin-bottom: 22px; }
-.popular-vs { display: flex; flex-direction: column; gap: 8px; }
-.vs-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); cursor: pointer; transition: all 0.12s; }
-.vs-link:hover { border-color: var(--lime); background: var(--lime-subtle); transform: translateX(3px); }
-.vs-link-tools { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; }
-.vs-link-tools .vs-word { font-family: var(--font-editorial); font-style: italic; color: var(--lime); font-size: 12px; }
-.vs-link .arrow { margin-left: auto; color: var(--text-subtle); transition: transform 0.12s; }
-.vs-link:hover .arrow { transform: translateX(3px); color: var(--lime); }
-
-.compare-mockup { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow-md); }
-.compare-mockup-header { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
-.compare-side { padding: 18px; text-align: center; position: relative; }
-.compare-side.winner { background: var(--lime-subtle); }
-.compare-side.winner::before { content: 'WINNER'; position: absolute; top: 6px; right: 6px; font-family: var(--font-mono); font-size: 8px; color: var(--lime); letter-spacing: 0.1em; font-weight: 700; background: var(--bg); padding: 2px 6px; border-radius: 3px; border: 1px solid var(--lime-tint); }
-.compare-side-logo { width: 40px; height: 40px; border-radius: 9px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-family: var(--font-editorial); font-weight: 700; font-size: 16px; color: #fff; }
-.compare-side h5 { font-family: var(--font-editorial); font-size: 15px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 3px; }
-.compare-side .price { font-family: var(--font-mono); font-size: 11px; color: var(--text-subtle); }
-.compare-rows { padding: 6px 0; }
-.compare-row { display: grid; grid-template-columns: 1fr auto 1fr; padding: 8px 16px; align-items: center; font-size: 12.5px; gap: 10px; }
-.compare-row .feature-name { font-family: var(--font-mono); font-size: 9.5px; color: var(--text-subtle); text-align: center; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
-.compare-cell { text-align: center; color: var(--text-muted); }
-.compare-cell.yes { color: var(--lime); font-weight: 700; }
-.compare-cell.no { color: var(--text-subtle); }
-
-/* ============================================
    NEWSLETTER
    ============================================ */
 .newsletter-section { background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg) 100%); padding: 16px 28px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -1226,9 +1184,6 @@ section { padding: 16px 28px; max-width: var(--max-w); margin: 0 auto; }
 .newsletter-form input::placeholder { color: var(--text-subtle); }
 .newsletter-form .btn-primary { padding: 14px 22px; font-size: 14px; }
 .newsletter-trust { display: flex; align-items: center; justify-content: center; gap: 12px; font-size: 12.5px; color: var(--text-subtle); }
-.newsletter-avatars { display: flex; }
-.newsletter-avatars .avatar-tiny { margin-left: -6px; width: 24px; height: 24px; font-size: 10px; }
-.newsletter-avatars .avatar-tiny:first-child { margin-left: 0; }
 
 /* ============================================
    FOOTER
@@ -1298,7 +1253,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
   .hero-grid { grid-template-columns: 1fr; gap: 32px; }
   .stories-grid { grid-template-columns: 1fr 1fr; }
   .cat-grid-refined { grid-template-columns: repeat(3, 1fr); }
-  .compare-promo-grid, .stack-quiz-wrapper, .ai-assistant-wrapper { grid-template-columns: 1fr; gap: 28px; }
+  .stack-quiz-wrapper, .ai-assistant-wrapper { grid-template-columns: 1fr; gap: 28px; }
   .ai-assistant-wrapper { min-height: auto; }
   .ai-assistant-right { border-left: none; border-top: 1px solid var(--border); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -1323,8 +1278,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
   .hero { padding: 40px 18px 32px; }
   .stories-grid { grid-template-columns: 1fr; }
   .cat-grid-refined { grid-template-columns: 1fr 1fr; }
-  .compare-promo, .stack-quiz-wrapper, .ai-assistant-left, .ai-assistant-right { padding: 28px 20px; }
-  .compare-promo { margin: 40px 18px; }
+  .stack-quiz-wrapper, .ai-assistant-left, .ai-assistant-right { padding: 28px 20px; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .hero-trust { flex-wrap: wrap; gap: 14px; }
@@ -1478,6 +1432,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     <div class="tools-tab" data-view="voice">Voice <span class="tab-count">8</span></div>
     <div class="tools-tab" data-view="code">Code <span class="tab-count">8</span></div>
     <div class="tools-tab" data-view="research">Research <span class="tab-count">8</span></div>
+    <div class="tools-tab tools-tab-more" onclick="window.location='directory.html'">More →</div>
   </div>
 
   <!-- VIEW 1: BEST-IN-CLASS GRID (default) — Each tool wins its own category -->
@@ -2646,11 +2601,11 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
         <li>Exclusive member discount codes included</li>
       </ul>
       <div class="stack-quiz-cta">
-        <button class="btn-primary" onclick="showToast('Starting quiz...')">Start the quiz →</button>
+        <button class="btn-primary" onclick="window.location='start.html'">Start the quiz →</button>
         <span class="time">Takes 60 seconds</span>
       </div>
     </div>
-    <div class="stack-quiz-right">
+    <div class="stack-quiz-right" onclick="window.location='start.html'" style="cursor:pointer;">
       <div class="quiz-progress">
         <div class="quiz-dot active"></div>
         <div class="quiz-dot"></div>
@@ -2659,62 +2614,16 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
       <div class="quiz-q-num">Question 1 of 3</div>
       <div class="quiz-q">What's your primary use case?</div>
       <div class="quiz-options">
-        <div class="quiz-opt" onclick="showToast('Content selected')"><span class="opt-icon">✍</span>Content & writing</div>
-        <div class="quiz-opt" onclick="showToast('Design selected')"><span class="opt-icon">◐</span>Design & visuals</div>
-        <div class="quiz-opt" onclick="showToast('Code selected')"><span class="opt-icon">&lt;/&gt;</span>Code & development</div>
-        <div class="quiz-opt" onclick="showToast('Data selected')"><span class="opt-icon">◊</span>Data & analytics</div>
-        <div class="quiz-opt" onclick="showToast('Video selected')"><span class="opt-icon">▶</span>Video & audio</div>
-        <div class="quiz-opt" onclick="showToast('Sales selected')"><span class="opt-icon">◈</span>Sales & CRM</div>
+        <div class="quiz-opt"><span class="opt-icon">✍</span>Content & writing</div>
+        <div class="quiz-opt"><span class="opt-icon">◐</span>Design & visuals</div>
+        <div class="quiz-opt"><span class="opt-icon">&lt;/&gt;</span>Code & development</div>
+        <div class="quiz-opt"><span class="opt-icon">◊</span>Data & analytics</div>
+        <div class="quiz-opt"><span class="opt-icon">▶</span>Video & audio</div>
+        <div class="quiz-opt"><span class="opt-icon">◈</span>Sales & CRM</div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- COMPARE PROMO -->
-<div class="compare-promo">
-  <div class="compare-promo-grid">
-    <div class="compare-promo-left">
-      <div class="kicker">Head-to-Head Reviews</div>
-      <h2>Two AI tools enter.<br><em>One recommendation</em> leaves.</h2>
-      <p>Popular AI tools through the same real-world tasks, side-by-side. No sponsored winners. Just what actually performs when you need it to.</p>
-      <div class="popular-vs">
-        <div class="vs-link">
-          <div class="vs-link-tools"><span>Jasper AI</span><span class="vs-word">vs</span><span>Copy.ai</span></div>
-          <span class="arrow">→</span>
-        </div>
-        <div class="vs-link">
-          <div class="vs-link-tools"><span>ChatGPT</span><span class="vs-word">vs</span><span>Claude</span></div>
-          <span class="arrow">→</span>
-        </div>
-        <div class="vs-link">
-          <div class="vs-link-tools"><span>Midjourney</span><span class="vs-word">vs</span><span>DALL-E</span></div>
-          <span class="arrow">→</span>
-        </div>
-      </div>
-    </div>
-    <div class="compare-mockup">
-      <div class="compare-mockup-header">
-        <div class="compare-side winner">
-          <div class="compare-side-logo brand-jasper">J</div>
-          <h5>Jasper AI</h5>
-          <div class="price">$39/mo</div>
-        </div>
-        <div class="compare-side">
-          <div class="compare-side-logo" style="background:linear-gradient(135deg,#333,#111)">C</div>
-          <h5>Copy.ai</h5>
-          <div class="price">$36/mo</div>
-        </div>
-      </div>
-      <div class="compare-rows">
-        <div class="compare-row"><div class="compare-cell yes">✓ Advanced</div><div class="feature-name">Brand voice</div><div class="compare-cell no">Basic</div></div>
-        <div class="compare-row"><div class="compare-cell yes">100+</div><div class="feature-name">Templates</div><div class="compare-cell">90+</div></div>
-        <div class="compare-row"><div class="compare-cell">7-day trial</div><div class="feature-name">Free plan</div><div class="compare-cell yes">✓ Free</div></div>
-        <div class="compare-row"><div class="compare-cell yes">✓</div><div class="feature-name">SEO mode</div><div class="compare-cell no">✗</div></div>
-        <div class="compare-row"><div class="compare-cell yes">✓ Yes</div><div class="feature-name">API access</div><div class="compare-cell no">✗</div></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- CATEGORIES - 12 boxes -->
 <section class="categories-section">
@@ -2726,18 +2635,18 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     <div class="section-see-all" id="all-categories-link">All 12 categories →</div>
   </div>
   <div class="cat-grid-refined">
-    <div class="cat-tile cat-c1" data-cat="writing"><div class="cat-tile-icon">✍</div><h4>Writing & Copy</h4><p>AI writers, editors, content platforms</p><div class="cat-tile-count">10 tools</div></div>
-    <div class="cat-tile cat-c2" data-cat="image"><div class="cat-tile-icon">◐</div><h4>Image Generation</h4><p>Midjourney, Adobe Firefly, image editors</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c3" data-cat="video"><div class="cat-tile-icon">▶</div><h4>Video & Motion</h4><p>Generate, edit, subtitle, enhance</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c4" data-cat="voice"><div class="cat-tile-icon">♪</div><h4>Voice & Audio</h4><p>Cloning, TTS, transcription, music</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c5" data-cat="code"><div class="cat-tile-icon">&lt;/&gt;</div><h4>Code & Dev</h4><p>Copilots, code review, agents</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c6" data-cat="agents"><div class="cat-tile-icon">◈</div><h4>Autonomous Agents</h4><p>AI that takes real action for you</p><div class="cat-tile-count">9 tools</div></div>
-    <div class="cat-tile cat-c1" data-cat="marketing"><div class="cat-tile-icon">◊</div><h4>Marketing & SEO</h4><p>Content, keywords, ads, analytics</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c2" data-cat="business"><div class="cat-tile-icon">⌂</div><h4>Business & Ops</h4><p>CRM, meetings, docs, automation</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c3" data-cat="data"><div class="cat-tile-icon">◎</div><h4>Data & Analytics</h4><p>Insights, dashboards, BI tools</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c4" data-cat="sales"><div class="cat-tile-icon">⚑</div><h4>Sales & CRM</h4><p>Outreach, pipelines, closing</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c5" data-cat="productivity"><div class="cat-tile-icon">⌘</div><h4>Productivity</h4><p>Notion, tasks, automation</p><div class="cat-tile-count">9 tools</div></div>
-    <div class="cat-tile cat-c6" data-cat="research"><div class="cat-tile-icon">⌕</div><h4>Research & Search</h4><p>Perplexity, Consensus, Elicit</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c1" data-cat="writing" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">✍</div><h4>Writing & Copy</h4><p>AI writers, editors, content platforms</p><div class="cat-tile-count">10 tools</div></div>
+    <div class="cat-tile cat-c2" data-cat="image" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">◐</div><h4>Image Generation</h4><p>Midjourney, Adobe Firefly, image editors</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c3" data-cat="video" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">▶</div><h4>Video & Motion</h4><p>Generate, edit, subtitle, enhance</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c4" data-cat="voice" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">♪</div><h4>Voice & Audio</h4><p>Cloning, TTS, transcription, music</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c5" data-cat="code" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">&lt;/&gt;</div><h4>Code & Dev</h4><p>Copilots, code review, agents</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c6" data-cat="agents" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">◈</div><h4>Autonomous Agents</h4><p>AI that takes real action for you</p><div class="cat-tile-count">9 tools</div></div>
+    <div class="cat-tile cat-c1" data-cat="marketing" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">◊</div><h4>Marketing & SEO</h4><p>Content, keywords, ads, analytics</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c2" data-cat="business" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">⌂</div><h4>Business & Ops</h4><p>CRM, meetings, docs, automation</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c3" data-cat="data" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">◎</div><h4>Data & Analytics</h4><p>Insights, dashboards, BI tools</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c4" data-cat="sales" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">⚑</div><h4>Sales & CRM</h4><p>Outreach, pipelines, closing</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c5" data-cat="productivity" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">⌘</div><h4>Productivity</h4><p>Notion, tasks, automation</p><div class="cat-tile-count">9 tools</div></div>
+    <div class="cat-tile cat-c6" data-cat="research" onclick="window.location='directory.html?category='+this.dataset.cat"><div class="cat-tile-icon">⌕</div><h4>Research & Search</h4><p>Perplexity, Consensus, Elicit</p><div class="cat-tile-count">8 tools</div></div>
   </div>
 </section>
 
@@ -2826,14 +2735,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
       <button type="submit" class="btn-primary">Subscribe →</button>
     </form>
     <div class="newsletter-trust">
-      <div class="newsletter-avatars">
-        <div class="avatar-tiny">M</div>
-        <div class="avatar-tiny">J</div>
-        <div class="avatar-tiny">A</div>
-        <div class="avatar-tiny">T</div>
-        <div class="avatar-tiny">+</div>
-      </div>
-      <span>Join 48,200+ AI professionals · No spam</span>
+      <span>No spam. Unsubscribe anytime.</span>
     </div>
   </div>
 </section>
