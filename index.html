@@ -799,6 +799,49 @@ section { padding: 16px 28px; max-width: var(--max-w); margin: 0 auto; }
 .brand-copyai { background: linear-gradient(135deg, #333333 0%, #111111 100%); }
 .brand-cursor { background: linear-gradient(135deg, #2A2B32 0%, #16171B 100%); }
 .brand-midjourney { background: linear-gradient(135deg, #A88BC7 0%, #7B5FA0 100%); }
+.brand-kreaai { background: linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%); }
+.brand-ideogram { background: linear-gradient(135deg, #4C1D95 0%, #1E1B4B 100%); }
+.brand-recraft { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%); }
+.brand-adobefirefly { background: linear-gradient(135deg, #FA0F00 0%, #CB0A00 100%); }
+.brand-opusclip { background: linear-gradient(135deg, #FF5C39 0%, #D6431F 100%); }
+.brand-synthesia { background: linear-gradient(135deg, #3559E8 0%, #1E3FB8 100%); }
+.brand-heygen { background: linear-gradient(135deg, #FB923C 0%, #EA580C 100%); }
+.brand-runway { background: linear-gradient(135deg, #16C79A 0%, #0F8E6E 100%); }
+.brand-speechify { background: linear-gradient(135deg, #FF5A1F 0%, #CC4419 100%); }
+.brand-krisp { background: linear-gradient(135deg, #7B61FF 0%, #5A3EE0 100%); }
+.brand-suno { background: linear-gradient(135deg, #FFB84E 0%, #E89A2A 100%); }
+.brand-wellsaidlabs { background: linear-gradient(135deg, #6C5CE7 0%, #4834B5 100%); }
+.brand-copilot { background: linear-gradient(135deg, #24292E 0%, #0D1117 100%); }
+.brand-windsurf { background: linear-gradient(135deg, #00B4A6 0%, #00877D 100%); }
+.brand-warp { background: linear-gradient(135deg, #01A4FF 0%, #0166CC 100%); }
+.brand-boltnew { background: linear-gradient(135deg, #1389FD 0%, #0A5FC7 100%); }
+.brand-notebooklm { background: linear-gradient(135deg, #4285F4 0%, #34A853 100%); }
+.brand-elicit { background: linear-gradient(135deg, #2D6A4F 0%, #1B4332 100%); }
+.brand-consensus { background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); }
+.brand-chatpdf { background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%); }
+.tool-editorial-image.bg-midjourney::before { background: #A88BC7; }
+.tool-editorial-image.bg-kreaai::before { background: #8B5CF6; }
+.tool-editorial-image.bg-ideogram::before { background: #4C1D95; }
+.tool-editorial-image.bg-recraft::before { background: #1A1A2E; }
+.tool-editorial-image.bg-adobefirefly::before { background: #FA0F00; }
+.tool-editorial-image.bg-descript::before { background: #7B61FF; }
+.tool-editorial-image.bg-opusclip::before { background: #FF5C39; }
+.tool-editorial-image.bg-synthesia::before { background: #3559E8; }
+.tool-editorial-image.bg-heygen::before { background: #FB923C; }
+.tool-editorial-image.bg-runway::before { background: #16C79A; }
+.tool-editorial-image.bg-speechify::before { background: #FF5A1F; }
+.tool-editorial-image.bg-krisp::before { background: #7B61FF; }
+.tool-editorial-image.bg-suno::before { background: #FFB84E; }
+.tool-editorial-image.bg-wellsaidlabs::before { background: #6C5CE7; }
+.tool-editorial-image.bg-cursor::before { background: #2A2B32; }
+.tool-editorial-image.bg-copilot::before { background: #24292E; }
+.tool-editorial-image.bg-windsurf::before { background: #00B4A6; }
+.tool-editorial-image.bg-warp::before { background: #01A4FF; }
+.tool-editorial-image.bg-boltnew::before { background: #1389FD; }
+.tool-editorial-image.bg-notebooklm::before { background: #4285F4; }
+.tool-editorial-image.bg-elicit::before { background: #2D6A4F; }
+.tool-editorial-image.bg-consensus::before { background: #3B82F6; }
+.tool-editorial-image.bg-chatpdf::before { background: #EF4444; }
 
 .tool-editorial-image::before {
   content: '';
@@ -1761,40 +1804,830 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     </div>
   </div>
 
-  <!-- Category placeholder views for tabs we haven't fully built out -->
   <div class="tools-view" data-view="images">
-    <div class="category-placeholder">
-      <h4>Image Generation Rankings</h4>
-      <p>Full ranked leaderboard for 8 image AI tools, coming to this page shortly. Midjourney, Adobe Firefly, Recraft, Krea AI, and more.</p>
-      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">◐</div>
+        <div>
+          <h3>Top Image Generation AI Tools</h3>
+          <div class="sub">8 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Sep 11, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-midjourney">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-midjourney">M</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Most aesthetically distinctive</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Midjourney</h3>
+          <p class="tagline">The most aesthetically distinctive AI image generator on the market.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.8</span>
+            <span>·</span><span>9.4K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$10<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('midjourney')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-kreaai">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-kreaai">K</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for live editing</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Krea AI</h3>
+          <p class="tagline">Real-time AI image and video generation with live canvas editing.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>3.4K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$9<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('kreaai')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-ideogram">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-ideogram">I</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for text-in-image</span>
+          </div>
+          <h3>Ideogram</h3>
+          <p class="tagline">Known for accurately rendering readable text and typography inside the image itself.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>2.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('ideogram')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-recraft">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-recraft">R</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for brand assets</span>
+          </div>
+          <h3>Recraft</h3>
+          <p class="tagline">Built for brand-consistent vector art, icons, and mockups.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>2.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$12<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('recraft')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-adobefirefly">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-adobefirefly">A</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best Creative Cloud fit</span>
+          </div>
+          <h3>Adobe Firefly</h3>
+          <p class="tagline">Adobe's generative AI for images, vectors, and effects — deeply integrated with Creative Cloud.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.5</span>
+            <span>·</span><span>9.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$9.99<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('adobefirefly')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="btn-outline" onclick="window.location='directory.html'">View all 8 in Image Generation →</button>
     </div>
   </div>
   <div class="tools-view" data-view="video">
-    <div class="category-placeholder">
-      <h4>Video Generation Rankings</h4>
-      <p>Full ranked leaderboard for 8 video AI tools coming soon — Runway, Descript, Synthesia, Pika, HeyGen and more.</p>
-      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">▶</div>
+        <div>
+          <h3>Top Video & Motion AI Tools</h3>
+          <div class="sub">8 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Sep 11, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-descript">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-descript">D</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best editing workflow</span>
+            <span class="tool-label deal">Active deal</span>
+          </div>
+          <h3>Descript</h3>
+          <p class="tagline">Edit video and podcasts by editing text — a genuinely novel workflow.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.7</span>
+            <span>·</span><span>1.6K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$15<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('descript')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-opusclip">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-opusclip">O</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for social clips</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>OpusClip</h3>
+          <p class="tagline">Turns long-form video into short, viral-ready social clips automatically.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>5.1K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$15<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('opusclip')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-synthesia">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-synthesia">S</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best AI avatars</span>
+            <span class="tool-label">Trending</span>
+          </div>
+          <h3>Synthesia</h3>
+          <p class="tagline">AI avatar video generator for training, marketing, and explainer videos — no camera needed.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>4.7K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$29<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('synthesia')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-heygen">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-heygen">H</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best voice cloning + avatars</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>HeyGen</h3>
+          <p class="tagline">Talking-avatar videos with voice cloning and instant translation.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>4.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$29<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('heygen')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-runway">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-runway">R</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best cinema-grade output</span>
+            <span class="tool-label">Trending</span>
+          </div>
+          <h3>Runway ML</h3>
+          <p class="tagline">Cinema-grade AI video generation, backed by a $7B valuation.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>2.9K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$15<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('runwayml')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="btn-outline" onclick="window.location='directory.html'">View all 8 in Video & Motion →</button>
     </div>
   </div>
   <div class="tools-view" data-view="voice">
-    <div class="category-placeholder">
-      <h4>Voice &amp; Audio Rankings</h4>
-      <p>Full ranked leaderboard for 8 voice AI tools coming soon — ElevenLabs, Suno AI, Murf AI, Speechify and more.</p>
-      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">♪</div>
+        <div>
+          <h3>Top Voice & Audio AI Tools</h3>
+          <div class="sub">8 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Sep 11, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card editors-choice">
+        <div class="tool-editorial-image bg-elevenlabs">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-elevenlabs">11</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Gold standard for realism</span>
+          </div>
+          <h3>ElevenLabs</h3>
+          <p class="tagline">The gold standard for realistic AI voice — indistinguishable from human.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.9</span>
+            <span>·</span><span>1.8K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$5<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('elevenlabs')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-speechify">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-speechify">S</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for reading aloud</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Speechify</h3>
+          <p class="tagline">Reads documents, PDFs, and articles aloud in natural voices.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>8.9K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$29<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('speechify')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-krisp">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-krisp">K</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for calls</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Krisp</h3>
+          <p class="tagline">AI noise cancellation and meeting transcription for cleaner calls.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>4.3K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$16<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('krisp')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-suno">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-suno">S</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Best for music generation</span>
+          </div>
+          <h3>Suno AI</h3>
+          <p class="tagline">Generate full songs with vocals and instruments from text prompts.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>3.7K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$8<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('sunoai')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-wellsaidlabs">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-wellsaidlabs">W</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best studio-quality TTS</span>
+          </div>
+          <h3>WellSaid Labs</h3>
+          <p class="tagline">Studio-quality AI text-to-speech voices for enterprise content and media.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.5</span>
+            <span>·</span><span>1.4K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$19<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('wellsaidlabs')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="btn-outline" onclick="window.location='directory.html'">View all 8 in Voice & Audio →</button>
     </div>
   </div>
   <div class="tools-view" data-view="code">
-    <div class="category-placeholder">
-      <h4>Code &amp; Dev Tool Rankings</h4>
-      <p>Full ranked leaderboard for 8 code AI tools coming soon — Cursor, GitHub Copilot, Windsurf, Bolt.new and more.</p>
-      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">&lt;/&gt;</div>
+        <div>
+          <h3>Top Code & Dev AI Tools</h3>
+          <div class="sub">8 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Sep 11, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card editors-choice">
+        <div class="tool-editorial-image bg-cursor">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-cursor">⟩</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Best AI-first editor</span>
+          </div>
+          <h3>Cursor</h3>
+          <p class="tagline">Multi-repo context and background agents in v2.0.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.9</span>
+            <span>·</span><span>6.3K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('cursor')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-copilot">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-copilot">⌥</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Best IDE integration</span>
+          </div>
+          <h3>GitHub Copilot</h3>
+          <p class="tagline">Code completion, chat, code review, and coding agents built into your IDE and GitHub.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.7</span>
+            <span>·</span><span>15K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$10<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('githubcopilot')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-windsurf">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-windsurf">W</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Best flow-state coding</span>
+          </div>
+          <h3>Windsurf</h3>
+          <p class="tagline">Agentic AI coding assistant (formerly Codeium) built for fast, flow-state development.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>5.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$15<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('windsurf')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-warp">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-warp">W</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best AI terminal</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Warp</h3>
+          <p class="tagline">Turns natural language into commands and debugs errors.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>3.3K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('warp')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-boltnew">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-boltnew">B</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best prompt-to-app</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Bolt.new</h3>
+          <p class="tagline">Generates and deploys a working full-stack app in the browser.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.5</span>
+            <span>·</span><span>4.6K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$25<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('boltnew')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="btn-outline" onclick="window.location='directory.html'">View all 8 in Code & Dev →</button>
     </div>
   </div>
   <div class="tools-view" data-view="research">
-    <div class="category-placeholder">
-      <h4>Research AI Rankings</h4>
-      <p>Full ranked leaderboard for 8 research AI tools coming soon — Perplexity, Consensus, Elicit and more.</p>
-      <button class="btn-outline" onclick="window.location='directory.html'">View full directory →</button>
+    <div class="category-lead-header">
+      <div class="cat-lead-title">
+        <div class="icon-bubble">⌕</div>
+        <div>
+          <h3>Top Research & Search AI Tools</h3>
+          <div class="sub">8 tools tested · Ranked by our editorial team</div>
+        </div>
+      </div>
+      <div class="cat-lead-meta">Updated <strong>Sep 11, 2026</strong></div>
+    </div>
+    <div class="tools-list">
+      <div class="tool-editorial-card editors-choice">
+        <div class="tool-editorial-image bg-perplexity">
+          <div class="tool-rank-num">1</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-perplexity">P</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label editors">★ Editor's Choice</span>
+            <span class="tool-label">Best real-time search</span>
+          </div>
+          <h3>Perplexity Pro</h3>
+          <p class="tagline">AI search with real-time sources. Replaces Google for research-heavy work.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★★</span> 4.8</span>
+            <span>·</span><span>4.2K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('perplexitypro')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-notebooklm">
+          <div class="tool-rank-num">2</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-notebooklm">N</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best document Q&A</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Gemini Notebook</h3>
+          <p class="tagline">Google's AI research notebook (formerly NotebookLM) — sourced Q&A and audio/video overviews from your own documents.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>2.9K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$5<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('gemininotebook')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-elicit">
+          <div class="tool-rank-num">3</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-elicit">E</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best literature search</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Elicit</h3>
+          <p class="tagline">Searches, summarizes, and synthesizes findings across 125M+ papers.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.6</span>
+            <span>·</span><span>1.9K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$49<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('elicit')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-consensus">
+          <div class="tool-rank-num">4</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-consensus">C</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best evidence-based answers</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>Consensus</h3>
+          <p class="tagline">Answers questions using evidence pulled directly from scientific papers.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.5</span>
+            <span>·</span><span>1.6K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$20<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('consensus')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-editorial-card">
+        <div class="tool-editorial-image bg-chatpdf">
+          <div class="tool-rank-num">5</div>
+          <div class="tool-rank-change same" title="New entry"></div>
+          <div class="tool-brand-logo brand-chatpdf">C</div>
+        </div>
+        <div class="tool-editorial-body">
+          <div class="tool-labels">
+            <span class="tool-label">Best for a single PDF</span>
+            <span class="tool-label free">Free tier</span>
+          </div>
+          <h3>ChatPDF</h3>
+          <p class="tagline">Chat with any PDF — ask questions and get instant, cited answers.</p>
+          <div class="tool-editorial-meta">
+            <span class="rating"><span class="stars">★★★★☆</span> 4.4</span>
+            <span>·</span><span>5.8K reviews</span>
+          </div>
+        </div>
+        <div class="tool-editorial-cta">
+          <div class="tool-cta-price">
+            <div class="from">Starting at</div>
+            <div class="amount">$14.99<span class="per">/mo</span></div>
+          </div>
+          <div class="tool-cta-actions">
+            <button class="btn-primary" onclick="trackClick('chatpdf')">Try free →</button>
+            <div class="tool-cta-review">Read review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:8px;">
+      <button class="btn-outline" onclick="window.location='directory.html'">View all 8 in Research & Search →</button>
     </div>
   </div>
 
