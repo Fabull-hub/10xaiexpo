@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Tool Market Dashboard — 10X AI Expo</title>
+<meta name="description" content="Live stats on the 10X AI Expo tool directory — category breakdown, pricing distribution, top-rated tools, and trends. Synced automatically from the directory, never hand-updated.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM v4 — ELECTRIC INK (shared)
+   ============================================ */
+:root {
+  --bg: #0A0A0B; --bg-elevated: #111114; --bg-card: #16171B; --bg-hover: #1C1D22;
+  --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.10); --border-hover: rgba(255,255,255,0.18);
+  --text: #FAFAF7; --text-muted: #9A9A95; --text-subtle: #5F5F5A; --text-inverse: #0A0A0B;
+  --lime: #B4FF3A; --lime-hover: #C4FF5A; --lime-subtle: rgba(180,255,58,0.08); --lime-tint: rgba(180,255,58,0.14); --lime-glow: rgba(180,255,58,0.25);
+  --cyan: #3ABDFF; --cyan-subtle: rgba(58,189,255,0.10); --cyan-tint: rgba(58,189,255,0.16);
+  --pink: #FF6B9D; --pink-subtle: rgba(255,107,157,0.10);
+  --amber: #FFB800; --amber-subtle: rgba(255,184,0,0.10); --amber-tint: rgba(255,184,0,0.16);
+  --success: #7EFFB8; --success-subtle: rgba(126,255,184,0.10);
+  --urgent: #FF5C6E; --urgent-subtle: rgba(255,92,110,0.10);
+  --violet: #A88BFF; --violet-subtle: rgba(168,139,255,0.10);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.3); --shadow-lg: 0 20px 50px rgba(0,0,0,0.45); --shadow-glow: 0 0 32px var(--lime-glow);
+  --r-sm: 6px; --r-md: 10px; --r-lg: 16px; --r-xl: 24px;
+  --font-editorial: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --max-w: 1400px;
+}
+:root[data-theme="light"] {
+  --bg: #FAFAF7; --bg-elevated: #FFFFFF; --bg-card: #FFFFFF; --bg-hover: #F0F0EA;
+  --border: rgba(0,0,0,0.06); --border-strong: rgba(0,0,0,0.10); --border-hover: rgba(0,0,0,0.18);
+  --text: #0A0A0B; --text-muted: #4A4A45; --text-subtle: #8A8A85; --text-inverse: #FAFAF7;
+  --lime: #6BAA00; --lime-hover: #7CB800; --lime-subtle: rgba(107,170,0,0.08); --lime-tint: rgba(107,170,0,0.14); --lime-glow: rgba(107,170,0,0.20);
+  --cyan: #0284C7; --cyan-subtle: rgba(2,132,199,0.08); --cyan-tint: rgba(2,132,199,0.14);
+  --pink: #D63A6E; --pink-subtle: rgba(214,58,110,0.08);
+  --amber: #B8890C; --amber-subtle: rgba(184,137,12,0.08); --amber-tint: rgba(184,137,12,0.14);
+  --success: #16A34A; --success-subtle: rgba(22,163,74,0.08);
+  --urgent: #DC2626; --urgent-subtle: rgba(220,38,38,0.08);
+  --violet: #7458A0; --violet-subtle: rgba(116,88,160,0.08);
+  --shadow-md: 0 6px 20px rgba(0,0,0,0.08); --shadow-lg: 0 20px 50px rgba(0,0,0,0.12);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 15px; line-height: 1.6; overflow-x: hidden; transition: background 0.15s, color 0.15s; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; color: inherit; }
+::selection { background: var(--lime); color: var(--text-inverse); }
+
+/* NAV (shared) */
+.top-strip { background: var(--bg-elevated); border-bottom: 1px solid var(--border); padding: 8px 20px; font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); display: flex; align-items: center; gap: 16px; overflow: hidden; white-space: nowrap; }
+.live-indicator { display: inline-flex; align-items: center; gap: 6px; color: var(--text); font-weight: 500; }
+.live-dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+@keyframes livePulse { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--lime-glow); } 50% { opacity: 0.85; box-shadow: 0 0 0 6px transparent; } }
+.top-strip .divider { color: var(--text-subtle); }
+.top-strip .disclosure { margin-left: auto; color: var(--text-subtle); }
+
+.masthead { background: var(--bg-elevated); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.masthead-inner { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px; display: flex; align-items: center; gap: 28px; }
+.logo-lockup { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.logo-mark { width: 30px; height: 30px; background: var(--lime); color: var(--text-inverse); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; font-family: var(--font-mono); }
+.logo-wordmark { font-family: var(--font-editorial); font-weight: 700; font-size: 19px; letter-spacing: -0.02em; }
+.logo-wordmark em { font-style: normal; color: var(--lime); }
+.nav-primary { display: flex; gap: 4px; flex: 1; }
+.nav-link { padding: 8px 14px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 500; color: var(--text-muted); cursor: pointer; transition: all 0.15s; position: relative; }
+.nav-link:hover { color: var(--text); background: var(--bg-hover); }
+.nav-link.active { color: var(--text); font-weight: 600; }
+.nav-link.hot::after { content: ''; position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; background: var(--pink); border-radius: 50%; }
+.nav-search { display: flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border-strong); border-radius: var(--r-md); padding: 8px 12px; max-width: 320px; flex: 1; }
+.nav-search input { flex: 1; background: none; border: none; outline: none; color: var(--text); font-size: 13px; }
+.nav-search-icon { color: var(--text-subtle); font-size: 14px; }
+.kbd { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-subtle); background: var(--bg-hover); padding: 2px 6px; border-radius: 4px; }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.theme-toggle { width: 34px; height: 34px; border-radius: 50%; background: var(--bg-hover); display: flex; align-items: center; justify-content: center; color: var(--text); }
+.theme-toggle .sun { display: none; } :root[data-theme="light"] .theme-toggle .sun { display: block; } :root[data-theme="light"] .theme-toggle .moon { display: none; }
+.btn-outline { padding: 9px 16px; border: 1px solid var(--border-strong); border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; color: var(--text); }
+.btn-outline:hover { border-color: var(--border-hover); background: var(--bg-hover); }
+.btn-primary { padding: 9px 16px; background: var(--lime); color: var(--text-inverse); border-radius: var(--r-md); font-size: 13.5px; font-weight: 700; }
+.btn-primary:hover { background: var(--lime-hover); }
+
+.breadcrumb { max-width: var(--max-w); margin: 0 auto; padding: 14px 28px 0; font-size: 12.5px; color: var(--text-subtle); display: flex; align-items: center; gap: 8px; }
+.breadcrumb a { cursor: pointer; } .breadcrumb a:hover { color: var(--lime); }
+.breadcrumb .current { color: var(--text); font-weight: 600; }
+
+/* HERO */
+.dash-hero { max-width: var(--max-w); margin: 0 auto; padding: 22px 28px 6px; }
+.dash-hero h1 { font-family: var(--font-editorial); font-size: clamp(30px, 4vw, 44px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+.dash-hero h1 em { font-style: italic; color: var(--lime); }
+.dash-hero .subtitle { margin-top: 10px; font-size: 15px; color: var(--text-muted); max-width: 680px; }
+.sync-badge { display: inline-flex; align-items: center; gap: 7px; margin-top: 14px; padding: 7px 12px; background: var(--lime-subtle); border: 1px solid var(--lime-tint); border-radius: 100px; font-family: var(--font-mono); font-size: 12px; color: var(--text); }
+.sync-badge .dot { width: 6px; height: 6px; background: var(--lime); border-radius: 50%; animation: livePulse 2s ease-in-out infinite; }
+.sync-badge.error { background: var(--urgent-subtle); border-color: var(--urgent); }
+.sync-badge.error .dot { background: var(--urgent); animation: none; }
+
+.dash-wrap { max-width: var(--max-w); margin: 0 auto; padding: 24px 28px 60px; }
+
+/* STAT CARDS */
+.stat-row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-bottom: 28px; }
+.stat-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 16px; }
+.stat-card .label { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-subtle); font-weight: 600; }
+.stat-card .value { font-family: var(--font-editorial); font-size: 30px; font-weight: 700; margin-top: 6px; }
+.stat-card .value.cyan { color: var(--cyan); } .stat-card .value.pink { color: var(--pink); } .stat-card .value.amber { color: var(--amber); } .stat-card .value.lime { color: var(--lime); }
+.stat-card .sub { font-size: 11.5px; color: var(--text-subtle); margin-top: 4px; }
+
+/* SECTIONS */
+.dash-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-bottom: 16px; }
+.panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-lg); padding: 20px; }
+.panel h2 { font-family: var(--font-editorial); font-size: 19px; font-weight: 600; margin-bottom: 3px; }
+.panel .panel-sub { font-size: 12.5px; color: var(--text-subtle); margin-bottom: 16px; }
+
+/* CATEGORY BARS */
+.bar-row { display: grid; grid-template-columns: 172px 1fr 70px; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 13px; }
+.bar-row .bar-label { font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bar-track { background: var(--bg-hover); border-radius: 100px; height: 20px; position: relative; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--cyan), var(--lime)); display: flex; align-items: center; transition: width 0.8s cubic-bezier(0.16,1,0.3,1); }
+.bar-fill .bar-count { color: var(--text-inverse); font-size: 11px; font-weight: 700; padding-left: 8px; font-family: var(--font-mono); }
+.bar-row .bar-price { text-align: right; color: var(--text-subtle); font-family: var(--font-mono); font-size: 12px; }
+
+/* PRICE DISTRIBUTION */
+.price-dist { display: flex; align-items: flex-end; gap: 10px; height: 160px; margin-bottom: 12px; }
+.price-dist-col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+.price-dist-bar { width: 100%; border-radius: 8px 8px 3px 3px; background: linear-gradient(180deg, var(--violet), var(--pink)); transition: height 0.8s cubic-bezier(0.16,1,0.3,1); position: relative; min-height: 3px; }
+.price-dist-count { font-family: var(--font-mono); font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+.price-dist-label { font-size: 11px; color: var(--text-subtle); margin-top: 8px; text-align: center; }
+
+/* FREE VS PAID STACKED BAR */
+.split-bar { display: flex; height: 34px; border-radius: 100px; overflow: hidden; margin-bottom: 12px; border: 1px solid var(--border-strong); }
+.split-seg { display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 700; color: var(--text-inverse); transition: width 0.8s cubic-bezier(0.16,1,0.3,1); }
+.split-seg.free { background: var(--lime); }
+.split-seg.paid { background: var(--violet); }
+.split-legend { display: flex; gap: 18px; font-size: 12.5px; color: var(--text-muted); }
+.split-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.split-legend .sw { width: 9px; height: 9px; border-radius: 3px; }
+.split-legend .sw.free { background: var(--lime); } .split-legend .sw.paid { background: var(--violet); }
+
+/* LEADERBOARD TABLES */
+.lb-table { width: 100%; border-collapse: collapse; }
+.lb-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-subtle); font-weight: 600; padding: 0 8px 10px; border-bottom: 1px solid var(--border); }
+.lb-table th.num, .lb-table td.num { text-align: right; }
+.lb-table td { padding: 10px 8px; border-bottom: 1px solid var(--border); font-size: 13.5px; }
+.lb-table tr:last-child td { border-bottom: none; }
+.lb-rank { font-family: var(--font-mono); color: var(--text-subtle); font-size: 12px; width: 22px; }
+.lb-name { font-weight: 600; }
+.lb-cat { font-size: 11.5px; color: var(--text-subtle); }
+.lb-badge { display: inline-block; font-family: var(--font-mono); font-size: 10.5px; font-weight: 700; padding: 2px 7px; border-radius: 100px; background: var(--amber-subtle); color: var(--amber); }
+.stars-mini { color: var(--amber); letter-spacing: -1px; font-size: 11px; }
+
+.two-col-tables { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+.loading-state, .error-state { text-align: center; padding: 60px 20px; color: var(--text-subtle); }
+.loading-state .spin { width: 30px; height: 30px; border: 3px solid var(--border-strong); border-top-color: var(--lime); border-radius: 50%; margin: 0 auto 14px; animation: spin 0.8s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.error-state a { color: var(--lime); text-decoration: underline; cursor: pointer; }
+
+.dash-footnote { text-align: center; font-size: 12.5px; color: var(--text-subtle); margin-top: 8px; }
+
+/* FOOTER */
+footer.site-footer { background: var(--bg); padding: 16px 28px 24px; border-top: 1px solid var(--border); margin-top: 22px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-disclosure { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--r-md); padding: 14px 18px; margin-bottom: 14px; font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.footer-disclosure strong { color: var(--text); }
+.footer-disclosure a { color: var(--lime); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--text-subtle); flex-wrap: wrap; gap: 16px; padding-top: 20px; border-top: 1px solid var(--border); }
+.footer-bottom-links { display: flex; gap: 14px; }
+.footer-bottom-links span { cursor: pointer; }
+.footer-bottom-links span:hover { color: var(--lime); }
+
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translate(-50%, 100px); background: var(--text); color: var(--bg); padding: 12px 20px; border-radius: var(--r-md); font-size: 13.5px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.25s; }
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stat-row { grid-template-columns: repeat(3, 1fr); }
+  .dash-grid { grid-template-columns: 1fr; }
+  .two-col-tables { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-primary { display: none; }
+  .nav-search { max-width: none; }
+  .kbd { display: none; }
+  .masthead-inner { padding: 12px 18px; gap: 14px; }
+  .breadcrumb, .dash-hero, .dash-wrap { padding-left: 18px; padding-right: 18px; }
+  .stat-row { grid-template-columns: repeat(2, 1fr); }
+  .top-strip .disclosure { display: none; }
+  .bar-row { grid-template-columns: 108px 1fr 54px; font-size: 11.5px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="top-strip">
+  <span class="live-indicator"><span class="live-dot"></span><span>Live</span></span>
+  <span class="divider">·</span>
+  <span id="topstrip-count">Loading tool data…</span>
+  <span class="disclosure">ⓘ Affiliate disclosure</span>
+</div>
+
+<!-- MASTHEAD -->
+<nav class="masthead">
+  <div class="masthead-inner">
+    <div class="logo-lockup" onclick="window.location='index.html'">
+      <div class="logo-mark">10</div>
+      <div class="logo-wordmark">10X<em>AI</em></div>
+    </div>
+    <div class="nav-primary">
+      <div class="nav-link" onclick="window.location='news.html'">News</div>
+      <div class="nav-link" onclick="window.location='reviews.html'">Reviews</div>
+      <div class="nav-link" onclick="window.location='directory.html'">Directory</div>
+      <div class="nav-link" onclick="window.location='world.html'">World AI</div>
+      <div class="nav-link hot" onclick="window.location='deals.html'">Deals</div>
+      <div class="nav-link" onclick="window.location='stacks.html'">Stacks</div>
+      <div class="nav-link active" onclick="window.location='dashboard.html'">Dashboard</div>
+    </div>
+    <div class="nav-search">
+      <span class="nav-search-icon">⌕</span>
+      <input id="nav-search-input" placeholder="Search the directory..." onkeydown="if(event.key==='Enter'){window.location='directory.html?q='+encodeURIComponent(this.value)}">
+      <span class="kbd">⌘K</span>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()">
+        <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
+      <button class="btn-outline">Sign in</button>
+      <button class="btn-primary">Subscribe →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a onclick="window.location='index.html'">Home</a>
+  <span class="sep">/</span>
+  <span class="current">Market Dashboard</span>
+</div>
+
+<!-- HERO -->
+<div class="dash-hero">
+  <h1>The AI tool market, <em>live</em>.</h1>
+  <p class="subtitle">Every number on this page is computed directly from the tool directory the moment you load it — categories, pricing, and rankings update automatically as tools are added or repriced. Nothing here is hand-typed.</p>
+  <div class="sync-badge" id="sync-badge"><span class="dot"></span><span id="sync-text">Syncing with directory.html…</span></div>
+</div>
+
+<div class="dash-wrap">
+
+  <div id="loading-state" class="loading-state">
+    <div class="spin"></div>
+    Pulling live data from the directory…
+  </div>
+
+  <div id="error-state" class="error-state" style="display:none;">
+    Couldn't load live tool data from this page (this view needs to be served over http/https, not opened directly as a file).<br>
+    <a onclick="window.location='directory.html'">Browse the directory instead →</a>
+  </div>
+
+  <div id="dash-content" style="display:none;">
+
+    <!-- STAT ROW -->
+    <div class="stat-row" id="stat-row"></div>
+
+    <div class="dash-grid">
+      <!-- CATEGORY BREAKDOWN -->
+      <div class="panel">
+        <h2>Tools by category</h2>
+        <div class="panel-sub">Count and average entry price per category</div>
+        <div id="category-bars"></div>
+      </div>
+
+      <!-- FREE VS PAID + PRICE DIST -->
+      <div class="panel">
+        <h2>Free vs. paid</h2>
+        <div class="panel-sub">Share of tools offering a free tier</div>
+        <div class="split-bar" id="split-bar"></div>
+        <div class="split-legend" id="split-legend"></div>
+        <h2 style="margin-top:22px;">Price distribution</h2>
+        <div class="panel-sub">Entry price across all tracked tools</div>
+        <div class="price-dist" id="price-dist"></div>
+      </div>
+    </div>
+
+    <div class="two-col-tables">
+      <div class="panel">
+        <h2>Top rated</h2>
+        <div class="panel-sub">Highest editorial rating, ties broken by review count</div>
+        <table class="lb-table">
+          <thead><tr><th></th><th>Tool</th><th class="num">Rating</th><th class="num">Price</th></tr></thead>
+          <tbody id="top-rated-body"></tbody>
+        </table>
+      </div>
+      <div class="panel">
+        <h2>Most reviewed</h2>
+        <div class="panel-sub">Highest review volume — a proxy for adoption</div>
+        <table class="lb-table">
+          <thead><tr><th></th><th>Tool</th><th class="num">Reviews</th><th class="num">Price</th></tr></thead>
+          <tbody id="most-reviewed-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="dash-footnote" id="dash-footnote"></div>
+
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-disclosure">
+      <strong>How we make money.</strong> Some links are affiliate — we may earn commission when you sign up. Rankings are independent. <a>Read our editorial policy →</a>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 10X AI Expo · Independent AI journalism</span>
+      <div class="footer-bottom-links"><span>Privacy</span><span>Terms</span><span>Disclosure</span><span>Contact</span></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Action completed</div>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  try { localStorage.setItem('theme', next); } catch(e) {}
+}
+try { const saved = localStorage.getItem('theme'); if (saved) document.documentElement.setAttribute('data-theme', saved); } catch(e) {}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ============================================
+// LIVE DASHBOARD — reads directory.html's own
+// .tool-card data-* attributes at load time.
+// Nothing here is hand-typed; add/edit/reprice
+// a tool in directory.html and this page reflects
+// it on next load, automatically.
+// ============================================
+const CAT_LABELS = {
+  writing: 'Writing & Copy', image: 'Image Generation', video: 'Video & Motion',
+  voice: 'Voice & Audio', code: 'Code & Dev Tools', marketing: 'Marketing & SEO',
+  business: 'Business & Ops', research: 'Research & Search',
+  agents: 'Autonomous Agents', data: 'Data & Analytics', sales: 'Sales & CRM', productivity: 'Productivity'
+};
+
+async function loadTools() {
+  const res = await fetch('directory.html', { cache: 'no-store' });
+  if (!res.ok) throw new Error('fetch failed: ' + res.status);
+  const html = await res.text();
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const cards = Array.from(doc.querySelectorAll('.tool-card'));
+  if (!cards.length) throw new Error('no tool cards found');
+  return cards.map(c => ({
+    name: c.dataset.name,
+    category: c.dataset.category,
+    price: parseFloat(c.dataset.price) || 0,
+    rating: parseFloat(c.dataset.rating) || 0,
+    reviews: parseInt(c.dataset.reviews, 10) || 0,
+    free: c.dataset.free === 'true',
+    trending: c.dataset.trending === 'true',
+    isNew: c.dataset.new === 'true',
+    deal: c.dataset.deal === 'true',
+    pick: c.dataset.pick === 'true'
+  }));
+}
+
+function fmtPrice(p) {
+  if (p === 0) return 'Free';
+  return '$' + (Number.isInteger(p) ? p : p.toFixed(2).replace(/0$/,'').replace(/\.$/,'')) + '/mo';
+}
+function fmtReviews(n) {
+  return n >= 1000 ? (n/1000).toFixed(1).replace(/\.0$/,'') + 'K' : String(n);
+}
+function starString(rating) {
+  const full = Math.round(rating);
+  return '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
+}
+
+function render(tools) {
+  const total = tools.length;
+  const categories = [...new Set(tools.map(t => t.category))];
+  const freeCount = tools.filter(t => t.free).length;
+  const paidOnlyCount = total - freeCount;
+  const avgPrice = tools.reduce((s,t) => s + t.price, 0) / total;
+  const pickCount = tools.filter(t => t.pick).length;
+  const trendingCount = tools.filter(t => t.trending).length;
+  const newCount = tools.filter(t => t.isNew).length;
+  const dealCount = tools.filter(t => t.deal).length;
+
+  document.getElementById('topstrip-count').textContent = `${total} tools tracked live`;
+  document.getElementById('sync-text').textContent = `Synced from directory.html — ${total} tools, ${categories.length} categories, loaded just now`;
+
+  // Stat row
+  const stats = [
+    { label: 'Tools tracked', value: total, sub: 'across ' + categories.length + ' categories' },
+    { label: 'Free tier available', value: freeCount, sub: Math.round(freeCount/total*100) + '% of catalog', cls: 'lime' },
+    { label: 'Avg. entry price', value: '$' + avgPrice.toFixed(0) + '/mo', sub: 'across all tracked tools', cls: 'cyan' },
+    { label: "Editor's picks", value: pickCount, sub: 'top-ranked by our team', cls: 'amber' },
+    { label: 'Trending now', value: trendingCount, sub: 'gaining momentum', cls: 'pink' },
+    { label: 'New this week', value: newCount, sub: dealCount + ' with active deals' }
+  ];
+  document.getElementById('stat-row').innerHTML = stats.map(s => `
+    <div class="stat-card">
+      <div class="label">${s.label}</div>
+      <div class="value ${s.cls||''}">${s.value}</div>
+      <div class="sub">${s.sub}</div>
+    </div>`).join('');
+
+  // Category bars
+  const catStats = categories.map(cat => {
+    const inCat = tools.filter(t => t.category === cat);
+    const avg = inCat.reduce((s,t)=>s+t.price,0) / inCat.length;
+    return { cat, label: CAT_LABELS[cat] || cat, count: inCat.length, avg };
+  }).sort((a,b) => b.count - a.count);
+  const maxCount = Math.max(...catStats.map(c => c.count));
+  document.getElementById('category-bars').innerHTML = catStats.map(c => `
+    <div class="bar-row">
+      <div class="bar-label">${c.label}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${(c.count/maxCount*100).toFixed(0)}%"><span class="bar-count">${c.count}</span></div></div>
+      <div class="bar-price">avg $${c.avg.toFixed(0)}</div>
+    </div>`).join('');
+
+  // Free vs paid split
+  const freePct = Math.round(freeCount/total*100);
+  const paidPct = 100 - freePct;
+  document.getElementById('split-bar').innerHTML = `
+    <div class="split-seg free" style="width:${freePct}%">${freePct}%</div>
+    <div class="split-seg paid" style="width:${paidPct}%">${paidPct}%</div>`;
+  document.getElementById('split-legend').innerHTML = `
+    <span><span class="sw free"></span>Free tier available (${freeCount})</span>
+    <span><span class="sw paid"></span>Paid only (${paidOnlyCount})</span>`;
+
+  // Price distribution
+  const buckets = [
+    { label: 'Free\n$0', test: p => p === 0 },
+    { label: '$1–19', test: p => p > 0 && p < 20 },
+    { label: '$20–49', test: p => p >= 20 && p < 50 },
+    { label: '$50–99', test: p => p >= 50 && p < 100 },
+    { label: '$100+', test: p => p >= 100 }
+  ];
+  const bucketCounts = buckets.map(b => tools.filter(t => b.test(t.price)).length);
+  const maxBucket = Math.max(...bucketCounts, 1);
+  document.getElementById('price-dist').innerHTML = buckets.map((b,i) => `
+    <div class="price-dist-col">
+      <div class="price-dist-count">${bucketCounts[i]}</div>
+      <div class="price-dist-bar" style="height:${(bucketCounts[i]/maxBucket*100).toFixed(0)}%"></div>
+      <div class="price-dist-label">${b.label}</div>
+    </div>`).join('');
+
+  // Top rated
+  const topRated = [...tools].sort((a,b) => b.rating - a.rating || b.reviews - a.reviews).slice(0, 10);
+  document.getElementById('top-rated-body').innerHTML = topRated.map((t,i) => `
+    <tr>
+      <td class="lb-rank">${i+1}</td>
+      <td><div class="lb-name">${t.name}</div><div class="lb-cat">${CAT_LABELS[t.category]||t.category}</div></td>
+      <td class="num"><span class="stars-mini">${starString(t.rating)}</span> ${t.rating.toFixed(1)}</td>
+      <td class="num">${fmtPrice(t.price)}</td>
+    </tr>`).join('');
+
+  // Most reviewed
+  const mostReviewed = [...tools].sort((a,b) => b.reviews - a.reviews).slice(0, 10);
+  document.getElementById('most-reviewed-body').innerHTML = mostReviewed.map((t,i) => `
+    <tr>
+      <td class="lb-rank">${i+1}</td>
+      <td><div class="lb-name">${t.name}</div><div class="lb-cat">${CAT_LABELS[t.category]||t.category}</div></td>
+      <td class="num">${fmtReviews(t.reviews)}</td>
+      <td class="num">${fmtPrice(t.price)}</td>
+    </tr>`).join('');
+
+  document.getElementById('dash-footnote').textContent =
+    `Live — recomputed from directory.html on every page load. Last synced: ${new Date().toLocaleString()}.`;
+
+  document.getElementById('loading-state').style.display = 'none';
+  document.getElementById('dash-content').style.display = 'block';
+}
+
+(async function init() {
+  try {
+    const tools = await loadTools();
+    render(tools);
+  } catch (err) {
+    console.error('Dashboard sync failed:', err);
+    document.getElementById('loading-state').style.display = 'none';
+    document.getElementById('error-state').style.display = 'block';
+    document.getElementById('sync-badge').classList.add('error');
+    document.getElementById('sync-text').textContent = 'Sync failed — see console for details';
+    document.getElementById('topstrip-count').textContent = 'Live sync unavailable';
+  }
+})();
+</script>
+</body>
+</html>
