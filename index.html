@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>10X AI Expo — The Trusted Guide to Every AI Tool That Matters</title>
-<meta name="description" content="Independent reviews, side-by-side comparisons, and daily updates on 2,400+ AI tools. Written by humans. Read by 48,000+ AI professionals.">
+<meta name="description" content="Independent reviews, side-by-side comparisons, and daily updates on the AI tools that matter. Written by humans, ranked by our editorial team.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1360,7 +1360,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     <span>Live</span>
   </span>
   <span class="divider">·</span>
-  <span>247 tools tracked today</span>
+  <span id="topstrip-live-count">100 tools tracked</span>
   <span class="divider">·</span>
   <span>GPT-5.5 released 2h ago</span>
   <span class="divider">·</span>
@@ -1389,7 +1389,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
     </div>
     <div class="nav-search">
       <span class="nav-search-icon">⌕</span>
-      <input placeholder="Search 2,400+ AI tools..." onfocus="showToast('Try: video editors, or ChatGPT alternatives')">
+      <input id="nav-search-input" placeholder="Search 100+ AI tools..." onfocus="showToast('Try: video editors, or ChatGPT alternatives')">
       <span class="kbd">⌘K</span>
     </div>
     <div class="nav-actions">
@@ -1413,7 +1413,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
       </div>
       <h1>The trusted guide to every AI tool <em>that matters</em>.</h1>
       <p class="hero-lede">
-        <strong>The AI directory built around what you are trying to do.</strong> 2,400+ tools tracked, curated by editors, honest picks. Free where possible, deals disclosed.
+        <strong>The AI directory built around what you are trying to do.</strong> <span id="hero-tool-count">100</span> tools tracked, curated by editors, honest picks. Free where possible, deals disclosed.
       </p>
       <div class="hero-actions">
         <button class="btn-primary" onclick="window.location='directory.html'">Explore the directory →</button>
@@ -2723,21 +2723,21 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
       <span class="section-kicker">Explore by category</span>
       <h2 class="section-title">Every AI tool, <em>organized</em>.</h2>
     </div>
-    <div class="section-see-all">All 12 categories →</div>
+    <div class="section-see-all" id="all-categories-link">All 12 categories →</div>
   </div>
   <div class="cat-grid-refined">
-    <div class="cat-tile cat-c1"><div class="cat-tile-icon">✍</div><h4>Writing & Copy</h4><p>AI writers, editors, content platforms</p><div class="cat-tile-count">10 tools</div></div>
-    <div class="cat-tile cat-c2"><div class="cat-tile-icon">◐</div><h4>Image Generation</h4><p>Midjourney, Adobe Firefly, image editors</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c3"><div class="cat-tile-icon">▶</div><h4>Video & Motion</h4><p>Generate, edit, subtitle, enhance</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c4"><div class="cat-tile-icon">♪</div><h4>Voice & Audio</h4><p>Cloning, TTS, transcription, music</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c5"><div class="cat-tile-icon">&lt;/&gt;</div><h4>Code & Dev</h4><p>Copilots, code review, agents</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c6"><div class="cat-tile-icon">◈</div><h4>Autonomous Agents</h4><p>AI that takes real action for you</p><div class="cat-tile-count">9 tools</div></div>
-    <div class="cat-tile cat-c1"><div class="cat-tile-icon">◊</div><h4>Marketing & SEO</h4><p>Content, keywords, ads, analytics</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c2"><div class="cat-tile-icon">⌂</div><h4>Business & Ops</h4><p>CRM, meetings, docs, automation</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c3"><div class="cat-tile-icon">◎</div><h4>Data & Analytics</h4><p>Insights, dashboards, BI tools</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c4"><div class="cat-tile-icon">⚑</div><h4>Sales & CRM</h4><p>Outreach, pipelines, closing</p><div class="cat-tile-count">8 tools</div></div>
-    <div class="cat-tile cat-c5"><div class="cat-tile-icon">⌘</div><h4>Productivity</h4><p>Notion, tasks, automation</p><div class="cat-tile-count">9 tools</div></div>
-    <div class="cat-tile cat-c6"><div class="cat-tile-icon">⌕</div><h4>Research & Search</h4><p>Perplexity, Consensus, Elicit</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c1" data-cat="writing"><div class="cat-tile-icon">✍</div><h4>Writing & Copy</h4><p>AI writers, editors, content platforms</p><div class="cat-tile-count">10 tools</div></div>
+    <div class="cat-tile cat-c2" data-cat="image"><div class="cat-tile-icon">◐</div><h4>Image Generation</h4><p>Midjourney, Adobe Firefly, image editors</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c3" data-cat="video"><div class="cat-tile-icon">▶</div><h4>Video & Motion</h4><p>Generate, edit, subtitle, enhance</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c4" data-cat="voice"><div class="cat-tile-icon">♪</div><h4>Voice & Audio</h4><p>Cloning, TTS, transcription, music</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c5" data-cat="code"><div class="cat-tile-icon">&lt;/&gt;</div><h4>Code & Dev</h4><p>Copilots, code review, agents</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c6" data-cat="agents"><div class="cat-tile-icon">◈</div><h4>Autonomous Agents</h4><p>AI that takes real action for you</p><div class="cat-tile-count">9 tools</div></div>
+    <div class="cat-tile cat-c1" data-cat="marketing"><div class="cat-tile-icon">◊</div><h4>Marketing & SEO</h4><p>Content, keywords, ads, analytics</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c2" data-cat="business"><div class="cat-tile-icon">⌂</div><h4>Business & Ops</h4><p>CRM, meetings, docs, automation</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c3" data-cat="data"><div class="cat-tile-icon">◎</div><h4>Data & Analytics</h4><p>Insights, dashboards, BI tools</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c4" data-cat="sales"><div class="cat-tile-icon">⚑</div><h4>Sales & CRM</h4><p>Outreach, pipelines, closing</p><div class="cat-tile-count">8 tools</div></div>
+    <div class="cat-tile cat-c5" data-cat="productivity"><div class="cat-tile-icon">⌘</div><h4>Productivity</h4><p>Notion, tasks, automation</p><div class="cat-tile-count">9 tools</div></div>
+    <div class="cat-tile cat-c6" data-cat="research"><div class="cat-tile-icon">⌕</div><h4>Research & Search</h4><p>Perplexity, Consensus, Elicit</p><div class="cat-tile-count">8 tools</div></div>
   </div>
 </section>
 
@@ -2756,7 +2756,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
           <div class="ai-feature-icon">◈</div>
           <div class="ai-feature-text">
             <h5>Trained on every tool we've reviewed</h5>
-            <p>2,400+ tools, 12,800 hours of testing data</p>
+            <p><span id="ai-stat-tool-count">100</span> tools, hand-tested by our editorial team</p>
           </div>
         </div>
         <div class="ai-feature">
@@ -2820,7 +2820,7 @@ footer.site-footer { background: var(--bg); padding: 18px 28px 32px; border-top:
   <div class="newsletter-inner">
     <div class="kicker">The Tuesday Briefing</div>
     <h2>Five new tools. Two exclusive deals.<br><em>One useful idea.</em> Every Tuesday.</h2>
-    <p class="lede">A short, opinionated brief on what actually matters in AI this week — read in under 4 minutes by 48,000+ professionals.</p>
+    <p class="lede">A short, opinionated brief on what actually matters in AI this week — read in under 4 minutes.</p>
     <form class="newsletter-form" onsubmit="event.preventDefault();showToast('Welcome — check your inbox')">
       <input type="email" placeholder="you@work.com" required>
       <button type="submit" class="btn-primary">Subscribe →</button>
@@ -2933,6 +2933,71 @@ document.querySelectorAll('.tools-tab').forEach(tab => {
     }
   });
 });
+
+// ============================================
+// LIVE HOMEPAGE SYNC
+// Every tool-count shown on this page (topstrip,
+// search placeholder, hero line, AI-assistant stat,
+// Category Champions tab counts, category tile grid)
+// is re-derived from directory.html's own .tool-card
+// data on every page load — never hand-typed. Add,
+// remove, or recategorize a tool in directory.html
+// and this page reflects it automatically next load.
+// The static numbers already in the HTML are the real
+// current counts, so if this fetch fails (e.g. page
+// opened as a local file instead of served over
+// http/https) the page still shows accurate — just not
+// live-refreshed — numbers rather than breaking.
+// ============================================
+async function syncHomepageLiveCounts() {
+  try {
+    const res = await fetch('directory.html', { cache: 'no-store' });
+    if (!res.ok) throw new Error('fetch failed: ' + res.status);
+    const html = await res.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const cards = Array.from(doc.querySelectorAll('.tool-card'));
+    if (!cards.length) throw new Error('no tool cards found');
+
+    const total = cards.length;
+    const catCounts = {};
+    cards.forEach(c => {
+      const cat = c.dataset.category;
+      if (cat) catCounts[cat] = (catCounts[cat] || 0) + 1;
+    });
+    const catTotal = Object.keys(catCounts).length;
+
+    const topstripEl = document.getElementById('topstrip-live-count');
+    if (topstripEl) topstripEl.textContent = `${total} tools tracked`;
+
+    const searchInput = document.getElementById('nav-search-input');
+    if (searchInput) searchInput.placeholder = `Search ${total}+ AI tools...`;
+
+    const heroCountEl = document.getElementById('hero-tool-count');
+    if (heroCountEl) heroCountEl.textContent = total;
+
+    const aiStatEl = document.getElementById('ai-stat-tool-count');
+    if (aiStatEl) aiStatEl.textContent = total;
+
+    document.querySelectorAll('.tools-tab[data-view]').forEach(tab => {
+      const view = tab.dataset.view;
+      if (view === 'best-in-class') return;
+      const countEl = tab.querySelector('.tab-count');
+      if (countEl && catCounts[view] !== undefined) countEl.textContent = catCounts[view];
+    });
+
+    document.querySelectorAll('.cat-tile[data-cat]').forEach(tile => {
+      const cat = tile.dataset.cat;
+      const countEl = tile.querySelector('.cat-tile-count');
+      if (countEl && catCounts[cat] !== undefined) countEl.textContent = `${catCounts[cat]} tools`;
+    });
+
+    const allCatsEl = document.getElementById('all-categories-link');
+    if (allCatsEl) allCatsEl.textContent = `All ${catTotal} categories →`;
+  } catch (err) {
+    console.error('Homepage live sync failed, showing static fallback numbers:', err);
+  }
+}
+syncHomepageLiveCounts();
 </script>
 </body>
 </html>
